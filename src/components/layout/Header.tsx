@@ -29,9 +29,16 @@ const Header = () => (
           <a>고객센터</a>
         </Link>
       </li>
-        </ul>
-        
-        
+    </ul>
+
+    <div className="cs_login">
+      <Link href="/">
+        <a>고객센터</a>
+      </Link>
+      <Link href="/">
+        <a>고객센터</a>
+      </Link>
+    </div>
   </div>
 );
 
