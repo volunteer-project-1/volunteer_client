@@ -1,0 +1,27 @@
+.seekerCard {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border: 1px solid black;
+    margin-left: 16px;
+    padding: 16px;
+
+    &:first-child {
+        margin-left: 0;
+    }
+}
+
+.profileImage {
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.nameArea {
+    margin-top: 30px;
+}
+
+.name {
+    font-weight: bold;
+}
