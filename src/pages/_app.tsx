@@ -1,6 +1,7 @@
 /**
  * 모든 페이지에서 돌아가는 코드.
  */
+import '@/assets/scss/_index.scss'
 
 import { AppProps } from 'next/app';
 import Head from 'next/head';
