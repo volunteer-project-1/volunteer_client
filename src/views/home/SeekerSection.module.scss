@@ -9,7 +9,7 @@
 .sectionTitle {
     font-size: 32px;
 
-    color: green;
+    @extend .font, .green;
 }
 
 .sectionTitleEmphasize {
@@ -22,7 +22,7 @@
     margin-top: 16px;
     font-size: 12px;
 
-    color: gray;
+    @extend .font, .gray9;
 }
 
 .seekerCards {

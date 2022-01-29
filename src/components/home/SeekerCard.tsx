@@ -14,7 +14,7 @@ export interface SeekerCardProps {
     handicap: string;
 }
 
-const SeekerCard = ({ profileImage, name, age, gender, address, job, career, handicap }: SeekerCardProps) => {
+const SeekerCard: React.FC<SeekerCardProps> = ({ profileImage, name, age, gender, address, job, career, handicap }) => {
     const onClickSuggest = () => {
         alert('당신은 합격!');
     };
