@@ -1,0 +1,26 @@
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    margin-top: 4rem;
+}
+
+.sectionTitle {
+    font-size: 32px;
+
+    @extend .font, .green;
+}
+
+.sectionTitleEmphasize {
+    font-weight: bold;
+}
+
+.sectionDescription {
+    text-align: center;
+
+    margin-top: 1rem;
+
+    @extend .font, .gray9;
+}
