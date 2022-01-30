@@ -1,0 +1,13 @@
+.likeButton {
+    width: 1.5rem;
+    height: 1.5rem;
+
+    @include boxShadow;
+    background-color: #ffffff;
+    border-color: transparent;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 50%;
+
+    @extend .font, .green, .bold;
+}

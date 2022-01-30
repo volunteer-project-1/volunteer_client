@@ -30,23 +30,12 @@
     @include boxShadow;
 }
 
-.likeButton {
+.likeButtonArea {
     position: absolute;
 
-    width: 1.5rem;
-    height: 1.5rem;
     bottom: 0.5rem;
     right: 50%;
     transform: translateX(3rem);
-
-    @include boxShadow;
-    background-color: #ffffff;
-    border-color: transparent;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 50%;
-
-    @extend .font, .green, .bold;
 }
 
 .nameArea {

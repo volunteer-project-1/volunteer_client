@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
+import LikeButton from '@/components/home/LikeButton';
 import styles from '@/components/home/SeekerCard.module.scss';
 
 export interface SeekerCardProps {
@@ -19,6 +20,10 @@ const SeekerCard = ({ profileImage, name, age, gender, address, job, career, han
         alert('당신은 합격!');
     };
 
+    const onClickLike = () => {
+        alert('좋아요!');
+    };
+
     return (
         <div className={styles.seekerCard}>
             <div className={styles.profileArea}>
@@ -30,12 +35,9 @@ const SeekerCard = ({ profileImage, name, age, gender, address, job, career, han
                     height={100}
                     blurDataURL={profileImage.blurDataURL}
                 />
-                <button
-                    className={styles.likeButton}
-                    type={'button'}
-                >
-                    ♡
-                </button>
+                <div className={styles.likeButtonArea}>
+                    <LikeButton onClick={onClickLike} />
+                </div>
             </div>
             <div className={styles.nameArea}>
                 <span className={styles.name}>{name}</span>
