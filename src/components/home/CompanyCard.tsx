@@ -5,7 +5,7 @@ import { daysBetweenDates } from '@/utils/DateUtils';
 import LikeButton from '@/components/home/LikeButton';
 import styles from '@/components/home/CompanyCard.module.scss';
 
-interface CompanyCardProps {
+export interface CompanyCardProps {
     companyImage: StaticImageData;
     name: string;
     description: string;
