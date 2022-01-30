@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 
 import styles from '@/components/home/Section.module.scss';
 
-interface Props {
+interface SectionProps {
     // ex. ['당신을', '기다립니다'].
     titleParts: [string, string];
 
@@ -16,7 +16,7 @@ interface Props {
 /**
  * 메인 페이지의 각 섹션을 나타냄.
  */
-const Section = ({ titleParts, descriptionParts, children }: Props) => (
+const Section = ({ titleParts, descriptionParts, children }: SectionProps) => (
     <div className={styles.section}>
         <div className={styles.sectionTitle}>
             <span className={styles.sectionTitleEmphasize}>{titleParts[0]}</span>

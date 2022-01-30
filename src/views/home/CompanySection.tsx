@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Section from '@/components/home/Section';
+import CompanyCard from '@/components/home/CompanyCard';
+import CompanyImage from '@/images/Company.jpg';
 
 const CompanySection = () => (
     <Section
@@ -13,7 +15,12 @@ const CompanySection = () => (
             '어서어서 지원해주세요!'
         ]}
     >
-        피카피카
+        <CompanyCard
+            companyImage={CompanyImage}
+            name={'에스디바이오센서'}
+            description={'2022년 상반기 각 부문별 정기 경력/신입 공채'}
+            dueDate={new Date('2022-03-01')}
+        />
     </Section>
 );
 

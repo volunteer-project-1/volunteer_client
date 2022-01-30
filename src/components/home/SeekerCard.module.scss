@@ -24,7 +24,10 @@
     position: relative;
 }
 
-.profileImage {
+.profileImageArea {
+    overflow: hidden;
+
+    width: 7rem;
     border-radius: 50%;
 
     @include boxShadow;

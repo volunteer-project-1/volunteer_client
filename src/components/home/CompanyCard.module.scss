@@ -1,0 +1,37 @@
+.companyCard {
+    width: 20rem;
+
+    @include boxColor(border-color, gray9);
+    @include boxShadow;
+    border-width: 1px;
+    border-style: solid;
+
+    @extend .font, .dark3;
+}
+
+.companyImage {
+    width: 100%;
+}
+
+.contentArea {
+    position: relative;
+    box-sizing: border-box;
+
+    width: 100%;
+    padding: 1rem;
+}
+
+.likeButtonArea {
+    position: absolute;
+
+    top: -3rem;
+    right: 1rem;
+}
+
+.name {
+    @extend .font, .bold;
+}
+
+.dDays {
+    @extend .font, .gray9;
+}
