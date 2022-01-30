@@ -6,7 +6,7 @@ import {
     AppProps
 }
 
-from 'next/app';
+    from 'next/app';
 import Head from 'next/head';
 
 import '@/assets/scss/reset.scss'
@@ -14,18 +14,15 @@ import '@/assets/scss/reset.scss'
 /**
  * 임의의 page의 wrapper.
  */
-const App=( {
-        Component, pageProps
-    }
-
-    : AppProps)=>(<> <Head> <title>천오</title> </Head> {
-        /* Component에 페이지가 들어감. */
-    }
-
-    <Component {
-        ...pageProps
-    }
-
-    /> </>);
+const App = ({ Component, pageProps }: AppProps) => (
+    <>
+        <Head>
+            <title>SeeMe</title>
+        </Head>
+        {/* Component에 페이지가 들어감. */}
+        <Component {...pageProps}
+        />
+    </>
+);
 
 export default App;

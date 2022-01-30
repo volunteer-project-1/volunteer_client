@@ -9,12 +9,12 @@ export interface CompanyCardProps {
     companyImage: StaticImageData;
     name: string;
     description: string;
-    // 마감 날짜.
-    dueDate: Date;
+    // 마감 날짜. (null이면 상시 채용)
+    dueDate: Date | null;
 }
 
 const CompanyCard = ({ companyImage, name, description, dueDate }: CompanyCardProps) => {
-    const dDays = daysBetweenDates(new Date(), dueDate);
+    const dDays = dueDate ? `D-${daysBetweenDates(new Date(), dueDate)}` : '상시채용';
 
     const onClickLike = () => {
         alert('좋아요!');
@@ -41,7 +41,7 @@ const CompanyCard = ({ companyImage, name, description, dueDate }: CompanyCardPr
                     {description}
                 </div>
                 <div className={styles.dDays}>
-                    D-{dDays}
+                    {dDays}
                 </div>
             </div>
         </div>

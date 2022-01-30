@@ -41,7 +41,7 @@ const exampleCards: Array<CompanyCardProps> = [
         companyImage: CompanyImage,
         name: '한국토지주택공사',
         description: '2022년 상반기 각 부문별 정기 경력/신입 공채',
-        dueDate: new Date('2022-03-01')
+        dueDate: null
     }
 ];
 
