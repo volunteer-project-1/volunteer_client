@@ -2,7 +2,7 @@
  * 모든 SCSS 파일들이 공통으로 사용하는 값들.
  * (next.config.js 참고)
  */
-
 @import 'font.scss';
+@import '_utils.scss';
 @import 'common.scss';
 @import 'component.scss';
