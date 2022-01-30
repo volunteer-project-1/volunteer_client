@@ -5,6 +5,7 @@
   &_eng {
     font-family: "Roboto", sans-serif;
   }
+  // color
 
   &.green {
     color: #09784e;
@@ -21,13 +22,39 @@
   &.gray9 {
     color: #979797;
   }
+  // weight
+  &.w300 {
+    font-weight: 300;
+  }
+  &.w400 {
+    font-weight: 400;
+  }
+  &.w500 {
+    font-weight: 500;
+  }
+  &.w600 {
+    font-weight: 600;
+  }
+  &.w700 {
+    font-weight: 700;
+  }
+  &.w900 {
+    font-weight: 900;
+  }
+  &.bold {
+    font-weight: bold;
+  }
 
+  // size
   &.size15 {
     font-size: 15px;
   }
 
   &.size16 {
     font-size: 16px;
+  }
+  &.size17 {
+    font-size: 17px;
   }
 
   &.size18 {

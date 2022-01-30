@@ -4,9 +4,17 @@ import style from "./layout.module.scss";
 
 const Header = () => (
   <div className={style.headerWrap}>
-    <div className="log">
+    <div className={style.logo}>
       <Link href="/">
         <a>SeeMe</a>
+      </Link>
+    </div>
+    <div className={style.cs_login}>
+      <Link href="/">
+        <a className="lg">로그인</a>
+      </Link>
+      <Link href="/">
+        <a>회원가입</a>
       </Link>
     </div>
     <ul className={style.gnb}>
@@ -31,15 +39,6 @@ const Header = () => (
         </Link>
       </li>
     </ul>
-
-    <div className={style.cs_login}>
-      <Link href="/">
-        <a>고객센터</a>
-      </Link>
-      <Link href="/">
-        <a>고객센터</a>
-      </Link>
-    </div>
   </div>
 );
 
