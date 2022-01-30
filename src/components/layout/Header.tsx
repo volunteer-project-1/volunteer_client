@@ -1,14 +1,15 @@
 import React from "react";
 import Link from "next/link";
+import style from "./layout.module.scss";
 
 const Header = () => (
-  <div className="headerWrap">
+  <div className={style.headerWrap}>
     <div className="log">
       <Link href="/">
         <a>SeeMe</a>
       </Link>
     </div>
-    <ul className="gnb">
+    <ul className={style.gnb}>
       <li>
         <Link href="/">
           <a>구직활동</a>
@@ -31,7 +32,7 @@ const Header = () => (
       </li>
     </ul>
 
-    <div className="cs_login">
+    <div className={style.cs_login}>
       <Link href="/">
         <a>고객센터</a>
       </Link>
