@@ -4,24 +4,75 @@
     flex-direction: column;
     align-items: center;
 
-    border: 1px solid black;
-    margin-left: 16px;
-    padding: 16px;
+    margin-left: 1rem;
+    padding: 1rem;
+
+    @include boxColor(border-color, gray9);
+    @include boxShadow;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0.5rem;
+
+    @extend .font, .dark3;
 
     &:first-child {
         margin-left: 0;
     }
 }
 
+.profileArea {
+    position: relative;
+}
+
 .profileImage {
-    border: 1px solid black;
     border-radius: 50%;
+
+    @include boxShadow;
+}
+
+.likeButton {
+    position: absolute;
+
+    width: 1.5rem;
+    height: 1.5rem;
+    bottom: 0.5rem;
+    right: 50%;
+    transform: translateX(3rem);
+
+    @include boxShadow;
+    background-color: #ffffff;
+    border-color: transparent;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 50%;
+
+    @extend .font, .green, .bold;
 }
 
 .nameArea {
-    margin-top: 30px;
+    margin-top: 2rem;
 }
 
 .name {
-    font-weight: bold;
+    @extend .font, .bold;
+}
+
+.age {
+    margin-left: 0.5rem;
+}
+
+.jobArea {
+    margin-top: 1rem;
+}
+
+.suggestButton {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+
+    @include boxColor(border-color, green);
+    border-width: 1px;
+    border-style: solid;
+
+    @extend .font, .green, .bold;
 }

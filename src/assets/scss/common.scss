@@ -1,5 +1,29 @@
+@use 'sass:map';
+
 .inner {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
+}
+
+// 아래의 box mixin에서 사용할 color map.
+$boxColorMap: (
+  gray9: #979797,
+  green: #09784e,
+);
+
+/**
+ * div, button 등 box에 공통 색깔을 쉽게 정의하기 위한 mixin.
+ * ex. @include box(border-color, green);
+ */
+@mixin boxColor($key, $value) {
+  #{$key}: map.get($boxColorMap, $value);
+}
+
+/**
+ * Box에 그림자 효과를 주는 mixin.
+ * ex. @include shadowBox;
+ */
+@mixin boxShadow {
+  box-shadow: 2px 2px #f7f7f6;
 }

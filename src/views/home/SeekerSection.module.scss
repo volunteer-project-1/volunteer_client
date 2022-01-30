@@ -19,8 +19,7 @@
 .sectionDescription {
     text-align: center;
 
-    margin-top: 16px;
-    font-size: 12px;
+    margin-top: 1rem;
 
     @extend .font, .gray9;
 }
@@ -31,5 +30,5 @@
     justify-content: center;
 
     width: 100%;
-    margin-top: 16px;
+    margin-top: 2rem;
 }

@@ -14,35 +14,44 @@ export interface SeekerCardProps {
     handicap: string;
 }
 
-const SeekerCard: React.FC<SeekerCardProps> = ({ profileImage, name, age, gender, address, job, career, handicap }) => {
+const SeekerCard = ({ profileImage, name, age, gender, address, job, career, handicap }: SeekerCardProps) => {
     const onClickSuggest = () => {
         alert('당신은 합격!');
     };
 
     return (
         <div className={styles.seekerCard}>
-            <Image
-                className={styles.profileImage}
-                alt={name}
-                src={profileImage.src}
-                width={80}
-                height={80}
-                blurDataURL={profileImage.blurDataURL}
-            />
+            <div className={styles.profileArea}>
+                <Image
+                    className={styles.profileImage}
+                    alt={name}
+                    src={profileImage.src}
+                    width={100}
+                    height={100}
+                    blurDataURL={profileImage.blurDataURL}
+                />
+                <button
+                    className={styles.likeButton}
+                    type={'button'}
+                >
+                    ♡
+                </button>
+            </div>
             <div className={styles.nameArea}>
                 <span className={styles.name}>{name}</span>
-                <span>{age}세({gender})</span>
+                <span className={styles.age}>{age}세({gender})</span>
             </div>
             <div>
                 {address} 거주
             </div>
-            <div>
+            <div className={styles.jobArea}>
                 {job}/ {career}
             </div>
             <div>
                 {handicap}
             </div>
             <button
+                className={styles.suggestButton}
                 type={'button'}
                 onClick={onClickSuggest}
             >

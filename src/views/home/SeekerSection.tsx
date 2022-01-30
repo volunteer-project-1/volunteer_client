@@ -18,6 +18,26 @@ const exampleCards: Array<SeekerCardProps> = [
     },
     {
         profileImage: ProfileImage,
+        name: '김철수',
+        age: 35,
+        gender: '여',
+        address: '서울시',
+        job: '서비스 기획자',
+        career: '경력 5년차',
+        handicap: '청각장애 1급'
+    },
+    {
+        profileImage: ProfileImage,
+        name: '박영희',
+        age: 35,
+        gender: '여',
+        address: '서울시',
+        job: '서비스 기획자',
+        career: '경력 5년차',
+        handicap: '청각장애 1급'
+    },
+    {
+        profileImage: ProfileImage,
         name: '김영희',
         age: 35,
         gender: '여',
