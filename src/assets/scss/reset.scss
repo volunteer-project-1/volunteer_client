@@ -1,15 +1,13 @@
 * {
   box-sizing: border-box;
-
 }
 
 body {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   margin: 0;
   padding: 0;
   font-size: 14px;
   font-weight: 300;
-
 }
 
 table {
@@ -70,9 +68,7 @@ table {
 fieldset,
 img {
   border: 0;
-
 }
-
 
 /*
       TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...
@@ -92,7 +88,6 @@ var {
 strong {
   font-weight: bold;
 }
-
 
 ol,
 ul {
@@ -116,7 +111,7 @@ h6 {
 
 q:before,
 q:after {
-  content: '';
+  content: "";
 }
 
 abbr,
@@ -150,7 +145,6 @@ select {
 legend {
   color: #333;
 }
-
 
 a {
   text-decoration: none;

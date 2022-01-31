@@ -54,14 +54,16 @@
   display: flex;
   margin: auto;
   width: 100%;
-  max-width: 500px;
 }
 
 @include tablet {
   .headerWrap {
     display: block;
-
     height: auto;
+    .header_top {
+      display: flex;
+      place-content: space-between;
+    }
   }
 
   .logo {
