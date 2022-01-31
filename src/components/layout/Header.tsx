@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import style from "./layout.module.scss";
+const menus = ["구직활동", "인재채용", "미디어 뉴스", "고객센터"];
 
 const Header = () => (
   <div className={style.headerWrap}>
@@ -17,27 +18,17 @@ const Header = () => (
         <a>회원가입</a>
       </Link>
     </div>
+
     <ul className={style.gnb}>
-      <li>
-        <Link href="/">
-          <a>구직활동</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/">
-          <a>인재채용</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/">
-          <a>미디어 뉴스</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/">
-          <a>고객센터</a>
-        </Link>
-      </li>
+      {menus.map((menu, index) => {
+        return (
+          <li key={index}>
+            <Link href="/">
+              <a>{menu}</a>
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   </div>
 );
