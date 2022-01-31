@@ -27,12 +27,12 @@
 
   .cs_login {
     position: absolute;
+    @extend .font, .size16, .w400;
+
     right: 20px;
     .lg {
       display: inline-block;
       margin-right: 4px;
-    }
-    a {
     }
   }
 }

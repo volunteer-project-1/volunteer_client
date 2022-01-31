@@ -12,7 +12,7 @@ const Header = () => (
     </div>
     <div className={style.cs_login}>
       <Link href="/">
-        <a className="lg">로그인</a>
+        <a className={style.lg}>로그인</a>
       </Link>
       <Link href="/">
         <a>회원가입</a>
