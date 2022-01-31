@@ -11,11 +11,15 @@
 .gnb {
   display: flex;
   flex: 1;
-
+  align-items: center;
   li {
     flex: 1;
+    text-align: center;
     a {
       @extend .font, .size16, .w400;
+      height: 50px;
+      display: flex;
+      align-items: center;
     }
   }
 }
@@ -63,6 +67,10 @@
     .header_top {
       display: flex;
       place-content: space-between;
+      margin-bottom: 10px;
+      padding-top: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
     }
   }
 
