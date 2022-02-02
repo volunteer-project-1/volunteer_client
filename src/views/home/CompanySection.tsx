@@ -54,6 +54,10 @@ const exampleCards: Array<CompanyCardProps> = [
 const columnCount = 3;
 const columns: Array<Array<CompanyCardProps>> = [];
 
+// ex. 3열로 배치한다면...
+// Card 0 | Card 1 | Card 2
+// Card 3 | Card 4 | Card 5
+// Card 6 | Card 7 | Card 8
 for (let i = 0; i < columnCount; i++) {
     columns.push(exampleCards.filter((card, index) => index % columnCount === i));
 }
@@ -74,12 +78,14 @@ const CompanySection = () => {
                 '어서어서 지원해주세요!'
             ]}
         >
-            <div className={styles.grid}>
-                {columns.map((column, index) => (
-                    <div className={styles.column} key={index}>
-                        {column.map(card => <CompanyCard key={card.name} {...card} />)}
-                    </div>
-                ))}
+            <div className={styles.content}>
+                <div className={styles.grid}>
+                    {columns.map((column, index) => (
+                        <div className={styles.column} key={index}>
+                            {column.map(card => <CompanyCard key={card.name} {...card} />)}
+                        </div>
+                    ))}
+                </div>
                 <button
                     type={'button'}
                     className={styles.moreButton}

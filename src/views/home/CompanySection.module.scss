@@ -1,22 +1,41 @@
-.grid {
-    text-align: center;
+.content {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    padding: 0 16px;
+}
+
+.grid {
+    overflow-x: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 1280px;
+    max-width: 100%;
+
+    @include tablet {
+        white-space: nowrap;
+        width: 100%;
+    }
 }
 
 .column {
-    vertical-align: top;
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
 
-    &:not(:first-child) {
-        margin-left: 49px;
+    @include tablet {
+        flex-direction: row;
     }
 }
 
 .moreButton {
     width: 100%;
+    max-width: 1280px;
     height: 80px;
     margin-top: 52px;
 

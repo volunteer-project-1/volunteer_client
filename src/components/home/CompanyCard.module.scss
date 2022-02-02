@@ -1,5 +1,4 @@
 .companyCard {
-    display: inline-block;
     text-align: left;
 
     width: 394px;
@@ -11,12 +10,22 @@
     border-style: solid;
 
     @extend .font, .dark3;
+
+    @include tablet {
+        margin-right: 10px;
+    }
 }
 
 .imageArea {
     position: relative;
 
     width: 100%;
+
+    @include tablet {
+        overflow-y: hidden;
+
+        height: 280px;
+    }
 }
 
 .companyImage {

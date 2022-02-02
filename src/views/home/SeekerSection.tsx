@@ -60,8 +60,10 @@ const SeekerSection = () => (
             '우수하고 훌륭한 인재들에게 적극적으로 제안해보세요!'
         ]}
     >
-        <div className={styles.seekerCards}>
-            {exampleCards.map(card => <SeekerCard key={card.name} {...card} />)}
+        <div className={styles.content}>
+            <div className={styles.seekerCards}>
+                {exampleCards.map(card => <SeekerCard key={card.name} {...card} />)}
+            </div>
         </div>
     </TitledSection>
 );
