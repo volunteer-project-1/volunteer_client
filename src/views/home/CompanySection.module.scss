@@ -1,5 +1,13 @@
-.companyCards {
+.grid {
     text-align: center;
 
     width: 100%;
+}
+
+.column {
+    vertical-align: top;
+    display: inline-flex;
+    flex-direction: column;
+
+    margin-left: 49px;
 }

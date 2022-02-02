@@ -3,7 +3,7 @@
     text-align: left;
 
     width: 394px;
-    margin: 0 0 44px 49px;
+    margin-bottom: 44px;
 
     @include boxColor(border-color, gray9);
     @include boxShadow;
