@@ -1,6 +1,8 @@
 import React from 'react';
+import Image from 'next/image';
 
 import styles from '@/components/home/LikeButton.module.scss';
+import LikeOff from '@/images/home-like-off.svg';
 
 interface LikeButtonProps {
     // 클릭 시에 실행할 함수.
@@ -16,7 +18,13 @@ const LikeButton = ({ onClick }: LikeButtonProps) => (
         type={'button'}
         onClick={onClick}
     >
-        ♡
+        <Image
+            src={LikeOff.src}
+            alt={'좋아요'}
+            width={LikeOff.width}
+            height={LikeOff.height}
+            blurDataURL={LikeOff.blurDataURL}
+        />
     </button>
 );
 
