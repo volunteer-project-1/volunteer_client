@@ -1,7 +1,8 @@
 .grid {
     text-align: center;
 
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .column {
@@ -9,5 +10,18 @@
     display: inline-flex;
     flex-direction: column;
 
-    margin-left: 49px;
+    &:not(:first-child) {
+        margin-left: 49px;
+    }
+}
+
+.moreButton {
+    width: 100%;
+    height: 80px;
+    margin-top: 52px;
+
+    @include boxColor(border-color, gray9);
+    background-color: transparent;
+    border-width: 1px;
+    border-style: solid;
 }
