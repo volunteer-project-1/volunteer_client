@@ -1,7 +1,6 @@
 import React from "react";
 
 import Section from '@/components/home/Section';
-import styles from "./SampleResponse.module.scss";
 
 const MyPageSection = () => (
     <Section
@@ -13,7 +12,7 @@ const MyPageSection = () => (
             '영상으로 이력서를 남겨 사회에 나를 소개해 보아요.'
         ]}
     >
-        <div className={styles.body}>(영상)</div>
+        (영상)
     </Section>
 );
 

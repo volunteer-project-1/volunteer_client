@@ -3,12 +3,12 @@ import React from 'react';
 import SeekerCard, { SeekerCardProps } from '@/components/home/SeekerCard';
 import Section from '@/components/home/Section';
 import styles from '@/views/home/SeekerSection.module.scss';
-import ProfileImage from '@/images/Profile.jpg';
+import Seeker1 from '@/images/home-seeker1.png';
 
 // 임시로 만듬...
 const exampleCards: Array<SeekerCardProps> = [
     {
-        profileImage: ProfileImage,
+        profileImage: Seeker1,
         name: '박철수',
         age: 35,
         gender: '남',
@@ -18,7 +18,7 @@ const exampleCards: Array<SeekerCardProps> = [
         handicap: '청각장애 1급'
     },
     {
-        profileImage: ProfileImage,
+        profileImage: Seeker1,
         name: '김철수',
         age: 35,
         gender: '여',
@@ -28,7 +28,7 @@ const exampleCards: Array<SeekerCardProps> = [
         handicap: '청각장애 1급'
     },
     {
-        profileImage: ProfileImage,
+        profileImage: Seeker1,
         name: '박영희',
         age: 35,
         gender: '여',
@@ -38,7 +38,7 @@ const exampleCards: Array<SeekerCardProps> = [
         handicap: '청각장애 1급'
     },
     {
-        profileImage: ProfileImage,
+        profileImage: Seeker1,
         name: '김영희',
         age: 35,
         gender: '여',

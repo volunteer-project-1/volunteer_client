@@ -3,42 +3,48 @@ import React from 'react';
 import Section from '@/components/home/Section';
 import CompanyCard, { CompanyCardProps } from '@/components/home/CompanyCard';
 import styles from '@/views/home/CompanySection.module.scss';
-import CompanyImage from '@/images/Company.jpg';
+
+import Company1 from '@/images/home-company1.png';
+import Company2 from '@/images/home-company2.png';
+import Company3 from '@/images/home-company3.png';
+import Company4 from '@/images/home-company4.png';
+import Company5 from '@/images/home-company5.png';
+import Company6 from '@/images/home-company6.png';
 
 // 임시로 만듬...
 const exampleCards: Array<CompanyCardProps> = [
     {
-        companyImage: CompanyImage,
+        companyImage: Company1,
         name: '에스디바이오센서',
         description: '2022년 상반기 각 부문별 정기 경력/신입 공채',
         dueDate: new Date('2022-03-01')
     },
     {
-        companyImage: CompanyImage,
+        companyImage: Company2,
         name: '플랜트코퍼레이션',
         description: '2022년 상반기 각 부문별 정기 경력/신입 공채',
         dueDate: new Date('2022-03-01')
     },
     {
-        companyImage: CompanyImage,
+        companyImage: Company3,
         name: '네이버',
         description: '2022년 상반기 각 부문별 정기 경력/신입 공채',
         dueDate: new Date('2022-03-01')
     },
     {
-        companyImage: CompanyImage,
+        companyImage: Company4,
         name: '(주)오픈',
         description: '2022년 상반기 각 부문별 정기 경력/신입 공채',
         dueDate: new Date('2022-03-01')
     },
     {
-        companyImage: CompanyImage,
+        companyImage: Company5,
         name: '현대자동차',
         description: '2022년 상반기 각 부문별 정기 경력/신입 공채',
         dueDate: new Date('2022-03-01')
     },
     {
-        companyImage: CompanyImage,
+        companyImage: Company6,
         name: '한국토지주택공사',
         description: '2022년 상반기 각 부문별 정기 경력/신입 공채',
         dueDate: null
