@@ -1,9 +1,9 @@
 import React from "react";
 
-import Section from '@/components/home/Section';
+import TitledSection from '@/components/home/TitledSection';
 
 const MyPageSection = () => (
-    <Section
+    <TitledSection
         titleParts={[
             '자기 PR도',
             '영상으로'
@@ -13,7 +13,7 @@ const MyPageSection = () => (
         ]}
     >
         (영상)
-    </Section>
+    </TitledSection>
 );
 
 export default MyPageSection;

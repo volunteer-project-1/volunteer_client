@@ -1,7 +1,7 @@
 import React from 'react';
 
 import SeekerCard, { SeekerCardProps } from '@/components/home/SeekerCard';
-import Section from '@/components/home/Section';
+import TitledSection from '@/components/home/TitledSection';
 import styles from '@/views/home/SeekerSection.module.scss';
 import Seeker1 from '@/images/home-seeker2.png';
 
@@ -50,7 +50,7 @@ const exampleCards: Array<SeekerCardProps> = [
 ];
 
 const SeekerSection = () => (
-    <Section
+    <TitledSection
         titleParts={[
             'PICK ME!!!',
             '꼭맞는 인재를 PICK!!!'
@@ -63,7 +63,7 @@ const SeekerSection = () => (
         <div className={styles.seekerCards}>
             {exampleCards.map(card => <SeekerCard key={card.name} {...card} />)}
         </div>
-    </Section>
+    </TitledSection>
 );
 
 export default SeekerSection;

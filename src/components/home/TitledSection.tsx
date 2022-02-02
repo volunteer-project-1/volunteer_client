@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
 
-import styles from '@/components/home/Section.module.scss';
+import styles from '@/components/home/TitledSection.module.scss';
 
-interface SectionProps {
+interface TitledSectionProps {
     // ex. ['당신을', '기다립니다'].
     titleParts: [string, string];
 
@@ -14,9 +14,9 @@ interface SectionProps {
 }
 
 /**
- * 메인 페이지의 각 섹션을 나타냄.
+ * 메인 페이지에서 제목이 붙어있는 섹션들을 자동으로 스타일링 해주는 component.
  */
-const Section = ({ titleParts, descriptionParts, children }: SectionProps) => (
+const TitledSection = ({ titleParts, descriptionParts, children }: TitledSectionProps) => (
     <div className={styles.section}>
         <div className={styles.sectionTitle}>
             <span className={styles.sectionTitleEmphasize}>{titleParts[0]}</span>
@@ -30,4 +30,4 @@ const Section = ({ titleParts, descriptionParts, children }: SectionProps) => (
     </div>
 );
 
-export default Section;
+export default TitledSection;

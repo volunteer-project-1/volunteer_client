@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Section from '@/components/home/Section';
+import TitledSection from '@/components/home/TitledSection';
 import CompanyCard, { CompanyCardProps } from '@/components/home/CompanyCard';
 import styles from '@/views/home/CompanySection.module.scss';
 
@@ -58,27 +58,25 @@ for (let i = 0; i < columnCount; i++) {
     columns.push(exampleCards.filter((card, index) => index % columnCount === i));
 }
 
-const CompanySection = () => {
-    return (
-        <Section
-            titleParts={[
-                '당신을',
-                '기다립니다'
-            ]}
-            descriptionParts={[
-                '당신의 능력을 펼쳐보세요! 당신을 기다리는 기업이 이만큼 존재한답니다.',
-                '어서어서 지원해주세요!'
-            ]}
-        >
-            <div className={styles.grid}>
-                {columns.map((column, index) => (
-                    <div className={styles.column} key={index}>
-                        {column.map(card => <CompanyCard key={card.name} {...card} />)}
-                    </div>
-                ))}
-            </div>
-        </Section>
-    );
-};
+const CompanySection = () => (
+    <TitledSection
+        titleParts={[
+            '당신을',
+            '기다립니다'
+        ]}
+        descriptionParts={[
+            '당신의 능력을 펼쳐보세요! 당신을 기다리는 기업이 이만큼 존재한답니다.',
+            '어서어서 지원해주세요!'
+        ]}
+    >
+        <div className={styles.grid}>
+            {columns.map((column, index) => (
+                <div className={styles.column} key={index}>
+                    {column.map(card => <CompanyCard key={card.name} {...card} />)}
+                </div>
+            ))}
+        </div>
+    </TitledSection>
+);
 
 export default CompanySection;
