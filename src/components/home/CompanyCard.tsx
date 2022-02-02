@@ -22,18 +22,20 @@ const CompanyCard = ({ companyImage, name, description, dueDate }: CompanyCardPr
 
     return (
         <div className={styles.companyCard}>
-            <Image
-                className={styles.companyImage}
-                src={companyImage.src}
-                alt={name}
-                width={companyImage.width}
-                height={companyImage.height}
-                blurDataURL={companyImage.blurDataURL}
-            />
-            <div className={styles.contentArea}>
+            <div className={styles.imageArea}>
+                <Image
+                    className={styles.companyImage}
+                    src={companyImage.src}
+                    alt={name}
+                    width={companyImage.width}
+                    height={companyImage.height}
+                    blurDataURL={companyImage.blurDataURL}
+                />
                 <div className={styles.likeButtonArea}>
                     <LikeButton onClick={onClickLike} />
                 </div>
+            </div>
+            <div className={styles.contentArea}>
                 <div className={styles.name}>
                     {name}
                 </div>

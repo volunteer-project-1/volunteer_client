@@ -2,8 +2,8 @@
     display: inline-block;
     text-align: left;
 
-    width: 20rem;
-    margin: 0 1rem 2rem 1rem;
+    width: 394px;
+    margin: 0 0 44px 49px;
 
     @include boxColor(border-color, gray9);
     @include boxShadow;
@@ -13,23 +13,28 @@
     @extend .font, .dark3;
 }
 
+.imageArea {
+    position: relative;
+
+    width: 100%;
+}
+
 .companyImage {
     width: 100%;
 }
 
 .contentArea {
-    position: relative;
     box-sizing: border-box;
 
     width: 100%;
-    padding: 1rem;
+    padding: 19px 26px 22px 26px;
 }
 
 .likeButtonArea {
     position: absolute;
 
-    top: -3rem;
-    right: 1rem;
+    bottom: 14px;
+    right: 17px;
 }
 
 .name {
@@ -37,5 +42,7 @@
 }
 
 .dDays {
+    margin-top: 10px;
+
     @extend .font, .gray9;
 }

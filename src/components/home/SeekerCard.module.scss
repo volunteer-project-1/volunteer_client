@@ -4,8 +4,9 @@
     flex-direction: column;
     align-items: center;
 
-    margin-left: 1rem;
-    padding: 1rem;
+    width: 295px;
+    height: 425px;
+    padding-top: 40px;
 
     @include boxColor(border-color, gray9);
     @include boxShadow;
@@ -15,8 +16,8 @@
 
     @extend .font, .dark3;
 
-    &:first-child {
-        margin-left: 0;
+    &:not(:first-child) {
+        margin-left: 33px;
     }
 }
 
@@ -27,7 +28,8 @@
 .profileImageArea {
     overflow: hidden;
 
-    width: 7rem;
+    width: 136px;
+    height: 136px;
     border-radius: 50%;
 
     @include boxShadow;
@@ -36,13 +38,12 @@
 .likeButtonArea {
     position: absolute;
 
-    bottom: 0.5rem;
-    right: 50%;
-    transform: translateX(3rem);
+    bottom: 0;
+    right: 0;
 }
 
 .nameArea {
-    margin-top: 2rem;
+    margin-top: 35px;
 }
 
 .name {
@@ -50,21 +51,22 @@
 }
 
 .age {
-    margin-left: 0.5rem;
+    margin-left: 8px;
 }
 
 .jobArea {
-    margin-top: 1rem;
+    margin-top: 14px;
 }
 
 .suggestButton {
-    width: 100%;
-    margin-top: 2rem;
-    padding: 0.5rem 1rem;
+    width: 233px;
+    height: 51px;
+    margin-top: 37px;
 
     @include boxColor(border-color, green);
     border-width: 1px;
     border-style: solid;
+    background-color: transparent;
 
     @extend .font, .green, .bold;
 }
