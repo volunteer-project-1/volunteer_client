@@ -1,7 +1,8 @@
 .companyCard {
     text-align: left;
 
-    width: 394px;
+    // min-width 대신 그냥 width를 쓰면 IE 환경 + 좁은 화면에서 너비가 깨짐...
+    min-width: 394px;
     margin-bottom: 44px;
 
     @include boxColor(border-color, gray9);

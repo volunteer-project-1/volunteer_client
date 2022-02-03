@@ -18,13 +18,16 @@ const LikeButton = ({ onClick }: LikeButtonProps) => (
         type={'button'}
         onClick={onClick}
     >
-        <Image
-            src={LikeOff.src}
-            alt={'좋아요'}
-            width={LikeOff.width}
-            height={LikeOff.height}
-            blurDataURL={LikeOff.blurDataURL}
-        />
+        <span className={styles.imageArea}>
+            <Image
+                src={LikeOff.src}
+                alt={'좋아요'}
+                width={LikeOff.width}
+                height={LikeOff.height}
+                blurDataURL={LikeOff.blurDataURL}
+                layout={'fixed'}
+            />
+        </span>
     </button>
 );
 
