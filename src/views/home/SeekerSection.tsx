@@ -3,7 +3,7 @@ import React from 'react';
 import SeekerCard, { SeekerCardProps } from '@/components/home/SeekerCard';
 import TitledSection from '@/components/home/TitledSection';
 import styles from '@/views/home/SeekerSection.module.scss';
-import Seeker1 from '@/images/home-seeker2.png';
+import Seeker1 from '@/images/home-seeker.jpg';
 
 // 임시로 만듬...
 const exampleCards: Array<SeekerCardProps> = [

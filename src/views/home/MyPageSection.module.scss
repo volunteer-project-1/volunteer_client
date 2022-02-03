@@ -39,7 +39,7 @@
 }
 
 .cardTitle {
-    @extend .font, .green, .bold;
+    @extend .font, .green, .bold, .size20;
 }
 
 .cardDescription {

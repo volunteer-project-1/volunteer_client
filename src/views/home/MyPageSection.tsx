@@ -4,7 +4,7 @@ import Image from 'next/image';
 import TitledSection from '@/components/home/TitledSection';
 import styles from '@/views/home/MyPageSection.module.scss';
 
-import ExampleImage from '@/images/home-mypage-image.png';
+import ExampleImage from '@/images/home-mypage-image.jpg';
 
 const MyPageSection = () => (
     <TitledSection
@@ -24,11 +24,11 @@ const MyPageSection = () => (
             />
             <div className={styles.overlapArea}>
                 <div className={styles.card}>
-                    <div className={styles.cardTitle}>불편하게 쓰는 이력서는 이제그만!</div>
+                    <div className={styles.cardTitle}>불편하게 쓰는 이력서는 이제 그만!</div>
                     <div className={styles.cardDescription}>
                         이제 이력서도 영상으로 찍는 시대입니다.
                         나를 동영상으로 자유롭게 표현해 보세요!
-                        구직자들에게 마음껏 자기PR을 하여 보아요!
+                        구직자들에게 마음껏 자기 PR을 하여 보아요!
                         사회는 여러분들의 적극적인 구직활동을 환영합니다!
                     </div>
                 </div>
@@ -39,6 +39,7 @@ const MyPageSection = () => (
                         width={ExampleImage.width}
                         height={ExampleImage.height}
                         blurDataURL={ExampleImage.blurDataURL}
+                        layout={'responsive'}
                     />
                 </div>
             </div>
