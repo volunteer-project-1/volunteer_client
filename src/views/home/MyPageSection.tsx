@@ -16,7 +16,9 @@ const MyPageSection = () => (
         className={styles.video}
         src={'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_1MB.mp4'}
         controls
-      />
+      >
+        <track kind={'captions'} />
+      </video>
       <div className={styles.overlapArea}>
         <div className={styles.card}>
           <div className={styles.cardTitle}>불편하게 쓰는 이력서는 이제 그만!</div>
