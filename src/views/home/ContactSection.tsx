@@ -6,14 +6,7 @@ import Background from '@/images/home-contact-background.jpg';
 
 const ContactSection = () => (
   <div className={styles.bannerSection}>
-    <Image
-      src={Background.src}
-      width={Background.width}
-      height={Background.height}
-      blurDataURL={Background.blurDataURL}
-      alt={'Contact'}
-      layout={'responsive'}
-    />
+    <Image src={Background} alt={'Contact'} layout={'responsive'} />
   </div>
 );
 

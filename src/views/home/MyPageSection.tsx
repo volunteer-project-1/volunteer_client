@@ -26,14 +26,7 @@ const MyPageSection = () => (
           </div>
         </div>
         <div className={styles.imageArea}>
-          <Image
-            src={ExampleImage.src}
-            alt={'예시 이미지'}
-            width={ExampleImage.width}
-            height={ExampleImage.height}
-            blurDataURL={ExampleImage.blurDataURL}
-            layout={'responsive'}
-          />
+          <Image src={ExampleImage} alt={'예시 이미지'} layout={'responsive'} />
         </div>
       </div>
     </div>

@@ -15,14 +15,7 @@ interface LikeButtonProps {
 const LikeButton = ({ onClick }: LikeButtonProps) => (
   <button className={styles.likeButton} type={'button'} onClick={onClick}>
     <span className={styles.imageArea}>
-      <Image
-        src={LikeOff.src}
-        alt={'좋아요'}
-        width={LikeOff.width}
-        height={LikeOff.height}
-        blurDataURL={LikeOff.blurDataURL}
-        layout={'fixed'}
-      />
+      <Image src={LikeOff} alt={'좋아요'} layout={'fixed'} />
     </span>
   </button>
 );

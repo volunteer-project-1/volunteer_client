@@ -4,9 +4,7 @@ module.exports = {
     'plugin:prettier/recommended'
   ],
   // 체크에서 제외.
-  ignorePatterns: [
-    'node_modules/'
-  ],
+  ignorePatterns: ['node_modules/'],
   rules: {
     'prettier/prettier': ['error', {
       // "..." 대신 '...' 사용.
@@ -23,6 +21,9 @@ module.exports = {
       arrowParens: 'avoid',
       // 줄 끝(LF/CRLF): 각 파일에 따라 알아서.
       endOfLine: 'auto'
-    }]
+    }],
+    // 화살표 함수에서 return 생략 가능하면 생략함.
+    // ex. () => { return 5; } 대신 () => 5 형식 사용.
+    'arrow-body-style': ['error', 'as-needed']
   }
 };

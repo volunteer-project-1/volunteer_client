@@ -28,13 +28,7 @@ const SeekerCard = ({ profileImage, name, age, gender, address, job, career, han
     <div className={styles.seekerCard}>
       <div className={styles.profileArea}>
         <div className={styles.profileImageArea}>
-          <Image
-            alt={name}
-            src={profileImage.src}
-            width={profileImage.width}
-            height={profileImage.height}
-            blurDataURL={profileImage.blurDataURL}
-          />
+          <Image src={profileImage} alt={name} />
         </div>
         <div className={styles.likeButtonArea}>
           <LikeButton onClick={onClickLike} />
