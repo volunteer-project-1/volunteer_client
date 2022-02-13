@@ -1,3 +1,88 @@
 .contactSection {
+    position: relative;
+
     width: 100%;
+}
+
+.content {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+}
+
+@mixin row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    flex: 1;
+    max-width: 600px;
+    height: 100%;
+}
+
+.aboutRow {
+    align-items: center;
+
+    @include row;
+}
+
+.aboutTitle {
+    margin-bottom: 16px;
+
+    @extend .font, .green, .size30, .bold;
+}
+
+.aboutDescription {
+    @extend .font, .white;
+}
+
+.formRow {
+    align-items: left;
+
+    @include row;
+}
+
+.formTitle {
+    margin-bottom: 20px;
+
+    @extend .font, .white, .bold;
+}
+
+@mixin form {
+    box-sizing: border-box;
+
+    width: 100%;
+    padding: 19px 24px;
+    margin-bottom: 20px;
+
+    border: 0;
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.3);
+
+    @extend .font, .white;
+
+    &::placeholder {
+        @extend .font, .white;
+    }
+}
+
+.formTextField {
+    @include form;
+}
+
+.formTextArea {
+    resize: none;
+
+    @include form;
+}
+
+.formCheckBox {
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.3);
 }
