@@ -11,17 +11,17 @@ import BannerSection from '@/views/home/BannerSection';
 import ContactSection from '@/views/home/ContactSection';
 
 const MainPage = () => (
-    <div>
-        <Header />
-        <MainSection />
-        <SearchSection />
-        <SeekerSection />
-        <CompanySection />
-        <MyPageSection />
-        <BannerSection />
-        <ContactSection />
-        <Footer />
-    </div>
+  <div>
+    <Header />
+    <MainSection />
+    <SearchSection />
+    <SeekerSection />
+    <CompanySection />
+    <MyPageSection />
+    <BannerSection />
+    <ContactSection />
+    <Footer />
+  </div>
 );
 
 export default MainPage;

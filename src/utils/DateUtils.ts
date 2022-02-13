@@ -6,5 +6,5 @@
  * @returns 며칠 차이나는지
  */
 export function daysBetweenDates(startDate: Date, endDate: Date) {
-    return Math.round((Number(endDate) - Number(startDate)) / (1000 * 60 * 60 * 24));
+  return Math.round((Number(endDate) - Number(startDate)) / (1000 * 60 * 60 * 24));
 }

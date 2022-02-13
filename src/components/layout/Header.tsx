@@ -1,6 +1,6 @@
-import React from "react";
-import Link from "next/link";
-const menus = ["구직활동", "인재채용", "미디어 뉴스", "고객센터"];
+import React from 'react';
+import Link from 'next/link';
+const menus = ['구직활동', '인재채용', '미디어 뉴스', '고객센터'];
 
 const Header = () => (
   <div className="headerWrap">
