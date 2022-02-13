@@ -1,27 +1,27 @@
 .section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    width: 100%;
-    margin-top: 100px;
+  width: 100%;
+  margin-top: 100px;
 }
 
 .sectionTitle {
-    font-size: 32px;
+  font-size: 32px;
 
-    @extend .font, .green;
+  @extend .font, .green;
 }
 
 .sectionTitleEmphasize {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .sectionDescription {
-    text-align: center;
+  text-align: center;
 
-    margin-top: 19px;
-    margin-bottom: 48px;
+  margin-top: 19px;
+  margin-bottom: 48px;
 
-    @extend .font, .gray9;
+  @extend .font, .gray9;
 }

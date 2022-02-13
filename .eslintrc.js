@@ -11,8 +11,8 @@ module.exports = {
   ignorePatterns: ['node_modules/'],
   rules: {
     'prettier/prettier': ['error', {
-      // "..." 대신 '...' 사용.
-      singleQuote: true,
+      // '...' 대신 "..." 사용.
+      singleQuote: false,
       // ; 필수.
       semi: true,
       // 탭 대신 스페이스 사용.

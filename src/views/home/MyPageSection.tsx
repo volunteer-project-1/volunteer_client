@@ -1,23 +1,23 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
-import TitledSection from '@/components/home/TitledSection';
-import styles from '@/views/home/MyPageSection.module.scss';
+import TitledSection from "@/components/home/TitledSection";
+import styles from "@/views/home/MyPageSection.module.scss";
 
-import ExampleImage from '@/images/home-mypage-image.jpg';
+import ExampleImage from "@/images/home-mypage-image.jpg";
 
 const MyPageSection = () => (
   <TitledSection
-    titleParts={['자기 PR도', '영상으로']}
-    descriptionParts={['영상으로 이력서를 남겨 사회에 나를 소개해 보아요.']}
+    titleParts={["자기 PR도", "영상으로"]}
+    descriptionParts={["영상으로 이력서를 남겨 사회에 나를 소개해 보아요."]}
   >
     <div className={styles.content}>
       <video
         className={styles.video}
-        src={'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_1MB.mp4'}
+        src={"https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_1MB.mp4"}
         controls
       >
-        <track kind={'captions'} />
+        <track kind={"captions"} />
       </video>
       <div className={styles.overlapArea}>
         <div className={styles.card}>
@@ -28,7 +28,7 @@ const MyPageSection = () => (
           </div>
         </div>
         <div className={styles.imageArea}>
-          <Image src={ExampleImage} alt={'예시 이미지'} layout={'responsive'} />
+          <Image src={ExampleImage} alt={"예시 이미지"} layout={"responsive"} />
         </div>
       </div>
     </div>

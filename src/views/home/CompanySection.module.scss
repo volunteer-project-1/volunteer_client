@@ -1,46 +1,46 @@
 .content {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    width: 100%;
-    padding: 0 16px;
+  width: 100%;
+  padding: 0 16px;
 }
 
 .grid {
-    overflow-x: auto;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  overflow-x: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
-    width: 1280px;
-    max-width: 100%;
+  width: 1280px;
+  max-width: 100%;
 
-    @include tablet {
-        white-space: nowrap;
-        width: 100%;
-    }
+  @include tablet {
+    white-space: nowrap;
+    width: 100%;
+  }
 }
 
 .column {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    @include tablet {
-        flex-direction: row;
-    }
+  @include tablet {
+    flex-direction: row;
+  }
 }
 
 .moreButton {
-    width: 100%;
-    max-width: 1280px;
-    height: 80px;
-    margin-top: 52px;
+  width: 100%;
+  max-width: 1280px;
+  height: 80px;
+  margin-top: 52px;
 
-    @include boxColor(border-color, gray9);
-    background-color: transparent;
-    border-width: 1px;
-    border-style: solid;
+  @include boxColor(border-color, gray9);
+  background-color: transparent;
+  border-width: 1px;
+  border-style: solid;
 }

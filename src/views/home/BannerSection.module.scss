@@ -1,39 +1,39 @@
 .bannerSection {
-    position: relative;
+  position: relative;
 
-    width: 100%;
-    margin-top: 100px;
+  width: 100%;
+  margin-top: 100px;
 }
 
 .content {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-    top: 0;
-    left: 50%;
-    height: 100%;
+  top: 0;
+  left: 50%;
+  height: 100%;
 }
 
 .about {
-    @extend .font, .white, .size30, .bold;
+  @extend .font, .white, .size30, .bold;
 }
 
 .description {
-    margin-top: 51px;
+  margin-top: 51px;
 
-    @extend .font, .white;
+  @extend .font, .white;
 
-    @include tablet {
-        display: none;
-    }
+  @include tablet {
+    display: none;
+  }
 }
 
 .logoArea {
-    position: absolute;
+  position: absolute;
 
-    width: 238px;
-    right: 0;
-    bottom: 6px;
+  width: 238px;
+  right: 0;
+  bottom: 6px;
 }

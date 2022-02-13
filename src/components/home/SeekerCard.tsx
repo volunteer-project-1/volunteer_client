@@ -1,14 +1,14 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
-import LikeButton from '@/components/home/LikeButton';
-import styles from '@/components/home/SeekerCard.module.scss';
+import LikeButton from "@/components/home/LikeButton";
+import styles from "@/components/home/SeekerCard.module.scss";
 
 export interface SeekerCardProps {
   profileImage: StaticImageData;
   name: string;
   age: number;
-  gender: '남' | '여';
+  gender: "남" | "여";
   address: string;
   job: string;
   career: string;
@@ -17,11 +17,11 @@ export interface SeekerCardProps {
 
 const SeekerCard = ({ profileImage, name, age, gender, address, job, career, handicap }: SeekerCardProps) => {
   const onClickSuggest = () => {
-    alert('당신은 합격!');
+    alert("당신은 합격!");
   };
 
   const onClickLike = () => {
-    alert('좋아요!');
+    alert("좋아요!");
   };
 
   return (
@@ -45,7 +45,7 @@ const SeekerCard = ({ profileImage, name, age, gender, address, job, career, han
         {job}/ {career}
       </div>
       <div>{handicap}</div>
-      <button className={styles.suggestButton} type={'button'} onClick={onClickSuggest}>
+      <button className={styles.suggestButton} type={"button"} onClick={onClickSuggest}>
         제안하기
       </button>
     </div>

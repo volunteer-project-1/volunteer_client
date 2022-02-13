@@ -1,9 +1,9 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
-import { daysBetweenDates } from '@/utils/DateUtils';
-import LikeButton from '@/components/home/LikeButton';
-import styles from '@/components/home/CompanyCard.module.scss';
+import { daysBetweenDates } from "@/utils/DateUtils";
+import LikeButton from "@/components/home/LikeButton";
+import styles from "@/components/home/CompanyCard.module.scss";
 
 export interface CompanyCardProps {
   companyImage: StaticImageData;
@@ -14,10 +14,10 @@ export interface CompanyCardProps {
 }
 
 const CompanyCard = ({ companyImage, name, description, dueDate }: CompanyCardProps) => {
-  const dDays = dueDate ? `D-${daysBetweenDates(new Date(), dueDate)}` : '상시채용';
+  const dDays = dueDate ? `D-${daysBetweenDates(new Date(), dueDate)}` : "상시채용";
 
   const onClickLike = () => {
-    alert('좋아요!');
+    alert("좋아요!");
   };
 
   return (

@@ -1,58 +1,58 @@
 .companyCard {
-    text-align: left;
+  text-align: left;
 
-    // min-width 대신 그냥 width를 쓰면 IE 환경 + 좁은 화면에서 너비가 깨짐...
-    min-width: 394px;
-    margin-bottom: 44px;
+  // min-width 대신 그냥 width를 쓰면 IE 환경 + 좁은 화면에서 너비가 깨짐...
+  min-width: 394px;
+  margin-bottom: 44px;
 
-    @include boxColor(border-color, gray9);
-    @include boxShadow;
-    border-width: 1px;
-    border-style: solid;
+  @include boxColor(border-color, gray9);
+  @include boxShadow;
+  border-width: 1px;
+  border-style: solid;
 
-    @extend .font, .dark3;
+  @extend .font, .dark3;
 
-    @include tablet {
-        margin-right: 10px;
-    }
+  @include tablet {
+    margin-right: 10px;
+  }
 }
 
 .imageArea {
-    position: relative;
+  position: relative;
 
-    width: 100%;
+  width: 100%;
 
-    @include tablet {
-        overflow-y: hidden;
+  @include tablet {
+    overflow-y: hidden;
 
-        height: 280px;
-    }
+    height: 280px;
+  }
 }
 
 .companyImage {
-    width: 100%;
+  width: 100%;
 }
 
 .contentArea {
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    width: 100%;
-    padding: 19px 26px 22px 26px;
+  width: 100%;
+  padding: 19px 26px 22px 26px;
 }
 
 .likeButtonArea {
-    position: absolute;
+  position: absolute;
 
-    bottom: 14px;
-    right: 17px;
+  bottom: 14px;
+  right: 17px;
 }
 
 .name {
-    @extend .font, .bold;
+  @extend .font, .bold;
 }
 
 .dDays {
-    margin-top: 10px;
+  margin-top: 10px;
 
-    @extend .font, .gray9;
+  @extend .font, .gray9;
 }

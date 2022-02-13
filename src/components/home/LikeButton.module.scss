@@ -1,21 +1,21 @@
 .likeButton {
-    overflow: hidden;
-    position: relative;
+  overflow: hidden;
+  position: relative;
 
-    width: 35px;
-    height: 35px;
+  width: 35px;
+  height: 35px;
 
-    background-color: transparent;
-    border: 0;
-    border-radius: 50%;
+  background-color: transparent;
+  border: 0;
+  border-radius: 50%;
 
-    @extend .font, .green, .bold;
+  @extend .font, .green, .bold;
 }
 
 .imageArea {
-    position: absolute;
+  position: absolute;
 
-    // 하트 아이콘이 여백이 좀 있어서 이렇게 강제로 이동해야 됨.
-    top: -6px;
-    left: -9px;
+  // 하트 아이콘이 여백이 좀 있어서 이렇게 강제로 이동해야 됨.
+  top: -6px;
+  left: -9px;
 }

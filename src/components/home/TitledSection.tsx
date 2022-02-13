@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from "react";
 
-import styles from '@/components/home/TitledSection.module.scss';
+import styles from "@/components/home/TitledSection.module.scss";
 
 interface TitledSectionProps {
   // ex. ['당신을', '기다립니다'].
