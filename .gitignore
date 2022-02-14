@@ -1,2 +1,12 @@
-.next
+# IDE files.
+.vscode
+.idea
+
+# Apple files.
+.DS_Store
+
+# NPM files.
 node_modules
+
+# Next.js files.
+.next
