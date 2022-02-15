@@ -86,7 +86,22 @@
   @include form;
 }
 
+.formLabel {
+  @extend .font, .white, .size14;
+}
+
 .formCheckBox {
-  backdrop-filter: blur(8px);
-  background-color: rgba(255, 255, 255, 0.3);
+  vertical-align: middle;
+
+  margin-right: 10px;
+}
+
+.formButton {
+  height: 60px;
+  margin-top: 32px;
+  border-style: solid;
+  border-width: 1px;
+
+  @extend .font, .green;
+  @include boxColor(border-color, green);
 }
