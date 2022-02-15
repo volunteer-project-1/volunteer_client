@@ -1,12 +1,11 @@
 import React from "react";
-import Image from "next/image";
 
 import styles from "@/views/home/ContactSection.module.scss";
 import Background from "@/images/home-contact-background.jpg";
 
 const ContactSection = () => (
   <div className={styles.contactSection}>
-    <Image src={Background} alt={"Contact"} layout={"responsive"} />
+    <img className={styles.background} src={Background.src} alt={"Contact"} />
     <div className={styles.content}>
       <div className={styles.aboutRow}>
         <div>

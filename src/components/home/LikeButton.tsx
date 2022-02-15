@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 import styles from "@/components/home/LikeButton.module.scss";
 import LikeOff from "@/images/home-like-off.svg";
@@ -14,9 +13,7 @@ interface LikeButtonProps {
  */
 const LikeButton = ({ onClick }: LikeButtonProps) => (
   <button className={styles.likeButton} type={"button"} onClick={onClick}>
-    <span className={styles.imageArea}>
-      <Image src={LikeOff} alt={"좋아요"} layout={"fixed"} />
-    </span>
+    <img className={styles.image} src={LikeOff.src} alt={"좋아요"} />
   </button>
 );
 

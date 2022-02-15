@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 import TitledSection from "@/components/home/TitledSection";
 import styles from "@/views/home/MyPageSection.module.scss";
@@ -27,9 +26,7 @@ const MyPageSection = () => (
             PR을 하여 보아요! 사회는 여러분들의 적극적인 구직활동을 환영합니다!
           </div>
         </div>
-        <div className={styles.imageArea}>
-          <Image src={ExampleImage} alt={"예시 이미지"} layout={"responsive"} />
-        </div>
+        <img className={styles.image} src={ExampleImage.src} alt={"예시 이미지"} />
       </div>
     </div>
   </TitledSection>

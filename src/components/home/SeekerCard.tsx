@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 import LikeButton from "@/components/home/LikeButton";
 import styles from "@/components/home/SeekerCard.module.scss";
@@ -27,9 +26,7 @@ const SeekerCard = ({ profileImage, name, age, gender, address, job, career, han
   return (
     <div className={styles.seekerCard}>
       <div className={styles.profileArea}>
-        <div className={styles.profileImageArea}>
-          <Image src={profileImage} alt={name} />
-        </div>
+        <img className={styles.profileImage} src={profileImage.src} alt={name} />
         <div className={styles.likeButtonArea}>
           <LikeButton onClick={onClickLike} />
         </div>

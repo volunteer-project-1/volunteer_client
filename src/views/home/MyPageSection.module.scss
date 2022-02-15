@@ -23,8 +23,10 @@
   justify-content: center;
 
   bottom: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1280px;
+  max-width: 100%;
   padding: 0 16px;
 
   @include tablet {
@@ -47,6 +49,9 @@
   margin-top: 12px;
 }
 
-.imageArea {
-  width: 742px;
+.image {
+  flex: 1;
+
+  // flex: 1 안 먹히고 overflow 일어나는거 막음.
+  min-width: 0;
 }

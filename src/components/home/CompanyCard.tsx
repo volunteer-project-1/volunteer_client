@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 import { daysBetweenDates } from "@/utils/DateUtils";
 import LikeButton from "@/components/home/LikeButton";
@@ -23,7 +22,7 @@ const CompanyCard = ({ companyImage, name, description, dueDate }: CompanyCardPr
   return (
     <div className={styles.companyCard}>
       <div className={styles.imageArea}>
-        <Image className={styles.companyImage} src={companyImage} alt={name} />
+        <img className={styles.companyImage} src={companyImage.src} alt={name} />
         <div className={styles.likeButtonArea}>
           <LikeButton onClick={onClickLike} />
         </div>

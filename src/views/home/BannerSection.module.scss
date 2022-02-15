@@ -5,6 +5,14 @@
   margin-top: 100px;
 }
 
+.background {
+  // img 하단에 마진 생기는 현상 막음.
+  // https://stackoverflow.com/a/10844318/2804329
+  vertical-align: middle;
+
+  width: 100%;
+}
+
 .content {
   position: absolute;
   display: flex;
