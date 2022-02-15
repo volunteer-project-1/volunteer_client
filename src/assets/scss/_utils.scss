@@ -19,3 +19,12 @@ $tablet: 1000px; //갤럭시 폴드 기준 1000px
   width: $calculated;
   height: $calculated;
 }
+
+@function g-vw($width, $target) {
+  $vw-context: ($width * 0.01) * 1px;
+  @return ($target/$vw-context) * 1vw;
+}
+@function g-vh($height, $target) {
+  $vw-context: ($height * 0.01) * 1px;
+  @return ($target/$vw-context) * 1vw;
+}
