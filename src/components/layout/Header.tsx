@@ -22,6 +22,7 @@ const Header = () => (
           <Link href="/">
             <a className="lg">로그인</a>
           </Link>
+          <span className="bar-login"></span>
           <Link href="/">
             <a>회원가입</a>
           </Link>

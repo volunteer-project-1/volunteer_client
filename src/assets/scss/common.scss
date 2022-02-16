@@ -27,3 +27,13 @@ $boxColorMap: (
 @mixin boxShadow {
   box-shadow: 2px 2px #f7f7f6;
 }
+
+@mixin bar($height) {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 1px;
+  display: inline-block;
+  content: "";
+  height: $height;
+  background-color: #cbcbcb;
+}
