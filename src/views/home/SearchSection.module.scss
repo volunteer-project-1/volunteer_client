@@ -1,0 +1,61 @@
+.searchSection {
+    position: relative;
+
+    width: 100%;
+    margin-top: 88px;
+}
+
+.background {
+    // img 하단에 마진 생기는 현상 막음.
+    // https://stackoverflow.com/a/10844318/2804329
+    vertical-align: middle;
+    vertical-align: middle;
+
+    width: 100%;
+}
+
+.content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.description {
+    @extend .font, .white, .size30, .bold;
+}
+
+.searchArea {
+    // border-radius가 자식들의 border도 깎아내도록 함.
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: row;
+
+    width: 819px;
+    height: 82px;
+    max-width: 100%;
+    margin-top: 65px;
+    border-radius: 8px;
+
+    @extend .font, .size30;
+}
+
+.searchInput {
+    flex: 1;
+    font-size: inherit;
+}
+
+.searchButton {
+    width: 170px;
+    font-size: inherit;
+
+    @extend .font, .white;
+    @include boxColor(background-color, green);
+}
