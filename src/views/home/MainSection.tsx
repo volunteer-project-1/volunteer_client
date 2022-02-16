@@ -1,5 +1,12 @@
 import React from "react";
 
-const MainSection = () => <div>당신의 능력을 보여주세요</div>;
+import styles from "@/views/home/MainSection.module.scss";
+import Background1 from "@/images/home-main-background1.jpg";
+
+const MainSection = () => (
+  <div className={styles.mainSection}>
+    <img className={styles.background} src={Background1.src} alt={"Background"} />
+  </div>
+);
 
 export default MainSection;

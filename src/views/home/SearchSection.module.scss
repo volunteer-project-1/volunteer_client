@@ -87,6 +87,8 @@
 
   font-family: inherit;
 
+  @extend .font, .dark3, .size20;
+
   &:not(:last-child) {
     margin-right: 20px;
   }
