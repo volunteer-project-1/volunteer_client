@@ -2,11 +2,6 @@
 
 .headerWrap {
   border-bottom: 1px solid #cbcbcb;
-  .logo {
-    img {
-      height: g-vw(1280, 24px);
-    }
-  }
   .inner {
     position: relative;
     display: flex;
@@ -15,8 +10,12 @@
   }
 }
 
+.logo {
+  height: 25px;
+}
+
 .header_scroll {
-  height: g-vw(1280, 72px);
+  height: 72px;
 }
 .gnb {
   display: flex;
@@ -30,7 +29,16 @@
 }
 
 @include tablet {
+  .header_scroll {
+    height: g-vw(767, 52px);
+  }
 }
 
 @include mobile {
+  .header_scroll {
+    height: g-vw(767, 72px);
+  }
+  .logo {
+    height: g-vw(767, 30px);
+  }
 }
