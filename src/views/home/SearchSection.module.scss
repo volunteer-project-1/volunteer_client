@@ -1,61 +1,93 @@
 .searchSection {
-    position: relative;
+  position: relative;
 
-    width: 100%;
-    margin-top: 88px;
+  width: 100%;
+  margin-top: 88px;
 }
 
 .background {
-    // img 하단에 마진 생기는 현상 막음.
-    // https://stackoverflow.com/a/10844318/2804329
-    vertical-align: middle;
-    vertical-align: middle;
+  // img 하단에 마진 생기는 현상 막음.
+  // https://stackoverflow.com/a/10844318/2804329
+  vertical-align: middle;
+  vertical-align: middle;
 
-    width: 100%;
+  width: 100%;
 }
 
 .content {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .description {
-    @extend .font, .white, .size30, .bold;
+  @extend .font, .white, .size30, .bold;
 }
 
 .searchArea {
-    // border-radius가 자식들의 border도 깎아내도록 함.
-    overflow: hidden;
+  // border-radius가 자식들의 border도 깎아내도록 함.
+  overflow: hidden;
+  position: relative;
 
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 
-    width: 819px;
-    height: 82px;
-    max-width: 100%;
-    margin-top: 65px;
-    border-radius: 8px;
+  width: 819px;
+  height: 82px;
+  max-width: 100%;
+  margin-top: 65px;
+  border-radius: 8px;
 
-    @extend .font, .size30;
+  @extend .font, .size30;
+}
+
+.searchIcon {
+  position: absolute;
+
+  top: 50%;
+  left: 31.8px;
+  height: 26px;
+  transform: translateY(-50%);
 }
 
 .searchInput {
-    flex: 1;
-    font-size: inherit;
+  flex: 1;
+  padding-left: 80px;
+  font-size: inherit;
+  font-family: inherit;
 }
 
 .searchButton {
-    width: 170px;
-    font-size: inherit;
+  width: 170px;
+  font-size: inherit;
+  font-family: inherit;
 
-    @extend .font, .white;
-    @include boxColor(background-color, green);
+  @extend .font, .white;
+  @include boxColor(background-color, green);
+}
+
+.tags {
+  margin-top: 43px;
+}
+
+.tagButton {
+  padding: 9px 26px;
+  border: 0;
+  border-radius: 35px;
+
+  background-color: #ffffff;
+  opacity: 0.8;
+
+  font-family: inherit;
+
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
 }
