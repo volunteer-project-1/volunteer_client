@@ -64,21 +64,24 @@
       padding: 10px;
     }
     .header_scroll {
-      height: auto;
       overflow: auto;
+      overflow-y: hidden;
+      justify-content: center;
+      display: flex;
+      margin: auto;
+      height: 44px;
     }
     .gnb {
-      width: auto;
-      width: 500px;
-      overflow: hidden;
-
-      a {
-        padding-top: 10px;
-        padding-bottom: 10px;
+      height: auto;
+      li {
+        flex: none;
+        a {
+          height: 44px;
+        }
       }
     }
     .logo {
-      height: g-vw(767, 36px);
+      height: 22px;
     }
     .cs_login {
       position: relative;
