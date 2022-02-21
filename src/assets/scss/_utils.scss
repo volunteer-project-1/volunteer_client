@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 $mobile: 767px;
 $tablet: 1000px; //갤럭시 폴드 기준 1000px
 
@@ -22,5 +24,5 @@ $tablet: 1000px; //갤럭시 폴드 기준 1000px
 
 @function g-vw($vw, $target) {
   $vw-context: ($vw * 0.01) * 1px;
-  @return ($target/$vw-context) * 1vw;
+  @return math.div($target, $vw-context) * 1vw;
 }
