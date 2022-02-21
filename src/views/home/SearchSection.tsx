@@ -30,7 +30,7 @@ const SearchSection = () => {
         <div className={styles.description}>궁금한것은 무엇이든 검색해보세요!</div>
         <div className={styles.searchArea}>
           <img className={styles.searchIcon} src={Icon.src} alt={"Icon"} />
-          <input className={styles.searchInput} type={"text"} value={input} onChange={onChangeInput} />
+          <input className={styles.searchInput} type={"text"} title={"검색"} value={input} onChange={onChangeInput} />
           <button className={styles.searchButton} onClick={onClickSearch}>
             검색
           </button>

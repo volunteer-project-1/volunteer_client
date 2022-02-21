@@ -45,7 +45,7 @@ const ContactSection = () => {
 
   return (
     <div className={styles.contactSection}>
-      <img className={styles.background} src={Background.src} alt={"Contact"} />
+      <img className={styles.background} src={Background.src} alt={"Background"} />
       <div className={styles.content}>
         <div className={styles.aboutColumn}>
           <div>
