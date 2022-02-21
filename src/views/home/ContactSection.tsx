@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useState } from "react";
 
+import Checkbox from "@/components/home/Checkbox";
 import styles from "@/views/home/ContactSection.module.scss";
 import Background from "@/images/home/contact-background.jpg";
 
@@ -58,7 +59,7 @@ const ContactSection = () => {
         <div className={styles.formRow}>
           <div className={styles.formTitle}>사용자 정보</div>
           <input
-            className={styles.formTextField}
+            className={styles.textFieldForm}
             type={"text"}
             placeholder={"이름"}
             value={inputs.name}
@@ -67,7 +68,7 @@ const ContactSection = () => {
             }}
           />
           <input
-            className={styles.formTextField}
+            className={styles.textFieldForm}
             type={"text"}
             placeholder={"연락처"}
             value={inputs.contact}
@@ -76,7 +77,7 @@ const ContactSection = () => {
             }}
           />
           <input
-            className={styles.formTextField}
+            className={styles.textFieldForm}
             type={"email"}
             placeholder={"메일주소"}
             value={inputs.email}
@@ -85,7 +86,7 @@ const ContactSection = () => {
             }}
           />
           <textarea
-            className={styles.formTextArea}
+            className={styles.textAreaForm}
             rows={5}
             placeholder={"문의사항을 작성해주세요."}
             value={inputs.question}
@@ -93,10 +94,10 @@ const ContactSection = () => {
               onChangeInput(event, "question");
             }}
           />
+          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label className={styles.formLabel}>
-            <input
-              className={styles.formCheckBox}
-              type={"checkbox"}
+            <Checkbox
+              className={styles.checkboxForm}
               checked={checks.privacy}
               onChange={event => {
                 onChangeCheck(event, "privacy");
@@ -104,7 +105,7 @@ const ContactSection = () => {
             />
             개인정보 취급방침 동의
           </label>
-          <button className={styles.formButton} type={"button"} onClick={onClickSend}>
+          <button className={styles.buttonForm} type={"button"} onClick={onClickSend}>
             보내기
           </button>
         </div>

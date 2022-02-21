@@ -1,0 +1,31 @@
+.realCheckbox {
+  display: none;
+
+  &:checked + .fakeCheckbox::after {
+    content: "\2714";
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    color: inherit;
+    font-size: inherit;
+  }
+}
+
+.fakeCheckbox {
+  display: inline-block;
+  position: relative;
+
+  width: 16px;
+  height: 16px;
+
+  color: #000000;
+  background-color: #ffffff;
+}
