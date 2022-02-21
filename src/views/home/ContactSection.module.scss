@@ -89,7 +89,9 @@
   border: 0;
 
   &::placeholder {
-    @extend .font, .white;
+    // @extend .font, .white 쓰면 IE에서 이게 @extend 망가뜨림 -> 다른 부분들의 @extend까지 안 먹음.
+    // 따라서 여기만 color 하드코딩.
+    color: #fff;
   }
 }
 
@@ -124,6 +126,7 @@
   height: 60px;
   border-style: solid;
   border-width: 1px;
+  background-color: transparent;
 
   @extend .font, .green;
   @include limitWidth;
