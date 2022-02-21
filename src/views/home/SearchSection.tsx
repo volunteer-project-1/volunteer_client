@@ -1,8 +1,8 @@
 import React, { ChangeEvent, useState } from "react";
 
 import styles from "@/views/home/SearchSection.module.scss";
-import Background from "@/images/home-search-background.jpg";
-import Icon from "@/images/home-search-icon.svg";
+import Background from "@/images/home/search-background.jpg";
+import Icon from "@/images/home/search-icon.svg";
 
 // 임시로 만듬...
 const exampleTags: Array<string> = ["일자리", "패럴림픽", "공개채용", "장애인_일자리"];

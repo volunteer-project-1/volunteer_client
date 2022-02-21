@@ -4,12 +4,12 @@ import TitledSection from "@/components/home/TitledSection";
 import CompanyCard, { CompanyCardProps } from "@/components/home/CompanyCard";
 import styles from "@/views/home/CompanySection.module.scss";
 
-import Company1 from "@/images/home-company1.jpg";
-import Company2 from "@/images/home-company2.jpg";
-import Company3 from "@/images/home-company3.jpg";
-import Company4 from "@/images/home-company4.jpg";
-import Company5 from "@/images/home-company5.jpg";
-import Company6 from "@/images/home-company6.jpg";
+import Company1 from "@/images/home/company1.jpg";
+import Company2 from "@/images/home/company2.jpg";
+import Company3 from "@/images/home/company3.jpg";
+import Company4 from "@/images/home/company4.jpg";
+import Company5 from "@/images/home/company5.jpg";
+import Company6 from "@/images/home/company6.jpg";
 
 // 임시로 만듬...
 const exampleCards: Array<CompanyCardProps> = [

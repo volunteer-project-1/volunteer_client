@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "@/components/home/LikeButton.module.scss";
-import LikeOff from "@/images/home-like-off.svg";
+import LikeOff from "@/images/home/like-off.svg";
 
 interface LikeButtonProps {
   // 클릭 시에 실행할 함수.

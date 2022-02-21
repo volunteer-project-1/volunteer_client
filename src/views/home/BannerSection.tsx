@@ -1,8 +1,8 @@
 import React from "react";
 
 import styles from "@/views/home/BannerSection.module.scss";
-import Background from "@/images/home-banner-background.jpg";
-import Logo from "@/images/home-banner-logo.png";
+import Background from "@/images/home/banner-background.jpg";
+import Logo from "@/images/home/banner-logo.png";
 
 const BannerSection = () => (
   <div className={styles.bannerSection}>

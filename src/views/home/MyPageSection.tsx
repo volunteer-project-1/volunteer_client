@@ -3,7 +3,7 @@ import React from "react";
 import TitledSection from "@/components/home/TitledSection";
 import styles from "@/views/home/MyPageSection.module.scss";
 
-import ExampleImage from "@/images/home-mypage-image.jpg";
+import ExampleImage from "@/images/home/mypage-image.jpg";
 
 const MyPageSection = () => (
   <TitledSection

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import Logo from "@/images/home-logo.svg";
+import Logo from "@/images/layout/logo.svg";
 
 const menus = ["구직활동", "인재채용", "미디어 뉴스", "고객센터"];
 

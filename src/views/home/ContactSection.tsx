@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from "react";
 
 import styles from "@/views/home/ContactSection.module.scss";
-import Background from "@/images/home-contact-background.jpg";
+import Background from "@/images/home/contact-background.jpg";
 
 /**
  * 사용자가 입력한 것들.

@@ -10,7 +10,7 @@ import MyPageSection from "@/views/home/MyPageSection";
 import BannerSection from "@/views/home/BannerSection";
 import ContactSection from "@/views/home/ContactSection";
 
-const MainPage = () => (
+const HomePage = () => (
   <div>
     <Header />
     <MainSection />
@@ -24,4 +24,4 @@ const MainPage = () => (
   </div>
 );
 
-export default MainPage;
+export default HomePage;
