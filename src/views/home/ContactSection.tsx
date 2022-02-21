@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useState } from "react";
 
 import Checkbox from "@/components/home/Checkbox";
+import TopButton from "@/components/home/TopButton";
 import styles from "@/views/home/ContactSection.module.scss";
 import Background from "@/images/home/contact-background.jpg";
 
@@ -46,7 +47,7 @@ const ContactSection = () => {
     <div className={styles.contactSection}>
       <img className={styles.background} src={Background.src} alt={"Contact"} />
       <div className={styles.content}>
-        <div className={styles.aboutRow}>
+        <div className={styles.aboutColumn}>
           <div>
             <div className={styles.aboutTitle}>Contact us!</div>
             <div className={styles.aboutDescription}>
@@ -56,7 +57,7 @@ const ContactSection = () => {
             </div>
           </div>
         </div>
-        <div className={styles.formRow}>
+        <div className={styles.formColumn}>
           <div className={styles.formTitle}>사용자 정보</div>
           <input
             className={styles.textFieldForm}
@@ -105,9 +106,12 @@ const ContactSection = () => {
             />
             개인정보 취급방침 동의
           </label>
-          <button className={styles.buttonForm} type={"button"} onClick={onClickSend}>
-            보내기
-          </button>
+          <div className={styles.sendRow}>
+            <button className={styles.sendButton} type={"button"} onClick={onClickSend}>
+              보내기
+            </button>
+            <TopButton />
+          </div>
         </div>
       </div>
     </div>

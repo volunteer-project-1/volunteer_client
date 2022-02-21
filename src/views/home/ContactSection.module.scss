@@ -20,20 +20,23 @@
   transform: translateY(-50%);
 }
 
-@mixin row {
+@mixin limitWidth {
+  width: 600px;
+}
+
+@mixin column {
   display: flex;
   flex-direction: column;
   justify-content: center;
 
   flex: 1;
-  max-width: 600px;
   height: 100%;
 }
 
-.aboutRow {
+.aboutColumn {
   align-items: center;
 
-  @include row;
+  @include column;
 }
 
 .aboutTitle {
@@ -46,10 +49,10 @@
   @extend .font, .white;
 }
 
-.formRow {
+.formColumn {
   align-items: left;
 
-  @include row;
+  @include column;
 }
 
 .formTitle {
@@ -77,10 +80,10 @@
 
 @mixin textForm {
   @include form;
+  @include limitWidth;
 
   box-sizing: border-box;
 
-  width: 100%;
   padding: 19px 24px;
   margin-bottom: 20px;
   border: 0;
@@ -107,12 +110,22 @@
   border-radius: 4px;
 }
 
-.buttonForm {
-  height: 60px;
+.sendRow {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
   margin-top: 32px;
+  padding-right: 62px;
+}
+
+.sendButton {
+  height: 60px;
   border-style: solid;
   border-width: 1px;
 
   @extend .font, .green;
+  @include limitWidth;
   @include boxColor(border-color, green);
 }
