@@ -2,7 +2,48 @@
   width: 100%;
 }
 
+.content {
+  position: relative;
+
+  width: 100%;
+}
+
 .background {
   width: 1397px;
   max-width: 100%;
+}
+
+.textArea {
+  box-sizing: border-box;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 960px;
+  height: 521px;
+  max-width: 100%;
+  max-height: 100%;
+  padding-left: 60px;
+
+  @include boxColor(background-color, green, 0.7);
+  @extend .font, .white;
+}
+
+.title1 {
+  @extend .font, .size18;
+}
+
+.title2 {
+  margin-bottom: 36px;
+
+  @extend .font, .size30;
+}
+
+.description {
+  max-width: 600px;
+  margin-bottom: 76px;
 }

@@ -1,4 +1,4 @@
-@use "sass:map";
+@use 'sass:map';
 
 .inner {
   width: 100%;
@@ -14,10 +14,15 @@ $boxColorMap: (
 
 /**
  * div, button 등 box에 공통 색깔을 쉽게 정의하기 위한 mixin.
- * ex. @include box(border-color, green);
+ *
+ * ex. @include boxColor(background-color, green);
+ *
+ * opacity를 줄려면...
+ *
+ * ex. @include boxColor(background-color, green, 0.7);
  */
-@mixin boxColor($key, $value) {
-  #{$key}: map.get($boxColorMap, $value);
+@mixin boxColor($key, $value, $opacity: 1) {
+  #{$key}: rgba(map.get($boxColorMap, $value), $opacity);
 }
 
 /**
@@ -33,7 +38,7 @@ $boxColorMap: (
   margin-right: 10px;
   width: 1px;
   display: inline-block;
-  content: "";
+  content: '';
   height: $height;
   background-color: #cbcbcb;
 }
