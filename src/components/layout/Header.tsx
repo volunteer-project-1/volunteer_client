@@ -10,7 +10,7 @@ interface Menu {
 
 const menus: Array<Menu> = [
   { name: "구직활동", url: "/" },
-  { name: "인재채용", url: "/seeker-list" },
+  { name: "인재채용", url: "/company/seeker-list" },
   { name: "미디어 뉴스", url: "/" },
   { name: "고객센터", url: "/" },
 ];

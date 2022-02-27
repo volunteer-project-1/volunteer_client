@@ -24,14 +24,18 @@
 
 ## Pages
 
-- index (home): 메인 페이지
-- about ('Hi-Jo'): 회사소개, 미션/비전, 미디어 뉴스
-- search: 구인 검색, 구직 검색, 추천 검색, 인터뷰 요청 및 연결
-- seeker ('Hire Me'): 동영상 등록, 추천 영상 등록, 포트폴리오 등록
-- company ('Join Us'): 동영상 등록, 단체소개서(회사소개서) 등록, 결제
-- helper ('Learning Center'): 자기소개지원, 잡마켓정보, 멘토링 지원
-- notice ('고객센터'): 공지사항, FAQ, Q&A
-- member ('My Page'): 개인정보관리, 자기소개영상관리, 포트폴리오 관리, 지원내역, 환경설정
+- /: 메인 페이지 ('home')
+- /search: 구인 검색, 구직 검색, 추천 검색, 인터뷰 요청 및 연결
+- /seeker: 구직활동 (**구직자**를 위한 서브 페이지들)
+  - /resume-editor: 구직자 프로필 작성 (이력서 작성)
+  - /company-list: 기업 리스트
+  - /company-info?...: 채용정보, 접수기간, 기업정보
+- /company: 인재채용 (**기업**을 위한 서브 페이지들)
+  - /info-editor: 기업 프로필 작성
+  - /seeker-list: 구직자 리스트
+  - /seeker-resume?...: 구직자 프로필 보기 (이력서 보기)
+- /notice: 고객센터
+- /member: 개인정보 관리, 지원내역, 환경설정, ...
 
 ## Project structure
 
@@ -40,8 +44,8 @@
   - assets
     - scss: 공통 스타일 코드(SCSS) 모음
   - images: 이미지 모음
-  - pages: 각 경로의 페이지 component
+  - pages: 각 페이지(URL)를 나타내는 component
   - components: 공통 component (Menu, layout, etc.)
-  - views: 공통 조합해서 만든 상세한 component
+  - views: /components의 내용물들을 조합해서 만든 큰 단위의 component
   - model: 데이터 인터페이스 (interface, type 등 모음)
   - utils: 유틸성 로직들
