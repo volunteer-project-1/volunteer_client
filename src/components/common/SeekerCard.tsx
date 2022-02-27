@@ -1,7 +1,7 @@
 import React from "react";
 
-import LikeButton from "@/components/home/LikeButton";
-import styles from "@/components/home/SeekerCard.module.scss";
+import LikeButton from "@/components/common/LikeButton";
+import styles from "@/components/common/SeekerCard.module.scss";
 
 export interface SeekerCardProps {
   profileImage: StaticImageData;
@@ -14,6 +14,9 @@ export interface SeekerCardProps {
   handicap: string;
 }
 
+/**
+ * 추천 구직자의 정보를 보여주는 카드.
+ */
 const SeekerCard = ({ profileImage, name, age, gender, address, job, career, handicap }: SeekerCardProps) => {
   const onClickSuggest = () => {
     alert("당신은 합격!");

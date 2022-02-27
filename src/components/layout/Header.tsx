@@ -3,7 +3,17 @@ import Link from "next/link";
 
 import Logo from "@/images/layout/logo.svg";
 
-const menus = ["구직활동", "인재채용", "미디어 뉴스", "고객센터"];
+interface Menu {
+  name: string;
+  url: string;
+}
+
+const menus: Array<Menu> = [
+  { name: "구직활동", url: "/" },
+  { name: "인재채용", url: "/seeker-list" },
+  { name: "미디어 뉴스", url: "/" },
+  { name: "고객센터", url: "/" },
+];
 
 const Header = () => (
   <div className="headerWrap">
@@ -31,10 +41,10 @@ const Header = () => (
 
       <div className="header_scroll">
         <ul className="gnb">
-          {menus.map((menu, index) => (
-            <li key={index}>
-              <Link href="/">
-                <a>{menu}</a>
+          {menus.map(({ name, url }) => (
+            <li key={name}>
+              <Link href={url}>
+                <a>{name}</a>
               </Link>
             </li>
           ))}

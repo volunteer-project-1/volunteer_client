@@ -1,8 +1,8 @@
 import React from "react";
 
 import { daysBetweenDates } from "@/utils/DateUtils";
-import LikeButton from "@/components/home/LikeButton";
-import styles from "@/components/home/CompanyCard.module.scss";
+import LikeButton from "@/components/common/LikeButton";
+import styles from "@/components/common/CompanyCard.module.scss";
 
 export interface CompanyCardProps {
   companyImage: StaticImageData;

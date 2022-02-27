@@ -1,7 +1,7 @@
 import React from "react";
 
 import TitledSection from "@/components/home/TitledSection";
-import CompanyCard, { CompanyCardProps } from "@/components/home/CompanyCard";
+import CompanyCard, { CompanyCardProps } from "@/components/common/CompanyCard";
 import styles from "@/views/home/CompanySection.module.scss";
 
 import Company1 from "@/images/home/company1.jpg";
