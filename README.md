@@ -11,6 +11,11 @@
 - [Node.js](https://nodejs.org/ko/) 설치
 - `npm install`로 라이브러리들 설치
 
+설치 추천하는 도구들
+
+- [React devtools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=ko)
+- [Redux devtools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=ko)
+
 실행
 
 - `npm run dev`로 개발 모드 빌드 & 개발 서버 실행

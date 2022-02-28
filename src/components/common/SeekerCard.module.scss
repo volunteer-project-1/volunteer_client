@@ -29,6 +29,7 @@
   width: 136px;
   height: 136px;
   border-radius: 50%;
+  object-fit: none;
 
   @include boxShadow;
 }

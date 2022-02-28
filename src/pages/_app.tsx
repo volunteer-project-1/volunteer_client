@@ -5,6 +5,7 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
 
+import { storeWrapper } from "@/store";
 import "@/assets/scss/reset.scss";
 
 /**
@@ -20,4 +21,4 @@ const App = ({ Component, pageProps }: AppProps) => (
   </>
 );
 
-export default App;
+export default storeWrapper.withRedux(App);
