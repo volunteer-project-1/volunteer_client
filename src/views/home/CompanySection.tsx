@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Company } from "@/store/Seeker";
+import { strictKeys } from "@/utils/TypeUtils";
 import TitledSection from "@/components/home/TitledSection";
 import CompanyCard from "@/components/common/CompanyCard";
 import styles from "@/views/home/CompanySection.module.scss";
@@ -17,7 +17,7 @@ const CompanySection = () => {
   // 3 | 4 | 5
   // 6 | 7 | 8
   for (let i = 0; i < columnCount; i++) {
-    columns.push(Object.keys(companyMap).filter((name, index) => index % columnCount === i));
+    columns.push(strictKeys(companyMap).filter((name, index) => index % columnCount === i));
   }
 
   const onClickMore = () => {

@@ -1,5 +1,6 @@
 import React from "react";
 
+import { strictKeys } from "@/utils/TypeUtils";
 import { useStoreSelector } from "@/store";
 import SeekerCard from "@/components/common/SeekerCard";
 import styles from "@/components/common/SeekerCardList.module.scss";
@@ -12,7 +13,7 @@ const SeekerCardList = () => {
 
   return (
     <div className={styles.seekerCards}>
-      {Object.keys(seekerMap).map(name => (
+      {strictKeys(seekerMap).map(name => (
         <SeekerCard key={name} name={name} />
       ))}
     </div>
