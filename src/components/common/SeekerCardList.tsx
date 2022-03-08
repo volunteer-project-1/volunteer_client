@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import { strictKeys } from "@/utils/TypeUtils";
-import { useStoreSelector } from "@/store";
+import { Seeker } from "@/models/Seeker";
+import { getSeekerList } from "@/api/API";
 import SeekerCard from "@/components/common/SeekerCard";
 import styles from "@/components/common/SeekerCardList.module.scss";
 
@@ -9,12 +9,18 @@ import styles from "@/components/common/SeekerCardList.module.scss";
  * 추천 구직자 카드(SeekerCard)의 리스트.
  */
 const SeekerCardList = () => {
-  const seekerMap = useStoreSelector(state => state.company.seekerMap);
+  const [currentSeekerList, setCurrentSeekerList] = useState<Array<Seeker>>([]);
+
+  useEffect(() => {
+    (async () => {
+      setCurrentSeekerList(await getSeekerList());
+    })();
+  }, []);
 
   return (
     <div className={styles.seekerCards}>
-      {strictKeys(seekerMap).map(name => (
-        <SeekerCard key={name} name={name} />
+      {currentSeekerList.map(seeker => (
+        <SeekerCard key={seeker.id} seeker={seeker} />
       ))}
     </div>
   );

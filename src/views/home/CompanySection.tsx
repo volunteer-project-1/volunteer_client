@@ -1,23 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import { strictKeys } from "@/utils/TypeUtils";
+import { Company } from "@/models/Company";
+import { getCompanyList } from "@/api/API";
 import TitledSection from "@/components/home/TitledSection";
 import CompanyCard from "@/components/common/CompanyCard";
 import styles from "@/views/home/CompanySection.module.scss";
-import { useStoreSelector } from "@/store";
 
 const CompanySection = () => {
-  const companyMap = useStoreSelector(state => state.seeker.companyMap);
+  const [currentCompanyList, setCurrentCompanyList] = useState<Array<Company>>([]);
+
+  useEffect(() => {
+    (async () => {
+      setCurrentCompanyList(await getCompanyList());
+    })();
+  }, []);
 
   const columnCount = 3;
-  const columns: Array<Array<string>> = [];
+  const columns: Array<Array<Company>> = [];
 
   // ex. 3열로 배치한다면...
   // 0 | 1 | 2
   // 3 | 4 | 5
   // 6 | 7 | 8
   for (let i = 0; i < columnCount; i++) {
-    columns.push(strictKeys(companyMap).filter((name, index) => index % columnCount === i));
+    columns.push(currentCompanyList.filter((company, index) => index % columnCount === i));
   }
 
   const onClickMore = () => {
@@ -36,8 +42,8 @@ const CompanySection = () => {
         <div className={styles.grid}>
           {columns.map((column, index) => (
             <div className={styles.column} key={index}>
-              {column.map(name => (
-                <CompanyCard key={name} name={name} />
+              {column.map(company => (
+                <CompanyCard key={company.id} company={company} />
               ))}
             </div>
           ))}

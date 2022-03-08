@@ -1,39 +1,35 @@
 import React from "react";
 
-import { useStoreDispatch, useStoreSelector } from "@/store";
-import CompanySlice from "@/store/Company";
+import { Seeker } from "@/models/Seeker";
 import LikeButton from "@/components/common/LikeButton";
 import styles from "@/components/common/SeekerCard.module.scss";
 
 export interface SeekerCardProps {
-  name: string;
+  seeker: Seeker;
 }
 
 /**
  * 추천 구직자의 정보를 보여주는 카드.
  */
-const SeekerCard = ({ name }: SeekerCardProps) => {
-  const seeker = useStoreSelector(state => state.company.seekerMap[name]);
-  const dispatch = useStoreDispatch();
-
+const SeekerCard = ({ seeker }: SeekerCardProps) => {
   const onClickSuggest = () => {
     alert("당신은 합격!");
   };
 
   const onClickLike = () => {
-    dispatch(CompanySlice.actions.toggleSeekerLike({ name }));
+    // Do nothing.
   };
 
   return (
     <div className={styles.seekerCard}>
       <div className={styles.profileArea}>
-        <img className={styles.profileImage} src={seeker.profileImage.src} alt={name} />
+        <img className={styles.profileImage} src={seeker.imageURL} alt={seeker.name} />
         <div className={styles.likeButtonArea}>
-          <LikeButton isLiked={seeker.isLiked} onClick={onClickLike} />
+          <LikeButton isLiked={true} onClick={onClickLike} />
         </div>
       </div>
       <div className={styles.nameArea}>
-        <span className={styles.name}>{name}</span>
+        <span className={styles.name}>{seeker.name}</span>
         <span className={styles.age}>
           {seeker.age}세({seeker.gender})
         </span>
