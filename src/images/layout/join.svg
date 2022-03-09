@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17.75" height="13.949" viewBox="0 0 17.75 13.949">
+    <g data-name="그룹 9324">
+        <g data-name="그룹 9323">
+            <g data-name="타원 184" transform="translate(2.786)" style="stroke-linecap:round;stroke:#cfcfcf;stroke-width:1.5px;fill:#fff">
+                <circle cx="2.851" cy="2.851" r="2.851" style="stroke:none"/>
+                <circle cx="2.851" cy="2.851" r="2.101" style="fill:none"/>
+            </g>
+            <g data-name="그룹 9322">
+                <path data-name="패스 5436" d="M1642.75-27.587s-.039-4.269 5-4.226" transform="translate(-1642 38.482)" style="fill:none;stroke-linecap:round;stroke:#cfcfcf;stroke-width:1.5px"/>
+                <path data-name="패스 5437" d="M1647.752-27.587s.039-4.269-5-4.226" transform="translate(-1637.227 38.482)" style="fill:none;stroke-linecap:round;stroke:#cfcfcf;stroke-width:1.5px"/>
+            </g>
+        </g>
+        <g data-name="타원 185" transform="translate(6.75 2.949)" style="stroke:#cfcfcf;stroke-width:1.5px;fill:#fff">
+            <circle cx="5.5" cy="5.5" r="5.5" style="stroke:none"/>
+            <circle cx="5.5" cy="5.5" r="4.75" style="fill:none"/>
+        </g>
+        <path data-name="패스 5438" d="M1658.775-52.625h4" transform="translate(-1648.526 61.074)" style="fill:none;stroke-linecap:round;stroke:#cfcfcf;stroke-width:1.5px"/>
+        <path data-name="패스 5439" d="M0 0h4" transform="rotate(90 2.901 9.349)" style="fill:none;stroke-linecap:round;stroke:#cfcfcf;stroke-width:1.5px"/>
+    </g>
+</svg>

@@ -25,6 +25,9 @@
     a {
       @extend .font, .size12;
     }
+    img {
+      vertical-align: middle;
+    }
   }
   .header_scroll {
     height: 72px;

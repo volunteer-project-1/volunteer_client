@@ -112,6 +112,11 @@
   border-radius: 4px;
 }
 
+.foldButton {
+  margin-left: 8.5px;
+  transform: rotate(180deg);
+}
+
 .sendRow {
   box-sizing: border-box;
   display: flex;

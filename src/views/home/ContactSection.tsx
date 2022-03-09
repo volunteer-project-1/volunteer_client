@@ -4,6 +4,7 @@ import Checkbox from "@/components/home/Checkbox";
 import TopButton from "@/components/home/TopButton";
 import styles from "@/views/home/ContactSection.module.scss";
 import Background from "@/images/home/contact-background.jpg";
+import Fold from "@/images/home/contact-fold.svg";
 
 /**
  * 사용자가 입력한 것들.
@@ -105,6 +106,7 @@ const ContactSection = () => {
               }}
             />
             개인정보 취급방침 동의
+            <img className={styles.foldButton} src={Fold.src} alt={"Fold"} />
           </label>
           <div className={styles.sendRow}>
             <button className={styles.sendButton} type={"button"} onClick={onClickSend}>

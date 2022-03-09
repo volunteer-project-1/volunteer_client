@@ -2,6 +2,8 @@ import React from "react";
 import Link from "next/link";
 
 import Logo from "@/images/layout/logo.svg";
+import Login from "@/images/layout/login.svg";
+import Join from "@/images/layout/join.svg";
 
 interface Menu {
   name: string;
@@ -30,11 +32,15 @@ const Header = () => (
         </div>
         <div className="cs_login">
           <Link href="/">
-            <a className="lg">로그인</a>
+            <a className="lg">
+              <img src={Login.src} alt={"Login"} /> LOG IN
+            </a>
           </Link>
           <span className="bar-login"></span>
           <Link href="/">
-            <a>회원가입</a>
+            <a>
+              <img src={Join.src} alt={"Join"} /> JOIN US
+            </a>
           </Link>
         </div>
       </div>
