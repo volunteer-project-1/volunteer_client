@@ -7,6 +7,7 @@ import Head from "next/head";
 
 import { storeWrapper } from "@/store";
 import "@/assets/scss/reset.scss";
+import Image from "next/image";
 
 /**
  * 임의의 page의 wrapper.
