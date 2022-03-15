@@ -1,9 +1,10 @@
 import React from "react";
+import Image from "next/image";
 
+import { MainVisualSlider } from "@/components/common/CommonSlider";
 import styles from "@/views/home/MainSection.module.scss";
 import Background1 from "@/images/home/main-background1.jpg";
-import { MainVisualSlider } from "../../components/common/CommonSlider";
-import Image from "next/image";
+
 const MainSection = () => (
   <>
     {/*  <div className={styles.mainSection}>
@@ -31,7 +32,6 @@ const MainSection = () => (
       <div>
         <Image src={Background1} alt=" " />
       </div>
-      
     </MainVisualSlider>
   </>
 );
