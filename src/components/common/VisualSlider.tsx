@@ -1,15 +1,17 @@
 import React, { ReactNode } from "react";
 import Slider, { Settings } from "react-slick";
+import classNames from "classnames";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 interface SliderProps {
+  className?: string;
   children: ReactNode;
 }
 
 /* 메인페이지 Visual slider  */
-const MainVisualSlider = ({ children }: SliderProps) => {
+const MainVisualSlider = ({ className, children }: SliderProps) => {
   const settings: Settings = {
     dots: true,
     infinite: true,
@@ -19,11 +21,9 @@ const MainVisualSlider = ({ children }: SliderProps) => {
   };
 
   return (
-    <div>
-      <Slider {...settings} className="mainVisualSlide">
-        {children}
-      </Slider>
-    </div>
+    <Slider {...settings} className={classNames("mainVisualSlide", className)}>
+      {children}
+    </Slider>
   );
 };
 
