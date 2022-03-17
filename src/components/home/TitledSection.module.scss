@@ -8,9 +8,7 @@
 }
 
 .sectionTitle {
-  font-size: 32px;
-
-  @extend .font, .green;
+  @extend .font, .green, .size48, .w300;
 }
 
 .sectionTitleEmphasize {

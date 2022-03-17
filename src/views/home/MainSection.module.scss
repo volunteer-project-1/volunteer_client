@@ -18,15 +18,15 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 
   top: 50%;
   right: 0;
   transform: translateY(-50%);
   width: 960px;
-  height: 521px;
+  // height: 521px; - height는 자동으로...
   max-width: 100%;
   max-height: 100%;
+  padding-top: 95px;
   padding-left: 60px;
 
   @include boxColor(background-color, green, 0.7);
@@ -34,16 +34,40 @@
 }
 
 .title1 {
-  @extend .font, .size18;
+  box-sizing: border-box;
+
+  // 너비가 부모 너비 아닌 내용물 너비 따라가도록 함.
+  align-self: flex-start;
+  padding: 6px 14px;
+
+  @include boxColor(background-color, white);
+  @extend .font, .size18, .green, .w500;
 }
 
 .title2 {
-  margin-bottom: 36px;
+  margin-bottom: 18px;
 
-  @extend .font, .size30;
+  @extend .font, .size48, .bold;
 }
 
 .description {
   max-width: 600px;
-  margin-bottom: 76px;
+  margin-bottom: 54px;
+
+  @extend .font, .size22;
+}
+
+.moreButton {
+  width: 172px;
+  height: 49px;
+  margin-bottom: 58px;
+  border-radius: 25px;
+  border-width: 1px;
+  border-style: solid;
+
+  color: inherit;
+  background-color: transparent;
+
+  @extend .font, .size17;
+  @include boxColor(border-color, white);
 }
