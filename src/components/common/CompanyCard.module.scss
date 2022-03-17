@@ -5,6 +5,7 @@
   min-width: 394px;
   margin-bottom: 44px;
 
+  @include boxColor(background-color, white);
   @include boxColor(border-color, gray9);
   @include boxShadow;
   border-width: 1px;

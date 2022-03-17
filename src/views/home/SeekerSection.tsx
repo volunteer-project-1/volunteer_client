@@ -6,6 +6,8 @@ import styles from "@/views/home/SeekerSection.module.scss";
 
 const SeekerSection = () => (
   <TitledSection
+    backgroundStyle={"light"}
+    titleStyle={"center"}
     titleParts={["PICK ME!!!", "꼭맞는 인재를 PICK!!!"]}
     descriptionParts={[
       "우리기업에 꼭 필요한 인재들이 여기 있습니다.",
