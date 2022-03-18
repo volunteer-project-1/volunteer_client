@@ -6,6 +6,7 @@
   position: relative;
 
   width: 100%;
+  margin-bottom: 176px;
 }
 
 .slider {
@@ -13,7 +14,7 @@
   max-width: 100%;
 }
 
-.textArea {
+.descriptionArea {
   box-sizing: border-box;
   position: absolute;
   display: flex;
@@ -70,4 +71,14 @@
 
   @extend .font, .size17;
   @include boxColor(border-color, white);
+}
+
+.linksArea {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+
+  top: 100%;
+  right: 0;
+  transform: translateY(-50%);
 }
