@@ -11,6 +11,10 @@
     color: #02794d;
   }
 
+  &.lightgreen {
+    color: #00d989;
+  }
+
   &.white {
     color: #fff;
   }
@@ -81,5 +85,8 @@
   }
   &.size48 {
     font-size: 48px;
+  }
+  &.size50 {
+    font-size: 50px;
   }
 }
