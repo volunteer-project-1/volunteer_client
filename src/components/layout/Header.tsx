@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
+import { useStoreSelector } from "@/store";
 import Logo from "@/images/layout/logo.svg";
 import Login from "@/images/layout/login.svg";
 import Join from "@/images/layout/join.svg";
@@ -17,47 +18,54 @@ const menus: Array<Menu> = [
   { name: "고객센터", url: "/" },
 ];
 
-const Header = () => (
-  <div className="headerWrap">
-    <div className="inner">
-      <div className="header_top">
-        <div className="logo">
-          <Link href="/">
-            <a>
-              <div className="ima">
-                <img src={Logo.src} alt="SeeMe" className="logo" />
-              </div>
-            </a>
-          </Link>
-        </div>
-        <div className="cs_login">
-          <Link href="/">
-            <a className="lg">
-              <img src={Login.src} alt={"Login"} /> LOG IN
-            </a>
-          </Link>
-          <span className="bar-login"></span>
-          <Link href="/">
-            <a>
-              <img src={Join.src} alt={"Join"} /> JOIN US
-            </a>
-          </Link>
-        </div>
-      </div>
+const Header = () => {
+  const session = useStoreSelector(state => state.user.session);
 
-      <div className="header_scroll">
-        <ul className="gnb">
-          {menus.map(({ name, url }) => (
-            <li key={name}>
-              <Link href={url}>
-                <a>{name}</a>
-              </Link>
-            </li>
-          ))}
-        </ul>
+  // For test...
+  const loginText = session === null ? "LOG IN" : session.type;
+
+  return (
+    <div className="headerWrap">
+      <div className="inner">
+        <div className="header_top">
+          <div className="logo">
+            <Link href="/">
+              <a>
+                <div className="ima">
+                  <img src={Logo.src} alt="SeeMe" className="logo" />
+                </div>
+              </a>
+            </Link>
+          </div>
+          <div className="cs_login">
+            <Link href="/login">
+              <a className="lg">
+                <img src={Login.src} alt={"Login"} /> {loginText}
+              </a>
+            </Link>
+            <span className="bar-login"></span>
+            <Link href="/">
+              <a>
+                <img src={Join.src} alt={"Join"} /> JOIN US
+              </a>
+            </Link>
+          </div>
+        </div>
+
+        <div className="header_scroll">
+          <ul className="gnb">
+            {menus.map(({ name, url }) => (
+              <li key={name}>
+                <Link href={url}>
+                  <a>{name}</a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Header;

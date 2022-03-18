@@ -60,44 +60,44 @@ const ContactSection = () => {
         </div>
         <div className={styles.formColumn}>
           <div className={styles.formTitle}>사용자 정보</div>
+          <div className={styles.formLabel}>이름</div>
           <input
             className={styles.textFieldForm}
             type={"text"}
-            placeholder={"이름"}
             value={inputs.name}
             onChange={event => {
               onChangeInput(event, "name");
             }}
           />
+          <div className={styles.formLabel}>연락처</div>
           <input
             className={styles.textFieldForm}
             type={"text"}
-            placeholder={"연락처"}
             value={inputs.contact}
             onChange={event => {
               onChangeInput(event, "contact");
             }}
           />
+          <div className={styles.formLabel}>메일주소</div>
           <input
             className={styles.textFieldForm}
             type={"email"}
-            placeholder={"메일주소"}
             value={inputs.email}
             onChange={event => {
               onChangeInput(event, "email");
             }}
           />
+          <div className={styles.formLabel}>문의사항</div>
           <textarea
             className={styles.textAreaForm}
             rows={5}
-            placeholder={"문의사항을 작성해주세요."}
             value={inputs.question}
             onChange={event => {
               onChangeInput(event, "question");
             }}
           />
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-          <label className={styles.formLabel}>
+          <label className={styles.formInlineLabel}>
             <Checkbox
               className={styles.checkboxForm}
               checked={checks.privacy}

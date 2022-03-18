@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Seeker } from "@/models/Seeker";
+import { useStoreSelector } from "@/store";
 import LikeButton from "@/components/common/LikeButton";
 import styles from "@/components/common/SeekerCard.module.scss";
 
@@ -12,12 +13,26 @@ export interface SeekerCardProps {
  * 추천 구직자의 정보를 보여주는 카드.
  */
 const SeekerCard = ({ seeker }: SeekerCardProps) => {
+  const session = useStoreSelector(state => state.user.session);
+  const isLoggedOn = session?.type === "Company";
+
+  // API 호출로 대체 예정.
+  const [isLiked, setLike] = useState(false);
+
   const onClickSuggest = () => {
-    alert("당신은 합격!");
+    if (!isLoggedOn) {
+      alert("회사로 로그인하세요!");
+    } else {
+      alert("제안하기!");
+    }
   };
 
   const onClickLike = () => {
-    // Do nothing.
+    if (!isLoggedOn) {
+      alert("회사로 로그인하세요!");
+    } else {
+      setLike(!isLiked);
+    }
   };
 
   return (
@@ -25,7 +40,7 @@ const SeekerCard = ({ seeker }: SeekerCardProps) => {
       <div className={styles.profileArea}>
         <img className={styles.profileImage} src={seeker.imageURL} alt={seeker.name} />
         <div className={styles.likeButtonArea}>
-          <LikeButton isLiked={true} onClick={onClickLike} />
+          <LikeButton isLiked={isLiked} onClick={onClickLike} />
         </div>
       </div>
       <div className={styles.nameArea}>

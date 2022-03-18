@@ -9,7 +9,7 @@
 // 아래의 box mixin에서 사용할 color map.
 $boxColorMap: (
   gray9: #979797,
-  green: #09784e,
+  green: #07784e,
   white: #ffffff,
 );
 
@@ -32,6 +32,38 @@ $boxColorMap: (
  */
 @mixin boxShadow {
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
+
+/**
+ * 가상의 자식을 만듬.
+ *
+ * ex. 마우스 호버 시에 border의 굵기를 1px -> 2px로 바꾸고자 한다.
+ * - Element의 border-width를 그냥 2px로 바꾸면 element가 호버 시마다 움직이는 문제가 있음.
+ * - 이 때 element의 border-width를 바꾸는 대신 아래처럼 하면 됨.
+ *
+ * &:hover {
+ *   @include virtualChild {
+ *     border: 2px solid #ff00ff;
+ *   }
+ * }
+ */
+@mixin virtualChild {
+  position: relative;
+
+  &::after {
+    // 원래는 ::after로 부모를 꽉 채우면 이게 다른 자식들에게 갈 마우스 이벤트를 다 먹어버리는데, 그걸 방지함.
+    pointer-events: none;
+
+    content: '';
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    @content;
+  }
 }
 
 @mixin bar($height) {

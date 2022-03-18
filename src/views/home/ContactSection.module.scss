@@ -42,7 +42,7 @@
 .aboutTitle {
   margin-bottom: 16px;
 
-  @extend .font, .green, .size30, .bold;
+  @extend .font, .lightgreen, .size50, .w500;
 }
 
 .aboutDescription {
@@ -56,12 +56,18 @@
 }
 
 .formTitle {
-  margin-bottom: 20px;
+  margin-bottom: 59px;
 
-  @extend .font, .white, .bold;
+  @extend .font, .white, .w500;
 }
 
 .formLabel {
+  @extend .font, .white, .size16;
+
+  margin-bottom: 14px;
+}
+
+.formInlineLabel {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -123,7 +129,7 @@
   flex-direction: row;
 
   width: 100%;
-  margin-top: 32px;
+  margin-top: 80px;
   padding-right: 62px;
 }
 

@@ -1,4 +1,5 @@
 .companyCard {
+  position: relative;
   text-align: left;
 
   // min-width 대신 그냥 width를 쓰면 IE 환경 + 좁은 화면에서 너비가 깨짐...
@@ -12,6 +13,16 @@
   border-style: solid;
 
   @extend .font, .dark3;
+
+  &:hover {
+    @include virtualChild {
+      box-sizing: border-box;
+
+      @include boxColor(border-color, green);
+      border-width: 2px;
+      border-style: solid;
+    }
+  }
 
   @include tablet {
     margin-right: 10px;
