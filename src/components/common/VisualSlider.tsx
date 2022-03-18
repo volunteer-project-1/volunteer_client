@@ -5,6 +5,8 @@ import classNames from "classnames";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import styles from "@/components/common/VisualSlider.module.scss";
+
 interface SliderProps {
   className?: string;
   children: ReactNode;
@@ -21,7 +23,7 @@ const MainVisualSlider = ({ className, children }: SliderProps) => {
   };
 
   return (
-    <Slider {...settings} className={classNames("mainVisualSlide", className)}>
+    <Slider {...settings} className={classNames(styles.visualSlider, className)}>
       {children}
     </Slider>
   );
