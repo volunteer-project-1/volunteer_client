@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 import Slider, { Settings } from "react-slick";
 import classNames from "classnames";
 
@@ -14,18 +14,39 @@ interface SliderProps {
 
 /* 메인페이지 Visual slider  */
 const MainVisualSlider = ({ className, children }: SliderProps) => {
+  const ref = React.useRef<any>();
+  const [count, setCount] = useState(true);
+
   const settings: Settings = {
     dots: true,
     infinite: true,
     speed: 2000,
     autoplay: true,
+    autoplaySpeed: 100,
     fade: true,
+  };
+  const play = function () {
+    if (count === true) {
+      ref.current.slickPause();
+      setCount(false);
+    } else {
+      ref.current.slickPlay();
+      setCount(true);
+    }
+    console.log("count", count);
   };
 
   return (
-    <Slider {...settings} className={classNames(styles.visualSlider, className)}>
-      {children}
-    </Slider>
+    <div>
+      <Slider {...settings} className={classNames(styles.visualSlider, className)} ref={ref}>
+        {children}
+      </Slider>
+      <div style={{ textAlign: "center" }}>
+        <button className="button" onClick={play}>
+          Play
+        </button>
+      </div>
+    </div>
   );
 };
 

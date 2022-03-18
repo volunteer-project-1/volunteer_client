@@ -37,11 +37,6 @@ const MainSection = () => (
           Learn More
         </button>
       </div>
-      <div className={styles.linksArea}>
-        <LinkCard title={"채용정보"} description={"2022년 공개채용 기업 보러가기"} url={"#"} />
-        <LinkCard title={"행사정보"} description={"2022년 하계 미니 패럴림픽 참가신청"} url={"#"} />
-        <LinkCard title={"채용정보"} description={"2022년 취업 설명회 사전 신청하기"} url={"#"} />
-      </div>
     </div>
   </div>
 );
