@@ -4,6 +4,11 @@
 
 장애인을 위한 직장 소개 앱 프론트엔드 코드
 
+## Documents
+
+- [Notion](https://www.notion.so/SeeMe-dfdcbdb7258e47feafd95d02507df6f3)
+- [Examples](https://www.notion.so/Examples-8fd87af7cd3443468efac6be087cd998): 프로젝트 내에서 자주 사용되는 코드 패턴들 정리
+
 ## How to run
 
 필요 라이브러리 설치
