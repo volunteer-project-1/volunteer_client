@@ -21,16 +21,26 @@
 - [React devtools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=ko)
 - [Redux devtools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=ko)
 
-실행
+개발 모드 빌드 & 실행
 
 - `npm run dev`로 개발 모드 빌드 & 개발 서버 실행
-  - 웹 브라우저에서 <http://localhost:3000>으로 접속하세요.
-  - 접속한 상태에서 코드를 변경하고 저장하면 웹페이지가 자동으로 업데이트됩니다.
-- `npm run start`로 배포 모드 빌드 & 서버 실행
-  - 웹 브라우저에서 <http://localhost:3000>으로 접속하세요.
+- 웹 브라우저에서 <http://localhost:3000>으로 접속하세요.
+- 접속한 상태에서 코드를 변경하고 저장하면 웹페이지가 자동으로 업데이트됩니다.
+
+배포 모드 빌드 & 실행
+
+- `npm run build`로 배포 모드 빌드
+- `npm run start`로 배포 서버 실행
+
+정적 사이트 생성
+
+- `npm run build`로 배포 모드 빌드
 - `npm run export`로 정적 사이트 생성 (Static Site Generation)
+
+코드 스타일 체크
+
 - `npm run lint`로 JS/TS 코드 스타일 체크
-  - `npm run lint:fix`를 하면 체크 & 수정까지 이루어집니다.
+- `npm run lint:fix`를 하면 체크뿐만 아니라 수정까지 이루어집니다.
 
 ## Pages
 
