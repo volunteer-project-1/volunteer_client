@@ -25,7 +25,7 @@ const MainVisualSlider = ({ className, children }: SliderProps) => {
     autoplaySpeed: 100,
     fade: true,
   };
-  const play = function () {
+  function play() {
     if (count === true) {
       ref.current.slickPause();
       setCount(false);
@@ -34,7 +34,7 @@ const MainVisualSlider = ({ className, children }: SliderProps) => {
       setCount(true);
     }
     console.log("count", count);
-  };
+  }
 
   return (
     <div>
@@ -43,23 +43,11 @@ const MainVisualSlider = ({ className, children }: SliderProps) => {
       </Slider>
       <div style={{ textAlign: "center" }}>
         <button className="button" onClick={play}>
-          Play
+          {count ? "stop" : "play"}
         </button>
       </div>
     </div>
   );
-};
-
-const MainVisualSlider2 = ({ children }: SliderProps) => {
-  const settings: Settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-
-  return <Slider {...settings}>{children}</Slider>;
 };
 
 /* 추가 예정  */
