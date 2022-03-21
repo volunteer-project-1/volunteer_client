@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "@/components/common/LikeButton.module.scss";
+import styles from "@/components/common/button/Button.module.scss";
 import LikeOn from "@/images/home/like-on.svg";
 import LikeOff from "@/images/home/like-off.svg";
 
