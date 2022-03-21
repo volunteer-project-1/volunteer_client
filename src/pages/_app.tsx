@@ -3,21 +3,30 @@
  */
 
 import { AppProps } from "next/app";
-import Head from "next/head";
 
 import { storeWrapper } from "@/store";
 import "@/assets/scss/reset.scss";
 
+import { CacheProvider } from "@emotion/react";
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import createEmotionCache from "../utility/createEmotionCache";
+import lightTheme from "../styles/theme/lightTheme";
+import "../styles/globals.css";
+
+const clientSideEmotionCache = createEmotionCache();
+
 /**
  * 임의의 page의 wrapper.
  */
-const App = ({ Component, pageProps }: AppProps) => (
+const App = ({ Component, emotionCache = clientSideEmotionCache, pageProps }: AppProps) => (
   <>
-    <Head>
-      <title>SeeMe</title>
-    </Head>
     {/* Component에 페이지가 들어감. */}
-    <Component {...pageProps} />
+    <CacheProvider value={emotionCache}>
+      <ThemeProvider theme={lightTheme}>
+        <CssBaseline />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </CacheProvider>
   </>
 );
 
