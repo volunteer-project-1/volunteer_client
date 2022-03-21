@@ -2,7 +2,7 @@ import React from "react";
 
 import Page from "@/components/common/Page";
 import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import Footer from "@/containers/Footer";
 import SeekerSection from "@/views/company/seeker-list/SeekerSection";
 
 /**

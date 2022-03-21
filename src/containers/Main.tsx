@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 import { MainVisualSlider } from "@/components/common/VisualSlider";
-import styles from "@/views/home/MainSection.module.scss";
+import styles from "@/containers/Main.module.scss";
 import Background1 from "@/images/home/main-background1.jpg";
 import LinkCard from "@/components/home/LinkCard";
 
