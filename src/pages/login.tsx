@@ -3,7 +3,7 @@ import React from "react";
 import { useStoreDispatch } from "@/store";
 import UserSlice from "@/store/User";
 import Page from "@/components/common/Page";
-import Header from "@/components/layout/Header";
+import Header from "@/containers/Header";
 import { useRouter } from "next/router";
 
 /**

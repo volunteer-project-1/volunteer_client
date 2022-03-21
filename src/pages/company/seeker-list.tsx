@@ -1,7 +1,7 @@
 import React from "react";
 
 import Page from "@/components/common/Page";
-import Header from "@/components/layout/Header";
+import Header from "@/containers/Header";
 import Footer from "@/containers/Footer";
 import SeekerSection from "@/views/company/seeker-list/SeekerSection";
 
