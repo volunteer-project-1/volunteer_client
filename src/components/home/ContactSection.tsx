@@ -2,7 +2,7 @@ import React, { ChangeEvent, useState } from "react";
 
 import Checkbox from "@/components/home/Checkbox";
 import TopButton from "@/components/home/TopButton";
-import styles from "@/views/home/ContactSection.module.scss";
+import styles from "@/components/home/ContactSection.module.scss";
 import Background from "@/images/home/contact-background.jpg";
 import Fold from "@/images/home/contact-fold.svg";
 

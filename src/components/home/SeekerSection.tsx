@@ -2,7 +2,7 @@ import React from "react";
 
 import TitledSection from "@/components/home/TitledSection";
 import SeekerCardList from "@/components/common/SeekerCardList";
-import styles from "@/views/home/SeekerSection.module.scss";
+import styles from "@/components/home/SeekerSection.module.scss";
 
 const SeekerSection = () => (
   <TitledSection

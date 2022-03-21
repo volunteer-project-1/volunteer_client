@@ -4,7 +4,7 @@ import { Company } from "@/models/Company";
 import { getCompanyList } from "@/api/API";
 import TitledSection from "@/components/home/TitledSection";
 import CompanyCard from "@/components/common/CompanyCard";
-import styles from "@/views/home/CompanySection.module.scss";
+import styles from "@/components/home/CompanySection.module.scss";
 
 const CompanySection = () => {
   const [currentCompanyList, setCurrentCompanyList] = useState<Array<Company>>([]);

@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from "react";
 
-import styles from "@/views/home/SearchSection.module.scss";
+import styles from "@/components/home/SearchSection.module.scss";
 import Background from "@/images/home/search-background.jpg";
 import Icon from "@/images/home/search-icon.svg";
 
