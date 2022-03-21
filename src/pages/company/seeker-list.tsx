@@ -3,7 +3,7 @@ import React from "react";
 import Page from "@/components/common/Page";
 import Header from "@/containers/Header";
 import Footer from "@/containers/Footer";
-import SeekerSection from "@/views/company/seeker-list/SeekerSection";
+import SeekerSection from "@/containers/company/SeekerSection";
 
 /**
  * 구직자 리스트 페이지.
