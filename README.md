@@ -65,8 +65,8 @@
     - scss: 공통 스타일 코드(SCSS) 모음
   - images: 이미지 모음
   - pages: 각 페이지(URL)를 나타내는 component
-  - components: 공통 component (Menu, layout, etc.)
-  - views: /components의 내용물들을 조합해서 만든 큰 단위의 component
+  - components: 공통 component (Menu, Button, ...)
+  - containers: 큰 단위의 component (Header, footer, 각 section, ...)
   - models: 데이터 인터페이스 (interface, type 등 모음)
   - store: 전역 상태 (Redux)
   - utils: 유틸성 로직들
