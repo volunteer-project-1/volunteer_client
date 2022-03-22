@@ -1,14 +1,23 @@
 import * as React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import createEmotionServer from "@emotion/server/create-instance";
-import createEmotionCache from "../utility/createEmotionCache";
 
+import { createEmotionCache } from "@/utils/StyleUtils";
+
+/**
+ * 페이지를 만들 때 <head/>, <body/> 등을 어떻게 구성할지 설정.
+ */
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html>
         <Head>
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={""} />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          />
         </Head>
         <body>
           <Main />
@@ -51,15 +60,14 @@ MyDocument.getInitialProps = async ctx => {
   const cache = createEmotionCache();
   const { extractCriticalToChunks } = createEmotionServer(cache);
 
- /* eslint-disable */
- ctx.renderPage = () =>
-   originalRenderPage({
-     enhanceApp: (App) =>
-       function EnhanceApp(props) {
-         return <App emotionCache={cache} {...props} />;
-       },
-   });
- /* eslint-enable */
+  ctx.renderPage = () =>
+    originalRenderPage({
+      // function: displayName 때문에 사용.
+      enhanceApp: (App: any) =>
+        function EnhanceApp(props) {
+          return <App emotionCache={cache} {...props} />;
+        },
+    });
 
   const initialProps = await Document.getInitialProps(ctx);
   // This is important. It prevents emotion to render invalid HTML.

@@ -1,33 +1,28 @@
-/**
- * 모든 페이지에서 돌아가는 코드.
- */
-
 import { AppProps } from "next/app";
+import { CacheProvider, EmotionCache } from "@emotion/react";
+import { ThemeProvider, CssBaseline } from "@mui/material";
 
 import { storeWrapper } from "@/store";
+import { createEmotionCache, muiLightTheme } from "@/utils/StyleUtils";
 import "@/assets/scss/reset.scss";
-
-import { CacheProvider } from "@emotion/react";
-import { ThemeProvider, CssBaseline } from "@mui/material";
-import createEmotionCache from "../utility/createEmotionCache";
-import lightTheme from "../styles/theme/lightTheme";
-import "../styles/globals.css";
 
 const clientSideEmotionCache = createEmotionCache();
 
+interface MyAppProps extends AppProps {
+  emotionCache?: EmotionCache;
+}
+
 /**
- * 임의의 page의 wrapper.
+ * 임의의 page에 씌워지는 wrapper component.
  */
-const App = ({ Component, emotionCache = clientSideEmotionCache, pageProps }: AppProps) => (
-  <>
-    {/* Component에 페이지가 들어감. */}
-    <CacheProvider value={emotionCache}>
-      <ThemeProvider theme={lightTheme}>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </CacheProvider>
-  </>
+const MyApp = ({ Component, emotionCache = clientSideEmotionCache, pageProps }: MyAppProps) => (
+  <CacheProvider value={emotionCache}>
+    <ThemeProvider theme={muiLightTheme}>
+      <CssBaseline />
+      {/* <Component/>에 pages 폴더에 있는 것들이 들어감. */}
+      <Component {...pageProps} />
+    </ThemeProvider>
+  </CacheProvider>
 );
 
-export default storeWrapper.withRedux(App);
+export default storeWrapper.withRedux(MyApp);
