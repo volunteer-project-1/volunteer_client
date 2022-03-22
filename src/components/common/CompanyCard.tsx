@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { daysBetweenDates } from "@/utils/DateUtils";
 import { Company } from "@/models/Company";
 import { useStoreSelector } from "@/store";
-import Button from "@/components/common/button";
+import Button from "@/components/button";
 import styles from "@/components/common/CompanyCard.module.scss";
 
 interface CompanyCardProps {
@@ -32,7 +32,7 @@ const CompanyCard = ({ company }: CompanyCardProps) => {
       <div className={styles.imageArea}>
         <img className={styles.companyImage} src={company.imageURL} alt={company.name} />
         <div className={styles.likeButtonArea}>
-          <Button.Like isLiked={isLiked} onClick={onClickLike}></Button.Like>
+          <Button.Like isLiked={isLiked} onClick={onClickLike} />
         </div>
       </div>
       <div className={styles.contentArea}>

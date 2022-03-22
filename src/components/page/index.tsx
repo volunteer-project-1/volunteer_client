@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 
-import styles from "@/components/common/Page.module.scss";
+import styles from "@/components/page/Page.module.scss";
 
 interface PageProps {
   children: ReactNode;

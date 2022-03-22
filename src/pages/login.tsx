@@ -1,10 +1,10 @@
 import React from "react";
+import { useRouter } from "next/router";
 
 import { useStoreDispatch } from "@/store";
 import UserSlice from "@/store/User";
-import Page from "@/components/common/Page";
+import Page from "@/components/page";
 import Header from "@/containers/Header";
-import { useRouter } from "next/router";
 
 /**
  * 로그인 페이지.

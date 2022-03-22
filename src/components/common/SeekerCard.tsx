@@ -2,8 +2,7 @@ import React, { useState } from "react";
 
 import { Seeker } from "@/models/Seeker";
 import { useStoreSelector } from "@/store";
-import Button from "@/components/common/button";
-
+import Button from "@/components/button";
 import styles from "@/components/common/SeekerCard.module.scss";
 
 export interface SeekerCardProps {
@@ -41,7 +40,7 @@ const SeekerCard = ({ seeker }: SeekerCardProps) => {
       <div className={styles.profileArea}>
         <img className={styles.profileImage} src={seeker.imageURL} alt={seeker.name} />
         <div className={styles.likeButtonArea}>
-          <Button.Like isLiked={isLiked} onClick={onClickLike}></Button.Like>
+          <Button.Like isLiked={isLiked} onClick={onClickLike} />
         </div>
       </div>
       <div className={styles.nameArea}>

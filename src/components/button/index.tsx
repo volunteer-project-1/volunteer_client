@@ -1,7 +1,12 @@
-import React from "react";
-import styles from "@/components/common/button/Button.module.scss";
+import React, { ReactNode } from "react";
+
+import styles from "@/components/button/Button.module.scss";
 import LikeOn from "@/images/home/like-on.svg";
 import LikeOff from "@/images/home/like-off.svg";
+
+interface ButtonProps {
+  children: ReactNode;
+}
 
 interface LikeButtonProps {
   isLiked: boolean;
@@ -9,7 +14,7 @@ interface LikeButtonProps {
   onClick: () => void;
 }
 
-export default function Button({ children }) {
+export default function Button({ children }: ButtonProps) {
   <div>{children}</div>;
 }
 

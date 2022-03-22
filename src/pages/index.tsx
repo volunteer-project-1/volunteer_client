@@ -1,6 +1,6 @@
 import React from "react";
 
-import Page from "@/components/common/Page";
+import Page from "@/components/page";
 import Header from "@/containers/Header";
 import Footer from "@/containers/Footer";
 import MainSection from "@/containers/Main";
