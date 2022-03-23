@@ -18,7 +18,7 @@ import Company4 from "@/images/home/company4.jpg";
 import Company5 from "@/images/home/company5.jpg";
 import Company6 from "@/images/home/company6.jpg";
 
-const seekers: Array<Seeker> = [
+export const seekerList: Array<Seeker> = [
   {
     id: 0,
     name: "박철수",
@@ -65,7 +65,7 @@ const seekers: Array<Seeker> = [
   },
 ];
 
-const companies: Array<Company> = [
+export const companyList: Array<Company> = [
   {
     id: 0,
     name: "에스디바이오센서",
@@ -109,33 +109,3 @@ const companies: Array<Company> = [
     dueDate: null,
   },
 ];
-
-/**
- * 구직자 리스트.
- */
-export const seekerDB: Record<UserID, Seeker> = {};
-
-/**
- * 각 구직자가 좋아요 누른 회사들의 목록.
- */
-export const seekerLikeDB: Record<UserID, Set<UserID>> = {};
-
-seekers.forEach(seeker => {
-  seekerDB[seeker.id] = seeker;
-  seekerLikeDB[seeker.id] = new Set();
-});
-
-/**
- * 회사 리스트.
- */
-export const companyDB: Record<UserID, Company> = {};
-
-/**
- * 각 회사가 좋아요 누른 구직자들의 목록.
- */
-export const companyLikeDB: Record<UserID, Set<UserID>> = {};
-
-companies.forEach(company => {
-  companyDB[company.id] = company;
-  companyLikeDB[company.id] = new Set();
-});

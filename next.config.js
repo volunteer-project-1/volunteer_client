@@ -7,6 +7,18 @@ module.exports = {
     defaultLocale: "ko",
   },
   webpack: (config, { dev, webpack }) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      // IE 지원 위해 mui는 legacy build 사용.
+      "@mui/base": "@mui/base/legacy",
+      "@mui/lab": "@mui/lab/legacy",
+      "@mui/material": "@mui/material/legacy",
+      "@mui/private-theming": "@mui/private-theming/legacy",
+      "@mui/styled-engine": "@mui/styled-engine/legacy",
+      "@mui/system": "@mui/system/legacy",
+      "@mui/utils": "@mui/utils/legacy"
+    };
+
     const sass2css = {
       loader: "sass-loader",
       options: {
