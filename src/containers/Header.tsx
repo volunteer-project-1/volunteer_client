@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 import { useStoreSelector } from "@/store";
+import "@/containers/Header.scoped.scss";
 import Logo from "@/images/layout/logo.svg";
 import Login from "@/images/layout/login.svg";
 import Join from "@/images/layout/join.svg";
