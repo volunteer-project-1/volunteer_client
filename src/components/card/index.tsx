@@ -4,11 +4,15 @@ import { daysBetweenDates } from "@/utils/DateUtils";
 import { Company } from "@/models/Company";
 import { useStoreSelector } from "@/store";
 import Button from "@/components/button";
-import styles from "@/components/common/CompanyCard.module.scss";
+import "@/components/card/Card.scoped.scss";
 
 interface CompanyCardProps {
   company: Company;
 }
+
+const Card = ({ company }: CompanyCardProps) => {
+  <div>{company}</div>;
+};
 
 const CompanyCard = ({ company }: CompanyCardProps) => {
   const session = useStoreSelector(state => state.user.session);
@@ -28,20 +32,22 @@ const CompanyCard = ({ company }: CompanyCardProps) => {
   };
 
   return (
-    <div className={styles.companyCard}>
-      <div className={styles.imageArea}>
-        <img className={styles.companyImage} src={company.imageURL} alt={company.name} />
-        <div className={styles.likeButtonArea}>
+    <div className="companyCard">
+      <div className="imageArea">
+        <img className="companyImage" src={company.imageURL} alt={company.name} />
+        <div className="likeButtonArea">
           <Button.Like isLiked={isLiked} onClick={onClickLike} />
         </div>
       </div>
-      <div className={styles.contentArea}>
-        <div className={styles.name}>{company.name}</div>
+      <div className="contentArea">
+        <div className="name">{company.name}</div>
         <div>{company.description}</div>
-        <div className={styles.dDays}>{dDays}</div>
+        <div className="dDays">{dDays}</div>
       </div>
     </div>
   );
 };
 
-export default CompanyCard;
+export default Object.assign(Card, {
+  Company: CompanyCard,
+});

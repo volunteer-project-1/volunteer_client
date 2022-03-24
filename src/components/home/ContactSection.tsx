@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 import Checkbox from "@/components/home/Checkbox";
 import TopButton from "@/components/home/TopButton";

@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Company } from "@/models/Company";
 import { getCompanyList } from "@/api/API";
 import TitledSection from "@/components/home/TitledSection";
-import CompanyCard from "@/components/common/CompanyCard";
 import styles from "@/components/home/CompanySection.module.scss";
+import Card from "@/components/card";
 
 const CompanySection = () => {
   const [currentCompanyList, setCurrentCompanyList] = useState<Array<Company>>([]);
@@ -42,7 +42,7 @@ const CompanySection = () => {
           {columns.map((column, index) => (
             <div className={styles.column} key={index}>
               {column.map(company => (
-                <CompanyCard key={company.id} company={company} />
+                <Card.Company key={company.id} company={company} />
               ))}
             </div>
           ))}
