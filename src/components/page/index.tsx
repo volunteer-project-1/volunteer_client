@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 
-import styles from "@/components/page/Page.module.scss";
+import "@/components/page/Page.scoped.scss";
 
 interface PageProps {
   children: ReactNode;
@@ -9,6 +9,6 @@ interface PageProps {
 /**
  * 각 page의 root element.
  */
-const Page = ({ children }: PageProps) => <div className={styles.page}>{children}</div>;
+const Page = ({ children }: PageProps) => <div className="page">{children}</div>;
 
 export default Page;
