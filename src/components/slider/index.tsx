@@ -21,9 +21,9 @@ const MainVisualSlider = ({ className, children }: SliderProps) => {
   const settings: Settings = {
     dots: true,
     infinite: true,
-    speed: 2000,
+    speed: 1000,
     autoplay: true,
-    autoplaySpeed: 100,
+    autoplaySpeed: 1000,
     fade: true,
   };
   function play() {
@@ -39,7 +39,7 @@ const MainVisualSlider = ({ className, children }: SliderProps) => {
 
   return (
     <div>
-      <Slider {...settings} className={classNames("visualSlider", className)} ref={ref}>
+      <Slider {...settings} className={classNames("mainVisualSlider", className)} ref={ref}>
         {children}
       </Slider>
       <div style={{ textAlign: "center" }}>
@@ -51,6 +51,52 @@ const MainVisualSlider = ({ className, children }: SliderProps) => {
   );
 };
 
+const MainNoticeSlider = ({ className, children }: SliderProps) => {
+  const settings: Settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+  return (
+    <div>
+      <Slider {...settings} className={classNames("visualSlider", className)}>
+        {children}
+      </Slider>
+    </div>
+  );
+};
+
 export default Object.assign(Sliders, {
   MainVisual: MainVisualSlider,
+  MainNotive: MainNoticeSlider,
 });

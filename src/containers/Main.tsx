@@ -1,16 +1,16 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Slider from "@/components/slider";
 
 import "@/containers/Main.scoped.scss";
-export interface SliderProps {
+interface MainVisualSliderType {
   img: string;
   title: string;
   subTitle: string;
   description: string;
 }
-
-const sliderContent: Array<SliderProps> = [
+const mainVisualContent: Array<MainVisualSliderType> = [
   {
     img: "main-background1.jpg",
     title: "세상 밖으로 나오는 당신의 도전",
@@ -26,11 +26,24 @@ const sliderContent: Array<SliderProps> = [
   },
 ];
 
+interface MainNotiveSliderProps {
+  img: string;
+  group: string;
+  title: string;
+}
+const mainNoticeContent: Array<MainNotiveSliderProps> = [
+  {
+    img: "main_img01@2x.jpg",
+    group: "채용정보",
+    title: "2022년 공개채용 기업 보러가기",
+  },
+];
+
 const MainSection = () => (
   <div className="mainSection">
     <div className="content">
       <Slider.MainVisual className="slider">
-        {sliderContent.map((list, i) => (
+        {mainVisualContent.map((list, i) => (
           <div key={i}>
             <Image {...require(`@/images/home/${list.img}`).default} alt=" " />
 
@@ -45,6 +58,22 @@ const MainSection = () => (
           </div>
         ))}
       </Slider.MainVisual>
+
+      <Slider.MainNotive className="slider">
+        {mainNoticeContent.map((list, i) => (
+          <div key={i}>
+            <div>
+              <span className="group">{list.group}</span>
+              <Link href="jvavscript:void(0)">
+                <a className="title">
+                  {list.title}
+                  <div className="more">더보기</div>
+                </a>
+              </Link>
+            </div>
+          </div>
+        ))}
+      </Slider.MainNotive>
     </div>
   </div>
 );
