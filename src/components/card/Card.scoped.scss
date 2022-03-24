@@ -1,3 +1,4 @@
+/* companyCard */
 .companyCard {
   position: relative;
   text-align: left;
@@ -67,4 +68,77 @@
   margin-top: 10px;
 
   @extend .font, .gray9;
+}
+
+/* seekerCard */
+.seekerCard {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 295px;
+  height: 425px;
+  padding-top: 40px;
+
+  @include boxColor(border-color, gray9);
+  @include boxShadow;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 0.5rem;
+
+  @extend .font, .dark3;
+
+  &:not(:first-child) {
+    margin-left: 33px;
+  }
+}
+
+.profileArea {
+  position: relative;
+}
+
+.profileImage {
+  width: 136px;
+  height: 136px;
+  border-radius: 50%;
+  object-fit: none;
+
+  @include boxShadow;
+}
+
+.likeButtonArea {
+  position: absolute;
+
+  bottom: 0;
+  right: 0;
+}
+
+.nameArea {
+  margin-top: 35px;
+}
+
+.name {
+  @extend .font, .bold;
+}
+
+.age {
+  margin-left: 8px;
+}
+
+.jobArea {
+  margin-top: 14px;
+}
+
+.suggestButton {
+  width: 233px;
+  height: 51px;
+  margin-top: 37px;
+
+  @include boxColor(border-color, green);
+  border-width: 1px;
+  border-style: solid;
+  background-color: transparent;
+
+  @extend .font, .green, .bold;
 }

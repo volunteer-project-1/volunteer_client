@@ -1,7 +1,7 @@
 import React from "react";
 
 import TitledSection from "@/components/home/TitledSection";
-import SeekerCardList from "@/components/common/SeekerCardList";
+import List from "@/components/list";
 import styles from "@/components/home/SeekerSection.module.scss";
 
 const SeekerSection = () => (
@@ -15,7 +15,7 @@ const SeekerSection = () => (
     ]}
   >
     <div className={styles.content}>
-      <SeekerCardList />
+      <List.Seeker />
     </div>
   </TitledSection>
 );
