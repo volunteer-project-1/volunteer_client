@@ -1,15 +1,14 @@
 import React from "react";
 import Image from "next/image";
+import Slider from "@/components/slider";
 
-import { MainVisualSlider } from "@/components/common/VisualSlider";
 import "@/containers/Main.scoped.scss";
 import Background1 from "@/images/home/main-background1.jpg";
-import LinkCard from "@/components/home/LinkCard";
 
 const MainSection = () => (
   <div className="mainSection">
     <div className="content">
-      <MainVisualSlider className="slider">
+      <Slider.MainVisual className="slider">
         <div>
           <Image src={Background1} alt=" " />
         </div>
@@ -19,7 +18,7 @@ const MainSection = () => (
         <div>
           <Image src={Background1} alt=" " />
         </div>
-      </MainVisualSlider>
+      </Slider.MainVisual>
       <div className="descriptionArea">
         <div className="title1">세상 밖으로 나오는 당신의 도전</div>
         <div className="title2">당신의 능력을 보여주세요</div>

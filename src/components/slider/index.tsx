@@ -4,15 +4,16 @@ import classNames from "classnames";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-import styles from "@/components/common/VisualSlider.module.scss";
+import "@/components/slider/Slider.scoped.scss";
 
 interface SliderProps {
   className?: string;
   children: ReactNode;
 }
 
-/* 메인페이지 Visual slider  */
+const Sliders = ({ children }: SliderProps) => {
+  <div>{children}</div>;
+};
 const MainVisualSlider = ({ className, children }: SliderProps) => {
   const ref = React.useRef<any>();
   const [count, setCount] = useState(true);
@@ -38,7 +39,7 @@ const MainVisualSlider = ({ className, children }: SliderProps) => {
 
   return (
     <div>
-      <Slider {...settings} className={classNames(styles.visualSlider, className)} ref={ref}>
+      <Slider {...settings} className={classNames("visualSlider", className)} ref={ref}>
         {children}
       </Slider>
       <div style={{ textAlign: "center" }}>
@@ -50,8 +51,6 @@ const MainVisualSlider = ({ className, children }: SliderProps) => {
   );
 };
 
-/* 추가 예정  */
-// export { MainVisualSlider as default };
-// export default MainVisualSlider;
-
-export { MainVisualSlider as default, MainVisualSlider };
+export default Object.assign(Sliders, {
+  MainVisual: MainVisualSlider,
+});
