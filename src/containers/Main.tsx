@@ -10,7 +10,7 @@ export interface SliderProps {
   description: string;
 }
 
-export const sliderContent: Array<SliderProps> = [
+const sliderContent: Array<SliderProps> = [
   {
     img: "main-background1.jpg",
     title: "세상 밖으로 나오는 당신의 도전",
