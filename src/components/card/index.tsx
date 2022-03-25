@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 
+import { Company, Seeker } from "@/types/User";
 import { daysBetweenDates } from "@/utils/DateUtils";
-import { Company } from "@/models/Company";
 import { useStoreSelector } from "@/store";
 import Button from "@/components/button";
 import "@/components/card/Card.scoped.scss";
-import { Seeker } from "@/models/Seeker";
 
 interface CompanyCardProps {
   company: Company;
@@ -20,7 +19,7 @@ const Card = ({ company }: CompanyCardProps) => {
 
 const CompanyCard = ({ company }: CompanyCardProps) => {
   const session = useStoreSelector(state => state.user.session);
-  const isLoggedOn = session?.type === "Seeker";
+  const isLoggedOn = session?.type === "seeker";
 
   // API 호출로 대체 예정.
   const [isLiked, setLike] = useState(false);
@@ -54,7 +53,7 @@ const CompanyCard = ({ company }: CompanyCardProps) => {
 
 const SeekerCard = ({ seeker }: SeekerCardProps) => {
   const session = useStoreSelector(state => state.user.session);
-  const isLoggedOn = session?.type === "Company";
+  const isLoggedOn = session?.type === "company";
 
   // API 호출로 대체 예정.
   const [isLiked, setLike] = useState(false);

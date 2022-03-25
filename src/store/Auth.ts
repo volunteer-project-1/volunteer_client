@@ -1,27 +1,20 @@
-import { UserID } from "@/models/ID";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-/**
- * 로그인 상태.
- */
-interface Session {
-  type: "Company" | "Seeker";
-  id: UserID;
-}
+import { Session } from "@/types/Auth";
 
 /**
- * 사용자 관련 상태.
+ * 로그인 관련 상태.
  */
-interface UserState {
+interface AuthState {
   // null: 로그아웃.
   session: Session | null;
 }
 
-const initialState: UserState = {
+const initialState: AuthState = {
   session: null,
 };
 
-const UserSlice = createSlice({
+const AuthSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
@@ -34,4 +27,4 @@ const UserSlice = createSlice({
   },
 });
 
-export default UserSlice;
+export default AuthSlice;

@@ -3,13 +3,13 @@ import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 import { HYDRATE, createWrapper } from "next-redux-wrapper";
 
 import { isDevelopmentMode } from "@/utils/DebugUtils";
-import UserSlice from "@/store/User";
+import AuthSlice from "@/store/Auth";
 
 /**
  * Slice의 reducer들을 하나로 함침.
  */
 const combinedReducer = combineReducers({
-  [UserSlice.name]: UserSlice.reducer,
+  [AuthSlice.name]: AuthSlice.reducer,
   // [XXXSlice.name]: XXXSlice.reducer,
 });
 

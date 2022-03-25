@@ -39,14 +39,13 @@ const Header = () => {
             </Link>
           </div>
           <div className="cs_login">
-            <Link href="/api/v1/auth/google">
+            <Link href="/auth/login">
               <a className="lg">
                 <img src={Login.src} alt={"Login"} /> {loginText}
               </a>
             </Link>
             <span className="bar-login"></span>
-            {/* 회원가입도 일단 로그인과 똑같은 URL로... */}
-            <Link href="/api/v1/auth/google">
+            <Link href="/auth/join">
               <a>
                 <img src={Join.src} alt={"Join"} /> JOIN US
               </a>

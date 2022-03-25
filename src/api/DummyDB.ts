@@ -2,9 +2,7 @@
  * @file 서버가 올라가기 전까지 사용할 dummy DB들.
  */
 
-import { UserID } from "@/models/ID";
-import { Company } from "@/models/Company";
-import { Seeker } from "@/models/Seeker";
+import { Seeker, Company } from "@/types/User";
 
 import Profile1 from "@/images/home/seeker1.jpg";
 import Profile2 from "@/images/home/seeker2.jpg";
