@@ -1,0 +1,32 @@
+.loginSection {
+    display: flex;
+    flex-direction: column;
+
+    width: 544px;
+}
+
+.textForm {
+    box-sizing: border-box;
+
+    width: 100%;
+    padding: 18px 18.5px;
+
+    border-style: solid;
+    border-width: 1px;
+    @include boxColor(border-color, dark3);
+
+    @extend .font, .size16;
+}
+
+.submitButton {
+    box-sizing: border-box;
+
+    width: 100%;
+    padding: 14px 42px;
+
+    border-style: solid;
+    border-width: 1px;
+    @include boxColor(border-color, green);
+
+    @extend .font, .green, .w500, .size18;
+}

@@ -5,27 +5,41 @@
   // color
 
   &.green {
-    color: #02794d;
+    color: #07784e;
   }
-
   &.lightgreen {
     color: #00d989;
   }
 
   &.white {
-    color: #fff;
+    color: #ffffff;
   }
 
+  &.dark1 {
+    color: #ffffff;
+  }
   &.dark2 {
-    color: #222;
+    color: #efeff4;
   }
   &.dark3 {
-    color: #333;
+    color: #cfcfcf;
   }
-
-  &.gray9 {
+  &.dark4 {
     color: #959595;
   }
+  &.dark5 {
+    color: #707070;
+  }
+  &.dark6 {
+    color: #333333;
+  }
+  &.dark7 {
+    color: #222222;
+  }
+  &.dark8 {
+    color: #111111;
+  }
+
   // weight
   &.w300 {
     font-weight: 300;

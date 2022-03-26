@@ -1,0 +1,40 @@
+.joinSection {
+    display: flex;
+    flex-direction: row;
+
+    @extend .inner;
+}
+
+.textForm {
+    box-sizing: border-box;
+
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 18px 18.5px;
+
+    border-style: solid;
+    border-width: 1px;
+    @include boxColor(border-color, dark3);
+
+    @extend .font, .size16;
+}
+
+.backgroundArea {
+    position: relative;
+}
+
+.backgroundImage {
+    height: 100%;
+}
+
+.submitButton {
+    box-sizing: border-box;
+
+    padding: 14px 42px;
+
+    border-style: solid;
+    border-width: 1px;
+    @include boxColor(border-color, green);
+
+    @extend .font, .green, .w500, .size18;
+}

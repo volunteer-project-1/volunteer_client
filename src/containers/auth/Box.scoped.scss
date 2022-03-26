@@ -1,0 +1,22 @@
+.box {
+    box-sizing: border-box;
+
+    width: 100%;
+    padding: 41px 45px;
+    flex: 1;
+    border-style: solid;
+    border-width: 1px;
+    @include boxColor(border-color, dark3);
+}
+
+.title {
+    margin-bottom: 10px;
+
+    @extend .font, .dark8, .w500, .size20;
+}
+
+.description {
+    margin-bottom: 25px;
+
+    @extend .font, .dark4, .size16;
+}

@@ -8,12 +8,12 @@
   margin-bottom: 44px;
 
   @include boxColor(background-color, white);
-  @include boxColor(border-color, gray9);
+  @include boxColor(border-color, dark4);
   @include boxShadow;
   border-width: 1px;
   border-style: solid;
 
-  @extend .font, .dark3;
+  @extend .font, .dark6;
 
   &:hover {
     @include virtualChild {
@@ -67,7 +67,7 @@
 .dDays {
   margin-top: 10px;
 
-  @extend .font, .gray9;
+  @extend .font, .dark4;
 }
 
 /* seekerCard */
@@ -81,13 +81,13 @@
   height: 425px;
   padding-top: 40px;
 
-  @include boxColor(border-color, gray9);
+  @include boxColor(border-color, dark4);
   @include boxShadow;
   border-width: 1px;
   border-style: solid;
   border-radius: 0.5rem;
 
-  @extend .font, .dark3;
+  @extend .font, .dark6;
 
   &:not(:first-child) {
     margin-left: 33px;

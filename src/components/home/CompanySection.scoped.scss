@@ -39,7 +39,7 @@
   margin-top: 52px;
 
   @include boxColor(background-color, white);
-  @include boxColor(border-color, gray9);
+  @include boxColor(border-color, dark4);
   border-width: 1px;
   border-style: solid;
 }
