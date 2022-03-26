@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Company } from "@/types/User";
 import UserAPI from "@/api/UserAPI";
 import TitledSection from "@/components/home/TitledSection";
-import "@/components/home/CompanySection.scoped.scss";
 import Card from "@/components/card";
+import "@/components/home/CompanySection.scoped.scss";
 
 const CompanySection = () => {
   const [currentCompanyList, setCurrentCompanyList] = useState<Array<Company>>([]);

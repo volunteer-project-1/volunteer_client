@@ -1,8 +1,6 @@
 import React from "react";
 
 import Page from "@/components/page";
-import Header from "@/containers/Header";
-import Footer from "@/containers/Footer";
 import MainSection from "@/containers/Main";
 import SearchSection from "@/components/home/SearchSection";
 import SeekerSection from "@/components/home/SeekerSection";
@@ -16,7 +14,6 @@ import ContactSection from "@/components/home/ContactSection";
  */
 const HomePage = () => (
   <Page>
-    <Header />
     <MainSection />
     <SearchSection />
     <SeekerSection />
@@ -24,7 +21,6 @@ const HomePage = () => (
     <MyPageSection />
     <BannerSection />
     <ContactSection />
-    <Footer />
   </Page>
 );
 

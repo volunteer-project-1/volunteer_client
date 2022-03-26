@@ -1,8 +1,6 @@
 import React from "react";
 
 import Page from "@/components/page";
-import Header from "@/containers/Header";
-import Footer from "@/containers/Footer";
 import SeekerSection from "@/containers/company/SeekerSection";
 
 /**
@@ -10,9 +8,7 @@ import SeekerSection from "@/containers/company/SeekerSection";
  */
 const SeekerListPage = () => (
   <Page>
-    <Header />
     <SeekerSection />
-    <Footer />
   </Page>
 );
 

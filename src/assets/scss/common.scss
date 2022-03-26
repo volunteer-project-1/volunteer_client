@@ -1,4 +1,4 @@
-@use 'sass:map';
+@use "sass:map";
 
 .inner {
   width: 100%;
@@ -54,7 +54,7 @@ $boxColorMap: (
     // 원래는 ::after로 부모를 꽉 채우면 이게 다른 자식들에게 갈 마우스 이벤트를 다 먹어버리는데, 그걸 방지함.
     pointer-events: none;
 
-    content: '';
+    content: "";
     position: absolute;
 
     top: 0;
@@ -71,7 +71,7 @@ $boxColorMap: (
   margin-right: 10px;
   width: 1px;
   display: inline-block;
-  content: '';
+  content: "";
   height: $height;
   background-color: #cbcbcb;
 }

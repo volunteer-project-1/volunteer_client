@@ -1,6 +1,13 @@
 .page {
-  overflow-y: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 
   width: 100%;
   height: 100%;
+}
+
+.pageContent {
+  width: 100%;
+  flex: 1;
 }

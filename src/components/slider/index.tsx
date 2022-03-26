@@ -18,6 +18,7 @@ const MainVisualSlider = ({ children }: SliderProps) => {
   const [count, setCount] = useState(true);
 
   const settings: Settings = {
+    arrows: false,
     dots: true,
     infinite: true,
     speed: 1000,
@@ -58,6 +59,7 @@ const MainVisualSlider = ({ children }: SliderProps) => {
 
 const MainNoticeSlider = ({ children }: SliderProps) => {
   const settings: Settings = {
+    arrows: false,
     dots: true,
     infinite: false,
     speed: 500,

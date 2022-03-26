@@ -48,17 +48,13 @@ const LoginPage = () => {
 
   return (
     <Page>
-      <Header />
+      <input type="text" placeholder="아이디" value={id} onChange={onChangeID} />
+      <input type="password" placeholder="비밀번호" value={password} onChange={onChangePassword} />
       <div>
-        <input type="text" placeholder="아이디" value={id} onChange={onChangeID} />
-        <input type="password" placeholder="비밀번호" value={password} onChange={onChangePassword} />
-        <div>
-          <button type="button" onClick={onClickLogin}>
-            로그인
-          </button>
-        </div>
+        <button type="button" onClick={onClickLogin}>
+          로그인
+        </button>
       </div>
-      <Footer />
     </Page>
   );
 };
