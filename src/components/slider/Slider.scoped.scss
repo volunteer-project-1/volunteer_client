@@ -1,9 +1,25 @@
 .mainVisualSlider {
-  max-width: 70%;
+  width: 100%;
 
   img {
     max-width: 100%;
     min-width: 100%;
     height: auto;
+  }
+}
+
+// .abc::v-deep .def 쓰면 .def는 global class로 취급됨.
+// (react-scoped-css가 내부적으로 Vue 컴파일러 가져다가 씀 -> Vue scoped css의 문법 작동함)
+.mainVisualSlider,
+.mainNoticeSlider {
+  // 마우스로 슬라이드 내부의 텍스트 선택 안 되는 것 수정.
+  ::v-deep .slick-slide {
+    user-select: auto;
+  }
+
+  // 슬라이드 내부에 버튼 같은 거 있을 때 클릭 안 되는 문제 수정.
+  // 현재 슬라이드가 항상 가장 앞쪽에 그려지도록 함.
+  ::v-deep .slick-slide.slick-active {
+    z-index: 2;
   }
 }

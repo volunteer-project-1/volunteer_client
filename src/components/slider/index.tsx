@@ -1,21 +1,20 @@
 import React, { ReactNode, useState } from "react";
 import Slider, { Settings } from "react-slick";
-import classNames from "classnames";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@/components/slider/Slider.scoped.scss";
 
 interface SliderProps {
-  className?: string;
   children: ReactNode;
 }
 
 const Sliders = ({ children }: SliderProps) => {
   <div>{children}</div>;
 };
-const MainVisualSlider = ({ className, children }: SliderProps) => {
-  const ref = React.useRef<any>();
+
+const MainVisualSlider = ({ children }: SliderProps) => {
+  const ref = React.useRef<Slider>(null);
   const [count, setCount] = useState(true);
 
   const settings: Settings = {
@@ -26,7 +25,12 @@ const MainVisualSlider = ({ className, children }: SliderProps) => {
     autoplaySpeed: 1000,
     fade: true,
   };
-  function play() {
+
+  const play = () => {
+    if (ref.current === null) {
+      return;
+    }
+
     if (count === true) {
       ref.current.slickPause();
       setCount(false);
@@ -34,12 +38,13 @@ const MainVisualSlider = ({ className, children }: SliderProps) => {
       ref.current.slickPlay();
       setCount(true);
     }
+
     console.log("count", count);
-  }
+  };
 
   return (
-    <div>
-      <Slider {...settings} className={classNames("mainVisualSlider", className)} ref={ref}>
+    <div className={"mainVisualSlider"}>
+      <Slider {...settings} ref={ref}>
         {children}
       </Slider>
       <div style={{ textAlign: "center" }}>
@@ -51,7 +56,7 @@ const MainVisualSlider = ({ className, children }: SliderProps) => {
   );
 };
 
-const MainNoticeSlider = ({ className, children }: SliderProps) => {
+const MainNoticeSlider = ({ children }: SliderProps) => {
   const settings: Settings = {
     dots: true,
     infinite: false,
@@ -88,15 +93,13 @@ const MainNoticeSlider = ({ className, children }: SliderProps) => {
   };
 
   return (
-    <div>
-      <Slider {...settings} className={classNames("visualSlider", className)}>
-        {children}
-      </Slider>
+    <div className="mainNoticeSlider">
+      <Slider {...settings}>{children}</Slider>
     </div>
   );
 };
 
 export default Object.assign(Sliders, {
   MainVisual: MainVisualSlider,
-  MainNotive: MainNoticeSlider,
+  MainNotice: MainNoticeSlider,
 });
