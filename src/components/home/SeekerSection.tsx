@@ -2,7 +2,7 @@ import React from "react";
 
 import TitledSection from "@/components/home/TitledSection";
 import List from "@/components/list";
-import styles from "@/components/home/SeekerSection.module.scss";
+import "@/components/home/SeekerSection.scoped.scss";
 
 const SeekerSection = () => (
   <TitledSection
@@ -14,7 +14,7 @@ const SeekerSection = () => (
       "우수하고 훌륭한 인재들에게 적극적으로 제안해보세요!",
     ]}
   >
-    <div className={styles.content}>
+    <div className="content">
       <List.Seeker />
     </div>
   </TitledSection>

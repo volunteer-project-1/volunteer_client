@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from "react";
 
-import styles from "@/components/home/SearchSection.module.scss";
+import "@/components/home/SearchSection.scoped.scss";
 import Background from "@/images/home/search-background.jpg";
 import Icon from "@/images/home/search-icon.svg";
 
@@ -24,21 +24,21 @@ const SearchSection = () => {
   };
 
   return (
-    <div className={styles.searchSection}>
-      <img className={styles.background} src={Background.src} alt={"Background"} />
-      <div className={styles.content}>
-        <div className={styles.description}>궁금한것은 무엇이든 검색해보세요!</div>
-        <div className={styles.searchArea}>
-          <img className={styles.searchIcon} src={Icon.src} alt={"Icon"} />
-          <input className={styles.searchInput} type={"text"} title={"검색"} value={input} onChange={onChangeInput} />
-          <button className={styles.searchButton} onClick={onClickSearch}>
+    <div className="searchSection">
+      <img className="background" src={Background.src} alt={"Background"} />
+      <div className="content">
+        <div className="description">궁금한것은 무엇이든 검색해보세요!</div>
+        <div className="searchArea">
+          <img className="searchIcon" src={Icon.src} alt={"Icon"} />
+          <input className="searchInput" type={"text"} title={"검색"} value={input} onChange={onChangeInput} />
+          <button className="searchButton" onClick={onClickSearch}>
             검색
           </button>
         </div>
-        <div className={styles.tags}>
+        <div className="tags">
           {exampleTags.map(tag => (
             <button
-              className={styles.tagButton}
+              className="tagButton"
               key={tag}
               type={"button"}
               onClick={() => {

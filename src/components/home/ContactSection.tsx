@@ -2,7 +2,7 @@ import { ChangeEvent, useState } from "react";
 
 import Checkbox from "@/components/home/Checkbox";
 import TopButton from "@/components/home/TopButton";
-import styles from "@/components/home/ContactSection.module.scss";
+import "@/components/home/ContactSection.scoped.scss";
 import Background from "@/images/home/contact-background.jpg";
 import Fold from "@/images/home/contact-fold.svg";
 
@@ -45,51 +45,51 @@ const ContactSection = () => {
   };
 
   return (
-    <div className={styles.contactSection}>
-      <img className={styles.background} src={Background.src} alt={"Background"} />
-      <div className={styles.content}>
-        <div className={styles.aboutColumn}>
+    <div className="contactSection">
+      <img className="background" src={Background.src} alt={"Background"} />
+      <div className="content">
+        <div className="aboutColumn">
           <div>
-            <div className={styles.aboutTitle}>Contact us!</div>
-            <div className={styles.aboutDescription}>
+            <div className="aboutTitle">Contact us!</div>
+            <div className="aboutDescription">
               언제든 궁금한 점이 있으면 연락주세요.
               <br />
               언제나 답변해드립니다.
             </div>
           </div>
         </div>
-        <div className={styles.formColumn}>
-          <div className={styles.formTitle}>사용자 정보</div>
-          <div className={styles.formLabel}>이름</div>
+        <div className="formColumn">
+          <div className="formTitle">사용자 정보</div>
+          <div className="formLabel">이름</div>
           <input
-            className={styles.textFieldForm}
+            className="textFieldForm"
             type={"text"}
             value={inputs.name}
             onChange={event => {
               onChangeInput(event, "name");
             }}
           />
-          <div className={styles.formLabel}>연락처</div>
+          <div className="formLabel">연락처</div>
           <input
-            className={styles.textFieldForm}
+            className="textFieldForm"
             type={"text"}
             value={inputs.contact}
             onChange={event => {
               onChangeInput(event, "contact");
             }}
           />
-          <div className={styles.formLabel}>메일주소</div>
+          <div className="formLabel">메일주소</div>
           <input
-            className={styles.textFieldForm}
+            className="textFieldForm"
             type={"email"}
             value={inputs.email}
             onChange={event => {
               onChangeInput(event, "email");
             }}
           />
-          <div className={styles.formLabel}>문의사항</div>
+          <div className="formLabel">문의사항</div>
           <textarea
-            className={styles.textAreaForm}
+            className="textAreaForm"
             rows={5}
             value={inputs.question}
             onChange={event => {
@@ -97,19 +97,19 @@ const ContactSection = () => {
             }}
           />
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-          <label className={styles.formInlineLabel}>
+          <label className="formInlineLabel">
             <Checkbox
-              className={styles.checkboxForm}
+              className="checkboxForm"
               checked={checks.privacy}
               onChange={event => {
                 onChangeCheck(event, "privacy");
               }}
             />
             개인정보 취급방침 동의
-            <img className={styles.foldButton} src={Fold.src} alt={"Fold"} />
+            <img className="foldButton" src={Fold.src} alt={"Fold"} />
           </label>
-          <div className={styles.sendRow}>
-            <button className={styles.sendButton} type={"button"} onClick={onClickSend}>
+          <div className="sendRow">
+            <button className="sendButton" type={"button"} onClick={onClickSend}>
               보내기
             </button>
             <TopButton />

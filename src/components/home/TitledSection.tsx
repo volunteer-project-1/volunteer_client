@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import classNames from "classnames";
 
-import styles from "@/components/home/TitledSection.module.scss";
+import "@/components/home/TitledSection.scoped.scss";
 
 interface TitledSectionProps {
   backgroundStyle: "light" | "dark";
@@ -22,21 +22,21 @@ interface TitledSectionProps {
  */
 const TitledSection = ({ backgroundStyle, titleStyle, titleParts, descriptionParts, children }: TitledSectionProps) => (
   <div
-    className={classNames(styles.section, {
-      [styles.isDark]: backgroundStyle === "dark",
+    className={classNames("section", {
+      isDark: backgroundStyle === "dark",
     })}
   >
     <div
-      className={classNames(styles.sectionTitleArea, {
-        [styles.isCenter]: titleStyle === "center",
+      className={classNames("sectionTitleArea", {
+        isCenter: titleStyle === "center",
       })}
     >
-      <div className={styles.sectionTitle}>
-        <span className={styles.sectionTitleEmphasize}>{titleParts[0]}</span>
+      <div className="sectionTitle">
+        <span className="sectionTitleEmphasize">{titleParts[0]}</span>
         &nbsp;
         {titleParts[1]}
       </div>
-      <div className={styles.sectionDescription}>
+      <div className="sectionDescription">
         {descriptionParts.map(part => (
           <div key={part}>{part}</div>
         ))}

@@ -29,6 +29,7 @@ module.exports = {
       }
     };
 
+    // .scoped.(s)css 처리.
     const scoped2css = {
       loader: "scoped-css-loader"
     };
@@ -38,6 +39,7 @@ module.exports = {
       options: {
         sourceMap: dev,
         importLoaders: 2,
+        // .module.(s)css 처리.
         modules: {
           auto: true,
           localIdentName: "[name]_[local]__[hash:base64:5]"

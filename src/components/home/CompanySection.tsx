@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Company } from "@/types/User";
 import UserAPI from "@/api/UserAPI";
 import TitledSection from "@/components/home/TitledSection";
-import styles from "@/components/home/CompanySection.module.scss";
+import "@/components/home/CompanySection.scoped.scss";
 import Card from "@/components/card";
 
 const CompanySection = () => {
@@ -37,17 +37,17 @@ const CompanySection = () => {
       titleParts={["당신을", "기다립니다"]}
       descriptionParts={["당신의 능력을 펼쳐보세요! 당신을 기다리는 기업이 이만큼 존재한답니다."]}
     >
-      <div className={styles.content}>
-        <div className={styles.grid}>
+      <div className="content">
+        <div className="grid">
           {columns.map((column, index) => (
-            <div className={styles.column} key={index}>
+            <div className="column" key={index}>
               {column.map(company => (
                 <Card.Company key={company.id} company={company} />
               ))}
             </div>
           ))}
         </div>
-        <button type={"button"} className={styles.moreButton} onClick={onClickMore}>
+        <button type={"button"} className="moreButton" onClick={onClickMore}>
           더보기
         </button>
       </div>

@@ -1,6 +1,7 @@
 import React, { ComponentProps } from "react";
+import classNames from "classnames";
 
-import styles from "@/components/home/Checkbox.module.scss";
+import "@/components/home/Checkbox.scoped.scss";
 
 // <input/>의 props에서 type 제외.
 type CheckboxProps = Omit<ComponentProps<"input">, "type">;
@@ -12,8 +13,8 @@ type CheckboxProps = Omit<ComponentProps<"input">, "type">;
  */
 const Checkbox = ({ className = "", ...others }: CheckboxProps) => (
   <>
-    <input className={styles.realCheckbox} type={"checkbox"} {...others} />
-    <span className={`${styles.fakeCheckbox} ${className}`} />
+    <input className="realCheckbox" type={"checkbox"} {...others} />
+    <span className={classNames("fakeCheckbox", className)} />
   </>
 );
 

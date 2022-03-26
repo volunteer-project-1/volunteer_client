@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "@/components/home/LinkCard.module.scss";
+import "@/components/home/LinkCard.scoped.scss";
 
 interface LinkCardProps {
   title: string;
@@ -8,6 +8,6 @@ interface LinkCardProps {
   url: string;
 }
 
-const LinkCard = ({ title, description, url }: LinkCardProps) => <div className={styles.linkCard}>{description}</div>;
+const LinkCard = ({ title, description, url }: LinkCardProps) => <div className="linkCard">{description}</div>;
 
 export default LinkCard;

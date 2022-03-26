@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import createEmotionServer from "@emotion/server/create-instance";
 

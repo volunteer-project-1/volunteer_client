@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "@/components/home/TopButton.module.scss";
+import "@/components/home/TopButton.scoped.scss";
 import Icon from "@/images/home/top.svg";
 
 /**
@@ -12,7 +12,7 @@ const TopButton = () => {
   };
 
   return (
-    <button className={styles.topButton} type={"button"} onClick={onClick}>
+    <button className="topButton" type={"button"} onClick={onClick}>
       <img src={Icon.src} alt={"Top"} />
       <br />
       TOP
