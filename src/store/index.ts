@@ -1,3 +1,15 @@
+/**
+ * @file Redux store 정의.
+ *
+ * (1) 상태 추가하기
+ * - 별도의 파일에 slice 생성
+ * - combinedReducer에 [MySlice.name]: MySlice.reducer 추가
+ *
+ * (2) 상태 가져오기 / 상태 업데이트
+ * - 아래의 useStoreSelector(), useStoreDispatch() 참고
+ * - (자료형 체크 때문에, useSelector(), useDispatch() 직접 사용은 비권장!!)
+ */
+
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 import { HYDRATE, createWrapper } from "next-redux-wrapper";
@@ -43,7 +55,7 @@ export const storeWrapper = createWrapper(context => store, {
 
 /**
  * Type-safe wrapper of useDispatch().
- * 주어진 action을 실행.
+ * 주어진 action을 실행해서 상태를 업데이트.
  *
  * @example
  * const dispatch = useStoreDispatch();
@@ -53,7 +65,7 @@ export const useStoreDispatch: () => typeof store.dispatch = useDispatch;
 
 /**
  * Type-safe wrapper of useSelector().
- * Store를 바탕으로 원하는 값을 계산.
+ * 현재 상태 또는 상태 기반의 값을 가져옴.
  *
  * @example
  * const value = useStoreSelector(state => state.example.value);
