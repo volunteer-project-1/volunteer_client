@@ -1,4 +1,4 @@
-.content {
+.myPageSection {
   position: relative;
 
   width: 100%;
@@ -7,51 +7,51 @@
   @include tablet {
     height: auto;
   }
-}
 
-.video {
-  width: 1150px;
-  max-width: 100%;
-}
-
-.overlapArea {
-  @extend .inner;
-
-  z-index: -1;
-  box-sizing: border-box;
-  position: absolute;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 0 16px;
-
-  @include tablet {
-    display: none;
+  .video {
+    width: 1150px;
+    max-width: 100%;
   }
-}
 
-.card {
-  margin-top: auto;
-  margin-bottom: 64px;
-  margin-right: 63px;
-}
+  .overlapArea {
+    @extend .inner;
 
-.cardTitle {
-  @extend .font, .green, .bold, .size20;
-}
+    z-index: -1;
+    box-sizing: border-box;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 
-.cardDescription {
-  width: 475px;
-  margin-top: 12px;
-}
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 16px;
 
-.image {
-  flex: 1;
+    @include tablet {
+      display: none;
+    }
+  }
 
-  // flex: 1 안 먹히고 overflow 일어나는거 막음.
-  min-width: 0;
+  .card {
+    margin-top: auto;
+    margin-bottom: 64px;
+    margin-right: 63px;
+  }
+
+  .cardTitle {
+    @extend .font, .green, .bold, .size20;
+  }
+
+  .cardDescription {
+    width: 475px;
+    margin-top: 12px;
+  }
+
+  .image {
+    flex: 1;
+
+    // flex: 1 안 먹히고 overflow 일어나는거 막음.
+    min-width: 0;
+  }
 }

@@ -22,7 +22,7 @@ interface TitledSectionProps {
  */
 const TitledSection = ({ backgroundStyle, titleStyle, titleParts, descriptionParts, children }: TitledSectionProps) => (
   <div
-    className={classNames("section", {
+    className={classNames("titledSection", {
       isDark: backgroundStyle === "dark",
     })}
   >

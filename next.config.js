@@ -6,7 +6,7 @@ module.exports = {
     // <html lang="...">을 설정해줌.
     defaultLocale: "ko",
   },
-  webpack: (config, { dev, webpack }) => {
+  webpack: (config, { dev, webpack, isServer }) => {
     config.resolve.alias = {
       ...config.resolve.alias,
       // IE 지원 위해 mui는 legacy build 사용.
@@ -19,6 +19,7 @@ module.exports = {
       "@mui/utils": "@mui/utils/legacy"
     };
 
+    // SCSS 처리.
     const sass2css = {
       loader: "sass-loader",
       options: {
@@ -34,6 +35,7 @@ module.exports = {
       loader: "scoped-css-loader"
     };
 
+    // CSS 내의 import 등 처리.
     const css2css = {
       loader: "css-loader",
       options: {
@@ -47,8 +49,14 @@ module.exports = {
       }
     };
 
+    // .css 파일 생성.
     const css2file = {
       loader: MiniCssExtractPlugin.loader
+    };
+
+    // <style> 생성.
+    const css2style = {
+      loader: "style-loader"
     };
 
     // use는 배열의 역순으로 처리됨에 유의!
@@ -56,7 +64,14 @@ module.exports = {
       ...config.module.rules,
       {
         test: /\.(sc|c|sa)ss$/,
-        use: [css2file, css2css, scoped2css, sass2css]
+        use: [
+          // 개발 모드에서 .css 생성으로 통일하면 라우팅 시 스타일 안 먹는 문제 있음.
+          // 개발 모드: SSR은 .css 생성, CSR은 <style/> 생성 / 배포 모드: 항상 .css 생성.
+          (isServer || !dev) ? css2file : css2style,
+          css2css,
+          scoped2css,
+          sass2css
+        ]
       }
     ];
 

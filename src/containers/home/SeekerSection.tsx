@@ -14,7 +14,7 @@ const SeekerSection = () => (
       "우수하고 훌륭한 인재들에게 적극적으로 제안해보세요!",
     ]}
   >
-    <div className="content">
+    <div className="seekerSection">
       <List.Seeker />
     </div>
   </TitledSection>

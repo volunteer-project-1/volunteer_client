@@ -49,38 +49,36 @@ const mainNoticeContent: Array<MainNotiveSliderProps> = [
 
 const MainSection = () => (
   <div className="mainSection">
-    <div className="content">
-      <Slider.MainVisual>
-        {mainVisualContent.map((list, i) => (
-          <div key={i}>
-            <Image {...require(`@/images/home/${list.img}`).default} alt=" " />
+    <Slider.MainVisual>
+      {mainVisualContent.map((list, i) => (
+        <div key={i}>
+          <Image {...require(`@/images/home/${list.img}`).default} alt=" " />
 
-            <div className="descriptionArea">
-              <div className="title1">{list.title}</div>
-              <div className="title2">{list.subTitle}</div>
-              <div className="description">{list.description}</div>
-              <button className="moreButton" type="button">
-                Learn More
-              </button>
-            </div>
+          <div className="descriptionArea">
+            <div className="title1">{list.title}</div>
+            <div className="title2">{list.subTitle}</div>
+            <div className="description">{list.description}</div>
+            <button className="moreButton" type="button">
+              Learn More
+            </button>
           </div>
-        ))}
-      </Slider.MainVisual>
+        </div>
+      ))}
+    </Slider.MainVisual>
 
-      <Slider.MainNotice>
-        {mainNoticeContent.map((list, i) => (
-          <div key={i}>
-            <span className="group">{list.group}</span>
-            <Link href="jvavscript:void(0)">
-              <a className="title">
-                {list.title}
-                <div className="more">더보기</div>
-              </a>
-            </Link>
-          </div>
-        ))}
-      </Slider.MainNotice>
-    </div>
+    <Slider.MainNotice>
+      {mainNoticeContent.map((list, i) => (
+        <div key={i}>
+          <span className="group">{list.group}</span>
+          <Link href="jvavscript:void(0)">
+            <a className="title">
+              {list.title}
+              <div className="more">더보기</div>
+            </a>
+          </Link>
+        </div>
+      ))}
+    </Slider.MainNotice>
   </div>
 );
 

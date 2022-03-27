@@ -1,4 +1,4 @@
-.section {
+.titledSection {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -11,27 +11,27 @@
   &.isDark {
     background-color: #efeff4;
   }
-}
 
-.sectionTitleArea {
-  @extend .inner;
+  .sectionTitleArea {
+    @extend .inner;
 
-  &.isCenter {
-    text-align: center;
+    &.isCenter {
+      text-align: center;
+    }
   }
-}
 
-.sectionTitle {
-  @extend .font, .green, .size48, .w300;
-}
+  .sectionTitle {
+    @extend .font, .green, .size48, .w300;
+  }
 
-.sectionTitleEmphasize {
-  font-weight: bold;
-}
+  .sectionTitleEmphasize {
+    font-weight: bold;
+  }
 
-.sectionDescription {
-  margin-top: 19px;
-  margin-bottom: 48px;
+  .sectionDescription {
+    margin-top: 19px;
+    margin-bottom: 48px;
 
-  @extend .font, .dark4, .size18;
+    @extend .font, .dark4, .size18;
+  }
 }

@@ -1,16 +1,16 @@
-.content {
+.seekerSection {
   display: flex;
   flex-direction: column;
   align-items: center;
 
   width: 100%;
   padding: 0 16px;
-}
 
-.seekerCards {
-  white-space: nowrap;
-  overflow-x: auto;
-  text-align: center;
+  .seekerCards {
+    white-space: nowrap;
+    overflow-x: auto;
+    text-align: center;
 
-  width: 100%;
+    width: 100%;
+  }
 }

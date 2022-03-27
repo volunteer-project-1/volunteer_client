@@ -1,5 +1,4 @@
 import React, { ComponentProps } from "react";
-import classNames from "classnames";
 
 import "@/containers/home/Checkbox.scoped.scss";
 
@@ -11,10 +10,10 @@ type CheckboxProps = Omit<ComponentProps<"input">, "type">;
  * HTML 기본 체크박스가 스타일 커스텀이 안 되어서 만듬.
  * <input/>과 사용법이 동일함.
  */
-const Checkbox = ({ className = "", ...others }: CheckboxProps) => (
+const Checkbox = (props: CheckboxProps) => (
   <>
-    <input className="realCheckbox" type={"checkbox"} {...others} />
-    <span className={classNames("fakeCheckbox", className)} />
+    <input className="hiddenCheckbox" type={"checkbox"} {...props} />
+    <span className="checkbox" />
   </>
 );
 

@@ -2,144 +2,144 @@
   position: relative;
 
   width: 100%;
-}
 
-.background {
-  width: 100%;
-}
-
-.content {
-  position: absolute;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-  top: 50%;
-  left: 0;
-  width: 100%;
-  transform: translateY(-50%);
-}
-
-@mixin limitWidth {
-  width: 600px;
-}
-
-@mixin column {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  flex: 1;
-  height: 100%;
-}
-
-.aboutColumn {
-  align-items: center;
-
-  @include column;
-}
-
-.aboutTitle {
-  margin-bottom: 16px;
-
-  @extend .font, .lightgreen, .size50, .w500;
-}
-
-.aboutDescription {
-  @extend .font, .white;
-}
-
-.formColumn {
-  align-items: left;
-
-  @include column;
-}
-
-.formTitle {
-  margin-bottom: 59px;
-
-  @extend .font, .white, .w500;
-}
-
-.formLabel {
-  @extend .font, .white, .size16;
-
-  margin-bottom: 14px;
-}
-
-.formInlineLabel {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  @extend .font, .white, .size14;
-}
-
-@mixin form {
-  backdrop-filter: blur(8px);
-  background-color: rgba(255, 255, 255, 0.3);
-
-  font-family: inherit;
-
-  @extend .font, .white;
-}
-
-@mixin textForm {
-  @include form;
-  @include limitWidth;
-
-  box-sizing: border-box;
-
-  padding: 19px 24px;
-  margin-bottom: 20px;
-  border: 0;
-
-  &::placeholder {
-    // @extend .font, .white 쓰면 IE에서 이게 @extend 망가뜨림 -> 다른 부분들의 @extend까지 안 먹음.
-    // 따라서 여기만 color 하드코딩.
-    color: #fff;
+  .background {
+    width: 100%;
   }
-}
 
-.textFieldForm {
-  @include textForm;
-}
+  .content {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 
-.textAreaForm {
-  resize: none;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+  }
 
-  @include textForm;
-}
+  @mixin limitWidth {
+    width: 600px;
+  }
 
-.checkboxForm {
-  @include form;
+  @mixin column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-  margin-right: 10px;
-  border-radius: 4px;
-}
+    flex: 1;
+    height: 100%;
+  }
 
-.foldButton {
-  margin-left: 8.5px;
-  transform: rotate(180deg);
-}
+  .aboutColumn {
+    align-items: center;
 
-.sendRow {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
+    @include column;
+  }
 
-  width: 100%;
-  margin-top: 80px;
-  padding-right: 62px;
-}
+  .aboutTitle {
+    margin-bottom: 16px;
 
-.sendButton {
-  height: 60px;
-  border-style: solid;
-  border-width: 1px;
-  background-color: transparent;
+    @extend .font, .lightgreen, .size50, .w500;
+  }
 
-  @extend .font, .green;
-  @include limitWidth;
-  @include boxColor(border-color, green);
+  .aboutDescription {
+    @extend .font, .white;
+  }
+
+  .formColumn {
+    align-items: left;
+
+    @include column;
+  }
+
+  .formTitle {
+    margin-bottom: 59px;
+
+    @extend .font, .white, .w500;
+  }
+
+  .formLabel {
+    @extend .font, .white, .size16;
+
+    margin-bottom: 14px;
+  }
+
+  .formInlineLabel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    @extend .font, .white, .size14;
+  }
+
+  @mixin form {
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.3);
+
+    font-family: inherit;
+
+    @extend .font, .white;
+  }
+
+  @mixin textForm {
+    @include form;
+    @include limitWidth;
+
+    box-sizing: border-box;
+
+    padding: 19px 24px;
+    margin-bottom: 20px;
+    border: 0;
+
+    &::placeholder {
+      // @extend .font, .white 쓰면 IE에서 이게 @extend 망가뜨림 -> 다른 부분들의 @extend까지 안 먹음.
+      // 따라서 여기만 color 하드코딩.
+      color: #fff;
+    }
+  }
+
+  .textFieldForm {
+    @include textForm;
+  }
+
+  .textAreaForm {
+    resize: none;
+
+    @include textForm;
+  }
+
+  ::v-deep .checkbox {
+    @include form;
+
+    margin-right: 10px;
+    border-radius: 4px;
+  }
+
+  .foldButton {
+    margin-left: 8.5px;
+    transform: rotate(180deg);
+  }
+
+  .sendRow {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+    margin-top: 80px;
+    padding-right: 62px;
+  }
+
+  .sendButton {
+    height: 60px;
+    border-style: solid;
+    border-width: 1px;
+    background-color: transparent;
+
+    @extend .font, .green;
+    @include limitWidth;
+    @include boxColor(border-color, green);
+  }
 }

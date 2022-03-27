@@ -1,7 +1,7 @@
-.realCheckbox {
+.hiddenCheckbox {
   display: none;
 
-  &:checked + .fakeCheckbox::after {
+  &:checked + .checkbox::after {
     content: "\2714";
     position: absolute;
     display: flex;
@@ -19,7 +19,7 @@
   }
 }
 
-.fakeCheckbox {
+.checkbox {
   display: inline-block;
   position: relative;
 

@@ -1,4 +1,4 @@
-.content {
+.companySection {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -6,40 +6,40 @@
 
   width: 100%;
   padding: 0 16px;
-}
 
-.grid {
-  @extend .inner;
+  .grid {
+    @extend .inner;
 
-  overflow-x: auto;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  @include tablet {
-    white-space: nowrap;
-    width: 100%;
-  }
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
-
-  @include tablet {
+    overflow-x: auto;
+    box-sizing: border-box;
+    display: flex;
     flex-direction: row;
+    justify-content: space-between;
+
+    @include tablet {
+      white-space: nowrap;
+      width: 100%;
+    }
   }
-}
 
-.moreButton {
-  @extend .inner;
+  .column {
+    display: flex;
+    flex-direction: column;
 
-  height: 80px;
-  margin-top: 52px;
+    @include tablet {
+      flex-direction: row;
+    }
+  }
 
-  @include boxColor(background-color, white);
-  @include boxColor(border-color, dark4);
-  border-width: 1px;
-  border-style: solid;
+  .moreButton {
+    @extend .inner;
+
+    height: 80px;
+    margin-top: 52px;
+
+    @include boxColor(background-color, white);
+    @include boxColor(border-color, dark4);
+    border-width: 1px;
+    border-style: solid;
+  }
 }

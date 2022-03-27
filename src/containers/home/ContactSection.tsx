@@ -66,7 +66,7 @@ const ContactSection = () => {
           <textarea className="textAreaForm" rows={5} value={question} onChange={onChangeQuestion} />
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label className="formInlineLabel">
-            <Checkbox className="checkboxForm" checked={privacy} onChange={onChangePrivacy} />
+            <Checkbox checked={privacy} onChange={onChangePrivacy} />
             개인정보 취급방침 동의
             <img className="foldButton" src={Fold.src} alt={"Fold"} />
           </label>

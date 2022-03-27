@@ -1,4 +1,3 @@
-/* companyCard */
 .companyCard {
   position: relative;
   text-align: left;
@@ -28,49 +27,48 @@
   @include tablet {
     margin-right: 10px;
   }
-}
 
-.imageArea {
-  position: relative;
+  .imageArea {
+    position: relative;
 
-  width: 100%;
+    width: 100%;
 
-  @include tablet {
-    overflow-y: hidden;
+    @include tablet {
+      overflow-y: hidden;
 
-    height: 280px;
+      height: 280px;
+    }
+  }
+
+  .companyImage {
+    width: 100%;
+  }
+
+  .contentArea {
+    box-sizing: border-box;
+
+    width: 100%;
+    padding: 19px 26px 22px 26px;
+  }
+
+  .likeButtonArea {
+    position: absolute;
+
+    bottom: 14px;
+    right: 17px;
+  }
+
+  .name {
+    @extend .font, .bold;
+  }
+
+  .dDays {
+    margin-top: 10px;
+
+    @extend .font, .dark4;
   }
 }
 
-.companyImage {
-  width: 100%;
-}
-
-.contentArea {
-  box-sizing: border-box;
-
-  width: 100%;
-  padding: 19px 26px 22px 26px;
-}
-
-.likeButtonArea {
-  position: absolute;
-
-  bottom: 14px;
-  right: 17px;
-}
-
-.name {
-  @extend .font, .bold;
-}
-
-.dDays {
-  margin-top: 10px;
-
-  @extend .font, .dark4;
-}
-
-/* seekerCard */
 .seekerCard {
   box-sizing: border-box;
   display: inline-flex;
@@ -92,53 +90,53 @@
   &:not(:first-child) {
     margin-left: 33px;
   }
-}
 
-.profileArea {
-  position: relative;
-}
+  .profileArea {
+    position: relative;
+  }
 
-.profileImage {
-  width: 136px;
-  height: 136px;
-  border-radius: 50%;
-  object-fit: none;
+  .profileImage {
+    width: 136px;
+    height: 136px;
+    border-radius: 50%;
+    object-fit: none;
 
-  @include boxShadow;
-}
+    @include boxShadow;
+  }
 
-.likeButtonArea {
-  position: absolute;
+  .likeButtonArea {
+    position: absolute;
 
-  bottom: 0;
-  right: 0;
-}
+    bottom: 0;
+    right: 0;
+  }
 
-.nameArea {
-  margin-top: 35px;
-}
+  .nameArea {
+    margin-top: 35px;
+  }
 
-.name {
-  @extend .font, .bold;
-}
+  .name {
+    @extend .font, .bold;
+  }
 
-.age {
-  margin-left: 8px;
-}
+  .age {
+    margin-left: 8px;
+  }
 
-.jobArea {
-  margin-top: 14px;
-}
+  .jobArea {
+    margin-top: 14px;
+  }
 
-.suggestButton {
-  width: 233px;
-  height: 51px;
-  margin-top: 37px;
+  .suggestButton {
+    width: 233px;
+    height: 51px;
+    margin-top: 37px;
 
-  @include boxColor(border-color, green);
-  border-width: 1px;
-  border-style: solid;
-  background-color: transparent;
+    @include boxColor(border-color, green);
+    border-width: 1px;
+    border-style: solid;
+    background-color: transparent;
 
-  @extend .font, .green, .bold;
+    @extend .font, .green, .bold;
+  }
 }

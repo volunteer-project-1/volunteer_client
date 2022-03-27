@@ -2,45 +2,45 @@
   position: relative;
 
   width: 100%;
-}
 
-.background {
-  // img 하단에 마진 생기는 현상 막음.
-  // https://stackoverflow.com/a/10844318/2804329
-  vertical-align: middle;
+  .background {
+    // img 하단에 마진 생기는 현상 막음.
+    // https://stackoverflow.com/a/10844318/2804329
+    vertical-align: middle;
 
-  width: 100%;
-}
-
-.content {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  top: 0;
-  left: 50%;
-  height: 100%;
-}
-
-.about {
-  @extend .font, .white, .size30, .bold;
-}
-
-.description {
-  margin-top: 51px;
-
-  @extend .font, .white;
-
-  @include tablet {
-    display: none;
+    width: 100%;
   }
-}
 
-.logoArea {
-  position: absolute;
+  .content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-  width: 238px;
-  right: 0;
-  bottom: 6px;
+    top: 0;
+    left: 50%;
+    height: 100%;
+  }
+
+  .about {
+    @extend .font, .white, .size30, .bold;
+  }
+
+  .description {
+    margin-top: 51px;
+
+    @extend .font, .white;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  .logoArea {
+    position: absolute;
+
+    width: 238px;
+    right: 0;
+    bottom: 6px;
+  }
 }

@@ -13,7 +13,7 @@
 .mainVisualSlider,
 .mainNoticeSlider {
   // 마우스로 슬라이드 내부의 텍스트 선택 안 되는 것 수정.
-  ::v-deep .slick-slide {
+  ::v-deep .slick-slider {
     user-select: auto;
   }
 

@@ -1,11 +1,10 @@
 .loginSection {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    width: 544px;
-}
+  width: 544px;
 
-.textForm {
+  .textForm {
     box-sizing: border-box;
 
     width: 100%;
@@ -16,9 +15,9 @@
     @include boxColor(border-color, dark3);
 
     @extend .font, .size16;
-}
+  }
 
-.submitButton {
+  .submitButton {
     box-sizing: border-box;
 
     width: 100%;
@@ -29,4 +28,5 @@
     @include boxColor(border-color, green);
 
     @extend .font, .green, .w500, .size18;
+  }
 }
