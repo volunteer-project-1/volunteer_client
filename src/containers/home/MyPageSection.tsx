@@ -1,7 +1,7 @@
 import React from "react";
 
-import TitledSection from "@/components/home/TitledSection";
-import "@/components/home/MyPageSection.scoped.scss";
+import TitledSection from "@/containers/home/TitledSection";
+import "@/containers/home/MyPageSection.scoped.scss";
 
 import ExampleImage from "@/images/home/mypage-image.jpg";
 

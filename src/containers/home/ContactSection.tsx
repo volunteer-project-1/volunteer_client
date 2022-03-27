@@ -1,9 +1,9 @@
 import React from "react";
 
 import { useChecked, useValue } from "@/utils/StateUtils";
-import Checkbox from "@/components/home/Checkbox";
-import TopButton from "@/components/home/TopButton";
-import "@/components/home/ContactSection.scoped.scss";
+import Checkbox from "@/containers/home/Checkbox";
+import TopButton from "@/containers/home/TopButton";
+import "@/containers/home/ContactSection.scoped.scss";
 import Background from "@/images/home/contact-background.jpg";
 import Fold from "@/images/home/contact-fold.svg";
 

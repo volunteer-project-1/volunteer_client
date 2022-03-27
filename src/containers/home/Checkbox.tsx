@@ -1,7 +1,7 @@
 import React, { ComponentProps } from "react";
 import classNames from "classnames";
 
-import "@/components/home/Checkbox.scoped.scss";
+import "@/containers/home/Checkbox.scoped.scss";
 
 // <input/>의 props에서 type 제외.
 type CheckboxProps = Omit<ComponentProps<"input">, "type">;

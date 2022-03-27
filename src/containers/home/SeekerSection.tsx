@@ -1,8 +1,8 @@
 import React from "react";
 
-import TitledSection from "@/components/home/TitledSection";
+import TitledSection from "@/containers/home/TitledSection";
 import List from "@/components/list";
-import "@/components/home/SeekerSection.scoped.scss";
+import "@/containers/home/SeekerSection.scoped.scss";
 
 const SeekerSection = () => (
   <TitledSection

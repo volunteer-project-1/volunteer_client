@@ -1,6 +1,6 @@
 import React from "react";
 
-import "@/components/home/TopButton.scoped.scss";
+import "@/containers/home/TopButton.scoped.scss";
 import Icon from "@/images/home/top.svg";
 
 /**

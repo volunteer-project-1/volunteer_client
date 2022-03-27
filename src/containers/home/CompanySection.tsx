@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 
 import { Company } from "@/types/User";
 import UserAPI from "@/api/UserAPI";
-import TitledSection from "@/components/home/TitledSection";
+import TitledSection from "@/containers/home/TitledSection";
 import Card from "@/components/card";
-import "@/components/home/CompanySection.scoped.scss";
+import "@/containers/home/CompanySection.scoped.scss";
 
 const CompanySection = () => {
   const [currentCompanyList, setCurrentCompanyList] = useState<Array<Company>>([]);

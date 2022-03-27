@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import classNames from "classnames";
 
-import "@/components/home/TitledSection.scoped.scss";
+import "@/containers/home/TitledSection.scoped.scss";
 
 interface TitledSectionProps {
   backgroundStyle: "light" | "dark";

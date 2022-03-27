@@ -2,12 +2,12 @@ import React from "react";
 
 import Page from "@/components/page";
 import MainSection from "@/containers/Main";
-import SearchSection from "@/components/home/SearchSection";
-import SeekerSection from "@/components/home/SeekerSection";
-import CompanySection from "@/components/home/CompanySection";
-import MyPageSection from "@/components/home/MyPageSection";
-import BannerSection from "@/components/home/BannerSection";
-import ContactSection from "@/components/home/ContactSection";
+import SearchSection from "@/containers/home/SearchSection";
+import SeekerSection from "@/containers/home/SeekerSection";
+import CompanySection from "@/containers/home/CompanySection";
+import MyPageSection from "@/containers/home/MyPageSection";
+import BannerSection from "@/containers/home/BannerSection";
+import ContactSection from "@/containers/home/ContactSection";
 
 /**
  * 메인 페이지.

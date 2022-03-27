@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from "react";
 
-import "@/components/home/SearchSection.scoped.scss";
+import "@/containers/home/SearchSection.scoped.scss";
 import Background from "@/images/home/search-background.jpg";
 import Icon from "@/images/home/search-icon.svg";
 

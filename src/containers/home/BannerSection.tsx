@@ -1,6 +1,6 @@
 import React from "react";
 
-import "@/components/home/BannerSection.scoped.scss";
+import "@/containers/home/BannerSection.scoped.scss";
 import Background from "@/images/home/banner-background.jpg";
 import Logo from "@/images/home/banner-logo.png";
 

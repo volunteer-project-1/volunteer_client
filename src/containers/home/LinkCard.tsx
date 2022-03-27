@@ -1,6 +1,6 @@
 import React from "react";
 
-import "@/components/home/LinkCard.scoped.scss";
+import "@/containers/home/LinkCard.scoped.scss";
 
 interface LinkCardProps {
   title: string;
