@@ -1,6 +1,7 @@
-import React, { ChangeEvent, useState } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 
+import { useValue } from "@/utils/StateUtils";
 import AuthAPI from "@/api/AuthAPI";
 import UserAPI from "@/api/UserAPI";
 import { useStoreDispatch } from "@/store";
@@ -12,16 +13,8 @@ const LoginSection = () => {
   const router = useRouter();
   const dispatch = useStoreDispatch();
 
-  const [id, setID] = useState("");
-  const [password, setPassword] = useState("");
-
-  const onChangeID = (event: ChangeEvent<HTMLInputElement>) => {
-    setID(event.target.value);
-  };
-
-  const onChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
+  const [id, onChangeID] = useValue("");
+  const [password, onChangePassword] = useValue("");
 
   const onClickLogin = async () => {
     await AuthAPI.doLocalLogin({

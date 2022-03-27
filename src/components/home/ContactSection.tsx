@@ -1,5 +1,6 @@
-import { ChangeEvent, useState } from "react";
+import React from "react";
 
+import { useChecked, useValue } from "@/utils/StateUtils";
 import Checkbox from "@/components/home/Checkbox";
 import TopButton from "@/components/home/TopButton";
 import "@/components/home/ContactSection.scoped.scss";
@@ -29,19 +30,14 @@ interface Checks {
 }
 
 const ContactSection = () => {
-  const [inputs, setInputs] = useState<Inputs>({ name: "", contact: "", email: "", question: "" });
-  const [checks, setChecks] = useState<Checks>({ privacy: false });
-
-  const onChangeInput = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, key: keyof Inputs) => {
-    setInputs({ ...inputs, [key]: event.target.value });
-  };
-
-  const onChangeCheck = (event: ChangeEvent<HTMLInputElement>, key: keyof Checks) => {
-    setChecks({ ...checks, [key]: event.target.checked });
-  };
+  const [name, onChangeName] = useValue("");
+  const [contact, onChangeContact] = useValue("");
+  const [email, onChangeEmail] = useValue("");
+  const [question, onChangeQuestion] = useValue("");
+  const [privacy, onChangePrivacy] = useChecked(false);
 
   const onClickSend = () => {
-    alert(JSON.stringify({ inputs, checks }, null, 2));
+    alert(JSON.stringify({ name, contact, email, question, privacy }, null, 2));
   };
 
   return (
@@ -61,50 +57,16 @@ const ContactSection = () => {
         <div className="formColumn">
           <div className="formTitle">사용자 정보</div>
           <div className="formLabel">이름</div>
-          <input
-            className="textFieldForm"
-            type={"text"}
-            value={inputs.name}
-            onChange={event => {
-              onChangeInput(event, "name");
-            }}
-          />
+          <input className="textFieldForm" type={"text"} value={name} onChange={onChangeName} />
           <div className="formLabel">연락처</div>
-          <input
-            className="textFieldForm"
-            type={"text"}
-            value={inputs.contact}
-            onChange={event => {
-              onChangeInput(event, "contact");
-            }}
-          />
+          <input className="textFieldForm" type={"text"} value={contact} onChange={onChangeContact} />
           <div className="formLabel">메일주소</div>
-          <input
-            className="textFieldForm"
-            type={"email"}
-            value={inputs.email}
-            onChange={event => {
-              onChangeInput(event, "email");
-            }}
-          />
+          <input className="textFieldForm" type={"email"} value={email} onChange={onChangeEmail} />
           <div className="formLabel">문의사항</div>
-          <textarea
-            className="textAreaForm"
-            rows={5}
-            value={inputs.question}
-            onChange={event => {
-              onChangeInput(event, "question");
-            }}
-          />
+          <textarea className="textAreaForm" rows={5} value={question} onChange={onChangeQuestion} />
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label className="formInlineLabel">
-            <Checkbox
-              className="checkboxForm"
-              checked={checks.privacy}
-              onChange={event => {
-                onChangeCheck(event, "privacy");
-              }}
-            />
+            <Checkbox className="checkboxForm" checked={privacy} onChange={onChangePrivacy} />
             개인정보 취급방침 동의
             <img className="foldButton" src={Fold.src} alt={"Fold"} />
           </label>

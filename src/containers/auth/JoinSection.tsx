@@ -1,35 +1,19 @@
-import React, { ChangeEvent, useState } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 
+import { useValue } from "@/utils/StateUtils";
 import AuthAPI from "@/api/AuthAPI";
 import Box from "@/containers/auth/Box";
 import "@/containers/auth/JoinSection.scoped.scss";
-
 import Background from "@/images/auth/join-background.jpg";
 
 const JoinSection = () => {
   const router = useRouter();
 
-  const [id, setID] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [nickname, setNickname] = useState("");
-
-  const onChangeID = (event: ChangeEvent<HTMLInputElement>) => {
-    setID(event.target.value);
-  };
-
-  const onChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
-
-  const onChangePasswordConfirm = (event: ChangeEvent<HTMLInputElement>) => {
-    setPasswordConfirm(event.target.value);
-  };
-
-  const onChangeNickname = (event: ChangeEvent<HTMLInputElement>) => {
-    setNickname(event.target.value);
-  };
+  const [id, onChangeID] = useValue("");
+  const [password, onChangePassword] = useValue("");
+  const [passwordConfirm, onChangePasswordConfirm] = useValue("");
+  const [nickname, onChangeNickname] = useValue("");
 
   const onClickJoin = async () => {
     await AuthAPI.doLocalJoin({
