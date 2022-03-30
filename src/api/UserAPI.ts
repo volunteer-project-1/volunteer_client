@@ -7,7 +7,8 @@ interface UserProfileResponse {
     email: string;
     user_meta: {
       id: number;
-      type: "company" | "seeker";
+      // TODO: 테스트 서버에 seeker, company 반영되면 바꿀 예정.
+      type: "employee" | "employer";
       is_verified: number;
     };
   };
