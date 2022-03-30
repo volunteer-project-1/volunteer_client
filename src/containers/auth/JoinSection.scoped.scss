@@ -8,14 +8,33 @@
     box-sizing: border-box;
 
     width: 100%;
-    margin-bottom: 20px;
     padding: 18px 18.5px;
 
+    outline: 0;
     border-style: solid;
     border-width: 1px;
+    border-radius: 4px;
     @include boxColor(border-color, dark3);
 
     @extend .font, .size16;
+
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+
+    &.isWrong {
+      @include boxColor(border-color, red);
+    }
+  }
+
+  .textFormMessage {
+    margin-top: 8px;
+
+    @extend .font, .size16, .w300, .green;
+
+    &.isWrong {
+      @extend .font, .red;
+    }
   }
 
   .backgroundArea {
@@ -29,6 +48,7 @@
   .submitButton {
     box-sizing: border-box;
 
+    margin-top: 27px;
     padding: 14px 42px;
 
     border-style: solid;

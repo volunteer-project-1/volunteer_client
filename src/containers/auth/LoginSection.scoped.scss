@@ -17,11 +17,36 @@
     width: 100%;
     padding: 18px 18.5px;
 
+    outline: 0;
     border-style: solid;
     border-width: 1px;
     @include boxColor(border-color, dark3);
 
     @extend .font, .size16;
+
+    &:first-of-type {
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+    }
+
+    &:last-of-type {
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+
+    &.hasError {
+      @include boxColor(border-color, red);
+    }
+  }
+
+  .textFormMessage {
+    margin-top: 17px;
+
+    @extend .font, .size16, .w300, .green;
+
+    &.isWrong {
+      @extend .font, .red;
+    }
   }
 
   .submitButton {

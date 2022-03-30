@@ -2,6 +2,8 @@ import React from "react";
 import { useRouter } from "next/router";
 
 import { useValue } from "@/utils/StateUtils";
+import { strictValues } from "@/utils/TypeUtils";
+import { isEmail, isPassword } from "@/utils/StringUtils";
 import AuthAPI from "@/api/AuthAPI";
 import UserAPI from "@/api/UserAPI";
 import { useStoreDispatch } from "@/store";
@@ -17,7 +19,18 @@ const LoginSection = () => {
   const [id, onChangeID] = useValue("");
   const [password, onChangePassword] = useValue("");
 
+  const flags = {
+    isIDRight: isEmail(id),
+    isPasswordRight: isPassword(password),
+  };
+
+  const hasWrongFlag = strictValues(flags).includes(false);
+
   const onClickLogin = async () => {
+    if (hasWrongFlag) {
+      return;
+    }
+
     await AuthAPI.doLocalLogin({
       email: id,
       password,
@@ -50,6 +63,13 @@ const LoginSection = () => {
           value={password}
           onChange={onChangePassword}
         />
+        {id.length > 0 && password.length > 0 && hasWrongFlag && (
+          <div className="textFormMessage isWrong">
+            이메일 또는 비밀번호가 잘못 입력 되었습니다.
+            <br />
+            이메일과 비밀번호를 정확히 입력해 주세요.
+          </div>
+        )}
         <button className="submitButton" type="button" onClick={onClickLogin}>
           로그인
         </button>
