@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
+import classNames from "classnames";
 
 import { useValue } from "@/utils/StateUtils";
 import { strictValues } from "@/utils/TypeUtils";
 import { isEmail, isPassword } from "@/utils/StringUtils";
 import AuthAPI from "@/api/AuthAPI";
+import Dialog from "@/components/dialog";
 import Box from "@/containers/auth/Box";
 import "@/containers/auth/JoinSection.scoped.scss";
 import Background from "@/images/auth/join-background.jpg";
-import classNames from "classnames";
+import Success from "@/images/auth/join-success.svg";
 
 const JoinSection = () => {
   const router = useRouter();
@@ -18,6 +20,7 @@ const JoinSection = () => {
   const [password, onChangePassword] = useValue("");
   const [passwordConfirm, onChangePasswordConfirm] = useValue("");
   const [nickname, onChangeNickname] = useValue("");
+  const [isDialogOpen, setDialogOpen] = useState(false);
 
   const flags = {
     isIDRight: isEmail(id),
@@ -38,8 +41,17 @@ const JoinSection = () => {
       passwordConfirm,
     });
 
-    alert("회원가입 성공! 로그인 화면으로 이동합니다.");
+    setDialogOpen(true);
+  };
+
+  const onCloseDialog = () => {
     router.push("/auth/login");
+    setDialogOpen(false);
+  };
+
+  const onClickOK = () => {
+    router.push("/auth/login");
+    setDialogOpen(false);
   };
 
   return (
@@ -98,6 +110,15 @@ const JoinSection = () => {
       <div className="backgroundArea">
         <img className="backgroundImage" src={Background.src} alt="Background" />
       </div>
+      <Dialog isOpen={isDialogOpen} onClose={onCloseDialog}>
+        <img className="successIcon" src={Success.src} alt="Success" />
+        <Dialog.Content title="회원가입을 축하드립니다!">
+          회원가입이 완료되었습니다. See me에 오신것을 환영합니다.
+        </Dialog.Content>
+        <Dialog.Footer>
+          <Dialog.Button onClick={onClickOK}>확인</Dialog.Button>
+        </Dialog.Footer>
+      </Dialog>
     </div>
   );
 };

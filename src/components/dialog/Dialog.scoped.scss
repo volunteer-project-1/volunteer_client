@@ -1,0 +1,54 @@
+.dialog {
+  box-sizing: border-box;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 470px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-radius: 6px;
+
+  @include boxColor(background-color, white);
+}
+
+.dialogContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+
+  .dialogTitle {
+    @extend .font, .size20, .bold;
+  }
+
+  .dialogDescription {
+    margin-top: 11px;
+
+    @extend .font, .size16;
+  }
+}
+
+.dialogFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 100%;
+  margin-top: 30px;
+}
+
+// TODO: 가이드에 버튼 여러 개인 경우가 나오면 참고하여 버튼들의 간격 지정.
+.dialogButton {
+  padding: 14px 38px 14px 42px;
+
+  border-style: solid;
+  border-width: 1px;
+  @include boxColor(border-color, green);
+  @extend .font, .size18, .w500, .green;
+}

@@ -51,7 +51,6 @@ const LoginSection = () => {
       })
     );
 
-    alert("로그인 성공! 메인 화면으로 돌아갑니다.");
     router.push("/");
   };
 
