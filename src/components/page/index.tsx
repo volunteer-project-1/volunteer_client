@@ -20,4 +20,15 @@ const Page = ({ children }: PageProps) => (
   </div>
 );
 
-export default Page;
+interface PageTitleProps {
+  children: ReactNode;
+}
+
+/**
+ * 각 페이지의 제목 부분.
+ */
+const PageTitle = ({ children }: PageTitleProps) => <div className="pageTitle">{children}</div>;
+
+export default Object.assign(Page, {
+  Title: PageTitle,
+});

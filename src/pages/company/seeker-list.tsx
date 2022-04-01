@@ -8,6 +8,7 @@ import SeekerSection from "@/containers/company/SeekerSection";
  */
 const SeekerListPage = () => (
   <Page>
+    <Page.Title>TOP 인재</Page.Title>
     <SeekerSection />
   </Page>
 );
