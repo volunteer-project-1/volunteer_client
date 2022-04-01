@@ -4,7 +4,7 @@ import { ThemeProvider } from "@mui/material";
 
 import { storeWrapper } from "@/store";
 import { createEmotionCache, muiLightTheme } from "@/utils/StyleUtils";
-import "@/assets/scss/reset.scss";
+import "@/scss/reset.scss";
 
 const clientSideEmotionCache = createEmotionCache();
 
