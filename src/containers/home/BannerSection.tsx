@@ -1,12 +1,10 @@
 import React from "react";
 
 import "@/containers/home/BannerSection.scoped.scss";
-import Background from "@/images/home/banner-background.jpg";
-import Logo from "@/images/home/banner-logo.png";
 
 const BannerSection = () => (
   <div className="bannerSection">
-    <img className="background" src={Background.src} alt={"Banner"} />
+    <img className="background" src={"/assets/home/banner-background.jpg"} alt={"Banner"} />
     <div className="content">
       <div className="about">
         나는 장애인이지만
@@ -18,7 +16,7 @@ const BannerSection = () => (
         많은 장애인분들이 매년 한국장애인고용공단의 지원을 받아 사회로 한발씩 다가가고 있습니다.
       </div>
       <div className="logoArea">
-        <img src={Logo.src} alt={"Logo"} />
+        <img src={"/assets/home/banner-logo.png"} alt={"Logo"} />
       </div>
     </div>
   </div>

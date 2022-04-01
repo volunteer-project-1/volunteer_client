@@ -4,8 +4,6 @@ import { useChecked, useValue } from "@/utils/StateUtils";
 import Checkbox from "@/containers/home/Checkbox";
 import TopButton from "@/containers/home/TopButton";
 import "@/containers/home/ContactSection.scoped.scss";
-import Background from "@/images/home/contact-background.jpg";
-import Fold from "@/images/home/contact-fold.svg";
 
 /**
  * 사용자가 입력한 것들.
@@ -42,7 +40,7 @@ const ContactSection = () => {
 
   return (
     <div className="contactSection">
-      <img className="background" src={Background.src} alt={"Background"} />
+      <img className="background" src={"/assets/home/contact-background.jpg"} alt={"Background"} />
       <div className="content">
         <div className="aboutColumn">
           <div>
@@ -68,7 +66,7 @@ const ContactSection = () => {
           <label className="formInlineLabel">
             <Checkbox checked={privacy} onChange={onChangePrivacy} />
             개인정보 취급방침 동의
-            <img className="foldButton" src={Fold.src} alt={"Fold"} />
+            <img className="foldButton" src={"/assets/home/contact-fold.svg"} alt={"Fold"} />
           </label>
           <div className="sendRow">
             <button className="sendButton" type={"button"} onClick={onClickSend}>

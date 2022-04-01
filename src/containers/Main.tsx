@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 import Slider from "@/components/slider";
@@ -52,7 +51,7 @@ const MainSection = () => (
     <Slider.MainVisual>
       {mainVisualContent.map((list, i) => (
         <div key={i}>
-          <Image {...require(`@/images/home/${list.img}`).default} alt=" " />
+          <img src={`/assets/home/${list.img}`} alt="" />
 
           <div className="descriptionArea">
             <div className="title1">{list.title}</div>
@@ -70,7 +69,7 @@ const MainSection = () => (
       {mainNoticeContent.map((list, i) => (
         <div key={i}>
           <span className="group">{list.group}</span>
-          <Link href="jvavscript:void(0)">
+          <Link href={"/"}>
             <a className="title">
               {list.title}
               <div className="more">더보기</div>

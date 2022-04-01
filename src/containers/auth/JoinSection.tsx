@@ -9,8 +9,6 @@ import AuthAPI from "@/api/AuthAPI";
 import Dialog from "@/components/dialog";
 import Box from "@/containers/auth/Box";
 import "@/containers/auth/JoinSection.scoped.scss";
-import Background from "@/images/auth/join-background.jpg";
-import Success from "@/images/auth/join-success.svg";
 
 const JoinSection = () => {
   const router = useRouter();
@@ -108,10 +106,10 @@ const JoinSection = () => {
         </button>
       </Box>
       <div className="backgroundArea">
-        <img className="backgroundImage" src={Background.src} alt="Background" />
+        <img className="backgroundImage" src={"/assets/auth/join-background.jpg"} alt="Background" />
       </div>
       <Dialog isOpen={isDialogOpen} onClose={onCloseDialog}>
-        <img className="successIcon" src={Success.src} alt="Success" />
+        <img className="successIcon" src={"/assets/auth/join-success.svg"} alt="Success" />
         <Dialog.Content title="회원가입을 축하드립니다!">
           회원가입이 완료되었습니다. See me에 오신것을 환영합니다.
         </Dialog.Content>

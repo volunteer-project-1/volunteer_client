@@ -3,9 +3,6 @@ import React from "react";
 import TitledSection from "@/containers/home/TitledSection";
 import "@/containers/home/MyPageSection.scoped.scss";
 
-import ExampleImage from "@/images/home/mypage-image.jpg";
-import ExampleVideo from "@/images/home/mypage-video.mp4";
-
 const MyPageSection = () => (
   <TitledSection
     backgroundStyle={"light"}
@@ -14,7 +11,7 @@ const MyPageSection = () => (
     descriptionParts={["영상으로 이력서를 남겨 사회에 나를 소개해 보아요."]}
   >
     <div className="myPageSection">
-      <video className="video" src={ExampleVideo} controls>
+      <video className="video" src={"/assets/home/mypage-video.mp4"} controls>
         <track kind={"captions"} />
       </video>
       <div className="overlapArea">
@@ -25,7 +22,7 @@ const MyPageSection = () => (
             PR을 하여 보아요! 사회는 여러분들의 적극적인 구직활동을 환영합니다!
           </div>
         </div>
-        <img className="image" src={ExampleImage.src} alt={"예시 이미지"} />
+        <img className="image" src={"/assets/home/mypage-image.jpg"} alt={"예시 이미지"} />
       </div>
     </div>
   </TitledSection>

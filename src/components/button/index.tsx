@@ -1,8 +1,6 @@
 import React, { ReactNode } from "react";
 
 import "@/components/button/Button.scoped.scss";
-import LikeOn from "@/images/home/like-on.svg";
-import LikeOff from "@/images/home/like-off.svg";
 
 interface ButtonProps {
   children: ReactNode;
@@ -19,7 +17,7 @@ interface LikeButtonProps {
 
 const LikeButton = ({ isLiked, onClick }: LikeButtonProps) => (
   <button className="likeButton" type="button" onClick={onClick}>
-    <img className="image" src={isLiked ? LikeOn.src : LikeOff.src} alt="좋아요" />
+    <img className="image" src={isLiked ? "/assets/home/like-on.svg" : "/assets/home/like-off.svg"} alt="좋아요" />
   </button>
 );
 

@@ -72,10 +72,6 @@ module.exports = {
           scoped2css,
           sass2css
         ]
-      },
-      {
-        test: /\.(mp4|webm)$/,
-        type: "asset/resource"
       }
     ];
 

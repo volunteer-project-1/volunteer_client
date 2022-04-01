@@ -1,8 +1,6 @@
 import React, { ChangeEvent, useState } from "react";
 
 import "@/containers/home/SearchSection.scoped.scss";
-import Background from "@/images/home/search-background.jpg";
-import Icon from "@/images/home/search-icon.svg";
 
 // 임시로 만듬...
 const exampleTags: Array<string> = ["일자리", "패럴림픽", "공개채용", "장애인_일자리"];
@@ -25,11 +23,11 @@ const SearchSection = () => {
 
   return (
     <div className="searchSection">
-      <img className="background" src={Background.src} alt={"Background"} />
+      <img className="background" src={"/assets/home/search-background.jpg"} alt={"Background"} />
       <div className="content">
         <div className="description">궁금한것은 무엇이든 검색해보세요!</div>
         <div className="searchArea">
-          <img className="searchIcon" src={Icon.src} alt={"Icon"} />
+          <img className="searchIcon" src={"/assets/home/search-icon.svg"} alt={"Icon"} />
           <input className="searchInput" type={"text"} title={"검색"} value={input} onChange={onChangeInput} />
           <button className="searchButton" onClick={onClickSearch}>
             검색

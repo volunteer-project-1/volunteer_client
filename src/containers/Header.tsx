@@ -3,9 +3,6 @@ import Link from "next/link";
 
 import { useStoreSelector } from "@/store";
 import "@/containers/Header.scoped.scss";
-import Logo from "@/images/layout/header-logo.svg";
-import Login from "@/images/layout/header-login.svg";
-import Join from "@/images/layout/header-join.svg";
 
 interface Menu {
   name: string;
@@ -33,7 +30,7 @@ const Header = () => {
             <Link href="/">
               <a>
                 <div className="ima">
-                  <img src={Logo.src} alt="SeeMe" className="logo" />
+                  <img src={"/assets/layout/header-logo.svg"} alt="SeeMe" className="logo" />
                 </div>
               </a>
             </Link>
@@ -41,13 +38,13 @@ const Header = () => {
           <div className="cs_login">
             <Link href="/auth/login">
               <a className="lg">
-                <img src={Login.src} alt={"Login"} /> {loginText}
+                <img src={"/assets/layout/header-login.svg"} alt={"Login"} /> {loginText}
               </a>
             </Link>
             <span className="bar-login"></span>
             <Link href="/auth/join">
               <a>
-                <img src={Join.src} alt={"Join"} /> JOIN US
+                <img src={"/assets/layout/header-join.svg"} alt={"Join"} /> JOIN US
               </a>
             </Link>
           </div>

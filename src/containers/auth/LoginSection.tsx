@@ -10,7 +10,6 @@ import { useStoreDispatch } from "@/store";
 import AuthSlice from "@/store/Auth";
 import Box from "@/containers/auth/Box";
 import "@/containers/auth/LoginSection.scoped.scss";
-import Logo from "@/images/auth/login-logo.svg";
 
 const LoginSection = () => {
   const router = useRouter();
@@ -57,7 +56,7 @@ const LoginSection = () => {
   return (
     <div className="loginSection">
       <div className="logoArea">
-        <img className="logo" src={Logo.src} alt="Logo" />
+        <img className="logo" src={"/assets/auth/login-logo.svg"} alt="Logo" />
       </div>
       <Box title="로그인" description="아이디, 패스워드를 입력해주세요.">
         <input className="textForm" type="text" placeholder="아이디" value={id} onChange={onChangeID} />

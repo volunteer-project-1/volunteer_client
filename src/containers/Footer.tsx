@@ -1,12 +1,11 @@
 import React from "react";
 
 import "@/containers/Footer.scoped.scss";
-import Logo from "@/images/layout/footer-logo.svg";
 
 const Footer = () => (
   <div className="footer">
     <div className="content">
-      <img className="logo" src={Logo.src} alt="Logo" />
+      <img className="logo" src={"/assets/layout/footer-logo.svg"} alt="Logo" />
       <div className="description">
         <div>
           본 콘텐츠의 저작권은 저자 또는 제공사에 있으며, 이를 무단 이용하는 경우 저작권법 등에 따라 법적 책임을 질 수
