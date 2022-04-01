@@ -1,0 +1,45 @@
+.footer {
+  box-sizing: border-box;
+
+  padding: 70px 0;
+
+  background-color: #eaecef;
+
+  .content {
+    @extend .inner;
+  }
+
+  .logo {
+    margin-bottom: 30px;
+  }
+
+  .description {
+    white-space: pre;
+
+    margin-bottom: 38px;
+
+    @extend .font, .size13, .dark4;
+
+    .word {
+      &:not(:first-child) {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .linkArea {
+    margin-bottom: 12px;
+
+    @extend .font, .size14, .dark4;
+
+    .word {
+      &:not(:first-child) {
+        margin-left: 30px;
+      }
+    }
+  }
+
+  .copyright {
+    @extend .font, .size8, .dark4;
+  }
+}

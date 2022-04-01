@@ -6,6 +6,12 @@
   margin: 0 auto;
 }
 
+.imageFix {
+  // 이미지 밑에 4px 정도 공간 생기는 거 막음.
+  // https://kreiz.tistory.com/entry/div-안의-img에-높이4px공백
+  vertical-align: top;
+}
+
 // 아래의 box mixin에서 사용할 color map.
 $boxColorMap: (
   white: #ffffff,
