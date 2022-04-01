@@ -1,16 +1,13 @@
-import React, { ChangeEvent, useState } from "react";
+import React from "react";
 
+import { useValue } from "@/utils/StateUtils";
 import "@/containers/home/SearchSection.scoped.scss";
 
 // 임시로 만듬...
 const exampleTags: Array<string> = ["일자리", "패럴림픽", "공개채용", "장애인_일자리"];
 
 const SearchSection = () => {
-  const [input, setInput] = useState("");
-
-  const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
-    setInput(event.target.value);
-  };
+  const [input, onChangeInput, setInput] = useValue("");
 
   const onClickSearch = () => {
     alert(`검색: "${input}"`);
