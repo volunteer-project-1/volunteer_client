@@ -4,6 +4,7 @@ import TitledSection from "@/containers/home/TitledSection";
 import "@/containers/home/MyPageSection.scoped.scss";
 
 import ExampleImage from "@/images/home/mypage-image.jpg";
+import ExampleVideo from "@/images/home/mypage-video.mp4";
 
 const MyPageSection = () => (
   <TitledSection
@@ -13,11 +14,7 @@ const MyPageSection = () => (
     descriptionParts={["영상으로 이력서를 남겨 사회에 나를 소개해 보아요."]}
   >
     <div className="myPageSection">
-      <video
-        className="video"
-        src={"https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_1MB.mp4"}
-        controls
-      >
+      <video className="video" src={ExampleVideo} controls>
         <track kind={"captions"} />
       </video>
       <div className="overlapArea">
