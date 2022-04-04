@@ -45,17 +45,23 @@
 ## Pages
 
 - /: 메인 페이지 ('home')
-- /search: 구인 검색, 구직 검색, 추천 검색, 인터뷰 요청 및 연결
+- /auth
+  - /join: 회원가입
+  - /login: 로그인
 - /seeker: 구직활동 (**구직자**를 위한 서브 페이지들)
-  - /resume-editor: 구직자 프로필 작성 (이력서 작성)
+  - /resume-editor: 구직자 프로필 작성
   - /company-list: 기업 리스트
-  - /company-info?...: 채용정보, 접수기간, 기업정보
+  - /company-info: 기업정보 (Params: company-id, section)
 - /company: 인재채용 (**기업**을 위한 서브 페이지들)
   - /info-editor: 기업 프로필 작성
   - /seeker-list: 구직자 리스트
-  - /seeker-resume?...: 구직자 프로필 보기 (이력서 보기)
+  - /seeker-resume: 구직자 프로필 보기 (Params: seeker-id)
+- /news: 미디어 뉴스
+  - /news-list: 뉴스 리스트
+  - /news-content: 뉴스 내용
 - /notice: 고객센터
-- /member: 개인정보 관리, 지원내역, 환경설정, ...
+- /mypage: 마이페이지
+  - (추후 채울 예정)
 
 ## Project structure
 
