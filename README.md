@@ -42,6 +42,22 @@
 - `npm run lint`로 JS/TS 코드 스타일 체크
 - `npm run lint:fix`를 하면 체크뿐만 아니라 수정까지 이루어집니다.
 
+## How to deploy
+
+.env 파일 생성
+
+- 형식: .env.example 참고
+- [링크](https://velog.io/@jeffyoun/Serverless-프레임워크-사용해서-배포하기) 참고하여 AWS access key 얻기
+
+필요 도구들 설치
+
+- `npm install -g serverless`
+- `npm install -g @serverless/cli`
+
+배포
+- `components-v1` 실행
+- 시간이 좀 오래 걸립니다... (몇분 정도 걸림)
+
 ## Pages
 
 - /: 메인 페이지 ('home')

@@ -10,3 +10,7 @@ node_modules
 
 # Next.js files.
 .next
+.env
+
+# serverless files.
+.serverless*
