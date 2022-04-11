@@ -16,7 +16,7 @@ module.exports = {
       "@mui/private-theming": "@mui/private-theming/legacy",
       "@mui/styled-engine": "@mui/styled-engine/legacy",
       "@mui/system": "@mui/system/legacy",
-      "@mui/utils": "@mui/utils/legacy"
+      "@mui/utils": "@mui/utils/legacy",
     };
 
     // SCSS 처리.
@@ -26,13 +26,13 @@ module.exports = {
         sourceMap: dev,
         // SCSS 파일들에 자동으로 넣을 코드.
         // prependData 옵션이랑 동일. (additionalData가 더 최신 이름인듯)
-        additionalData: `@use "@/scss/index" as *;`
-      }
+        additionalData: `@use "@/scss/index" as *;`,
+      },
     };
 
     // .scoped.(s)css 처리.
     const scoped2css = {
-      loader: "scoped-css-loader"
+      loader: "scoped-css-loader",
     };
 
     // CSS 내의 import 등 처리.
@@ -44,19 +44,19 @@ module.exports = {
         // .module.(s)css 처리.
         modules: {
           auto: true,
-          localIdentName: "[name]_[local]__[hash:base64:5]"
-        }
-      }
+          localIdentName: "[name]_[local]__[hash:base64:5]",
+        },
+      },
     };
 
     // .css 파일 생성.
     const css2file = {
-      loader: MiniCssExtractPlugin.loader
+      loader: MiniCssExtractPlugin.loader,
     };
 
     // <style> 생성.
     const css2style = {
-      loader: "style-loader"
+      loader: "style-loader",
     };
 
     // use는 배열의 역순으로 처리됨에 유의!
@@ -67,12 +67,12 @@ module.exports = {
         use: [
           // 개발 모드에서 .css 생성으로 통일하면 라우팅 시 스타일 안 먹는 문제 있음.
           // 개발 모드: SSR은 .css 생성, CSR은 <style/> 생성 / 배포 모드: 항상 .css 생성.
-          (isServer || !dev) ? css2file : css2style,
+          isServer || !dev ? css2file : css2style,
           css2css,
           scoped2css,
-          sass2css
-        ]
-      }
+          sass2css,
+        ],
+      },
     ];
 
     // 생성할 CSS 파일 이름 이렇게 해야 Next.js랑 호환됨.
@@ -90,11 +90,7 @@ module.exports = {
       append: "/*# sourceMappingURL=[url] */",
     });
 
-    config.plugins = [
-      ...config.plugins,
-      css2filePlugin,
-      cssSourceMapPlugin
-    ];
+    config.plugins = [...config.plugins, css2filePlugin, cssSourceMapPlugin];
 
     return config;
   },
@@ -104,7 +100,7 @@ module.exports = {
     // https://velog.io/@maliethy/nextjs-reverse-proxy로-cors에러-해결하기
     {
       source: "/:path*",
-      destination: "http://3.39.89.127:3000/:path*"
-    }
-  ]
+      destination: "http://3.39.89.127:3000/:path*",
+    },
+  ],
 };
