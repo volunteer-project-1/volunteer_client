@@ -18,7 +18,7 @@ const Card = ({ company }: CompanyCardProps) => {
 };
 
 const CompanyCard = ({ company }: CompanyCardProps) => {
-  const session = useStoreSelector(state => state.user.session);
+  const session = useStoreSelector(state => state.auth.session);
   const isLoggedOn = session?.type === "seeker";
 
   // API 호출로 대체 예정.
@@ -52,7 +52,7 @@ const CompanyCard = ({ company }: CompanyCardProps) => {
 };
 
 const SeekerCard = ({ seeker }: SeekerCardProps) => {
-  const session = useStoreSelector(state => state.user.session);
+  const session = useStoreSelector(state => state.auth.session);
   const isLoggedOn = session?.type === "company";
 
   // API 호출로 대체 예정.

@@ -17,7 +17,7 @@ const menus: Array<Menu> = [
 ];
 
 const Header = () => {
-  const session = useStoreSelector(state => state.user.session);
+  const session = useStoreSelector(state => state.auth.session);
 
   // For test...
   const loginText = session === null ? "LOG IN" : session.type;
