@@ -6,23 +6,23 @@ async function doSocialLogin() {
   window.location.href = "/api/v1/auth/google";
 }
 
-interface LocalJoinRequest {
+interface DoLocalJoinInput {
   email: string;
   password: string;
   passwordConfirm: string;
 }
 
-async function doLocalJoin(data: LocalJoinRequest): Promise<void> {
-  await API.post("/api/v1/auth/local/signup", data);
+async function doLocalJoin(input: DoLocalJoinInput): Promise<void> {
+  await API.post("/api/v1/auth/local/signup", input);
 }
 
-interface LocalLoginRequest {
+interface DoLocalLoginInput {
   email: string;
   password: string;
 }
 
-async function doLocalLogin(data: LocalLoginRequest): Promise<void> {
-  await API.post("/api/v1/auth/local", data);
+async function doLocalLogin(input: DoLocalLoginInput): Promise<void> {
+  await API.post("/api/v1/auth/local", input);
 }
 
 const AuthAPI = {
