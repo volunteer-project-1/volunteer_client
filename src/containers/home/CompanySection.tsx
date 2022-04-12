@@ -26,7 +26,7 @@ const CompanySection = () => {
     columns.push(currentCompanyList.filter((company, index) => index % columnCount === i));
   }
 
-  const onClickMore = () => {
+  const handleClickMore = () => {
     alert("더보기!");
   };
 
@@ -47,7 +47,7 @@ const CompanySection = () => {
             </div>
           ))}
         </div>
-        <button type={"button"} className="moreButton" onClick={onClickMore}>
+        <button type={"button"} className="moreButton" onClick={handleClickMore}>
           더보기
         </button>
       </div>

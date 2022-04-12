@@ -25,7 +25,7 @@ const LoginSection = () => {
 
   const hasWrongFlag = strictValues(flags).includes(false);
 
-  const onClickLogin = async () => {
+  const handleClickLogin = async () => {
     if (hasWrongFlag) {
       return;
     }
@@ -74,7 +74,7 @@ const LoginSection = () => {
             이메일과 비밀번호를 정확히 입력해 주세요.
           </div>
         )}
-        <button className="submitButton" type="button" onClick={onClickLogin}>
+        <button className="submitButton" type="button" onClick={handleClickLogin}>
           로그인
         </button>
       </Box>

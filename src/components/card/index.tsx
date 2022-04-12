@@ -26,7 +26,7 @@ const CompanyCard = ({ company }: CompanyCardProps) => {
 
   const dDays = company.dueDate ? `D-${daysBetweenDates(new Date(), new Date(company.dueDate))}` : "상시채용";
 
-  const onClickLike = () => {
+  const handleClickLike = () => {
     if (!isLoggedOn) {
       alert("구직자로 로그인하세요!");
     } else {
@@ -39,7 +39,7 @@ const CompanyCard = ({ company }: CompanyCardProps) => {
       <div className="imageArea">
         <img className="companyImage" src={company.imageURL} alt={company.name} />
         <div className="likeButtonArea">
-          <Button.Like isLiked={isLiked} onClick={onClickLike} />
+          <Button.Like isLiked={isLiked} onClick={handleClickLike} />
         </div>
       </div>
       <div className="contentArea">
@@ -58,7 +58,7 @@ const SeekerCard = ({ seeker }: SeekerCardProps) => {
   // API 호출로 대체 예정.
   const [isLiked, setLike] = useState(false);
 
-  const onClickSuggest = () => {
+  const handleClickSuggest = () => {
     if (!isLoggedOn) {
       alert("회사로 로그인하세요!");
     } else {
@@ -66,7 +66,7 @@ const SeekerCard = ({ seeker }: SeekerCardProps) => {
     }
   };
 
-  const onClickLike = () => {
+  const handleClickLike = () => {
     if (!isLoggedOn) {
       alert("회사로 로그인하세요!");
     } else {
@@ -79,7 +79,7 @@ const SeekerCard = ({ seeker }: SeekerCardProps) => {
       <div className="profileArea">
         <img className="profileImage" src={seeker.imageURL} alt={seeker.name} />
         <div className="likeButtonArea">
-          <Button.Like isLiked={isLiked} onClick={onClickLike} />
+          <Button.Like isLiked={isLiked} onClick={handleClickLike} />
         </div>
       </div>
       <div className="nameArea">
@@ -93,7 +93,7 @@ const SeekerCard = ({ seeker }: SeekerCardProps) => {
         {seeker.job}/ {seeker.career}
       </div>
       <div>{seeker.handicap}</div>
-      <button className="suggestButton" type={"button"} onClick={onClickSuggest}>
+      <button className="suggestButton" type={"button"} onClick={handleClickSuggest}>
         제안하기
       </button>
     </div>

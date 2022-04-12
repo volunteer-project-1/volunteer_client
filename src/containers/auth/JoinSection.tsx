@@ -28,7 +28,7 @@ const JoinSection = () => {
 
   const hasWrongFlag = strictValues(flags).includes(false);
 
-  const onClickJoin = async () => {
+  const handleClickJoin = async () => {
     if (hasWrongFlag) {
       return;
     }
@@ -42,12 +42,12 @@ const JoinSection = () => {
     setDialogOpen(true);
   };
 
-  const onCloseDialog = () => {
+  const handleCloseDialog = () => {
     router.push("/auth/login");
     setDialogOpen(false);
   };
 
-  const onClickOK = () => {
+  const handleClickOK = () => {
     router.push("/auth/login");
     setDialogOpen(false);
   };
@@ -101,20 +101,20 @@ const JoinSection = () => {
           onChange={onChangeNickname}
           disabled
         />
-        <button className="submitButton" type="button" onClick={onClickJoin}>
+        <button className="submitButton" type="button" onClick={handleClickJoin}>
           회원가입 하기
         </button>
       </Box>
       <div className="backgroundArea">
         <img className="backgroundImage" src={"/assets/auth/join-background.jpg"} alt="Background" />
       </div>
-      <Dialog isOpen={isDialogOpen} onClose={onCloseDialog}>
+      <Dialog isOpen={isDialogOpen} onClose={handleCloseDialog}>
         <img className="successIcon" src={"/assets/auth/join-success.svg"} alt="Success" />
         <Dialog.Content title="회원가입을 축하드립니다!">
           회원가입이 완료되었습니다. See me에 오신것을 환영합니다.
         </Dialog.Content>
         <Dialog.Footer>
-          <Dialog.Button onClick={onClickOK}>확인</Dialog.Button>
+          <Dialog.Button onClick={handleClickOK}>확인</Dialog.Button>
         </Dialog.Footer>
       </Dialog>
     </div>

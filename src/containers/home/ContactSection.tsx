@@ -34,7 +34,7 @@ const ContactSection = () => {
   const [question, onChangeQuestion] = useValue("");
   const [privacy, onChangePrivacy] = useChecked(false);
 
-  const onClickSend = () => {
+  const handleClickSend = () => {
     alert(JSON.stringify({ name, contact, email, question, privacy }, null, 2));
   };
 
@@ -69,7 +69,7 @@ const ContactSection = () => {
             <img className="foldButton" src={"/assets/home/contact-fold.svg"} alt={"Fold"} />
           </label>
           <div className="sendRow">
-            <button className="sendButton" type={"button"} onClick={onClickSend}>
+            <button className="sendButton" type={"button"} onClick={handleClickSend}>
               보내기
             </button>
             <TopButton />
