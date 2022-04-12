@@ -19,6 +19,7 @@ const JoinSection = () => {
   const [passwordConfirm, onChangePasswordConfirm] = useValue("");
   const [nickname, onChangeNickname] = useValue("");
   const [isDialogOpen, setDialogOpen] = useState(false);
+  const [isLoading, setLoading] = useState(false);
 
   const flags = {
     isIDRight: isEmail(id),
@@ -33,13 +34,22 @@ const JoinSection = () => {
       return;
     }
 
-    await AuthAPI.doLocalJoin({
-      email: id,
-      password,
-      passwordConfirm,
-    });
+    setLoading(true);
 
-    setDialogOpen(true);
+    try {
+      await AuthAPI.doLocalJoin({
+        email: id,
+        password,
+        passwordConfirm,
+      });
+
+      setDialogOpen(true);
+    } catch (error) {
+      console.error(error);
+      alert("에러가 발생했습니다! 이미 가입된 아이디일 수 있습니다.");
+    }
+
+    setLoading(false);
   };
 
   const handleCloseDialog = () => {
@@ -101,7 +111,7 @@ const JoinSection = () => {
           onChange={onChangeNickname}
           disabled
         />
-        <button className="submitButton" type="button" onClick={handleClickJoin}>
+        <button className="submitButton" type="button" disabled={isLoading} onClick={handleClickJoin}>
           회원가입 하기
         </button>
       </Box>
