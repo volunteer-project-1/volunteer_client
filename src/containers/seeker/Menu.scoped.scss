@@ -1,16 +1,11 @@
-.formSection {
+.menu {
   box-sizing: border-box;
 
-  width: 100%;
-  margin-bottom: 50px;
-  padding: 23px 30px 40px 30px;
+  width: 348px;
+  padding: 26.5px 19px;
   border-style: solid;
   border-width: 1px;
   border-radius: 4px;
 
   @include boxColor(border-color, dark3);
-
-  .title {
-    @extend .font, .size18, .bold;
-  }
 }

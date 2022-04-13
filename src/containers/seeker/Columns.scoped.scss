@@ -1,6 +1,16 @@
 .columns {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 
   @extend .inner;
+}
+
+.columnsItem {
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+
+  &.shouldFill {
+    flex: 1;
+  }
 }

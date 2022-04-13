@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 
 import "@/containers/seeker/Columns.scoped.scss";
+import classNames from "classnames";
 
 interface ColumnsProps {
   children: ReactNode;
@@ -8,4 +9,21 @@ interface ColumnsProps {
 
 const Columns = ({ children }: ColumnsProps) => <div className="columns">{children}</div>;
 
-export default Columns;
+interface ColumnsItemProps {
+  shouldFill: boolean;
+  children: ReactNode;
+}
+
+const ColumnsItem = ({ shouldFill, children }: ColumnsItemProps) => (
+  <div
+    className={classNames("columnsItem", {
+      shouldFill,
+    })}
+  >
+    {children}
+  </div>
+);
+
+export default Object.assign(Columns, {
+  Item: ColumnsItem,
+});
