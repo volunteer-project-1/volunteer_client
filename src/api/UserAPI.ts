@@ -8,8 +8,7 @@ interface GetUserProfileOutput {
     email: string;
     user_meta: {
       id: number;
-      // TODO: 테스트 서버에 seeker, company 반영되면 바꿀 예정.
-      type: "employee" | "employer";
+      type: "seeker" | "company";
       is_verified: number;
     };
   };

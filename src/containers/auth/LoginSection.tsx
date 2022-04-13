@@ -37,16 +37,10 @@ const LoginSection = () => {
 
     const profile = await UserAPI.getUserProfile();
 
-    // TODO: 테스트 서버에 type 변경 내용 반영 시 없어질 예정.
-    const userTypeMap = {
-      employee: "seeker",
-      employer: "company",
-    } as const;
-
     dispatch(
       AuthSlice.actions.setSession({
         id: profile.user.id,
-        type: userTypeMap[profile.user.user_meta.type],
+        type: profile.user.user_meta.type,
       })
     );
 
