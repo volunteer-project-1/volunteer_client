@@ -13,12 +13,4 @@ module.exports = {
   arrowParens: "avoid",
   // 줄 끝(LF/CRLF): 각 파일에 따라 알아서.
   endOfLine: "auto",
-  overrides: [
-    {
-      files: ["**/*.css", "**/*.scss", "**/*.html"],
-      options: {
-        "singleQuote": false
-      }
-    }
-  ]
 };
