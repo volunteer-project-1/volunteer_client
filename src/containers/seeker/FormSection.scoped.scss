@@ -1,0 +1,15 @@
+.formSection {
+  box-sizing: border-box;
+
+  width: 100%;
+  padding: 23px 30px 40px 30px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+
+  @include boxColor(border-color, dark3);
+
+  .title {
+    @extend .font, .size18, .bold;
+  }
+}

@@ -1,0 +1,17 @@
+.titleSection {
+  box-sizing: border-box;
+
+  width: 100%;
+  margin-bottom: 30px;
+
+  .textForm {
+    width: 100%;
+    padding: 20px 24px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+
+    @include boxColor(border-color, dark3);
+    @extend .font, .size28;
+  }
+}
