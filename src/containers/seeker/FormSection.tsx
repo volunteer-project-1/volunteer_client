@@ -1,4 +1,5 @@
-import React, { ChangeEvent, ComponentProps, ReactNode } from "react";
+import React, { ComponentProps, ReactNode } from "react";
+import classNames from "classnames";
 
 import "@/containers/seeker/FormSection.scoped.scss";
 
@@ -19,18 +20,24 @@ type RowProps = LayoutProps;
 const Row = ({ children }: RowProps) => <div className="row">{children}</div>;
 
 interface CellProps extends LayoutProps {
-  span?: number;
+  fill?: boolean;
 }
 
-const Cell = ({ span = 1, children }: CellProps) => (
-  <div className="cell" style={{ flex: span }}>
-    {children}
-  </div>
-);
+const Cell = ({ fill = false, children }: CellProps) => <div className={classNames("cell", { fill })}>{children}</div>;
 
 type InputProps = ComponentProps<"input">;
 
 const Input = (props: InputProps) => <input className="input" type="text" {...props} />;
+
+type CheckboxProps = Omit<ComponentProps<"input">, "type">;
+
+const Checkbox = ({ children, ...others }: CheckboxProps) => (
+  <label className="checkboxArea">
+    <input className="hiddenCheckbox" type={"checkbox"} {...others} />
+    <span className="checkbox" />
+    {children}
+  </label>
+);
 
 interface AddButtonProps {
   onClick: () => void;
@@ -48,5 +55,6 @@ export default Object.assign(FormSection, {
   Row,
   Cell,
   Input,
+  Checkbox,
   AddButton,
 });

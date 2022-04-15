@@ -12,7 +12,7 @@ const EducationSection = () => {
         <FormSection.Cell>
           <FormSection.Input placeholder="학교구분" />
         </FormSection.Cell>
-        <FormSection.Cell span={2}>
+        <FormSection.Cell fill>
           <FormSection.Input placeholder="학교명" />
         </FormSection.Cell>
         <FormSection.Cell>
@@ -21,7 +21,9 @@ const EducationSection = () => {
         <FormSection.Cell>
           <FormSection.Input placeholder="졸업상태" />
         </FormSection.Cell>
-        <FormSection.Cell>대입검정고시</FormSection.Cell>
+        <FormSection.Cell>
+          <FormSection.Checkbox>대입검정고시</FormSection.Checkbox>
+        </FormSection.Cell>
       </FormSection.Row>
       <FormSection.AddButton onClick={handleClickAdd} />
     </FormSection>
