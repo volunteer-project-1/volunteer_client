@@ -7,7 +7,7 @@
   margin-top: 83px;
   margin-bottom: 83px;
 
-  .textForm {
+  .input {
     box-sizing: border-box;
 
     width: 100%;
@@ -30,7 +30,7 @@
     }
   }
 
-  .textFormMessage {
+  .inputMessage {
     margin-top: 8px;
 
     @extend .font, .size16, .w300, .green;

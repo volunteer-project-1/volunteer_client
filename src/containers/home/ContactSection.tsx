@@ -1,6 +1,7 @@
 import React from "react";
 
 import { useChecked, useValue } from "@/utils/StateUtils";
+import { useID } from "@/utils/StringUtils";
 import Checkbox from "@/containers/home/Checkbox";
 import TopButton from "@/containers/home/TopButton";
 import "@/containers/home/ContactSection.scoped.scss";
@@ -34,6 +35,12 @@ const ContactSection = () => {
   const [question, onChangeQuestion] = useValue("");
   const [privacy, onChangePrivacy] = useChecked(false);
 
+  const nameID = useID();
+  const contactID = useID();
+  const emailID = useID();
+  const questionID = useID();
+  const privacyID = useID();
+
   const handleClickSend = () => {
     alert(JSON.stringify({ name, contact, email, question, privacy }, null, 2));
   };
@@ -54,20 +61,29 @@ const ContactSection = () => {
         </div>
         <div className="formColumn">
           <div className="formTitle">사용자 정보</div>
-          <div className="formLabel">이름</div>
-          <input className="textFieldForm" type={"text"} value={name} onChange={onChangeName} />
-          <div className="formLabel">연락처</div>
-          <input className="textFieldForm" type={"text"} value={contact} onChange={onChangeContact} />
-          <div className="formLabel">메일주소</div>
-          <input className="textFieldForm" type={"email"} value={email} onChange={onChangeEmail} />
-          <div className="formLabel">문의사항</div>
-          <textarea className="textAreaForm" rows={5} value={question} onChange={onChangeQuestion} />
-          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-          <label className="formInlineLabel">
-            <Checkbox checked={privacy} onChange={onChangePrivacy} />
-            개인정보 취급방침 동의
-            <img className="foldButton" src={"/assets/home/contact-fold.svg"} alt={"Fold"} />
+          <label className="label" htmlFor={nameID}>
+            이름
           </label>
+          <input className="input" id={nameID} type={"text"} value={name} onChange={onChangeName} />
+          <label className="label" htmlFor={contactID}>
+            연락처
+          </label>
+          <input className="input" id={contactID} type={"text"} value={contact} onChange={onChangeContact} />
+          <label className="label" htmlFor={emailID}>
+            메일주소
+          </label>
+          <input className="input" id={emailID} type={"email"} value={email} onChange={onChangeEmail} />
+          <label className="label" htmlFor={questionID}>
+            문의사항
+          </label>
+          <textarea className="textArea" rows={5} value={question} onChange={onChangeQuestion} />
+          <div className="privacyRow">
+            <Checkbox id={privacyID} checked={privacy} onChange={onChangePrivacy} />
+            <label className="label" htmlFor={privacyID}>
+              개인정보 취급방침 동의
+            </label>
+            <img className="foldButton" src={"/assets/home/contact-fold.svg"} alt={"Fold"} />
+          </div>
           <div className="sendRow">
             <button className="sendButton" type={"button"} onClick={handleClickSend}>
               보내기

@@ -53,16 +53,10 @@ const LoginSection = () => {
         <img className="logo" src={"/assets/auth/login-logo.svg"} alt="Logo" />
       </div>
       <Box title="로그인" description="아이디, 패스워드를 입력해주세요.">
-        <input className="textForm" type="text" placeholder="아이디" value={id} onChange={onChangeID} />
-        <input
-          className="textForm"
-          type="password"
-          placeholder="비밀번호"
-          value={password}
-          onChange={onChangePassword}
-        />
+        <input className="input" type="text" placeholder="아이디" value={id} onChange={onChangeID} />
+        <input className="input" type="password" placeholder="비밀번호" value={password} onChange={onChangePassword} />
         {id.length > 0 && password.length > 0 && hasWrongFlag && (
-          <div className="textFormMessage isWrong">
+          <div className="inputMessage isWrong">
             이메일 또는 비밀번호가 잘못 입력 되었습니다.
             <br />
             이메일과 비밀번호를 정확히 입력해 주세요.

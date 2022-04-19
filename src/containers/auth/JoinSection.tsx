@@ -66,7 +66,7 @@ const JoinSection = () => {
     <div className="joinSection">
       <Box title="회원가입" description="간단한 절차를 통해 가입하실수 있습니다. 함께 해주셔서 감사합니다!">
         <input
-          className={classNames("textForm", {
+          className={classNames("input", {
             isWrong: id.length > 0 && !flags.isIDRight,
           })}
           type="text"
@@ -76,35 +76,29 @@ const JoinSection = () => {
         />
         {id.length > 0 && (
           <div
-            className={classNames("textFormMessage", {
+            className={classNames("inputMessage", {
               isWrong: !flags.isIDRight,
             })}
           >
             {flags.isIDRight ? "사용 가능한 이메일 입니다." : "사용 불가능한 이메일 입니다."}
           </div>
         )}
-        <input
-          className="textForm"
-          type="password"
-          placeholder="비밀번호"
-          value={password}
-          onChange={onChangePassword}
-        />
+        <input className="input" type="password" placeholder="비밀번호" value={password} onChange={onChangePassword} />
         {password.length > 0 && !flags.isPasswordRight && (
-          <div className="textFormMessage isWrong">대문자, 소문자, 숫자, 기호 포함하여 10자 이상으로 입력해주세요.</div>
+          <div className="inputMessage isWrong">대문자, 소문자, 숫자, 기호 포함하여 10자 이상으로 입력해주세요.</div>
         )}
         <input
-          className="textForm"
+          className="input"
           type="password"
           placeholder="비밀번호 확인"
           value={passwordConfirm}
           onChange={onChangePasswordConfirm}
         />
         {passwordConfirm.length > 0 && !flags.isPasswordConfirmRight && (
-          <div className="textFormMessage isWrong">비밀번호가 일치하지 않습니다.</div>
+          <div className="inputMessage isWrong">비밀번호가 일치하지 않습니다.</div>
         )}
         <input
-          className="textForm"
+          className="input"
           type="password"
           placeholder="닉네임 (구현 예정)"
           value={nickname}

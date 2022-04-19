@@ -8,7 +8,7 @@ const TitleSection = () => {
 
   return (
     <div className="titleSection">
-      <input className="textForm" placeholder="나를 한 줄로 표현해 보세요!" value={title} onChange={onChangeTitle} />
+      <input className="input" placeholder="나를 한 줄로 표현해 보세요!" value={title} onChange={onChangeTitle} />
     </div>
   );
 };
