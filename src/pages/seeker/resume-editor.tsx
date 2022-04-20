@@ -7,6 +7,7 @@ import EducationSection from "@/containers/seeker/EducationSection";
 import CareerSection from "@/containers/seeker/CareerSection";
 import ActivitySection from "@/containers/seeker/ActivitySection";
 import AwardSection from "@/containers/seeker/AwardSection";
+import PortfolioSection from "@/containers/seeker/PortfolioSection";
 import Menu from "@/containers/seeker/Menu";
 
 /**
@@ -22,6 +23,7 @@ const ResumeEditorPage = () => (
         <CareerSection />
         <ActivitySection />
         <AwardSection />
+        <PortfolioSection />
       </PageColumns.Item>
       <PageColumns.Item shouldFill={false}>
         <Menu />

@@ -2,6 +2,7 @@ import React, { ComponentProps, ReactNode } from "react";
 import classNames from "classnames";
 
 import "@/containers/seeker/FormSection.scoped.scss";
+import { openFileDialog } from "@/utils/FileUtils";
 
 interface LayoutProps {
   children: ReactNode;
@@ -50,6 +51,28 @@ const AddButton = ({ onClick }: AddButtonProps) => (
   </button>
 );
 
+const FileUploader = () => {
+  const handleClickUpload = async () => {
+    const files = await openFileDialog("*", true);
+
+    alert(`업로드: ${files.map(file => file.name).join(", ")}`);
+  };
+
+  return (
+    <div className="fileUploader">
+      <div className="fileList">
+        <div className="iconArea">
+          <img className="icon" src="/assets/seeker/formsection-file.svg" alt="파일 업로드" />
+        </div>
+        <div className="message">포트폴리오를 첨부하여 주세요 (클릭하거나 드래그하여 첨부)</div>
+        <button className="uploadButton" onClick={handleClickUpload}>
+          파일첨부 하기
+        </button>
+      </div>
+    </div>
+  );
+};
+
 export default Object.assign(FormSection, {
   Title,
   Row,
@@ -57,4 +80,5 @@ export default Object.assign(FormSection, {
   Input,
   Checkbox,
   AddButton,
+  FileUploader,
 });
