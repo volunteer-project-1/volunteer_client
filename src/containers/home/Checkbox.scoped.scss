@@ -3,6 +3,19 @@
 
   &:checked + .checkbox::after {
     content: "\2714";
+  }
+}
+
+.checkbox {
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+
+  width: 24px;
+  height: 24px;
+
+  &::after {
+    content: "";
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -14,18 +27,8 @@
     width: 100%;
     height: 100%;
 
-    color: inherit;
+    @extend .font, .green;
     font-size: inherit;
+    background-color: #ffffff;
   }
-}
-
-.checkbox {
-  display: inline-block;
-  position: relative;
-
-  width: 16px;
-  height: 16px;
-
-  color: #000000;
-  background-color: #ffffff;
 }

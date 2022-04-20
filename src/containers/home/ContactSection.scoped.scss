@@ -74,7 +74,7 @@
 
     font-family: inherit;
 
-    @extend .font, .white;
+    @extend .font, .size16, .dark8;
   }
 
   @mixin input {
@@ -86,12 +86,6 @@
     padding: 19px 24px;
     margin-bottom: 20px;
     border: 0;
-
-    &::placeholder {
-      // @extend .font, .white 쓰면 IE에서 이게 @extend 망가뜨림 -> 다른 부분들의 @extend까지 안 먹음.
-      // 따라서 여기만 color 하드코딩.
-      color: #fff;
-    }
   }
 
   .input {
@@ -144,8 +138,13 @@
     border-width: 1px;
     background-color: transparent;
 
-    @extend .font, .green;
+    @extend .font, .lightgreen, .size18;
     @include limitWidth;
-    @include boxColor(border-color, green);
+    @include boxColor(border-color, lightgreen);
+
+    &:hover {
+      @extend .font, .white;
+      @include boxColor(background-color, lightgreen);
+    }
   }
 }

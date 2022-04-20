@@ -59,13 +59,17 @@
   }
 
   .name {
-    @extend .font, .bold;
+    @extend .font, .bold, .size18;
+  }
+
+  .description {
+    @extend .font, .dark5, .size16;
   }
 
   .dDays {
     margin-top: 10px;
 
-    @extend .font, .dark4;
+    @extend .font, .dark3, .size13;
   }
 }
 
@@ -85,7 +89,7 @@
   border-style: solid;
   border-radius: 0.5rem;
 
-  @extend .font, .dark6;
+  @extend .font, .dark6, .size14;
 
   &:not(:first-child) {
     margin-left: 33px;
@@ -116,7 +120,7 @@
   }
 
   .name {
-    @extend .font, .bold;
+    @extend .font, .bold, .size16;
   }
 
   .age {
@@ -125,6 +129,12 @@
 
   .jobArea {
     margin-top: 14px;
+  }
+
+  .handicapArea {
+    margin-top: 2px;
+
+    @extend .font, .size12;
   }
 
   .suggestButton {
@@ -137,6 +147,11 @@
     border-style: solid;
     background-color: transparent;
 
-    @extend .font, .green, .bold;
+    @extend .font, .green, .bold, .size18;
+
+    &:hover {
+      @include boxColor(background-color, green);
+      @extend .font, .white;
+    }
   }
 }

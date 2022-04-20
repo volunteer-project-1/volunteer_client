@@ -44,7 +44,7 @@ const CompanyCard = ({ company }: CompanyCardProps) => {
       </div>
       <div className="contentArea">
         <div className="name">{company.name}</div>
-        <div>{company.description}</div>
+        <div className="description">{company.description}</div>
         <div className="dDays">{dDays}</div>
       </div>
     </div>
@@ -92,7 +92,7 @@ const SeekerCard = ({ seeker }: SeekerCardProps) => {
       <div className="jobArea">
         {seeker.job}/ {seeker.career}
       </div>
-      <div>{seeker.handicap}</div>
+      <div className="handicapArea">{seeker.handicap}</div>
       <button className="suggestButton" type={"button"} onClick={handleClickSuggest}>
         제안하기
       </button>
