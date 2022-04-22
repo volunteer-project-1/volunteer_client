@@ -23,13 +23,13 @@
   }
 
   .about {
-    @extend .font, .white, .size30, .bold;
+    @extend .font, .white, .size48, .bold;
   }
 
   .description {
     margin-top: 51px;
 
-    @extend .font, .white;
+    @extend .font, .white, .size18;
 
     @include tablet {
       display: none;
