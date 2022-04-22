@@ -52,7 +52,6 @@
     width: 172px;
     height: 49px;
     margin-bottom: 58px;
-    border-radius: 25px;
     border-width: 1px;
     border-style: solid;
 
@@ -61,6 +60,11 @@
 
     @extend .font, .size17;
     @include boxColor(border-color, white);
+
+    &:hover {
+      @extend .font, .green;
+      @include boxColor(background-color, white);
+    }
   }
 
   .linksArea {

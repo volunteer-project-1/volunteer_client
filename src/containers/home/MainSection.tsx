@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import Link from "next/link";
 
 import Slider from "@/components/slider";
 import "@/containers/home/MainSection.scoped.scss";
@@ -27,9 +26,9 @@ const mainVisualContent: Array<MainVisualSliderType> = [
   },
   {
     img: "main-background1.jpg",
-    title: "sdfs",
-    subTitle: "subtitle",
-    description: <div>내용 123123123</div>,
+    title: "제목",
+    subTitle: "부제목",
+    description: <div>설명</div>,
   },
 ];
 
