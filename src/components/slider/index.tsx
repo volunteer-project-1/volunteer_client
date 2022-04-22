@@ -25,6 +25,16 @@ const MainVisualSlider = ({ children }: SliderProps) => {
     autoplay: true,
     autoplaySpeed: 1000,
     fade: true,
+    appendDots: dots => (
+      // 이 element는 className이 자동으로 slick-dots로 고정됨.
+      <div>
+        {dots}
+        <button type="button" className="pauseButton" onClick={play}>
+          <span className="pauseIcon" />
+          <span className="pauseIcon" />
+        </button>
+      </div>
+    ),
   };
 
   const play = () => {
@@ -48,11 +58,6 @@ const MainVisualSlider = ({ children }: SliderProps) => {
       <Slider {...settings} ref={ref}>
         {children}
       </Slider>
-      <div style={{ textAlign: "center" }}>
-        <button className="button" onClick={play}>
-          {count ? "stop" : "play"}
-        </button>
-      </div>
     </div>
   );
 };

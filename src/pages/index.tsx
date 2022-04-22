@@ -1,7 +1,7 @@
 import React from "react";
 
 import Page from "@/components/page";
-import MainSection from "@/containers/Main";
+import MainSection from "@/containers/home/MainSection";
 import SearchSection from "@/containers/home/SearchSection";
 import SeekerSection from "@/containers/home/SeekerSection";
 import CompanySection from "@/containers/home/CompanySection";

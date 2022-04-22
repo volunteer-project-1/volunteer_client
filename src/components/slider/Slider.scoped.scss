@@ -1,17 +1,6 @@
-.mainVisualSlider {
-  width: 100%;
-
-  img {
-    max-width: 100%;
-    min-width: 100%;
-    height: auto;
-  }
-}
-
 // .abc::v-deep .def 쓰면 .def는 global class로 취급됨.
 // (react-scoped-css가 내부적으로 Vue 컴파일러 가져다가 씀 -> Vue scoped css의 문법 작동함)
-.mainVisualSlider,
-.mainNoticeSlider {
+@mixin sliderFix {
   // 마우스로 슬라이드 내부의 텍스트 선택 안 되는 것 수정.
   ::v-deep .slick-slider {
     user-select: auto;
@@ -22,4 +11,61 @@
   ::v-deep .slick-slide.slick-active {
     z-index: 2;
   }
+}
+
+.mainVisualSlider {
+  @include sliderFix;
+
+  width: 100%;
+
+  img {
+    max-width: 100%;
+    min-width: 100%;
+    height: auto;
+  }
+
+  ::v-deep .slick-dots {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+
+    padding-left: 320px;
+    margin-top: 30px;
+
+    li {
+      margin: 0;
+
+      &:not(:first-child) {
+        margin-left: 8px;
+      }
+    }
+  }
+
+  .pauseButton {
+    width: 20px;
+    height: 20px;
+    margin-left: 6px;
+    padding: 0;
+
+    border: 1px solid #d9d9d9;
+    border-radius: 50%;
+
+    .pauseIcon {
+      display: inline-block;
+
+      width: 3px;
+      height: 10px;
+
+      border-radius: 1px;
+      background-color: #191919;
+
+      &:not(:first-child) {
+        margin-left: 2px;
+      }
+    }
+  }
+}
+
+.mainNoticeSlider {
+  @include sliderFix;
 }

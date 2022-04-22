@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import Link from "next/link";
 
 import Slider from "@/components/slider";
-import "@/containers/Main.scoped.scss";
+import "@/containers/home/MainSection.scoped.scss";
 
 interface MainVisualSliderType {
   img: string;
@@ -65,6 +65,7 @@ const MainSection = () => (
       ))}
     </Slider.MainVisual>
 
+    {/*
     <Slider.MainNotice>
       {mainNoticeContent.map((list, i) => (
         <div key={i}>
@@ -78,6 +79,7 @@ const MainSection = () => (
         </div>
       ))}
     </Slider.MainNotice>
+    */}
   </div>
 );
 
