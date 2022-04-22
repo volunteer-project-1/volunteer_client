@@ -7,10 +7,6 @@
   margin-bottom: 44px;
 
   @include boxColor(background-color, white);
-  @include boxColor(border-color, dark3);
-  @include boxShadow;
-  border-width: 1px;
-  border-style: solid;
 
   @extend .font, .w500;
   color: #666666;
@@ -43,6 +39,8 @@
 
   .companyImage {
     width: 100%;
+
+    @extend .imageFix;
   }
 
   .contentArea {
@@ -50,6 +48,11 @@
 
     width: 100%;
     padding: 19px 26px 22px 26px;
+
+    @include boxColor(border-color, dark3);
+    border-width: 1px;
+    border-top-width: 0;
+    border-style: solid;
   }
 
   .likeButtonArea {
