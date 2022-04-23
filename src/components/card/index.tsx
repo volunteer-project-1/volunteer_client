@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Company, Seeker } from "@/types/User";
+import { Company, Seeker } from "@/types/Dummy";
 import { daysBetweenDates } from "@/utils/DateUtils";
 import { useStoreSelector } from "@/store";
 import Button from "@/components/button";

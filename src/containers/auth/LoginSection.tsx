@@ -36,7 +36,7 @@ const LoginSection = () => {
       password,
     });
 
-    const profile = await UserAPI.getUserProfile();
+    const profile = await UserAPI.findMyProfile();
 
     dispatch(
       AuthSlice.actions.setSession({

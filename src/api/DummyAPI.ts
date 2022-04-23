@@ -2,9 +2,9 @@
  * @file 서버가 올라가기 전까지 사용할 dummy DB들.
  */
 
-import { Seeker, Company } from "@/types/User";
+import { Seeker, Company } from "@/types/Dummy";
 
-export const seekerList: Array<Seeker> = [
+const seekerList: Array<Seeker> = [
   {
     id: 0,
     name: "박철수",
@@ -51,7 +51,7 @@ export const seekerList: Array<Seeker> = [
   },
 ];
 
-export const companyList: Array<Company> = [
+const companyList: Array<Company> = [
   {
     id: 0,
     name: "에스디바이오센서",
@@ -95,3 +95,20 @@ export const companyList: Array<Company> = [
     dueDate: null,
   },
 ];
+
+async function getSeekerList(): Promise<Array<Seeker>> {
+  // 서버 데이터로 대체 예정.
+  return seekerList;
+}
+
+async function getCompanyList(): Promise<Array<Company>> {
+  // 서버 데이터로 대체 예정.
+  return companyList;
+}
+
+const DummyAPI = {
+  getSeekerList,
+  getCompanyList,
+};
+
+export default DummyAPI;

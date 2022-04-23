@@ -1,7 +1,7 @@
 import React, { useEffect, useState, ReactNode } from "react";
 
-import { Seeker } from "@/types/User";
-import UserAPI from "@/api/UserAPI";
+import { Seeker } from "@/types/Dummy";
+import DummyAPI from "@/api/DummyAPI";
 import Card from "@/components/card";
 import "@/components/list/List.scoped.scss";
 
@@ -18,7 +18,7 @@ const SeekerCardList = () => {
 
   useEffect(() => {
     (async () => {
-      setCurrentSeekerList(await UserAPI.getSeekerList());
+      setCurrentSeekerList(await DummyAPI.getSeekerList());
     })();
   }, []);
 

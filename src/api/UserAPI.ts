@@ -1,38 +1,20 @@
-import { Company, Seeker } from "@/types/User";
+import { User, Profile, UserMeta } from "@/types/User";
 import API from "@/api/API";
-import { seekerList, companyList } from "@/api/DummyDB";
 
-interface GetUserProfileOutput {
-  user: {
-    id: number;
-    email: string;
-    user_meta: {
-      id: number;
-      type: "seeker" | "company";
-      is_verified: number;
-    };
+interface FindMyProfileOutput {
+  user: Omit<User, "created_at" | "updated_at"> & {
+    profile: Omit<Profile, "created_at" | "updated_at">;
+    user_meta: Omit<UserMeta, "created_at" | "updated_at">;
   };
 }
 
-async function getUserProfile(): Promise<GetUserProfileOutput> {
-  const response = await API.get<GetUserProfileOutput>("/api/v1/user/profile");
+async function findMyProfile(): Promise<FindMyProfileOutput> {
+  const response = await API.get<FindMyProfileOutput>("/api/v1/user/profile");
   return response.data;
 }
 
-async function getSeekerList(): Promise<Array<Seeker>> {
-  // 서버 데이터로 대체 예정.
-  return seekerList;
-}
-
-async function getCompanyList(): Promise<Array<Company>> {
-  // 서버 데이터로 대체 예정.
-  return companyList;
-}
-
 const UserAPI = {
-  getUserProfile,
-  getSeekerList,
-  getCompanyList,
+  findMyProfile,
 };
 
 export default UserAPI;
