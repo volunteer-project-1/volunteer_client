@@ -1,29 +1,29 @@
 import React from "react";
 
-import FormSection from "@/containers/seeker/FormSection";
+import Editor from "@/components/editor";
 
 const AwardSection = () => {
   const handleClickAdd = () => {};
 
   return (
-    <FormSection>
-      <FormSection.Title>수상경력</FormSection.Title>
-      <FormSection.Row>
-        <FormSection.Cell fill>
-          <FormSection.Input placeholder="수상명" />
-        </FormSection.Cell>
-        <FormSection.Cell fill>
-          <FormSection.Input placeholder="수상기관" />
-        </FormSection.Cell>
-        <FormSection.Cell>
-          <FormSection.Input placeholder="수상년월" />
-        </FormSection.Cell>
-        <FormSection.Cell>
-          <FormSection.Input placeholder="수상내용" />
-        </FormSection.Cell>
-      </FormSection.Row>
-      <FormSection.AddButton onClick={handleClickAdd} />
-    </FormSection>
+    <Editor>
+      <Editor.Title>수상경력</Editor.Title>
+      <Editor.Row>
+        <Editor.Cell fill>
+          <Editor.Input label="수상명" />
+        </Editor.Cell>
+        <Editor.Cell fill>
+          <Editor.Input label="수상기관" />
+        </Editor.Cell>
+        <Editor.Cell>
+          <Editor.Input label="수상년월" />
+        </Editor.Cell>
+        <Editor.Cell>
+          <Editor.Input label="수상내용" />
+        </Editor.Cell>
+      </Editor.Row>
+      <Editor.AddButton onClick={handleClickAdd} />
+    </Editor>
   );
 };
 

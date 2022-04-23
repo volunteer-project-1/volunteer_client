@@ -1,24 +1,19 @@
 import React, { ComponentProps, ReactNode } from "react";
 import classNames from "classnames";
 
-import "@/containers/seeker/FormSection.scoped.scss";
 import { openFileDialog } from "@/utils/FileUtils";
+import { useID } from "@/utils/StringUtils";
+import "@/components/editor/Editor.scoped.scss";
 
 interface LayoutProps {
   children: ReactNode;
 }
 
-type FormSectionProps = LayoutProps;
+const Editor = ({ children }: LayoutProps) => <div className="editor">{children}</div>;
 
-const FormSection = ({ children }: FormSectionProps) => <div className="formSection">{children}</div>;
+const Title = ({ children }: LayoutProps) => <div className="title">{children}</div>;
 
-type TitleProps = LayoutProps;
-
-const Title = ({ children }: TitleProps) => <div className="title">{children}</div>;
-
-type RowProps = LayoutProps;
-
-const Row = ({ children }: RowProps) => <div className="row">{children}</div>;
+const Row = ({ children }: LayoutProps) => <div className="row">{children}</div>;
 
 interface CellProps extends LayoutProps {
   fill?: boolean;
@@ -26,9 +21,22 @@ interface CellProps extends LayoutProps {
 
 const Cell = ({ fill = false, children }: CellProps) => <div className={classNames("cell", { fill })}>{children}</div>;
 
-type InputProps = ComponentProps<"input">;
+interface InputProps extends ComponentProps<"input"> {
+  label: string;
+}
 
-const Input = (props: InputProps) => <input className="input" type="text" {...props} />;
+const Input = ({ label, ...others }: InputProps) => {
+  const id = useID();
+
+  return (
+    <div className="inputArea">
+      <label className="label" htmlFor={id}>
+        {label}
+      </label>
+      <input className="input" id={id} type="text" {...others} />
+    </div>
+  );
+};
 
 type CheckboxProps = Omit<ComponentProps<"input">, "type">;
 
@@ -80,7 +88,7 @@ const FileUploader = ({ accept = ".pdf,.hwp", onUpload }: FileUploaderProps) => 
   );
 };
 
-export default Object.assign(FormSection, {
+export default Object.assign(Editor, {
   Title,
   Row,
   Cell,

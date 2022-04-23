@@ -1,34 +1,34 @@
 import React from "react";
 
-import FormSection from "@/containers/seeker/FormSection";
+import Editor from "@/components/editor";
 
 const ActivitySection = () => {
   const handleClickAdd = () => {};
 
   return (
-    <FormSection>
-      <FormSection.Title>대외활동</FormSection.Title>
-      <FormSection.Row>
-        <FormSection.Cell>
-          <FormSection.Input placeholder="활동구분" />
-        </FormSection.Cell>
-        <FormSection.Cell fill>
-          <FormSection.Input placeholder="활동기관/단체/회사명" />
-        </FormSection.Cell>
-        <FormSection.Cell>
-          <FormSection.Input placeholder="시작년월" />
-        </FormSection.Cell>
-        <FormSection.Cell>
-          <FormSection.Input placeholder="종료년월" />
-        </FormSection.Cell>
-      </FormSection.Row>
-      <FormSection.Row>
-        <FormSection.Cell fill>
-          <FormSection.Input placeholder="활동내용" />
-        </FormSection.Cell>
-      </FormSection.Row>
-      <FormSection.AddButton onClick={handleClickAdd} />
-    </FormSection>
+    <Editor>
+      <Editor.Title>대외활동</Editor.Title>
+      <Editor.Row>
+        <Editor.Cell>
+          <Editor.Input label="활동구분" />
+        </Editor.Cell>
+        <Editor.Cell fill>
+          <Editor.Input label="활동기관/단체/회사명" />
+        </Editor.Cell>
+        <Editor.Cell>
+          <Editor.Input label="시작년월" />
+        </Editor.Cell>
+        <Editor.Cell>
+          <Editor.Input label="종료년월" />
+        </Editor.Cell>
+      </Editor.Row>
+      <Editor.Row>
+        <Editor.Cell fill>
+          <Editor.Input label="활동내용" />
+        </Editor.Cell>
+      </Editor.Row>
+      <Editor.AddButton onClick={handleClickAdd} />
+    </Editor>
   );
 };
 
