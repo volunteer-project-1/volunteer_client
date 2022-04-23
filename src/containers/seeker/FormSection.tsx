@@ -51,11 +51,18 @@ const AddButton = ({ onClick }: AddButtonProps) => (
   </button>
 );
 
-const FileUploader = () => {
-  const handleClickUpload = async () => {
-    const files = await openFileDialog("*", true);
+interface FileUploaderProps {
+  // 어떤 종류의 파일들을 허용할지.
+  // (기본값: PDF, HWP)
+  accept?: string;
 
-    alert(`업로드: ${files.map(file => file.name).join(", ")}`);
+  onUpload: (files: Array<File>) => void;
+}
+
+const FileUploader = ({ accept = ".pdf,.hwp", onUpload }: FileUploaderProps) => {
+  const handleClickUpload = async () => {
+    const files = await openFileDialog(accept, true);
+    onUpload(files);
   };
 
   return (
