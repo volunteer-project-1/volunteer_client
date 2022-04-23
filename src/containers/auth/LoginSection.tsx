@@ -5,6 +5,7 @@ import ROUTES from "@/constants/Routes";
 import { useValue } from "@/utils/StateUtils";
 import { strictValues } from "@/utils/TypeUtils";
 import { isEmail, isPassword } from "@/utils/StringUtils";
+import { dLog } from "@/utils/DebugUtils";
 import AuthAPI from "@/api/AuthAPI";
 import UserAPI from "@/api/UserAPI";
 import { useStoreDispatch } from "@/store";
@@ -37,6 +38,8 @@ const LoginSection = () => {
     });
 
     const profile = await UserAPI.findMyProfile();
+
+    dLog(profile);
 
     dispatch(
       AuthSlice.actions.setSession({
