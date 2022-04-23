@@ -55,29 +55,13 @@
 - `npm install -g @serverless/cli`
 
 배포
+
 - `components-v1` 실행
 - 시간이 좀 오래 걸립니다... (몇분 정도 걸림)
 
 ## Pages
 
-- /: 메인 페이지 ('home')
-- /auth
-  - /join: 회원가입
-  - /login: 로그인
-- /seeker: 구직활동 (**구직자**를 위한 서브 페이지들)
-  - /resume-editor: 구직자 프로필 작성
-  - /company-list: 기업 리스트
-  - /company-info: 기업정보 (Params: company-id, section)
-- /company: 인재채용 (**기업**을 위한 서브 페이지들)
-  - /info-editor: 기업 프로필 작성
-  - /seeker-list: 구직자 리스트
-  - /seeker-resume: 구직자 프로필 보기 (Params: seeker-id)
-- /news: 미디어 뉴스
-  - /news-list: 뉴스 리스트
-  - /news-content: 뉴스 내용
-- /notice: 고객센터
-- /mypage: 마이페이지
-  - (추후 채울 예정)
+페이지 목록은 src/constants/Routes.ts를 참고해주세요.
 
 ## Project structure
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import classNames from "classnames";
 
+import ROUTES from "@/constants/Routes";
 import { useValue } from "@/utils/StateUtils";
 import { strictValues } from "@/utils/TypeUtils";
 import { isEmail, isPassword } from "@/utils/StringUtils";
@@ -53,12 +54,12 @@ const JoinSection = () => {
   };
 
   const handleCloseDialog = () => {
-    router.push("/auth/login");
+    router.push(ROUTES.auth.login);
     setDialogOpen(false);
   };
 
   const handleClickOK = () => {
-    router.push("/auth/login");
+    router.push(ROUTES.auth.login);
     setDialogOpen(false);
   };
 

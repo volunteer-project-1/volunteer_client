@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 
+import ROUTES from "@/constants/Routes";
 import { useValue } from "@/utils/StateUtils";
 import { strictValues } from "@/utils/TypeUtils";
 import { isEmail, isPassword } from "@/utils/StringUtils";
@@ -44,7 +45,7 @@ const LoginSection = () => {
       })
     );
 
-    router.push("/");
+    router.push(ROUTES.home);
   };
 
   return (

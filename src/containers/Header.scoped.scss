@@ -36,11 +36,31 @@
     display: flex;
     height: 100%;
     align-items: center;
-    a {
-      padding-left: g-vw(1280, 40px);
-      padding-right: g-vw(1280, 40px);
-      @extend .font, .size16, .w400;
-      font-size: 16px;
+
+    .menu {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      height: 100%;
+
+      border-bottom-style: solid;
+      border-bottom-width: 2px;
+      border-bottom-color: transparent;
+
+      &.isActive {
+        @include boxColor(border-bottom-color, green);
+
+        a {
+          @extend .font, .green;
+        }
+      }
+
+      a {
+        padding-left: g-vw(1280, 40px);
+        padding-right: g-vw(1280, 40px);
+        @extend .font, .size16, .w500;
+      }
     }
   }
   .bar-login {
