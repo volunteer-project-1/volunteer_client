@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import classNames from "classnames";
 
 import ROUTES from "@/constants/Routes";
+import { dError } from "@/utils/DebugUtils";
 import { useValue } from "@/utils/StateUtils";
 import { strictValues } from "@/utils/TypeUtils";
 import { isEmail, isPassword } from "@/utils/StringUtils";
@@ -46,7 +47,7 @@ const JoinSection = () => {
 
       setDialogOpen(true);
     } catch (error) {
-      console.error(error);
+      dError(error);
       alert("에러가 발생했습니다! 이미 가입된 아이디일 수 있습니다.");
     }
 

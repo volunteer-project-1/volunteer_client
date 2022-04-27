@@ -45,6 +45,7 @@ const rootReducer: typeof combinedReducer = (state, action) => {
  */
 const store = configureStore({
   reducer: rootReducer,
+  devTools: isDevelopmentMode(),
 });
 
 /**

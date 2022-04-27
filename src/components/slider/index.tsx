@@ -1,6 +1,7 @@
 import React, { ReactNode, useState } from "react";
 import Slider, { Settings } from "react-slick";
 
+import { dLog } from "@/utils/DebugUtils";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@/components/slider/Slider.scoped.scss";
@@ -50,7 +51,7 @@ const MainVisualSlider = ({ children }: SliderProps) => {
       setCount(true);
     }
 
-    console.log("count", count);
+    dLog("count", count);
   };
 
   return (
