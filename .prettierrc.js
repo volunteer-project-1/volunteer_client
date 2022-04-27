@@ -13,4 +13,7 @@ module.exports = {
   arrowParens: "avoid",
   // 줄 끝(LF/CRLF): 각 파일에 따라 알아서.
   endOfLine: "auto",
+  importOrderSeparation: true,
+  importOrderSortSpecifiers: true,
+  importOrderParserPlugins: ["classProperties", '["decorators", { "decoratorsBeforeExport": true }]'],
 };

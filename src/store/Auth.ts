@@ -21,7 +21,7 @@ const AuthSlice = createSlice({
     /**
      * 로그인 상태 변경.
      */
-    setSession(state, action: PayloadAction<Session | null>) {
+    setSession: (state, action: PayloadAction<Session | null>) => {
       state.session = action.payload;
     },
   },

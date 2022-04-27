@@ -16,12 +16,14 @@ import { HYDRATE, createWrapper } from "next-redux-wrapper";
 
 import { isDevelopmentMode } from "@/utils/DebugUtils";
 import AuthSlice from "@/store/Auth";
+import ResumeSlice from "@/store/Resume";
 
 /**
  * Slice의 reducer들을 하나로 함침.
  */
 const combinedReducer = combineReducers({
   [AuthSlice.name]: AuthSlice.reducer,
+  [ResumeSlice.name]: ResumeSlice.reducer,
   // [XXXSlice.name]: XXXSlice.reducer,
 });
 

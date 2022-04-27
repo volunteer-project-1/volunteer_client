@@ -1,5 +1,7 @@
-import React, { ComponentProps, ReactNode } from "react";
+import React, { HTMLInputTypeAttribute, ReactNode, useRef, useState } from "react";
 import classNames from "classnames";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 import { openFileDialog } from "@/utils/FileUtils";
 import { useID } from "@/utils/StringUtils";
@@ -21,11 +23,14 @@ interface CellProps extends LayoutProps {
 
 const Cell = ({ fill = false, children }: CellProps) => <div className={classNames("cell", { fill })}>{children}</div>;
 
-interface InputProps extends ComponentProps<"input"> {
+interface InputProps {
   label: string;
+  type?: HTMLInputTypeAttribute;
+  value?: string;
+  onChange?: (value: string) => void;
 }
 
-const Input = ({ label, ...others }: InputProps) => {
+const Input = ({ label, type = "text", value = "", onChange }: InputProps) => {
   const id = useID();
 
   return (
@@ -33,16 +38,108 @@ const Input = ({ label, ...others }: InputProps) => {
       <label className="label" htmlFor={id}>
         {label}
       </label>
-      <input className="input" id={id} type="text" {...others} />
+      <input
+        className="input"
+        id={id}
+        type={type}
+        value={value}
+        onChange={event => {
+          onChange && onChange(event.target.value);
+        }}
+      />
     </div>
   );
 };
 
-type CheckboxProps = Omit<ComponentProps<"input">, "type">;
+interface SelectProps<Value> {
+  label: string;
+  options: Array<{ name: string; value: Value }>;
+  value?: Value;
+  onChange?: (value: Value) => void;
+}
 
-const Checkbox = ({ children, ...others }: CheckboxProps) => (
+const Select = <Value,>({ label, options, value = options[0].value, onChange }: SelectProps<Value>) => {
+  const [isOpen, setOpen] = useState(false);
+
+  const id = useID();
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  const inputElement = buttonRef.current;
+
+  const handleClickInput = () => {
+    setOpen(true);
+  };
+
+  const handleClickOption = (value: Value) => {
+    onChange && onChange(value);
+    setOpen(false);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  let currentName = "";
+
+  for (let i = 0; i < options.length; i++) {
+    if (options[i].value === value) {
+      currentName = options[i].name;
+      break;
+    }
+  }
+
+  return (
+    <div className="inputArea">
+      <label className="label" htmlFor={id}>
+        {label}
+      </label>
+      <button className="input" id={id} ref={buttonRef} onClick={handleClickInput}>
+        {currentName}
+        <img className="icon" src="/assets/editor/select-down.svg" alt="선택" />
+      </button>
+      {inputElement !== null && (
+        <Menu
+          open={isOpen}
+          onClose={handleClose}
+          anchorEl={inputElement}
+          // Menu 열었을 때 스크롤바 사라지는 현상 방지.
+          disableScrollLock
+        >
+          {options.map(option => (
+            <MenuItem
+              sx={{
+                width: inputElement.clientWidth,
+              }}
+              key={option.name}
+              onClick={() => {
+                handleClickOption(option.value);
+              }}
+            >
+              {option.name}
+            </MenuItem>
+          ))}
+        </Menu>
+      )}
+    </div>
+  );
+};
+
+interface CheckboxProps {
+  value?: boolean;
+  onChange?: (value: boolean) => void;
+  children: ReactNode;
+}
+
+const Checkbox = ({ value = false, children, onChange }: CheckboxProps) => (
   <label className="checkboxArea">
-    <input className="hiddenCheckbox" type={"checkbox"} {...others} />
+    <input
+      className="hiddenCheckbox"
+      type={"checkbox"}
+      checked={value}
+      onChange={event => {
+        onChange && onChange(event.target.checked);
+      }}
+    />
     <span className="checkbox" />
     {children}
   </label>
@@ -64,13 +161,13 @@ interface FileUploaderProps {
   // (기본값: PDF, HWP)
   accept?: string;
 
-  onUpload: (files: Array<File>) => void;
+  onUpload?: (files: Array<File>) => void;
 }
 
 const FileUploader = ({ accept = ".pdf,.hwp", onUpload }: FileUploaderProps) => {
   const handleClickUpload = async () => {
     const files = await openFileDialog(accept, true);
-    onUpload(files);
+    onUpload && onUpload(files);
   };
 
   return (
@@ -93,6 +190,7 @@ export default Object.assign(Editor, {
   Row,
   Cell,
   Input,
+  Select,
   Checkbox,
   AddButton,
   FileUploader,
