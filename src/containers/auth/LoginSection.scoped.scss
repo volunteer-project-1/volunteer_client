@@ -36,6 +36,10 @@
       border-bottom-right-radius: 4px;
     }
 
+    &:not(:last-of-type) {
+      border-bottom-color: transparent;
+    }
+
     &.hasError {
       @include boxColor(border-color, red);
     }

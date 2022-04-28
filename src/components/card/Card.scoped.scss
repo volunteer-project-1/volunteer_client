@@ -89,7 +89,6 @@
   padding-top: 40px;
 
   @include boxColor(border-color, dark3);
-  @include boxShadow;
   border-width: 1px;
   border-style: solid;
   border-radius: 0.5rem;
@@ -99,6 +98,10 @@
 
   &:not(:first-child) {
     margin-left: 33px;
+  }
+
+  &:hover {
+    transform: translateY(-28px);
   }
 
   .profileArea {
