@@ -1,0 +1,81 @@
+.contactSection {
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: row;
+
+  padding-top: 28px;
+  padding-bottom: 28px;
+
+  @extend .inner;
+
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e1e1e1;
+
+  .phoneBox,
+  .kakaoBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .phoneBox {
+    flex: 1;
+
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-right-color: #e1e1e1;
+
+    .phoneNumber {
+      margin-top: 8px;
+
+      @extend .font, .size36, .green, .bold;
+    }
+
+    .email {
+      margin-top: 2px;
+
+      @extend .font, .size24, .green, .w500;
+    }
+
+    .time {
+      text-align: center;
+
+      margin-top: 37px;
+
+      @extend .font, .size16, .dark8;
+    }
+  }
+
+  .kakaoBox {
+    flex: 1;
+
+    .kakaoID {
+      margin-top: 10px;
+
+      @extend .font, .size20, .dark8, .w500;
+    }
+
+    .kakaoName {
+      margin-top: 4px;
+
+      @extend .font, .size40, .dark8, .w500;
+    }
+
+    .connectButton {
+      box-sizing: border-box;
+
+      margin-top: 27px;
+      padding: 16px 28px;
+
+      color: #391b1b;
+      background-color: #fae301;
+      border: 0;
+
+      font-family: inherit;
+      @extend .font, .size20, .w500;
+    }
+  }
+}
