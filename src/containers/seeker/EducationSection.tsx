@@ -1,6 +1,5 @@
 import React from "react";
 
-import { Education } from "@/types/Resume";
 import { useStoreDispatch, useStoreSelector } from "@/store";
 import ResumeSlice, { UpdateArrayItemPayload } from "@/store/Resume";
 import Editor from "@/components/editor";
