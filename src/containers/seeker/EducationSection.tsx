@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useStoreDispatch, useStoreSelector } from "@/store";
-import ResumeSlice, { UpdateArrayItemPayload } from "@/store/Resume";
+import resumeSlice, { addArrayItem, updateArrayItem, UpdateArrayItemPayload } from "@/store/resume";
 import Editor from "@/components/editor";
 
 const EducationSection = () => {
@@ -9,7 +9,7 @@ const EducationSection = () => {
   const dispatch = useStoreDispatch();
 
   const handleClickAdd = () => {
-    dispatch(ResumeSlice.actions.addArrayItem({ name: "educations" }));
+    dispatch(addArrayItem({ name: "educations" }));
   };
 
   return (
@@ -28,7 +28,7 @@ const EducationSection = () => {
                   part: { type: value },
                 };
 
-                dispatch(ResumeSlice.actions.updateArrayItem(payload));
+                dispatch(updateArrayItem(payload));
               }}
             />
           </Editor.Cell>
@@ -43,7 +43,7 @@ const EducationSection = () => {
                   part: { school_name: value },
                 };
 
-                dispatch(ResumeSlice.actions.updateArrayItem(payload));
+                dispatch(updateArrayItem(payload));
               }}
             />
           </Editor.Cell>
@@ -64,7 +64,7 @@ const EducationSection = () => {
                   part: { graduation_year: value },
                 };
 
-                dispatch(ResumeSlice.actions.updateArrayItem(payload));
+                dispatch(updateArrayItem(payload));
               }}
             />
           </Editor.Cell>
@@ -83,7 +83,7 @@ const EducationSection = () => {
                   part: { is_graduated: value },
                 };
 
-                dispatch(ResumeSlice.actions.updateArrayItem(payload));
+                dispatch(updateArrayItem(payload));
               }}
             />
           </Editor.Cell>

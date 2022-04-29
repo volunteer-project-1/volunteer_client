@@ -51,7 +51,7 @@ export interface UpdateSingleItemPayload<Name extends SingleName> {
   part: Partial<ResumeState[Name]>;
 }
 
-const ResumeSlice = createSlice({
+const resumeSlice = createSlice({
   name: "resume",
   initialState,
   reducers: {
@@ -95,4 +95,6 @@ const ResumeSlice = createSlice({
   },
 });
 
-export default ResumeSlice;
+export const { addArrayItem, updateArrayItem, updateSingleItem } = resumeSlice.actions;
+
+export default resumeSlice.reducer;

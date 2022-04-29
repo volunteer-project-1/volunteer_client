@@ -9,7 +9,7 @@ import { dLog } from "@/utils/DebugUtils";
 import AuthAPI from "@/api/AuthAPI";
 import UserAPI from "@/api/UserAPI";
 import { useStoreDispatch } from "@/store";
-import AuthSlice from "@/store/Auth";
+import { setSession } from "@/store/auth";
 import Box from "@/containers/auth/Box";
 import "@/containers/auth/LoginSection.scoped.scss";
 
@@ -42,7 +42,7 @@ const LoginSection = () => {
     dLog(profile);
 
     dispatch(
-      AuthSlice.actions.setSession({
+      setSession({
         id: profile.user.id,
         type: profile.user.user_meta.type,
       })

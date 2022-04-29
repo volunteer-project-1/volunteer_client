@@ -2,8 +2,8 @@
  * @file Redux store 정의.
  *
  * (1) 상태 추가하기
- * - 별도의 파일에 slice 생성
- * - combinedReducer에 [MySlice.name]: MySlice.reducer 추가
+ * - 별도의 파일에 createReducer(), createSlice() 등을 이용하여 action creator & reducer 생성
+ * - 아래의 combinedReducer에 reducer 추가
  *
  * (2) 상태 가져오기 / 상태 업데이트
  * - 아래의 useStoreSelector(), useStoreDispatch() 참고
@@ -15,16 +15,15 @@ import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 import { HYDRATE, createWrapper } from "next-redux-wrapper";
 
 import { isDevelopmentMode } from "@/utils/DebugUtils";
-import AuthSlice from "@/store/Auth";
-import ResumeSlice from "@/store/Resume";
+import authReducer from "@/store/auth";
+import resumeReducer from "@/store/resume";
 
 /**
- * Slice의 reducer들을 하나로 함침.
+ * 기능 별 reducer들을 하나로 함침.
  */
 const combinedReducer = combineReducers({
-  [AuthSlice.name]: AuthSlice.reducer,
-  [ResumeSlice.name]: ResumeSlice.reducer,
-  // [XXXSlice.name]: XXXSlice.reducer,
+  auth: authReducer,
+  resume: resumeReducer,
 });
 
 /**
