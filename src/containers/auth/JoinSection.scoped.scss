@@ -1,11 +1,13 @@
 .joinSection {
-  display: flex;
-  flex-direction: row;
-
-  @extend .inner;
-
   margin-top: 83px;
   margin-bottom: 83px;
+
+  .content {
+    display: flex;
+    flex-direction: row;
+
+    @extend .inner;
+  }
 
   .input {
     box-sizing: border-box;

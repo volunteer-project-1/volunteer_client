@@ -1,0 +1,27 @@
+.tabList {
+  display: flex;
+  flex-direction: row;
+
+  // 탭 영역을 1px 아래로 내려서, 탭의 border-bottom이 박스의 border를 일부 가리도록 유도함.
+  transform: translateY(1px);
+
+  .tab {
+    width: 273px;
+    height: 71px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-bottom-width: 0;
+
+    @include boxColor(border-color, dark3);
+    @include boxColor(background-color, dark3);
+
+    font-family: inherit;
+    @extend .font, .dark4, .size20, .w500;
+
+    &.isActive {
+      @include boxColor(background-color, white);
+      @extend .font, .dark8;
+    }
+  }
+}
