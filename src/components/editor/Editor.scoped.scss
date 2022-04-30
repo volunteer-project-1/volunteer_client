@@ -24,6 +24,16 @@
     margin-bottom: 10px;
   }
 
+  .separator {
+    width: 100%;
+    margin-top: 24px;
+    margin-bottom: 24px;
+
+    border-top-width: 1px;
+    border-top-style: solid;
+    @include boxColor(border-top-color, dark2);
+  }
+
   .cell {
     display: flex;
     flex-direction: row;

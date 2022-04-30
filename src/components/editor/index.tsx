@@ -17,6 +17,8 @@ const Title = ({ children }: LayoutProps) => <div className="title">{children}</
 
 const Row = ({ children }: LayoutProps) => <div className="row">{children}</div>;
 
+const Separator = () => <div className="separator" />;
+
 interface CellProps extends LayoutProps {
   fill?: boolean;
 }
@@ -30,7 +32,7 @@ interface InputProps {
   onChange?: (value: string) => void;
 }
 
-const Input = ({ label, type = "text", value = "", onChange }: InputProps) => {
+const Input = ({ label, type = "text", value, onChange }: InputProps) => {
   const id = useID();
 
   return (
@@ -42,7 +44,7 @@ const Input = ({ label, type = "text", value = "", onChange }: InputProps) => {
         className="input"
         id={id}
         type={type}
-        value={value}
+        value={value ?? ""}
         onChange={event => {
           onChange && onChange(event.target.value);
         }}
@@ -58,7 +60,7 @@ interface SelectProps<Value> {
   onChange?: (value: Value) => void;
 }
 
-const Select = <Value,>({ label, options, value = options[0].value, onChange }: SelectProps<Value>) => {
+const Select = <Value,>({ label, options, value, onChange }: SelectProps<Value>) => {
   const [isOpen, setOpen] = useState(false);
 
   const id = useID();
@@ -95,6 +97,8 @@ const Select = <Value,>({ label, options, value = options[0].value, onChange }: 
       </label>
       <button className="input" id={id} ref={buttonRef} onClick={handleClickInput}>
         {currentName}
+        {/* 빈 칸을 하나 넣어서... currentName이 빈 string이어도 버튼의 높이가 줄어들지 않도록 함... */}
+        &nbsp;
         <img className="icon" src="/assets/editor/select-down.svg" alt="선택" />
       </button>
       {inputElement !== null && (
@@ -188,6 +192,7 @@ const FileUploader = ({ accept = ".pdf,.hwp", onUpload }: FileUploaderProps) => 
 export default Object.assign(Editor, {
   Title,
   Row,
+  Separator,
   Cell,
   Input,
   Select,
