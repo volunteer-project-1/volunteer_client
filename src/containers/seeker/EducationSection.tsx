@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 import { useStoreDispatch, useStoreSelector } from "@/store";
 import { addArrayItem, updateArrayItem, UpdateArrayItemPayload } from "@/store/resume";
@@ -16,9 +16,9 @@ const EducationSection = () => {
     <Editor>
       <Editor.Title>학력</Editor.Title>
       {educations.map((education, index) => (
-        <>
+        <Fragment key={index}>
           {index > 0 && <Editor.Separator />}
-          <Editor.Row key={index}>
+          <Editor.Row>
             <Editor.Cell>
               <Editor.Input
                 label="학교구분"
@@ -93,7 +93,7 @@ const EducationSection = () => {
               <Editor.Checkbox>대입검정고시</Editor.Checkbox>
             </Editor.Cell>
           </Editor.Row>
-        </>
+        </Fragment>
       ))}
       <Editor.AddButton onClick={handleClickAdd} />
     </Editor>

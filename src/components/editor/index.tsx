@@ -35,6 +35,10 @@ interface InputProps {
 const Input = ({ label, type = "text", value, onChange }: InputProps) => {
   const id = useID();
 
+  // 상태랑 연결이 안 되어 있어도 일단 작성은 되도록 함.
+  // (onChange가 없으면 uncontrolled component로 작동.)
+  const isDummy = typeof onChange === "undefined";
+
   return (
     <div className="inputArea">
       <label className="label" htmlFor={id}>
@@ -44,10 +48,14 @@ const Input = ({ label, type = "text", value, onChange }: InputProps) => {
         className="input"
         id={id}
         type={type}
-        value={value ?? ""}
-        onChange={event => {
-          onChange && onChange(event.target.value);
-        }}
+        value={isDummy ? undefined : value ?? ""}
+        onChange={
+          isDummy
+            ? undefined
+            : event => {
+                onChange && onChange(event.target.value);
+              }
+        }
       />
     </div>
   );
@@ -134,20 +142,30 @@ interface CheckboxProps {
   children: ReactNode;
 }
 
-const Checkbox = ({ value = false, children, onChange }: CheckboxProps) => (
-  <label className="checkboxArea">
-    <input
-      className="hiddenCheckbox"
-      type={"checkbox"}
-      checked={value}
-      onChange={event => {
-        onChange && onChange(event.target.checked);
-      }}
-    />
-    <span className="checkbox" />
-    {children}
-  </label>
-);
+const Checkbox = ({ value = false, children, onChange }: CheckboxProps) => {
+  // 상태랑 연결이 안 되어 있어도 일단 작성은 되도록 함.
+  // (onChange가 없으면 uncontrolled component로 작동.)
+  const isDummy = typeof onChange === "undefined";
+
+  return (
+    <label className="checkboxArea">
+      <input
+        className="hiddenCheckbox"
+        type={"checkbox"}
+        checked={isDummy ? undefined : value}
+        onChange={
+          isDummy
+            ? undefined
+            : event => {
+                onChange && onChange(event.target.checked);
+              }
+        }
+      />
+      <span className="checkbox" />
+      {children}
+    </label>
+  );
+};
 
 interface AddButtonProps {
   onClick: () => void;
