@@ -1,30 +1,30 @@
 import React, { ReactNode, useState } from "react";
-import Slider, { Settings } from "react-slick";
-
-import { dLog } from "@/utils/DebugUtils";
+import SlickSlider, { Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+import { dLog } from "@/utils/DebugUtils";
 import "@/components/slider/Slider.scoped.scss";
 
 interface SliderProps {
   children: ReactNode;
 }
 
-const Sliders = ({ children }: SliderProps) => {
+const Slider = ({ children }: SliderProps) => {
   <div>{children}</div>;
 };
 
-const MainVisualSlider = ({ children }: SliderProps) => {
-  const ref = React.useRef<Slider>(null);
+const VisualSlider = ({ children }: SliderProps) => {
+  const ref = React.useRef<SlickSlider>(null);
   const [count, setCount] = useState(true);
 
   const settings: Settings = {
     arrows: false,
     dots: true,
     infinite: true,
-    speed: 1000,
+    speed: 3000,
     autoplay: true,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 3000,
     fade: true,
     appendDots: dots => (
       // 이 element는 className이 자동으로 slick-dots로 고정됨.
@@ -56,14 +56,14 @@ const MainVisualSlider = ({ children }: SliderProps) => {
 
   return (
     <div className={"mainVisualSlider"}>
-      <Slider {...settings} ref={ref}>
+      <SlickSlider {...settings} ref={ref}>
         {children}
-      </Slider>
+      </SlickSlider>
     </div>
   );
 };
 
-const MainNoticeSlider = ({ children }: SliderProps) => {
+const NoticeSlider = ({ children }: SliderProps) => {
   const settings: Settings = {
     arrows: false,
     dots: true,
@@ -102,12 +102,12 @@ const MainNoticeSlider = ({ children }: SliderProps) => {
 
   return (
     <div className="mainNoticeSlider">
-      <Slider {...settings}>{children}</Slider>
+      <SlickSlider {...settings}>{children}</SlickSlider>
     </div>
   );
 };
 
-export default Object.assign(Sliders, {
-  MainVisual: MainVisualSlider,
-  MainNotice: MainNoticeSlider,
+export default Object.assign(Slider, {
+  Visual: VisualSlider,
+  Notice: NoticeSlider,
 });
