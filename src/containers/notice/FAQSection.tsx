@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 
 import FAQ from "@/containers/notice/FAQ";
 import "@/containers/notice/FAQSection.scoped.scss";
+import classNames from "classnames";
+import { strictFromEntries, strictValues } from "@/utils/TypeUtils";
 
-const tagNames = ["가입절차", "아이디분실", "비밀번호 분실", "사이트 이용", "기타사항"] as const;
+const tagNames = [
+  "가입절차",
+  "아이디분실",
+  "비밀번호 분실",
+  // "사이트 이용",
+  // "기타사항"
+] as const;
+
 type Tag = typeof tagNames[number];
 
 interface FAQ {
@@ -45,12 +54,42 @@ const faqs: Array<FAQ> = [
   },
 ];
 
-const FAQSection = () => (
-  <div className="faqSection">
-    {faqs.map(faq => (
-      <FAQ key={faq.question} question={`[${faq.tag}] ${faq.question}`} answer={faq.answer} />
-    ))}
-  </div>
-);
+const FAQSection = () => {
+  const [showTag, setShowTag] = useState(strictFromEntries(tagNames.map(tag => [tag, false])));
+
+  const areAllTagsFalse = !strictValues(showTag).includes(true);
+
+  return (
+    <div className="faqSection">
+      <div className="filterArea">
+        {tagNames.map(tag => (
+          <button
+            key={tag}
+            className={classNames("filterButton", {
+              isActive: showTag[tag],
+            })}
+            type="button"
+            onClick={() => {
+              setShowTag({
+                ...showTag,
+                [tag]: !showTag[tag],
+              });
+            }}
+          >
+            {tag}
+          </button>
+        ))}
+      </div>
+      <div className="content">
+        {faqs.map(
+          faq =>
+            (areAllTagsFalse || showTag[faq.tag]) && (
+              <FAQ key={faq.question} question={`[${faq.tag}] ${faq.question}`} answer={faq.answer} />
+            )
+        )}
+      </div>
+    </div>
+  );
+};
 
 export default FAQSection;
