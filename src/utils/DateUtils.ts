@@ -8,3 +8,15 @@
 export function daysBetweenDates(startDate: Date, endDate: Date) {
   return Math.round((Number(endDate) - Number(startDate)) / (1000 * 60 * 60 * 24));
 }
+
+/**
+ * 날짜를 문자열로 변환.
+ * (ex. 2022.02.18)
+ */
+export function dateToString(date: Date) {
+  const yearString = date.getFullYear();
+  const monthString = `${date.getMonth() + 1}`.padStart(2, "0");
+  const dateString = `${date.getDate()}`.padStart(2, "0");
+
+  return `${yearString}.${monthString}.${dateString}`;
+}

@@ -18,7 +18,7 @@ interface Menu {
 const menus: Array<Menu> = [
   { name: "구직활동", url: ROUTES.seeker.resumeEditor, prefix: "/seeker" },
   { name: "인재채용", url: ROUTES.company.seekerList, prefix: "/company" },
-  { name: "미디어 뉴스", url: ROUTES.home, prefix: "/news" },
+  { name: "미디어 뉴스", url: ROUTES.news.newsList, prefix: "/news" },
   { name: "고객센터", url: ROUTES.notice, prefix: "/notice" },
 ];
 

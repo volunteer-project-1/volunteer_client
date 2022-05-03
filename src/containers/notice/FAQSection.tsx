@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import classNames from "classnames";
 
+import { strictFromEntries, strictValues } from "@/utils/TypeUtils";
 import FAQ from "@/containers/notice/FAQ";
 import "@/containers/notice/FAQSection.scoped.scss";
-import classNames from "classnames";
-import { strictFromEntries, strictValues } from "@/utils/TypeUtils";
 
 const tagNames = [
   "가입절차",
