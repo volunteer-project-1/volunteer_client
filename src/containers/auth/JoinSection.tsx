@@ -4,11 +4,14 @@ import classNames from "classnames";
 
 import ROUTES from "@/constants/Routes";
 import { UserType } from "@/types/User";
-import { dError } from "@/utils/DebugUtils";
+import { dError, dLog } from "@/utils/DebugUtils";
 import { useValue } from "@/utils/StateUtils";
 import { strictValues } from "@/utils/TypeUtils";
 import { isEmail, isPassword } from "@/utils/StringUtils";
 import AuthAPI from "@/api/AuthAPI";
+import UserAPI from "@/api/UserAPI";
+import { useStoreDispatch } from "@/store";
+import { setSession } from "@/store/auth";
 import Dialog from "@/components/dialog";
 import Box from "@/containers/auth/Box";
 import TabList from "@/containers/auth/TabList";
@@ -16,6 +19,7 @@ import "@/containers/auth/JoinSection.scoped.scss";
 
 const JoinSection = () => {
   const router = useRouter();
+  const dispatch = useStoreDispatch();
 
   // TODO: 현재는 id = 이메일 주소인데, 다른 것도 허용할지는 논의 예정.
   const [id, onChangeID] = useValue("");
@@ -57,14 +61,38 @@ const JoinSection = () => {
     setLoading(false);
   };
 
-  const handleCloseDialog = () => {
-    router.push(ROUTES.auth.login);
+  const loginAndCloseDialog = async () => {
+    await AuthAPI.doLocalLogin({
+      email: id,
+      password,
+    });
+
+    const profile = await UserAPI.findMyProfile();
+
+    dLog(profile);
+
+    dispatch(
+      setSession({
+        id: profile.user.id,
+        type: profile.user.user_meta.type,
+      })
+    );
+
     setDialogOpen(false);
   };
 
-  const handleClickOK = () => {
-    router.push(ROUTES.auth.login);
-    setDialogOpen(false);
+  const handleCloseDialog = async () => {
+    await loginAndCloseDialog();
+  };
+
+  const handleClickYes = async () => {
+    await loginAndCloseDialog();
+    router.push(ROUTES.seeker.resumeEditor);
+  };
+
+  const handleClickNo = async () => {
+    await loginAndCloseDialog();
+    router.push(ROUTES.home);
   };
 
   return (
@@ -131,7 +159,10 @@ const JoinSection = () => {
             회원가입이 완료되었습니다. See me에 오신것을 환영합니다.
           </Dialog.Content>
           <Dialog.Footer>
-            <Dialog.Button onClick={handleClickOK}>확인</Dialog.Button>
+            <Dialog.Button fill onClick={handleClickYes}>
+              예. 이력서 작성할래요.
+            </Dialog.Button>
+            <Dialog.Button onClick={handleClickNo}>아니요. 나중에 할래요.</Dialog.Button>
           </Dialog.Footer>
         </Dialog>
       </div>

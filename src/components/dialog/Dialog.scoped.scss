@@ -8,7 +8,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  min-width: 470px;
+  min-width: 552px;
   padding-top: 40px;
   padding-bottom: 40px;
   border-radius: 6px;
@@ -45,10 +45,19 @@
 
 // TODO: 가이드에 버튼 여러 개인 경우가 나오면 참고하여 버튼들의 간격 지정.
 .dialogButton {
-  padding: 14px 38px 14px 42px;
+  padding: 13px 16px;
 
   border-style: solid;
   border-width: 1px;
   @include boxColor(border-color, green);
   @extend .font, .size18, .w500, .green;
+
+  &.fill {
+    @include boxColor(background-color, green);
+    @extend .font, .white;
+  }
+
+  &:not(:first-child) {
+    margin-left: 16px;
+  }
 }

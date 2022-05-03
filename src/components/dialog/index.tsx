@@ -1,4 +1,5 @@
 import React, { createContext, ReactNode, useContext } from "react";
+import classNames from "classnames";
 import Backdrop from "@mui/material/Backdrop";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
@@ -115,6 +116,7 @@ interface DialogFooterProps {
 const DialogFooter = ({ children }: DialogFooterProps) => <div className="dialogFooter">{children}</div>;
 
 interface DialogButtonProps {
+  fill?: boolean;
   children: ReactNode;
   onClick: () => void;
 }
@@ -122,8 +124,8 @@ interface DialogButtonProps {
 /**
  * Dialog 아래쪽에 들어가는 각 버튼.
  */
-const DialogButton = ({ children, onClick }: DialogButtonProps) => (
-  <button className="dialogButton" type="button" onClick={onClick}>
+const DialogButton = ({ fill = false, children, onClick }: DialogButtonProps) => (
+  <button className={classNames("dialogButton", { fill })} type="button" onClick={onClick}>
     {children}
   </button>
 );
