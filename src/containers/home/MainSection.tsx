@@ -44,7 +44,7 @@ const mainVisualContent: Array<MainVisualSliderType> = [
       </div>
     ),
     linkLabel: "패럴림픽 참가신청하기",
-    linkURL: "https://www.paralympic.org/beijing-2022",
+    linkURL: "https://www.paralympic.org/",
   },
 ];
 

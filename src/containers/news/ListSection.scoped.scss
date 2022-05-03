@@ -36,5 +36,11 @@
     td {
       @extend .font, .dark8, .size16;
     }
+
+    .link {
+      color: inherit;
+      font-family: inherit;
+      font-size: inherit;
+    }
   }
 }

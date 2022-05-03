@@ -13,7 +13,7 @@ const BannerSection = () => (
         <br />
         마음껏 기량을 뽐내시기 바랍니다. 도전할때가 가장 아름답습니다.
       </div>
-      <a className="link" href="https://www.paralympic.org/beijing-2022">
+      <a className="link" href="https://www.paralympic.org/">
         참가신청 하러가기
       </a>
     </div>
