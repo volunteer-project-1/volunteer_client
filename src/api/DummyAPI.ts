@@ -51,41 +51,44 @@ const seekerList: Array<Seeker> = [
   },
 ];
 
+const dummyDate = new Date();
+dummyDate.setDate(dummyDate.getDate() + 10);
+
 const companyList: Array<Company> = [
   {
     id: 0,
     name: "에스디바이오센서",
     imageURL: "/assets/home/company1.jpg",
     description: "2022년 상반기 각 부문별 정기 경력/신입 공채",
-    dueDate: new Date("2022-03-01").getTime(),
+    dueDate: dummyDate.getTime(),
   },
   {
     id: 1,
     name: "플랜트코퍼레이션",
     imageURL: "/assets/home/company2.jpg",
     description: "2022년 상반기 각 부문별 정기 경력/신입 공채",
-    dueDate: new Date("2022-03-01").getTime(),
+    dueDate: dummyDate.getTime(),
   },
   {
     id: 2,
     name: "네이버",
     imageURL: "/assets/home/company3.jpg",
     description: "2022년 상반기 각 부문별 정기 경력/신입 공채",
-    dueDate: new Date("2022-03-01").getTime(),
+    dueDate: dummyDate.getTime(),
   },
   {
     id: 3,
     name: "(주)오픈",
     imageURL: "/assets/home/company4.jpg",
     description: "2022년 상반기 각 부문별 정기 경력/신입 공채",
-    dueDate: new Date("2022-03-01").getTime(),
+    dueDate: dummyDate.getTime(),
   },
   {
     id: 4,
     name: "현대자동차",
     imageURL: "/assets/home/company5.jpg",
     description: "2022년 상반기 각 부문별 정기 경력/신입 공채",
-    dueDate: new Date("2022-03-01").getTime(),
+    dueDate: dummyDate.getTime(),
   },
   {
     id: 5,

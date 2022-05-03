@@ -88,7 +88,7 @@ const SeekerCard = ({ seeker }: SeekerCardProps) => {
           {seeker.age}세({seeker.gender})
         </span>
       </div>
-      <div>{seeker.address} 거주</div>
+      <div className="addressArea">{seeker.address} 거주</div>
       <div className="jobArea">
         {seeker.job}/ {seeker.career}
       </div>
