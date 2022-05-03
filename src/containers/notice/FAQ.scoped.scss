@@ -1,0 +1,43 @@
+.faq {
+  width: 100%;
+  margin-bottom: 36px;
+
+  .question,
+  .answer {
+    text-align: left;
+    box-sizing: border-box;
+
+    width: 100%;
+    padding: 24px;
+
+    font-family: inherit;
+
+    @extend .font, .size22;
+    color: #1c1c1c;
+  }
+
+  .question {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e1e1e1;
+  }
+
+  .foldIcon {
+    margin-left: auto;
+
+    &.isOpen {
+      transform: rotate(180deg);
+    }
+  }
+
+  .answer {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e1e1e1;
+    background-color: #f5f5f5;
+  }
+}

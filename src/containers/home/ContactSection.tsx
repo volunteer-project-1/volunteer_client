@@ -82,7 +82,7 @@ const ContactSection = () => {
             <label className="label" htmlFor={privacyID}>
               개인정보 취급방침 동의
             </label>
-            <img className="foldButton" src={"/assets/home/contact-fold.svg"} alt={"Fold"} />
+            <img className="foldButton" src={"/assets/home/contact-fold.svg"} alt={"접기 및 펴기"} />
           </div>
           <div className="sendRow">
             <button className="sendButton" type={"button"} onClick={handleClickSend}>
