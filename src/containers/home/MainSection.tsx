@@ -55,37 +55,22 @@ interface MainNotiveSliderProps {
 }
 const mainNoticeContent: Array<MainNotiveSliderProps> = [
   {
-    img: "main_img01@2x.jpg",
+    img: "/assets/home/main_img01@2x.jpg",
     group: "채용정보",
     title: "2022년 공개채용 기업 보러가기",
   },
   {
-    img: "main_img01@2x.jpg",
+    img: "/assets/home/main_img02@2x.jpg",
     group: "채용정보",
     title: "2022년 공개채용 기업 보러가기",
   },
   {
-    img: "main_img01@2x.jpg",
+    img: "/assets/home/main_img03@2x.jpg",
     group: "채용정보",
     title: "2022년 공개채용 기업 보러가기",
   },
   {
-    img: "main_img01@2x.jpg",
-    group: "채용정보",
-    title: "2022년 공개채용 기업 보러가기",
-  },
-  {
-    img: "main_img01@2x.jpg",
-    group: "채용정보",
-    title: "2022년 공개채용 기업 보러가기",
-  },
-  {
-    img: "main_img01@2x.jpg",
-    group: "채용정보",
-    title: "2022년 공개채용 기업 보러가기",
-  },
-  {
-    img: "main_img01@2x.jpg",
+    img: "",
     group: "채용정보",
     title: "2022년 공개채용 기업 보러가기",
   },
@@ -111,16 +96,25 @@ const MainSection = () => (
 
     <Slider.Notice>
       {mainNoticeContent.map((list, i) => (
-        <div key={i}>
-          <span className="group">{list.group}</span>
-          <a className="title">
-            {list.title}
-            <div className="more">더보기</div>
+        <>
+          <a className="link " href="/" key={i} className="descriptionNotice_wrap">
+            <div className="box">
+              <span className="group">{list.group}</span>
+              {list.title}
+              <div className="more">더보기</div>
+            </div>
+
+            {list.img ? (
+              <div className="img">
+                <img src={list.img} alt="" />
+              </div>
+            ) : (
+              <div className="no_img blind">미리보기 이미지가 없습니다</div>
+            )}
           </a>
-        </div>
+        </>
       ))}
     </Slider.Notice>
   </div>
 );
-
 export default MainSection;

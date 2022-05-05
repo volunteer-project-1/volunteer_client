@@ -11,6 +11,19 @@
   // https://kreiz.tistory.com/entry/div-안의-img에-높이4px공백
   vertical-align: top;
 }
+// 접근성
+.blind {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+}
 
 // 아래의 box mixin에서 사용할 color map.
 $boxColorMap: (

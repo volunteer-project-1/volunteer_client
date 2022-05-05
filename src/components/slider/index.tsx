@@ -21,11 +21,13 @@ const VisualSlider = ({ children }: SliderProps) => {
   const settings: Settings = {
     arrows: false,
     dots: true,
-    infinite: true,
     speed: 2000,
     autoplay: true,
     autoplaySpeed: 4000,
     fade: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
     appendDots: dots => (
       // 이 element는 className이 자동으로 slick-dots로 고정됨.
       <div>
@@ -66,18 +68,19 @@ const VisualSlider = ({ children }: SliderProps) => {
 const NoticeSlider = ({ children }: SliderProps) => {
   const settings: Settings = {
     arrows: false,
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    initialSlide: 0,
+    dots: false,
+    infinite: true,
+    autoplay: true,
+    speed: 1500,
+    autoplaySpeed: 4000,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    rtl: true,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
           infinite: true,
           dots: true,
         },
@@ -86,7 +89,6 @@ const NoticeSlider = ({ children }: SliderProps) => {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
           initialSlide: 2,
         },
       },
@@ -94,7 +96,6 @@ const NoticeSlider = ({ children }: SliderProps) => {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,
         },
       },
     ],
