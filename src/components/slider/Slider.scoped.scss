@@ -189,7 +189,23 @@
   @include sliderFix;
   
   float: right;
-  width: 50%;
+  width: 62%;
+  
+  
+  .descriptionNotice_wrap{position: relative;}
+  .box{
+    position: absolute;left: 0;top: 0;
+    
+    z-index: 2;
+  }
+  .img{
+    z-index: 1;
+    position: relative;
+    
+    img{
+      width: 100%;
+    }
+  }
   
 }
 
