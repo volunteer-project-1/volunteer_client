@@ -12,8 +12,11 @@
     position: absolute;
     top: 50%;
     right: 0;
-    min-width: 960px;
-    padding: 95px 60px 58px ;
+    min-width:  g-vw(1280,  960px);
+    padding-top:  g-vw(1280,  95px);
+    padding-left:  g-vw(1280,  60px);
+    padding-right:  g-vw(1280,  60px);
+    padding-bottom:  g-vw(1280,  58px);
     transform: translate(0, -50%);
     @include boxColor(background-color, green, 0.7);
     @extend .font, .white;
@@ -30,16 +33,13 @@
     @extend .font, .size18, .green, .w500;
   }
   
-  .title2 {
-    margin-bottom: 26px;
-    
-    @extend .font, .size48, .bold;
+  .title2 {    
+    @extend .font,.size48, .bold;
   }
   
   .description {
     min-height: 225px;
     margin-bottom: 20px;
-    
     @extend .font, .size22;
   }
   
@@ -79,9 +79,7 @@
   .slick-slide {
     max-width: calc(100% - 200px);
     img{
-    max-width: calc(100% - 200px);
-      
-      
+      max-width: calc(100% - 200px);
     }
     .descriptionArea_wrap{
       position: relative;
@@ -113,6 +111,37 @@
     }
   }
   
+  
+  @include tablet {
+    .slick-slide {
+      max-width: 100%;
+      img{
+        max-width: 100%;
+      }
+    }
+    .description {
+      min-height: inherit;
+      font-size:  g-vw(1280, 22px);
+    }
+    .title2{
+      font-size:  g-vw(1280, 48px);
+    }
+  }
+  
+  @include mobile {
+    .title2{
+      font-size:  24px;
+    }
+    .descriptionArea {
+      position: relative;
+      width: calc(100% - 68px);
+      left: 68px;right: inherit;
+    }
+    .description {
+      font-size: 14px;
+    }
+  }
+
 }
 
 @keyframes opacity {
@@ -128,3 +157,4 @@
   100% {right: 0;
   }
 }
+
