@@ -22,7 +22,7 @@ const VisualSlider = ({ children }: SliderProps) => {
     arrows: false,
     dots: true,
     infinite: true,
-    speed: 1500,
+    speed: 2000,
     autoplay: true,
     autoplaySpeed: 4000,
     fade: true,
