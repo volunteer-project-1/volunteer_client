@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import Link from "next/link";
 
 import ROUTES from "@/constants/Routes";
 import Slider from "@/components/slider";
@@ -48,12 +49,12 @@ const mainVisualContent: Array<MainVisualSliderType> = [
   },
 ];
 
-interface MainNotiveSliderProps {
+interface MainNoticeSliderProps {
   img: string;
   group: string;
   title: string;
 }
-const mainNoticeContent: Array<MainNotiveSliderProps> = [
+const mainNoticeContent: Array<MainNoticeSliderProps> = [
   {
     img: "/assets/home/main_img01@2x.jpg",
     group: "채용정보",
@@ -74,7 +75,7 @@ const mainNoticeContent: Array<MainNotiveSliderProps> = [
     group: "채용정보",
     title: "2022년 공개채용 기업 보러가기",
   },
-   {
+  {
     img: "/assets/home/main_img03@2x.jpg",
     group: "채용정보",
     title: "2022년 공개채용 기업 보러가기",
@@ -106,25 +107,27 @@ const MainSection = () => (
 
     <Slider.Notice>
       {mainNoticeContent.map((list, i) => (
-        <div className="descriptionNotice_wrap">
-          <a className="link " href="/" key={i}>
-            <div className="box">
-              <div>
-              <span className="group">{list.group}</span>
-              <p className="title">{list.title}</p>
-              <div className="more">
-                <span className="blind">더보기</span>
+        <div key={i} className="descriptionNotice_wrap">
+          <Link href="/">
+            <a className="link">
+              <div className="box">
+                <div>
+                  <span className="group">{list.group}</span>
+                  <p className="title">{list.title}</p>
+                  <div className="more">
+                    <span className="blind">더보기</span>
+                  </div>
                 </div>
-                </div>
-            </div>
-            {list.img ? (
-              <div className="img">
-                <img src={list.img} alt="" />
               </div>
-            ) : (
-              <div className="no_img blind">미리보기 이미지가 없습니다</div>
-            )}
-          </a>
+              {list.img ? (
+                <div className="img">
+                  <img src={list.img} alt="" />
+                </div>
+              ) : (
+                <div className="no_img blind">미리보기 이미지가 없습니다</div>
+              )}
+            </a>
+          </Link>
         </div>
       ))}
     </Slider.Notice>
