@@ -1,3 +1,4 @@
+@use "sass:map";
 .font {
   &_eng {
     font-family: "Roboto", sans-serif;
@@ -122,5 +123,23 @@
   }
   &.size50 {
     font-size: 50px;
+  }
+  
+  @include tablet {
+    &.size48 {
+      font-size:  g-vw(1280, 22px);
+    }
+    &.size22 {
+      font-size:  g-vw(1280, 22px);
+      
+    }
+  }
+  @include tablet {
+    &.size48 {
+      font-size: 24px;
+    }
+    &.size22 {
+      font-size: 14px;
+    }
   }
 }

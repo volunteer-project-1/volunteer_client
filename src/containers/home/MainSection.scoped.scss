@@ -111,6 +111,20 @@
     }
   }
   
+  // Animation
+  @keyframes opacity {
+    0% {opacity: 0;
+    }
+    100% {opacity: 1;
+    }
+  }
+  
+  @keyframes positionRight {
+    0% {right: -50px;
+    }
+    100% {right: 0;
+    }
+  }
   
   @include tablet {
     .slick-slide {
@@ -121,40 +135,17 @@
     }
     .description {
       min-height: inherit;
-      font-size:  g-vw(1280, 22px);
     }
     .title2{
-      font-size:  g-vw(1280, 48px);
     }
   }
   
   @include mobile {
-    .title2{
-      font-size:  24px;
-    }
     .descriptionArea {
       position: relative;
       width: calc(100% - 68px);
       left: 68px;right: inherit;
     }
-    .description {
-      font-size: 14px;
-    }
   }
 
 }
-
-@keyframes opacity {
-  0% {opacity: 0;
-  }
-  100% {opacity: 1;
-  }
-}
-
-@keyframes positionRight {
-  0% {right: -50px;
-  }
-  100% {right: 0;
-  }
-}
-

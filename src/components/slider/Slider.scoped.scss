@@ -53,9 +53,17 @@
     }
   }
 }
+
 .mainNoticeSlider {
   @include sliderFix;
+  
+  float: right;
+  width: 50%;
+  
+  
 }
+
+
 
 
 
