@@ -22,10 +22,10 @@ const VisualSlider = ({ children }: SliderProps) => {
     arrows: false,
     dots: true,
     infinite: true,
-    speed: 500,
-    autoplay: false,
-    autoplaySpeed: 600,
-    // fade: true,
+    speed: 1500,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    fade: true,
     appendDots: dots => (
       // 이 element는 className이 자동으로 slick-dots로 고정됨.
       <div>
