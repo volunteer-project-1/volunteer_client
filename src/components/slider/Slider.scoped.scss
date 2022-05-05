@@ -52,13 +52,10 @@
 
     .pauseIcon {
       display: inline-block;
-
       width: 3px;
       height: 10px;
-
       border-radius: 1px;
       background-color: #191919;
-
       &:not(:first-child) {
         margin-left: 2px;
       }
