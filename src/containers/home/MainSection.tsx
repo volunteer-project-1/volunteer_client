@@ -3,6 +3,7 @@ import React, { ReactNode } from "react";
 import ROUTES from "@/constants/Routes";
 import Slider from "@/components/slider";
 import "@/containers/home/MainSection.scoped.scss";
+import "@/components/slider/Slider.scoped.scss";
 
 interface MainVisualSliderType {
   img: string;
