@@ -57,7 +57,7 @@ const mainNoticeContent: Array<MainNotiveSliderProps> = [
   {
     img: "/assets/home/main_img01@2x.jpg",
     group: "채용정보",
-    title: "2022년 공개채용 기업 보러가기",
+    title: "2022년 공개채용 기업 보러가기보러가기보러가기보러가기보러가기보러가기보러가기",
   },
   {
     img: "/assets/home/main_img02@2x.jpg",
@@ -70,10 +70,20 @@ const mainNoticeContent: Array<MainNotiveSliderProps> = [
     title: "2022년 공개채용 기업 보러가기",
   },
   {
-    img: "",
+    img: "/assets/home/main_img03@2x.jpg",
     group: "채용정보",
     title: "2022년 공개채용 기업 보러가기",
   },
+   {
+    img: "/assets/home/main_img03@2x.jpg",
+    group: "채용정보",
+    title: "2022년 공개채용 기업 보러가기",
+  },
+  // {
+  //   img: "",
+  //   group: "채용정보",
+  //   title: "2022년 공개채용 기업 보러가기",
+  // },
 ];
 
 const MainSection = () => (
@@ -96,14 +106,17 @@ const MainSection = () => (
 
     <Slider.Notice>
       {mainNoticeContent.map((list, i) => (
-        <>
-          <a className="link " href="/" key={i} className="descriptionNotice_wrap">
+        <div className="descriptionNotice_wrap">
+          <a className="link " href="/" key={i}>
             <div className="box">
+              <div>
               <span className="group">{list.group}</span>
-              {list.title}
-              <div className="more">더보기</div>
+              <p className="title">{list.title}</p>
+              <div className="more">
+                <span className="blind">더보기</span>
+                </div>
+                </div>
             </div>
-
             {list.img ? (
               <div className="img">
                 <img src={list.img} alt="" />
@@ -112,7 +125,7 @@ const MainSection = () => (
               <div className="no_img blind">미리보기 이미지가 없습니다</div>
             )}
           </a>
-        </>
+        </div>
       ))}
     </Slider.Notice>
   </div>
