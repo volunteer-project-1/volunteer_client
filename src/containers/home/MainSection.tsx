@@ -20,10 +20,10 @@ const mainVisualContent: Array<MainVisualSliderType> = [
     subTitle: "당신의 능력을 보여주세요",
     description: (
       <div>
-        세상과 소통하고 싶은 당신을 위해 준비했습니다. <br/> 세상밖으로 나와 당신의 능력을 마음껏 펼쳐보아요!
+        세상과 소통하고 싶은 당신을 위해 준비했습니다. <br /> 세상밖으로 나와 당신의 능력을 마음껏 펼쳐보아요!
         <br />
         <br />
-        &apos;See Me&apos; 에서 여러분을 인도해 드릴것입니다. <br/> &apos;See Me&apos; 는 당신을 기다리고 있습니다.
+        &apos;See Me&apos; 에서 여러분을 인도해 드릴것입니다. <br /> &apos;See Me&apos; 는 당신을 기다리고 있습니다.
       </div>
     ),
     linkLabel: "See me 일자리 보기",
@@ -35,10 +35,11 @@ const mainVisualContent: Array<MainVisualSliderType> = [
     subTitle: "나의 한계를 시험해보세요!",
     description: (
       <div>
-        2023년도 패럴림픽이 개최하게 되었습니다. <br/> 여러분의 한계를 시험하고 한계를 뛰어넘어 보세요!
+        2023년도 패럴림픽이 개최하게 되었습니다. <br /> 여러분의 한계를 시험하고 한계를 뛰어넘어 보세요!
         <br />
         <br />
-        스포츠를 통해 하나가 되었을 때 우리는<br /> 믿을 수 없는 일을 만들어냅니다.
+        스포츠를 통해 하나가 되었을 때 우리는
+        <br /> 믿을 수 없는 일을 만들어냅니다.
       </div>
     ),
     linkLabel: "패럴림픽 참가신청하기",
@@ -57,13 +58,43 @@ const mainNoticeContent: Array<MainNotiveSliderProps> = [
     group: "채용정보",
     title: "2022년 공개채용 기업 보러가기",
   },
+  {
+    img: "main_img01@2x.jpg",
+    group: "채용정보",
+    title: "2022년 공개채용 기업 보러가기",
+  },
+  {
+    img: "main_img01@2x.jpg",
+    group: "채용정보",
+    title: "2022년 공개채용 기업 보러가기",
+  },
+  {
+    img: "main_img01@2x.jpg",
+    group: "채용정보",
+    title: "2022년 공개채용 기업 보러가기",
+  },
+  {
+    img: "main_img01@2x.jpg",
+    group: "채용정보",
+    title: "2022년 공개채용 기업 보러가기",
+  },
+  {
+    img: "main_img01@2x.jpg",
+    group: "채용정보",
+    title: "2022년 공개채용 기업 보러가기",
+  },
+  {
+    img: "main_img01@2x.jpg",
+    group: "채용정보",
+    title: "2022년 공개채용 기업 보러가기",
+  },
 ];
 
 const MainSection = () => (
   <div className="mainSection">
     <Slider.Visual>
       {mainVisualContent.map((list, i) => (
-        <div key={i} className="descriptionArea_wrap">
+        <div key={i} className="descriptionMain_wrap">
           <img src={list.img} alt="" />
           <div className="descriptionArea">
             <div className="title1">{list.title}</div>
@@ -77,21 +108,17 @@ const MainSection = () => (
       ))}
     </Slider.Visual>
 
-    {/*
     <Slider.Notice>
       {mainNoticeContent.map((list, i) => (
         <div key={i}>
           <span className="group">{list.group}</span>
-          <Link href={"/"}>
-            <a className="title">
-              {list.title}
-              <div className="more">더보기</div>
-            </a>
-          </Link>
+          <a className="title">
+            {list.title}
+            <div className="more">더보기</div>
+          </a>
         </div>
       ))}
     </Slider.Notice>
-    */}
   </div>
 );
 

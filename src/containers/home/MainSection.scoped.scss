@@ -4,7 +4,7 @@
   width: 100%;
   margin-bottom: 176px;
   
-  .descriptionArea_wrap{
+  .descriptionMain_wrap{
     position: relative;
   }
   .descriptionArea {
@@ -81,7 +81,7 @@
     img{
       max-width: calc(100% - 200px);
     }
-    .descriptionArea_wrap{
+    .descriptionMain_wrap{
       position: relative;
       left: -0px;
       transition: 0.6s all cubic-bezier(0.65, 0.05, 0.36, 1);
@@ -98,7 +98,7 @@
       animation-duration: 1s;
     }
     &.slick-active{
-      .descriptionArea_wrap{
+      .descriptionMain_wrap{
         left:0px;
         opacity: 1;
         -webkit-clip-path: inset(0 0 0 0);
