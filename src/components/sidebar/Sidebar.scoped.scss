@@ -1,0 +1,59 @@
+.sidebar {
+  box-sizing: border-box;
+
+  width: 348px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  @include boxColor(border-color, dark3);
+
+  .title {
+    width: 100%;
+    padding: 28px 33px;
+
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    @include boxColor(border-bottom-color, dark3);
+
+    @extend .font, .dark4, .size20, .bold;
+  }
+
+  .content {
+    // flex 안 넣어도 세로로 배치는 되지만,
+    // Category, Item 간의 margin collapsing을 막기 위해 일부러 flex로 함.
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    padding: 8px 19px;
+  }
+
+  .category {
+    margin-top: 18px;
+    margin-bottom: 24px;
+
+    @extend .font, .size16, .dark6;
+
+    &.isHighlighted {
+      @extend .green, .bold;
+    }
+  }
+
+  .item {
+    margin-bottom: 18px;
+
+    @extend .font, .size16, .dark6;
+
+    .necessity {
+      @extend .font, .red;
+    }
+
+    &.isHighlighted {
+      @extend .green, .bold;
+
+      .necessity {
+        @extend .green;
+      }
+    }
+  }
+}

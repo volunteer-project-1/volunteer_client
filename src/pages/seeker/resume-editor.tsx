@@ -8,7 +8,7 @@ import CareerSection from "@/containers/seeker/CareerSection";
 import ActivitySection from "@/containers/seeker/ActivitySection";
 import AwardSection from "@/containers/seeker/AwardSection";
 import PortfolioSection from "@/containers/seeker/PortfolioSection";
-import Menu from "@/containers/seeker/Menu";
+import Sidebar from "@/components/sidebar";
 
 /**
  * 구직자 프로필 작성 페이지.
@@ -26,7 +26,23 @@ const ResumeEditorPage = () => (
         <PortfolioSection />
       </PageColumns.Item>
       <PageColumns.Item shouldFill={false}>
-        <Menu />
+        <Sidebar title="이력서 항목">
+          <Sidebar.Category isHighlighted>필수사항</Sidebar.Category>
+          <Sidebar.Item isHighlighted isNecessary>
+            인적사항
+          </Sidebar.Item>
+          <Sidebar.Item isNecessary>영상이력서</Sidebar.Item>
+          <Sidebar.Category>선택사항</Sidebar.Category>
+          <Sidebar.Item>학력</Sidebar.Item>
+          <Sidebar.Item>경력</Sidebar.Item>
+          <Sidebar.Item>대외활동</Sidebar.Item>
+          <Sidebar.Item>교육이수</Sidebar.Item>
+          <Sidebar.Item>자격증</Sidebar.Item>
+          <Sidebar.Item>수상경력</Sidebar.Item>
+          <Sidebar.Item>포트폴리오</Sidebar.Item>
+          <Sidebar.Item>자기소개서</Sidebar.Item>
+          <Sidebar.Item>희망근무사항</Sidebar.Item>
+        </Sidebar>
       </PageColumns.Item>
     </PageColumns>
   </Page>
