@@ -24,7 +24,7 @@ export interface Seeker {
   name: string;
   imageURL: string;
   age: number;
-  gender: "남" | "여";
+  sex: "남" | "여";
   address: string;
   job: string;
   career: string;

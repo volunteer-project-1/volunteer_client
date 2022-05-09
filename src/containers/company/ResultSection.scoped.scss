@@ -1,0 +1,96 @@
+.resultSection {
+  margin-top: 77px;
+  margin-bottom: 89px;
+
+  border-style: solid;
+  border-width: 1px;
+  @include boxColor(border-color, dark3);
+
+  @extend .inner;
+
+  .header {
+    box-sizing: border-box;
+
+    width: 100%;
+    padding: 19px 29px;
+
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    @include boxColor(border-bottom-color, dark3);
+
+    .title {
+      @extend .font, .dark4, .size14, .w500;
+    }
+
+    .count {
+      margin-left: 6px;
+
+      @extend .font, .green, .size14, .bold;
+    }
+  }
+
+  .row {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 100%;
+    padding: 30px;
+
+    &:not(:last-child) {
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      @include boxColor(border-bottom-color, dark3);
+    }
+
+    .image {
+      width: 100px;
+    }
+
+    .content {
+      margin-left: 70px;
+    }
+
+    .line {
+      &:not(:first-child) {
+        margin-top: 5px;
+      }
+    }
+
+    .name {
+      @extend .font, .dark6, .size16, .w500;
+    }
+
+    .age {
+      margin-left: 10px;
+
+      @extend .font, .size14, .w500;
+      color: #666666;
+    }
+
+    .address {
+      box-sizing: border-box;
+
+      padding-right: 24px;
+
+      border-right-style: solid;
+      border-right-width: 1px;
+      @include boxColor(border-right-color, dark3);
+
+      @extend .font, .size14, .w500;
+      color: #666666;
+    }
+
+    .job {
+      margin-left: 26px;
+
+      @extend .font, .size14, .w500;
+      color: #666666;
+    }
+
+    .handicap {
+      @extend .font, .dark4, .size12;
+    }
+  }
+}
