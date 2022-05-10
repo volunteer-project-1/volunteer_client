@@ -51,6 +51,8 @@
   }
 
   .smallInputArea {
+    position: relative;
+
     width: 100%;
 
     .input {
@@ -65,6 +67,18 @@
       text-align: left;
 
       @include boxColor(border-color, dark3);
+
+      &:read-only {
+        cursor: default;
+      }
+    }
+
+    .icon {
+      position: absolute;
+
+      top: 50%;
+      right: 17px;
+      transform: translateY(-50%);
     }
   }
 
@@ -100,6 +114,10 @@
 
       font-family: inherit;
       @extend .font, .size18, .w500, .dark8;
+
+      &:read-only {
+        cursor: default;
+      }
     }
 
     .icon {

@@ -1,4 +1,4 @@
-import React, { HTMLInputTypeAttribute, ReactNode, useRef, useState } from "react";
+import React, { HTMLInputTypeAttribute, KeyboardEvent, MouseEvent, ReactNode, useRef, useState } from "react";
 import classNames from "classnames";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -90,6 +90,87 @@ const SmallAddress = ({ placeholder, value, onChange }: SmallAddressProps) => {
   );
 };
 
+interface SmallSelectProps<Value> {
+  placeholder: string;
+  options: Array<{ name: string; value: Value }>;
+  value?: Value;
+  onChange?: (value: Value) => void;
+}
+
+const SmallSelect = <Value,>({ placeholder, options, value, onChange }: SmallSelectProps<Value>) => {
+  const [isOpen, setOpen] = useState(false);
+
+  const anchorRef = useRef<HTMLDivElement>(null);
+  const anchorElement = anchorRef.current;
+
+  const handleClickSelect = () => {
+    setOpen(true);
+  };
+
+  const handleKeyOnSelect = (event: KeyboardEvent) => {
+    if (event.key === "Enter") {
+      setOpen(true);
+    }
+  };
+
+  const handleClickOption = (newValue: Value) => {
+    onChange && onChange(newValue);
+    setOpen(false);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  let currentName = "";
+
+  for (let i = 0; i < options.length; i++) {
+    if (options[i].value === value) {
+      currentName = options[i].name;
+      break;
+    }
+  }
+
+  return (
+    <>
+      <div
+        className="smallInputArea"
+        role="button"
+        tabIndex={0}
+        ref={anchorRef}
+        onClick={handleClickSelect}
+        onKeyDown={handleKeyOnSelect}
+      >
+        <input className="input" tabIndex={-1} readOnly placeholder={placeholder} value={currentName} />
+        <img className="icon" src="/assets/editor/select-down.svg" alt="선택" />
+      </div>
+      {anchorElement !== null && (
+        <Menu
+          open={isOpen}
+          onClose={handleClose}
+          anchorEl={anchorElement}
+          // Menu 열었을 때 스크롤바 사라지는 현상 방지.
+          disableScrollLock
+        >
+          {options.map(option => (
+            <MenuItem
+              sx={{
+                width: anchorElement.clientWidth,
+              }}
+              key={option.name}
+              onClick={() => {
+                handleClickOption(option.value);
+              }}
+            >
+              {option.name}
+            </MenuItem>
+          ))}
+        </Menu>
+      )}
+    </>
+  );
+};
+
 interface LargeInputProps {
   label: string;
   type?: HTMLInputTypeAttribute;
@@ -137,12 +218,17 @@ const LargeSelect = <Value,>({ label, options, value, onChange }: LargeSelectPro
   const [isOpen, setOpen] = useState(false);
 
   const id = useID();
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const anchorRef = useRef<HTMLDivElement>(null);
+  const anchorElement = anchorRef.current;
 
-  const inputElement = buttonRef.current;
-
-  const handleClickInput = () => {
+  const handleClickSelect = () => {
     setOpen(true);
+  };
+
+  const handleKeyOnSelect = (event: KeyboardEvent) => {
+    if (event.key === "Enter") {
+      setOpen(true);
+    }
   };
 
   const handleClickOption = (value: Value) => {
@@ -164,28 +250,33 @@ const LargeSelect = <Value,>({ label, options, value, onChange }: LargeSelectPro
   }
 
   return (
-    <div className="largeInputArea">
-      <label className="label" htmlFor={id}>
-        {label}
-      </label>
-      <button className="input" id={id} ref={buttonRef} onClick={handleClickInput}>
-        {currentName}
-        {/* 빈 칸을 하나 넣어서... currentName이 빈 string이어도 버튼의 높이가 줄어들지 않도록 함... */}
-        &nbsp;
+    <>
+      <div
+        className="largeInputArea"
+        role="button"
+        tabIndex={0}
+        ref={anchorRef}
+        onClick={handleClickSelect}
+        onKeyDown={handleKeyOnSelect}
+      >
+        <label className="label" htmlFor={id}>
+          {label}
+        </label>
+        <input className="input" id={id} tabIndex={-1} readOnly value={currentName} />
         <img className="icon" src="/assets/editor/select-down.svg" alt="선택" />
-      </button>
-      {inputElement !== null && (
+      </div>
+      {anchorElement !== null && (
         <Menu
           open={isOpen}
           onClose={handleClose}
-          anchorEl={inputElement}
+          anchorEl={anchorElement}
           // Menu 열었을 때 스크롤바 사라지는 현상 방지.
           disableScrollLock
         >
           {options.map(option => (
             <MenuItem
               sx={{
-                width: inputElement.clientWidth,
+                width: anchorElement.clientWidth,
               }}
               key={option.name}
               onClick={() => {
@@ -197,7 +288,7 @@ const LargeSelect = <Value,>({ label, options, value, onChange }: LargeSelectPro
           ))}
         </Menu>
       )}
-    </div>
+    </>
   );
 };
 
@@ -279,6 +370,7 @@ export default Object.assign(Editor, {
   Cell,
   SmallInput,
   SmallAddress,
+  SmallSelect,
   LargeInput,
   LargeSelect,
   Checkbox,

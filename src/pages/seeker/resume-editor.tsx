@@ -1,8 +1,8 @@
 import React from "react";
 
 import Page from "@/components/page";
+// import TitleSection from "@/containers/seeker/TitleSection";
 import InfoSection from "@/containers/seeker/InfoSection";
-import TitleSection from "@/containers/seeker/TitleSection";
 import EducationSection from "@/containers/seeker/EducationSection";
 import CareerSection from "@/containers/seeker/CareerSection";
 import ActivitySection from "@/containers/seeker/ActivitySection";
@@ -18,8 +18,11 @@ const ResumeEditorPage = () => (
     <Page.Title>이력서 작성</Page.Title>
     <Page.Columns>
       <Page.Column fill>
+        {
+          // 서버에 대응되는 항목이 없는 것 같아 한줄소개는 일단 뺌.
+          // <TitleSection />
+        }
         <InfoSection />
-        <TitleSection />
         <EducationSection />
         <CareerSection />
         <ActivitySection />
