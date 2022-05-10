@@ -9,13 +9,13 @@ const InfoSection = () => (
     <Editor.Title>인적사항</Editor.Title>
     <Editor.Row>
       <Editor.Cell fill>
-        <Editor.SmallInput placeholder="이름" />
+        <Editor.SmallInput placeholder="이름" isRequired />
       </Editor.Cell>
       <Editor.Cell fill>
-        <Editor.SmallInput placeholder="생년월일" type="date" />
+        <Editor.SmallInput placeholder="생년월일" type="date" isRequired />
       </Editor.Cell>
       <Editor.Cell fill>
-        <Editor.SmallInput placeholder="연락처" type="tel" />
+        <Editor.SmallInput placeholder="연락처" type="tel" isRequired />
       </Editor.Cell>
     </Editor.Row>
     <Editor.Row>
@@ -25,6 +25,7 @@ const InfoSection = () => (
       <Editor.Cell fill>
         <Editor.SmallAddress
           placeholder="주소"
+          isRequired
           onChange={value => {
             dLog(value);
           }}

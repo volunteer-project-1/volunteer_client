@@ -102,21 +102,35 @@ const SelectBase = <Value,>({ className, options, onChange, children }: SelectBa
 interface SmallInputProps {
   placeholder: string;
   type?: HTMLInputTypeAttribute;
+  isRequired?: boolean;
   value?: string;
   onChange?: (value: string) => void;
 }
 
-const SmallInput = ({ placeholder, type = "text", value, onChange }: SmallInputProps) => {
+const SmallInput = ({ placeholder, type = "text", isRequired = false, value, onChange }: SmallInputProps) => {
   // 상태랑 연결이 안 되어 있어도 일단 작성은 되도록 함.
   // (onChange가 없으면 uncontrolled component로 작동.)
   const isDummy = typeof onChange === "undefined";
+
+  // type="date" 등의 경우 "년-월-일" 이런 표시가 placeholder를 가려버림.
+  // focus 시에 type을 바꾸는 방법으로 focus 되었을 때에만 "년-월-일" 같은 표시가 보이도록 함.
+  const defaultType = "text";
+  const [currentType, setCurrentType] = useState<HTMLInputTypeAttribute>(defaultType);
+
+  const handleOnFocus = () => {
+    setCurrentType(type);
+  };
+
+  const handleOnBlur = () => {
+    setCurrentType(defaultType);
+  };
 
   return (
     <div className="smallInputArea">
       <input
         className="input"
-        type={type}
-        placeholder={placeholder}
+        type={currentType}
+        placeholder={`${placeholder}${isRequired ? "*" : ""}`}
         value={isDummy ? undefined : value ?? ""}
         onChange={
           isDummy
@@ -125,6 +139,8 @@ const SmallInput = ({ placeholder, type = "text", value, onChange }: SmallInputP
                 onChange && onChange(event.target.value);
               }
         }
+        onFocus={handleOnFocus}
+        onBlur={handleOnBlur}
       />
     </div>
   );
@@ -137,11 +153,12 @@ interface Address {
 
 interface SmallAddressProps {
   placeholder: string;
+  isRequired?: boolean;
   value?: Address;
   onChange?: (value: Address) => void;
 }
 
-const SmallAddress = ({ placeholder, value, onChange }: SmallAddressProps) => {
+const SmallAddress = ({ placeholder, isRequired = false, value, onChange }: SmallAddressProps) => {
   // 상태랑 연결이 안 되어 있어도 일단 작성은 되도록 함.
   // (onChange가 없으면 uncontrolled component로 작동.)
   const isDummy = typeof onChange === "undefined";
@@ -155,7 +172,7 @@ const SmallAddress = ({ placeholder, value, onChange }: SmallAddressProps) => {
       <input
         className="input"
         type="text"
-        placeholder={placeholder}
+        placeholder={`${placeholder}${isRequired ? "*" : ""}`}
         value={isDummy ? undefined : value ? `${value.sido} ${value.sigungu}` : ""}
         onClick={handleClick}
         readOnly
@@ -167,11 +184,18 @@ const SmallAddress = ({ placeholder, value, onChange }: SmallAddressProps) => {
 interface SmallSelectProps<Value> {
   placeholder: string;
   options: Array<{ name: string; value: Value }>;
+  isRequired?: boolean;
   value?: Value;
   onChange?: (value: Value) => void;
 }
 
-const SmallSelect = <Value,>({ placeholder, options, value, onChange }: SmallSelectProps<Value>) => {
+const SmallSelect = <Value,>({
+  placeholder,
+  options,
+  isRequired = false,
+  value,
+  onChange,
+}: SmallSelectProps<Value>) => {
   let currentName = "";
 
   for (let i = 0; i < options.length; i++) {
@@ -183,7 +207,13 @@ const SmallSelect = <Value,>({ placeholder, options, value, onChange }: SmallSel
 
   return (
     <SelectBase className="smallInputArea" options={options} onChange={onChange}>
-      <input className="input" tabIndex={-1} readOnly placeholder={placeholder} value={currentName} />
+      <input
+        className="input"
+        tabIndex={-1}
+        readOnly
+        placeholder={`${placeholder}${isRequired ? "*" : ""}`}
+        value={currentName}
+      />
       <img className="icon" src="/assets/editor/select-down.svg" alt="선택" />
     </SelectBase>
   );
