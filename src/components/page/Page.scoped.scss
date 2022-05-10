@@ -13,12 +13,29 @@
     width: 100%;
     flex: 1;
   }
-}
 
-.pageTitle {
-  margin-top: 40px;
-  margin-bottom: 26px;
+  .pageTitle {
+    margin-top: 40px;
+    margin-bottom: 26px;
 
-  @extend .inner;
-  @extend .font, .size36, .w500, .green;
+    @extend .inner;
+    @extend .font, .size36, .w500, .green;
+  }
+
+  .pageColumns {
+    display: flex;
+    flex-direction: row;
+
+    @extend .inner;
+  }
+
+  .pageColumn {
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+
+    &.shouldFill {
+      flex: 1;
+    }
+  }
 }

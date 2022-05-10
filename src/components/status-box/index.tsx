@@ -1,14 +1,18 @@
-import React, { ReactNode } from "react";
+/**
+ * @file 이력서 작성 페이지 등의 사이드바에서 채워진 / 덜 채워진 항목들을 보여주는 박스.
+ */
 
-import "@/components/sidebar/Sidebar.scoped.scss";
+import React, { ReactNode } from "react";
 import classNames from "classnames";
 
-interface SidebarProps {
+import "@/components/status-box/StatusBox.scoped.scss";
+
+interface StatusBoxProps {
   title: string;
   children: ReactNode;
 }
 
-const Sidebar = ({ title, children }: SidebarProps) => (
+const StatusBox = ({ title, children }: StatusBoxProps) => (
   <div className="sidebar">
     <div className="title">{title}</div>
     <div className="content">{children}</div>
@@ -47,7 +51,7 @@ const Item = ({ isNecessary = false, isHighlighted = false, children }: ItemProp
   </div>
 );
 
-export default Object.assign(Sidebar, {
+export default Object.assign(StatusBox, {
   Category,
   Item,
 });
