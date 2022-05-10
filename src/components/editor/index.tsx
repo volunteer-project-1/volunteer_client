@@ -25,14 +25,45 @@ interface CellProps extends LayoutProps {
 
 const Cell = ({ fill = false, children }: CellProps) => <div className={classNames("cell", { fill })}>{children}</div>;
 
-interface InputProps {
+interface SmallInputProps {
+  placeholder: string;
+  type?: HTMLInputTypeAttribute;
+  value?: string;
+  onChange?: (value: string) => void;
+}
+
+const SmallInput = ({ placeholder, type = "text", value, onChange }: SmallInputProps) => {
+  // 상태랑 연결이 안 되어 있어도 일단 작성은 되도록 함.
+  // (onChange가 없으면 uncontrolled component로 작동.)
+  const isDummy = typeof onChange === "undefined";
+
+  return (
+    <div className="smallInputArea">
+      <input
+        className="input"
+        type={type}
+        placeholder={placeholder}
+        value={isDummy ? undefined : value ?? ""}
+        onChange={
+          isDummy
+            ? undefined
+            : event => {
+                onChange && onChange(event.target.value);
+              }
+        }
+      />
+    </div>
+  );
+};
+
+interface LargeInputProps {
   label: string;
   type?: HTMLInputTypeAttribute;
   value?: string;
   onChange?: (value: string) => void;
 }
 
-const Input = ({ label, type = "text", value, onChange }: InputProps) => {
+const LargeInput = ({ label, type = "text", value, onChange }: LargeInputProps) => {
   const id = useID();
 
   // 상태랑 연결이 안 되어 있어도 일단 작성은 되도록 함.
@@ -40,7 +71,7 @@ const Input = ({ label, type = "text", value, onChange }: InputProps) => {
   const isDummy = typeof onChange === "undefined";
 
   return (
-    <div className="inputArea">
+    <div className="largeInputArea">
       <label className="label" htmlFor={id}>
         {label}
       </label>
@@ -61,14 +92,14 @@ const Input = ({ label, type = "text", value, onChange }: InputProps) => {
   );
 };
 
-interface SelectProps<Value> {
+interface LargeSelectProps<Value> {
   label: string;
   options: Array<{ name: string; value: Value }>;
   value?: Value;
   onChange?: (value: Value) => void;
 }
 
-const Select = <Value,>({ label, options, value, onChange }: SelectProps<Value>) => {
+const LargeSelect = <Value,>({ label, options, value, onChange }: LargeSelectProps<Value>) => {
   const [isOpen, setOpen] = useState(false);
 
   const id = useID();
@@ -99,7 +130,7 @@ const Select = <Value,>({ label, options, value, onChange }: SelectProps<Value>)
   }
 
   return (
-    <div className="inputArea">
+    <div className="largeInputArea">
       <label className="label" htmlFor={id}>
         {label}
       </label>
@@ -212,8 +243,9 @@ export default Object.assign(Editor, {
   Row,
   Separator,
   Cell,
-  Input,
-  Select,
+  SmallInput,
+  LargeInput,
+  LargeSelect,
   Checkbox,
   AddButton,
   FileUploader,

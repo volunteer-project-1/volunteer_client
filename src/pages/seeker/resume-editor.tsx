@@ -2,6 +2,7 @@ import React from "react";
 
 import Page from "@/components/page";
 import PageColumns from "@/containers/seeker/PageColumns";
+import InfoSection from "@/containers/seeker/InfoSection";
 import TitleSection from "@/containers/seeker/TitleSection";
 import EducationSection from "@/containers/seeker/EducationSection";
 import CareerSection from "@/containers/seeker/CareerSection";
@@ -18,6 +19,7 @@ const ResumeEditorPage = () => (
     <Page.Title>이력서 작성</Page.Title>
     <PageColumns>
       <PageColumns.Item shouldFill={true}>
+        <InfoSection />
         <TitleSection />
         <EducationSection />
         <CareerSection />

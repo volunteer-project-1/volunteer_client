@@ -20,7 +20,7 @@ const EducationSection = () => {
           {index > 0 && <Editor.Separator />}
           <Editor.Row>
             <Editor.Cell>
-              <Editor.Input
+              <Editor.LargeInput
                 label="학교구분"
                 value={education.type}
                 onChange={value => {
@@ -35,7 +35,7 @@ const EducationSection = () => {
               />
             </Editor.Cell>
             <Editor.Cell fill>
-              <Editor.Input
+              <Editor.LargeInput
                 label="학교명"
                 value={education.school_name}
                 onChange={value => {
@@ -50,7 +50,7 @@ const EducationSection = () => {
               />
             </Editor.Cell>
             <Editor.Cell>
-              <Editor.Select
+              <Editor.LargeSelect
                 label="졸업년도"
                 value={education.graduation_year}
                 options={[
@@ -71,7 +71,7 @@ const EducationSection = () => {
               />
             </Editor.Cell>
             <Editor.Cell>
-              <Editor.Select
+              <Editor.LargeSelect
                 label="졸업상태"
                 value={education.is_graduated}
                 options={[

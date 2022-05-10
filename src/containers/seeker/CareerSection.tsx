@@ -10,27 +10,27 @@ const CareerSection = () => {
       <Editor.Title>경력</Editor.Title>
       <Editor.Row>
         <Editor.Cell fill>
-          <Editor.Input label="회사명" />
+          <Editor.LargeInput label="회사명" />
         </Editor.Cell>
         <Editor.Cell fill>
-          <Editor.Input label="부서명" />
+          <Editor.LargeInput label="부서명" />
         </Editor.Cell>
         <Editor.Cell fill>
-          <Editor.Input label="직급/직책" />
+          <Editor.LargeInput label="직급/직책" />
         </Editor.Cell>
         <Editor.Cell>
-          <Editor.Input label="연봉" />
+          <Editor.LargeInput label="연봉" />
         </Editor.Cell>
       </Editor.Row>
       <Editor.Row>
         <Editor.Cell fill>
-          <Editor.Input label="담당업무" />
+          <Editor.LargeInput label="담당업무" />
         </Editor.Cell>
         <Editor.Cell>
-          <Editor.Input label="입사년월" />
+          <Editor.LargeInput label="입사년월" />
         </Editor.Cell>
         <Editor.Cell>
-          <Editor.Input label="퇴사년월" />
+          <Editor.LargeInput label="퇴사년월" />
         </Editor.Cell>
         <Editor.Cell>
           <Editor.Checkbox>재직중</Editor.Checkbox>
