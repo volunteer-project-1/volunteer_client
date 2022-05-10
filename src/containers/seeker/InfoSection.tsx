@@ -21,7 +21,12 @@ const InfoSection = () => (
         <Editor.SmallInput placeholder="이메일" type="email" />
       </Editor.Cell>
       <Editor.Cell fill>
-        <Editor.SmallInput placeholder="주소" />
+        <Editor.SmallAddress
+          placeholder="주소"
+          onChange={value => {
+            console.log(value);
+          }}
+        />
       </Editor.Cell>
     </Editor.Row>
     <Editor.Row>

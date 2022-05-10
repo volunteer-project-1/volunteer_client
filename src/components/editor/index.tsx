@@ -4,7 +4,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
 import { openFileDialog } from "@/utils/FileUtils";
-import { useID } from "@/utils/StringUtils";
+import { readAddress, useID } from "@/utils/StringUtils";
 import "@/components/editor/Editor.scoped.scss";
 
 interface LayoutProps {
@@ -51,6 +51,40 @@ const SmallInput = ({ placeholder, type = "text", value, onChange }: SmallInputP
                 onChange && onChange(event.target.value);
               }
         }
+      />
+    </div>
+  );
+};
+
+interface Address {
+  sido: string;
+  sigungu: string;
+}
+
+interface SmallAddressProps {
+  placeholder: string;
+  value?: Address;
+  onChange?: (value: Address) => void;
+}
+
+const SmallAddress = ({ placeholder, value, onChange }: SmallAddressProps) => {
+  // 상태랑 연결이 안 되어 있어도 일단 작성은 되도록 함.
+  // (onChange가 없으면 uncontrolled component로 작동.)
+  const isDummy = typeof onChange === "undefined";
+
+  const handleClick = () => {
+    onChange && readAddress(onChange);
+  };
+
+  return (
+    <div className="smallInputArea">
+      <input
+        className="input"
+        type="text"
+        placeholder={placeholder}
+        value={isDummy ? undefined : value ? `${value.sido} ${value.sigungu}` : ""}
+        onClick={handleClick}
+        readOnly
       />
     </div>
   );
@@ -244,6 +278,7 @@ export default Object.assign(Editor, {
   Separator,
   Cell,
   SmallInput,
+  SmallAddress,
   LargeInput,
   LargeSelect,
   Checkbox,
