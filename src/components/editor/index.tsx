@@ -1,10 +1,19 @@
-import React, { HTMLInputTypeAttribute, KeyboardEvent, MouseEvent, ReactNode, useRef, useState } from "react";
+import React, {
+  DragEvent,
+  HTMLInputTypeAttribute,
+  KeyboardEvent,
+  MouseEvent,
+  ReactNode,
+  useRef,
+  useState,
+} from "react";
 import classNames from "classnames";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
 import { openFileDialog } from "@/utils/FileUtils";
 import { readAddress, useID } from "@/utils/StringUtils";
+import { dLog } from "@/utils/DebugUtils";
 import "@/components/editor/Editor.scoped.scss";
 
 interface LayoutProps {
@@ -369,11 +378,30 @@ interface FileUploaderProps {
 const FileUploader = ({ accept = ".pdf,.hwp", onUpload }: FileUploaderProps) => {
   const handleClickUpload = async () => {
     const files = await openFileDialog(accept, true);
+    dLog(files);
     onUpload && onUpload(files);
   };
 
+  const handleDrop = async (event: DragEvent) => {
+    event.preventDefault();
+
+    const files = event.dataTransfer.files;
+    dLog(files);
+    onUpload && onUpload(Array.from(files));
+  };
+
+  const handleDrag = async (event: DragEvent) => {
+    event.preventDefault();
+  };
+
   return (
-    <div className="fileUploader">
+    <div
+      className="fileUploader"
+      onDrop={handleDrop}
+      onDragEnter={handleDrag}
+      onDragOver={handleDrag}
+      onDragLeave={handleDrag}
+    >
       <div className="fileList">
         <div className="iconArea">
           <img className="icon" src="/assets/seeker/formsection-file.svg" alt="파일 업로드" />
