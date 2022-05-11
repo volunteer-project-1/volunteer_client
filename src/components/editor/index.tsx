@@ -285,6 +285,37 @@ const LargeSelect = <Value,>({ label, options, value, onChange }: LargeSelectPro
   );
 };
 
+interface TextAreaProps {
+  placeholder: string;
+  rowCount?: number;
+  value?: string;
+  onChange?: (value: string) => void;
+}
+
+const TextArea = ({ placeholder, rowCount = 5, value, onChange }: TextAreaProps) => {
+  // 상태랑 연결이 안 되어 있어도 일단 작성은 되도록 함.
+  // (onChange가 없으면 uncontrolled component로 작동.)
+  const isDummy = typeof onChange === "undefined";
+
+  return (
+    <div className="textAreaArea">
+      <textarea
+        className="textArea"
+        placeholder={placeholder}
+        rows={rowCount}
+        value={isDummy ? undefined : value ?? ""}
+        onChange={
+          isDummy
+            ? undefined
+            : event => {
+                onChange && onChange(event.target.value);
+              }
+        }
+      />
+    </div>
+  );
+};
+
 interface CheckboxProps {
   value?: boolean;
   onChange?: (value: boolean) => void;
@@ -366,6 +397,7 @@ export default Object.assign(Editor, {
   SmallSelect,
   LargeInput,
   LargeSelect,
+  TextArea,
   Checkbox,
   AddButton,
   FileUploader,

@@ -9,6 +9,7 @@ import CareerSection from "@/containers/seeker/resume-editor/CareerSection";
 import ActivitySection from "@/containers/seeker/resume-editor/ActivitySection";
 import AwardSection from "@/containers/seeker/resume-editor/AwardSection";
 import PortfolioSection from "@/containers/seeker/resume-editor/PortfolioSection";
+import IntroductionSection from "@/containers/seeker/resume-editor/IntroductionSection";
 
 /**
  * 구직자 프로필 작성 페이지.
@@ -28,6 +29,7 @@ const ResumeEditorPage = () => (
         <ActivitySection />
         <AwardSection />
         <PortfolioSection />
+        <IntroductionSection />
       </Page.Column>
       <Page.Column>
         <StatusBox title="이력서 항목">
