@@ -51,12 +51,12 @@
       &.isActive {
         @include boxColor(border-bottom-color, green);
 
-        a {
+        .menu_name {
           @extend .font, .green;
         }
       }
 
-      a {
+      .menu_name {
         padding-left: g-vw(1280, 40px);
         padding-right: g-vw(1280, 40px);
         @extend .font, .size16, .w500;
