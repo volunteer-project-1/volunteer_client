@@ -1,8 +1,8 @@
 import React from "react";
 
 import Page from "@/components/page";
-import SeekerSection from "@/containers/company/SeekerSection";
-import ResultSection from "@/containers/company/ResultSection";
+import SeekerSection from "@/containers/company/seeker-list/SeekerSection";
+import ResultSection from "@/containers/company/seeker-list/ResultSection";
 
 /**
  * 구직자 리스트 페이지.

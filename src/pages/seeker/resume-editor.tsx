@@ -1,14 +1,14 @@
 import React from "react";
 
 import Page from "@/components/page";
-// import TitleSection from "@/containers/seeker/TitleSection";
-import InfoSection from "@/containers/seeker/InfoSection";
-import EducationSection from "@/containers/seeker/EducationSection";
-import CareerSection from "@/containers/seeker/CareerSection";
-import ActivitySection from "@/containers/seeker/ActivitySection";
-import AwardSection from "@/containers/seeker/AwardSection";
-import PortfolioSection from "@/containers/seeker/PortfolioSection";
 import StatusBox from "@/components/status-box";
+// import TitleSection from "@/containers/seeker/resume-editor/TitleSection";
+import InfoSection from "@/containers/seeker/resume-editor/InfoSection";
+import EducationSection from "@/containers/seeker/resume-editor/EducationSection";
+import CareerSection from "@/containers/seeker/resume-editor/CareerSection";
+import ActivitySection from "@/containers/seeker/resume-editor/ActivitySection";
+import AwardSection from "@/containers/seeker/resume-editor/AwardSection";
+import PortfolioSection from "@/containers/seeker/resume-editor/PortfolioSection";
 
 /**
  * 구직자 프로필 작성 페이지.

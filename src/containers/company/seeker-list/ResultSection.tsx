@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { Seeker } from "@/types/Dummy";
 import DummyAPI from "@/api/DummyAPI";
-import "@/containers/company/ResultSection.scoped.scss";
+import "@/containers/company/seeker-list/ResultSection.scoped.scss";
 
 const ResultSection = () => {
   const [currentSeekerList, setCurrentSeekerList] = useState<Array<Seeker>>([]);

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useValue } from "@/utils/StateUtils";
-import "@/containers/seeker/TitleSection.scoped.scss";
+import "@/containers/seeker/resume-editor/TitleSection.scoped.scss";
 
 const TitleSection = () => {
   const [title, onChangeTitle] = useValue("");
