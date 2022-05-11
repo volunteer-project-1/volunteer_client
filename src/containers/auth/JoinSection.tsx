@@ -4,12 +4,11 @@ import classNames from "classnames";
 
 import ROUTES from "@/constants/Routes";
 import { UserType } from "@/types/User";
-import { dError, dLog } from "@/utils/DebugUtils";
+import { dError } from "@/utils/DebugUtils";
 import { useValue } from "@/utils/StateUtils";
 import { strictValues } from "@/utils/TypeUtils";
 import { isEmail, isPassword } from "@/utils/StringUtils";
 import AuthAPI from "@/api/AuthAPI";
-import UserAPI from "@/api/UserAPI";
 import { useStoreDispatch } from "@/store";
 import { setSession } from "@/store/auth";
 import Dialog from "@/components/dialog";
@@ -25,7 +24,7 @@ const JoinSection = () => {
   const [id, onChangeID] = useValue("");
   const [password, onChangePassword] = useValue("");
   const [passwordConfirm, onChangePasswordConfirm] = useValue("");
-  const [nickname, onChangeNickname] = useValue("");
+  const [name, onChangeName] = useValue("");
   const [isDialogOpen, setDialogOpen] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [userType, setUserType] = useState<UserType>("seeker");
@@ -34,6 +33,7 @@ const JoinSection = () => {
     isIDRight: isEmail(id),
     isPasswordRight: isPassword(password),
     isPasswordConfirmRight: password === passwordConfirm,
+    isNicknameRight: name.length > 0,
   };
 
   const hasWrongFlag = strictValues(flags).includes(false);
@@ -46,11 +46,20 @@ const JoinSection = () => {
     setLoading(true);
 
     try {
-      await AuthAPI.doLocalJoin({
-        email: id,
-        password,
-        passwordConfirm,
-      });
+      if (userType === "seeker") {
+        await AuthAPI.createSeeker({
+          email: id,
+          password,
+          passwordConfirm,
+        });
+      } else {
+        await AuthAPI.createCompany({
+          email: id,
+          password,
+          passwordConfirm,
+          name,
+        });
+      }
 
       setDialogOpen(true);
     } catch (error) {
@@ -62,21 +71,31 @@ const JoinSection = () => {
   };
 
   const loginAndCloseDialog = async () => {
-    await AuthAPI.doLocalLogin({
-      email: id,
-      password,
-    });
+    if (userType === "seeker") {
+      const output = await AuthAPI.loginSeeker({
+        email: id,
+        password,
+      });
 
-    const profile = await UserAPI.findMyProfile();
+      dispatch(
+        setSession({
+          id: output.id,
+          type: userType,
+        })
+      );
+    } else {
+      const output = await AuthAPI.loginCompany({
+        email: id,
+        password,
+      });
 
-    dLog(profile);
-
-    dispatch(
-      setSession({
-        id: profile.user.id,
-        type: profile.user.user_meta.type,
-      })
-    );
+      dispatch(
+        setSession({
+          id: output.id,
+          type: userType,
+        })
+      );
+    }
 
     setDialogOpen(false);
   };
@@ -140,11 +159,10 @@ const JoinSection = () => {
           )}
           <input
             className="input"
-            type="password"
-            placeholder="닉네임 (구현 예정)"
-            value={nickname}
-            onChange={onChangeNickname}
-            disabled
+            type="text"
+            placeholder={userType === "seeker" ? "닉네임" : "회사명"}
+            value={name}
+            onChange={onChangeName}
           />
           <button className="submitButton" type="button" disabled={isLoading} onClick={handleClickJoin}>
             회원가입 하기

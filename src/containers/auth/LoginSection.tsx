@@ -6,9 +6,7 @@ import { UserType } from "@/types/User";
 import { useValue } from "@/utils/StateUtils";
 import { strictValues } from "@/utils/TypeUtils";
 import { isEmail, isPassword } from "@/utils/StringUtils";
-import { dLog } from "@/utils/DebugUtils";
 import AuthAPI from "@/api/AuthAPI";
-import UserAPI from "@/api/UserAPI";
 import { useStoreDispatch } from "@/store";
 import { setSession } from "@/store/auth";
 import Box from "@/containers/auth/Box";
@@ -35,21 +33,31 @@ const LoginSection = () => {
       return;
     }
 
-    await AuthAPI.doLocalLogin({
-      email: id,
-      password,
-    });
+    if (userType === "seeker") {
+      const output = await AuthAPI.loginSeeker({
+        email: id,
+        password,
+      });
 
-    const profile = await UserAPI.findMyProfile();
+      dispatch(
+        setSession({
+          id: output.id,
+          type: userType,
+        })
+      );
+    } else {
+      const output = await AuthAPI.loginCompany({
+        email: id,
+        password,
+      });
 
-    dLog(profile);
-
-    dispatch(
-      setSession({
-        id: profile.user.id,
-        type: profile.user.user_meta.type,
-      })
-    );
+      dispatch(
+        setSession({
+          id: output.id,
+          type: userType,
+        })
+      );
+    }
 
     router.push(ROUTES.home);
   };
