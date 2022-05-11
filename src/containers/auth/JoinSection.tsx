@@ -64,40 +64,49 @@ const JoinSection = () => {
       setDialogOpen(true);
     } catch (error) {
       dError(error);
-      alert("에러가 발생했습니다! 이미 가입된 아이디일 수 있습니다.");
+      alert("회원가입 중 에러가 발생했습니다! 이미 가입된 아이디일 수 있습니다.");
     }
 
     setLoading(false);
   };
 
   const loginAndCloseDialog = async () => {
-    if (userType === "seeker") {
-      const output = await AuthAPI.loginSeeker({
-        email: id,
-        password,
-      });
+    try {
+      if (userType === "seeker") {
+        const output = await AuthAPI.loginSeeker({
+          email: id,
+          password,
+        });
 
-      dispatch(
-        setSession({
-          id: output.id,
-          type: userType,
-        })
-      );
-    } else {
-      const output = await AuthAPI.loginCompany({
-        email: id,
-        password,
-      });
+        dispatch(
+          setSession({
+            id: output.id,
+            type: userType,
+          })
+        );
+      } else {
+        const output = await AuthAPI.loginCompany({
+          email: id,
+          password,
+        });
 
-      dispatch(
-        setSession({
-          id: output.id,
-          type: userType,
-        })
-      );
+        dispatch(
+          setSession({
+            id: output.id,
+            type: userType,
+          })
+        );
+      }
+
+      setDialogOpen(false);
+      return true;
+    } catch (error) {
+      dError(error);
+      alert("로그인 중 에러가 발생했습니다! 아이디가 존재하는지, 비밀번호가 맞는지 체크해주세요.");
+
+      setDialogOpen(false);
+      return false;
     }
-
-    setDialogOpen(false);
   };
 
   const handleCloseDialog = async () => {
@@ -105,13 +114,19 @@ const JoinSection = () => {
   };
 
   const handleClickYes = async () => {
-    await loginAndCloseDialog();
-    router.push(ROUTES.seeker.resumeEditor);
+    if (await loginAndCloseDialog()) {
+      if (userType === "seeker") {
+        router.push(ROUTES.seeker.resumeEditor);
+      } else {
+        router.push(ROUTES.company.infoEditor);
+      }
+    }
   };
 
   const handleClickNo = async () => {
-    await loginAndCloseDialog();
-    router.push(ROUTES.home);
+    if (await loginAndCloseDialog()) {
+      router.push(ROUTES.home);
+    }
   };
 
   return (
@@ -178,7 +193,7 @@ const JoinSection = () => {
           </Dialog.Content>
           <Dialog.Footer>
             <Dialog.Button fill onClick={handleClickYes}>
-              예. 이력서 작성할래요.
+              예. {userType === "seeker" ? "이력서" : "회사정보"} 작성할래요.
             </Dialog.Button>
             <Dialog.Button onClick={handleClickNo}>아니요. 나중에 할래요.</Dialog.Button>
           </Dialog.Footer>

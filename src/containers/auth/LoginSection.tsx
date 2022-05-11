@@ -5,6 +5,7 @@ import ROUTES from "@/constants/Routes";
 import { UserType } from "@/types/User";
 import { useValue } from "@/utils/StateUtils";
 import { strictValues } from "@/utils/TypeUtils";
+import { dError } from "@/utils/DebugUtils";
 import { isEmail, isPassword } from "@/utils/StringUtils";
 import AuthAPI from "@/api/AuthAPI";
 import { useStoreDispatch } from "@/store";
@@ -33,33 +34,38 @@ const LoginSection = () => {
       return;
     }
 
-    if (userType === "seeker") {
-      const output = await AuthAPI.loginSeeker({
-        email: id,
-        password,
-      });
+    try {
+      if (userType === "seeker") {
+        const output = await AuthAPI.loginSeeker({
+          email: id,
+          password,
+        });
 
-      dispatch(
-        setSession({
-          id: output.id,
-          type: userType,
-        })
-      );
-    } else {
-      const output = await AuthAPI.loginCompany({
-        email: id,
-        password,
-      });
+        dispatch(
+          setSession({
+            id: output.id,
+            type: userType,
+          })
+        );
+      } else {
+        const output = await AuthAPI.loginCompany({
+          email: id,
+          password,
+        });
 
-      dispatch(
-        setSession({
-          id: output.id,
-          type: userType,
-        })
-      );
+        dispatch(
+          setSession({
+            id: output.id,
+            type: userType,
+          })
+        );
+      }
+
+      router.push(ROUTES.home);
+    } catch (error) {
+      dError(error);
+      alert("로그인 중 에러가 발생했습니다! 아이디가 존재하는지, 비밀번호가 맞는지 체크해주세요.");
     }
-
-    router.push(ROUTES.home);
   };
 
   return (
