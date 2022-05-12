@@ -100,7 +100,7 @@ module.exports = {
     // https://velog.io/@maliethy/nextjs-reverse-proxy로-cors에러-해결하기
     {
       source: "/:path*",
-      destination: "http://3.39.89.127:3000/:path*",
+      destination: "https://api.se3me.com/:path*",
     },
   ],
 };
