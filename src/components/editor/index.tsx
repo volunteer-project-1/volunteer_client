@@ -368,26 +368,41 @@ const AddButton = ({ onClick }: AddButtonProps) => (
 );
 
 interface FileUploaderProps {
-  // 어떤 종류의 파일들을 허용할지.
-  // (기본값: PDF, HWP)
-  accept?: string;
+  // 허용할 확장자들 목록.
+  // (기본값: pdf, hwp)
+  extensions?: Array<string>;
 
   onUpload?: (files: Array<File>) => void;
 }
 
-const FileUploader = ({ accept = ".pdf,.hwp", onUpload }: FileUploaderProps) => {
-  const handleClickUpload = async () => {
-    const files = await openFileDialog(accept, true);
-    dLog(files);
+const FileUploader = ({ extensions = ["pdf", "hwp"], onUpload }: FileUploaderProps) => {
+  const uploadFiles = (files: Array<File>) => {
+    const filteredFiles = files.filter(file => {
+      for (let i = 0; i < extensions.length; i++) {
+        if (file.name.endsWith(extensions[i])) {
+          return true;
+        }
+      }
+
+      dLog(`${file.name}: ${extensions.join(", ")}에 해당하지 않음.`);
+      return false;
+    });
+
+    dLog(`업로드 목록: ${filteredFiles.map(file => file.name).join(", ")}`);
     onUpload && onUpload(files);
+  };
+
+  const handleClickUpload = async () => {
+    const accept = extensions.map(extension => `.${extension}`).join(",");
+    const files = await openFileDialog(accept, true);
+    uploadFiles(files);
   };
 
   const handleDrop = async (event: DragEvent) => {
     event.preventDefault();
 
     const files = event.dataTransfer.files;
-    dLog(files);
-    onUpload && onUpload(Array.from(files));
+    uploadFiles(Array.from(files));
   };
 
   const handleDrag = async (event: DragEvent) => {
