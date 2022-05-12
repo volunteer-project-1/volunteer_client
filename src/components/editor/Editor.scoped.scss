@@ -232,13 +232,27 @@
     @include boxColor(border-color, dark3);
 
     .fileList {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .file {
+      box-sizing: border-box;
 
       width: 100%;
-      flex: 1;
+      padding: 10px;
+
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      @include boxColor(border-bottom-color, dark3);
+    }
+
+    .defaultArea {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      margin: auto;
     }
 
     .iconArea {

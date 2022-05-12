@@ -17,6 +17,48 @@ import {
 } from "@/types/Resume";
 import API from "@/api/API";
 
+interface UploadFileInput {
+  file: File;
+}
+
+interface UploadFileOutput {
+  file: {
+    // 정보가 더 있지만 일단 이것들만 사용.
+    originalname: string;
+    mimetype: string;
+    size: number;
+    contentType: string;
+  };
+  url: string;
+}
+
+/**
+ * 내부용 유틸 함수.
+ */
+async function uploadFile(input: UploadFileInput, url: string): Promise<UploadFileOutput> {
+  const formData = new FormData();
+  formData.append("url", input.file);
+  const response = await API.post(url, formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+
+  return response.data;
+}
+
+async function uploadVideo(input: UploadFileInput): Promise<UploadFileOutput> {
+  return await uploadFile(input, "/api/v1/resume/video");
+}
+
+async function uploadPDF(input: UploadFileInput): Promise<UploadFileOutput> {
+  return await uploadFile(input, "/api/v1/resume/pdf");
+}
+
+async function uploadAvatar(input: UploadFileInput): Promise<UploadFileOutput> {
+  return await uploadFile(input, "/api/v1/resume/avatar");
+}
+
 interface CreateResumeInput {
   resume: Omit<Resume, "id" | "user_id">;
   resumeInfo: Omit<ResumeInfo, "id" | "resume_id">;
@@ -41,6 +83,9 @@ async function createResume(input: CreateResumeInput): Promise<void> {
 }
 
 const ResumeAPI = {
+  uploadVideo,
+  uploadPDF,
+  uploadAvatar,
   createResume,
 };
 

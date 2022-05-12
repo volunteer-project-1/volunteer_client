@@ -1,12 +1,5 @@
-import React, {
-  DragEvent,
-  HTMLInputTypeAttribute,
-  KeyboardEvent,
-  MouseEvent,
-  ReactNode,
-  useRef,
-  useState,
-} from "react";
+import React, { DragEvent, HTMLInputTypeAttribute, KeyboardEvent, ReactNode, useRef, useState } from "react";
+import Link from "next/link";
 import classNames from "classnames";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -371,11 +364,11 @@ interface FileUploaderProps {
   // 허용할 확장자들 목록.
   // (기본값: pdf, hwp)
   extensions?: Array<string>;
-
+  results: Array<{ name: string; url: string }>;
   onUpload?: (files: Array<File>) => void;
 }
 
-const FileUploader = ({ extensions = ["pdf", "hwp"], onUpload }: FileUploaderProps) => {
+const FileUploader = ({ extensions = ["pdf", "hwp"], results, onUpload }: FileUploaderProps) => {
   const uploadFiles = (files: Array<File>) => {
     const filteredFiles = files.filter(file => {
       for (let i = 0; i < extensions.length; i++) {
@@ -417,15 +410,27 @@ const FileUploader = ({ extensions = ["pdf", "hwp"], onUpload }: FileUploaderPro
       onDragOver={handleDrag}
       onDragLeave={handleDrag}
     >
-      <div className="fileList">
-        <div className="iconArea">
-          <img className="icon" src="/assets/seeker/formsection-file.svg" alt="파일 업로드" />
+      {results.length > 0 ? (
+        <div className="fileList">
+          {results.map((result, index) => (
+            <div className="file" key={index}>
+              <Link href={result.url}>
+                <a target="_blank">{result.name}</a>
+              </Link>
+            </div>
+          ))}
         </div>
-        <div className="message">포트폴리오를 첨부하여 주세요 (클릭하거나 드래그하여 첨부)</div>
-        <button className="uploadButton" onClick={handleClickUpload}>
-          파일첨부 하기
-        </button>
-      </div>
+      ) : (
+        <div className="defaultArea">
+          <div className="iconArea">
+            <img className="icon" src="/assets/seeker/formsection-file.svg" alt="파일 업로드" />
+          </div>
+          <div className="message">포트폴리오를 첨부하여 주세요 (클릭하거나 드래그하여 첨부)</div>
+          <button className="uploadButton" onClick={handleClickUpload}>
+            파일첨부 하기
+          </button>
+        </div>
+      )}
     </div>
   );
 };
