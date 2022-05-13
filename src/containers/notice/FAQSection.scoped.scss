@@ -12,6 +12,9 @@
     border-width: 1px;
     border-color: #e1e1e1;
 
+    // Fix for IE.
+    background-color: transparent;
+
     @extend .font, .dark8, .size20, .bold;
     font-family: inherit;
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import classNames from "classnames";
 
 import "@/containers/notice/FAQ.scoped.scss";
-import classNames from "classnames";
 
 interface FAQProps {
   question: string;
