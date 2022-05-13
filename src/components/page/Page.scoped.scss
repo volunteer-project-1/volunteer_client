@@ -11,7 +11,8 @@
     align-items: center;
 
     width: 100%;
-    flex: 1;
+    // 그냥 flex: 1하면 IE에서 깨짐.
+    flex: 1 1 auto;
   }
 
   .pageTitle {

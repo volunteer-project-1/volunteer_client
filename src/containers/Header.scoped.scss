@@ -57,6 +57,9 @@
       }
 
       .menu_name {
+        // Fix for IE.
+        background-color: transparent;
+
         padding-left: g-vw(1280, 40px);
         padding-right: g-vw(1280, 40px);
         @extend .font, .size16, .w500;
