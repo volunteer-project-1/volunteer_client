@@ -66,8 +66,7 @@
     border-width: 1px;
     @include boxColor(border-color, green);
 
-    // Fix for IE.
-    background-color: transparent;
+    @extend .buttonFix;
 
     @extend .font, .green, .w500, .size18;
   }

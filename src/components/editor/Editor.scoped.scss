@@ -207,8 +207,7 @@
 
     @include boxColor(border-color, green);
 
-    // Fix for IE.
-    background-color: transparent;
+    @extend .buttonFix;
 
     .icon {
       vertical-align: middle;
@@ -285,8 +284,7 @@
       @extend .font, .size16, .green;
       @include boxColor(border-color, green);
 
-      // Fix for IE.
-      background-color: transparent;
+      @extend .buttonFix;
     }
   }
 }
