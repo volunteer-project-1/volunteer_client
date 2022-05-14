@@ -6,7 +6,7 @@ import Slider from "@/components/slider";
 import "@/containers/home/MainSection.scoped.scss";
 import "@/components/slider/Slider.scoped.scss";
 
-interface MainVisualSliderType {
+interface MainVisualItem {
   img: string;
   title: string;
   subTitle: string;
@@ -15,7 +15,7 @@ interface MainVisualSliderType {
   linkURL: string;
 }
 
-const mainVisualContent: Array<MainVisualSliderType> = [
+const mainVisualContent: Array<MainVisualItem> = [
   {
     img: "/assets/home/main-background1.jpg",
     title: "세상 밖으로 나오는 당신의 도전",
@@ -49,42 +49,31 @@ const mainVisualContent: Array<MainVisualSliderType> = [
   },
 ];
 
-interface MainNoticeSliderProps {
+interface MainNoticeItem {
   img: string;
   group: string;
   title: string;
+  url: string;
 }
-const mainNoticeContent: Array<MainNoticeSliderProps> = [
+const mainNoticeContent: Array<MainNoticeItem> = [
   {
     img: "/assets/home/main_img01@2x.jpg",
     group: "채용정보",
-    title: "2022년 공개채용 기업 보러가기보러가기보러가기보러가기보러가기보러가기보러가기",
+    title: "2022년 공개채용 기업 보러가기",
+    url: "https://job.seoul.go.kr/jobable/board.do?method=selectCenterNewsList",
   },
   {
     img: "/assets/home/main_img02@2x.jpg",
-    group: "채용정보",
-    title: "2022년 공개채용 기업 보러가기",
+    group: "행사정보",
+    title: "2022년 하계 미니 패럴림픽 참가신청",
+    url: "https://www.paralympic.org/",
   },
   {
     img: "/assets/home/main_img03@2x.jpg",
     group: "채용정보",
-    title: "2022년 공개채용 기업 보러가기",
+    title: "2022년 취업 설명회 사전 신청하기",
+    url: "https://job.seoul.go.kr/jobable/board.do?method=selectCenterNewsList",
   },
-  {
-    img: "/assets/home/main_img03@2x.jpg",
-    group: "채용정보",
-    title: "2022년 공개채용 기업 보러가기",
-  },
-  {
-    img: "/assets/home/main_img03@2x.jpg",
-    group: "채용정보",
-    title: "2022년 공개채용 기업 보러가기",
-  },
-  // {
-  //   img: "",
-  //   group: "채용정보",
-  //   title: "2022년 공개채용 기업 보러가기",
-  // },
 ];
 
 const MainSection = () => (
@@ -106,22 +95,22 @@ const MainSection = () => (
     </Slider.Visual>
 
     <Slider.Notice>
-      {mainNoticeContent.map((list, i) => (
+      {mainNoticeContent.map((item, i) => (
         <div key={i} className="descriptionNotice_wrap">
-          <Link href="/">
+          <Link href={item.url}>
             <a className="link">
               <div className="box">
                 <div>
-                  <span className="group">{list.group}</span>
-                  <p className="title">{list.title}</p>
+                  <span className="group">{item.group}</span>
+                  <p className="title">{item.title}</p>
                   <div className="more">
                     <span className="blind">더보기</span>
                   </div>
                 </div>
               </div>
-              {list.img ? (
+              {item.img ? (
                 <div className="img">
-                  <img src={list.img} alt="" />
+                  <img src={item.img} alt="" />
                 </div>
               ) : (
                 <div className="no_img blind">미리보기 이미지가 없습니다</div>
