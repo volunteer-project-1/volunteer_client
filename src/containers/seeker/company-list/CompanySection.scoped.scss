@@ -1,0 +1,24 @@
+.companySection {
+  overflow-x: auto;
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
+  margin-bottom: 77px;
+
+  @extend .inner;
+
+  ::v-deep .companyCard {
+    margin-bottom: 0;
+
+    &:not(:first-child) {
+      margin-left: 33px;
+    }
+
+    .imageArea {
+      overflow-y: hidden;
+
+      height: 224px;
+    }
+  }
+}

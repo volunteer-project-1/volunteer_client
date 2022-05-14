@@ -1,0 +1,70 @@
+.resultSection {
+  margin-bottom: 89px;
+
+  border-style: solid;
+  border-width: 1px;
+  @include boxColor(border-color, dark3);
+
+  @extend .inner;
+
+  .header {
+    box-sizing: border-box;
+
+    width: 100%;
+    padding: 19px 29px;
+
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    @include boxColor(border-bottom-color, dark3);
+
+    .title {
+      @extend .font, .dark4, .size14, .w500;
+    }
+
+    .count {
+      margin-left: 6px;
+
+      @extend .font, .green, .size14, .bold;
+    }
+  }
+
+  .row {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 100%;
+    padding: 30px;
+
+    &:not(:last-child) {
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      @include boxColor(border-bottom-color, dark3);
+    }
+
+    .image {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+
+    .content {
+      margin-left: 70px;
+    }
+
+    .line {
+      &:not(:first-child) {
+        margin-top: 5px;
+      }
+    }
+
+    .name {
+      @extend .font, .dark6, .size18, .bold;
+    }
+
+    .dDays {
+      @extend .font, .dark4, .size12;
+    }
+  }
+}
