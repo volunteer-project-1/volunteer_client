@@ -55,9 +55,7 @@ const Header = () => {
           <div className="logo">
             <Link href={ROUTES.home}>
               <a>
-                <div className="ima">
-                  <img src={"/assets/layout/header-logo.svg"} alt="SeeMe" className="logo" />
-                </div>
+                <img src={"/assets/layout/header-logo.svg"} alt="SeeMe" />
               </a>
             </Link>
           </div>
