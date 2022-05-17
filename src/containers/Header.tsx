@@ -45,8 +45,7 @@ const Header = () => {
   const menusRef = useRef<Array<HTMLLIElement | null>>(menus.map(() => null));
   const [selectedMenuIndex, setSelectedMenuIndex] = useState<number | null>(null);
 
-  // For test...
-  const loginText = account === null ? "LOG IN" : account.type;
+  const isLoggedIn = account !== null;
 
   return (
     <div className="headerWrap">
@@ -60,17 +59,31 @@ const Header = () => {
             </Link>
           </div>
           <div className="cs_login">
-            <Link href={ROUTES.auth.login}>
-              <a className="lg">
-                <img src={"/assets/layout/header-login.svg"} alt={"Login"} /> {loginText}
-              </a>
-            </Link>
-            <span className="bar-login"></span>
-            <Link href={ROUTES.auth.join}>
-              <a>
-                <img src={"/assets/layout/header-join.svg"} alt={"Join"} /> JOIN US
-              </a>
-            </Link>
+            {isLoggedIn ? (
+              <>
+                <span className="item_login">{account.type === "seeker" ? "구직자" : "회사"}</span>
+                <span className="bar_login" />
+                <Link href={"/api/v1/auth/logout"}>
+                  <a className="item_login">
+                    <img src={"/assets/layout/header-login.svg"} alt={"Logout"} /> LOG OUT
+                  </a>
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link href={ROUTES.auth.login}>
+                  <a className="item_login">
+                    <img src={"/assets/layout/header-login.svg"} alt={"Login"} /> LOG IN
+                  </a>
+                </Link>
+                <span className="bar_login" />
+                <Link href={ROUTES.auth.join}>
+                  <a className="item_login">
+                    <img src={"/assets/layout/header-join.svg"} alt={"Join"} /> JOIN US
+                  </a>
+                </Link>
+              </>
+            )}
           </div>
         </div>
 
