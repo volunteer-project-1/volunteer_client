@@ -4,10 +4,13 @@
 
 장애인을 위한 직장 소개 앱 프론트엔드 코드
 
-## Documents
-
 - [Notion](https://www.notion.so/SeeMe-dfdcbdb7258e47feafd95d02507df6f3)
-- [Examples](https://www.notion.so/Examples-8fd87af7cd3443468efac6be087cd998): 프로젝트 내에서 자주 사용되는 코드 패턴들 정리
+
+## Keywords
+
+- Seeker: 구직자를 의미
+- Company: 회사를 의미
+- User = Seeker (원래는 구직자, 회사 둘 다를 의미했던거 같으나 서버 상에서 현재 구직자에게만 적용됨)
 
 ## How to run
 
@@ -32,10 +35,11 @@
 - `npm run build`로 배포 모드 빌드
 - `npm run start`로 배포 서버 실행
 
-정적 사이트 생성
+~~정적 사이트 생성~~
 
 - `npm run build`로 배포 모드 빌드
 - `npm run export`로 정적 사이트 생성 (Static Site Generation)
+- 현재 사이트 실행에 Next.js 서버가 필수이므로 이 기능은 사용하지 않습니다.
 
 코드 스타일 체크
 
@@ -68,10 +72,11 @@
 - public
   - assets: Static assets (ex. 이미지, 비디오, ...)
 - src
+  - types: 공통 자료형 모음
   - api: 요청 관련 로직 모음
   - scss: 공통 스타일 코드(SCSS) 모음
-  - pages: 각 페이지(URL)를 나타내는 component
-  - components: 공통 component (Menu, Button, ...)
-  - containers: 큰 단위의 component (Header, footer, 각 section, ...)
   - store: 전역 상태 (Redux)
   - utils: 유틸성 로직들
+  - components: 공통 component (Menu, Button, ...)
+  - containers: 큰 단위의 component (Header, footer, 각 section, ...)
+  - pages: 각 페이지(URL)를 나타내는 component
