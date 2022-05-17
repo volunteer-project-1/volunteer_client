@@ -1,7 +1,5 @@
-import { USER_TYPE } from "@/constants/User";
 import { DefaultTime } from "@/types/Common";
-
-export type UserType = typeof USER_TYPE[number];
+import { AccountType } from "@/types/Auth";
 
 export interface User extends DefaultTime {
   id: number;
@@ -11,7 +9,7 @@ export interface User extends DefaultTime {
 export interface UserMeta extends DefaultTime {
   id: number;
   is_verified: boolean;
-  type: UserType;
+  type: AccountType;
   user_id: number;
 }
 

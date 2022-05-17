@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 
 import ROUTES from "@/constants/Routes";
-import { UserType } from "@/types/User";
+import { AccountType } from "@/types/Auth";
 import { useValue } from "@/utils/StateUtils";
 import { strictValues } from "@/utils/TypeUtils";
 import { dError } from "@/utils/DebugUtils";
 import { isEmail, isPassword } from "@/utils/StringUtils";
 import AuthAPI from "@/api/AuthAPI";
 import { useStoreDispatch } from "@/store";
-import { setSession } from "@/store/auth";
+import { setAccount } from "@/store/auth";
 import Box from "@/containers/auth/Box";
 import TabList from "@/containers/auth/TabList";
 import "@/containers/auth/LoginSection.scoped.scss";
@@ -20,7 +20,7 @@ const LoginSection = () => {
 
   const [id, onChangeID] = useValue("");
   const [password, onChangePassword] = useValue("");
-  const [userType, setUserType] = useState<UserType>("seeker");
+  const [accountType, setAccountType] = useState<AccountType>("seeker");
 
   const flags = {
     isIDRight: isEmail(id),
@@ -35,16 +35,16 @@ const LoginSection = () => {
     }
 
     try {
-      if (userType === "seeker") {
+      if (accountType === "seeker") {
         const output = await AuthAPI.loginSeeker({
           email: id,
           password,
         });
 
         dispatch(
-          setSession({
+          setAccount({
             id: output.id,
-            type: userType,
+            type: accountType,
           })
         );
       } else {
@@ -54,9 +54,9 @@ const LoginSection = () => {
         });
 
         dispatch(
-          setSession({
+          setAccount({
             id: output.id,
-            type: userType,
+            type: accountType,
           })
         );
       }
@@ -73,7 +73,7 @@ const LoginSection = () => {
       <div className="logoArea">
         <img className="logo" src={"/assets/auth/login-logo.svg"} alt="Logo" />
       </div>
-      <TabList currentUserType={userType} onChange={setUserType} />
+      <TabList currentAccountType={accountType} onChange={setAccountType} />
       <Box title="로그인" description="아이디, 패스워드를 입력해주세요.">
         <input className="input" type="text" placeholder="아이디" value={id} onChange={onChangeID} />
         <input className="input" type="password" placeholder="비밀번호" value={password} onChange={onChangePassword} />

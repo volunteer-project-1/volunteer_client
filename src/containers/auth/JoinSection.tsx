@@ -3,14 +3,14 @@ import { useRouter } from "next/router";
 import classNames from "classnames";
 
 import ROUTES from "@/constants/Routes";
-import { UserType } from "@/types/User";
+import { AccountType } from "@/types/Auth";
 import { dError } from "@/utils/DebugUtils";
 import { useValue } from "@/utils/StateUtils";
 import { strictValues } from "@/utils/TypeUtils";
 import { isEmail, isPassword } from "@/utils/StringUtils";
 import AuthAPI from "@/api/AuthAPI";
 import { useStoreDispatch } from "@/store";
-import { setSession } from "@/store/auth";
+import { setAccount } from "@/store/auth";
 import Dialog from "@/components/dialog";
 import Box from "@/containers/auth/Box";
 import TabList from "@/containers/auth/TabList";
@@ -27,7 +27,7 @@ const JoinSection = () => {
   const [name, onChangeName] = useValue("");
   const [isDialogOpen, setDialogOpen] = useState(false);
   const [isLoading, setLoading] = useState(false);
-  const [userType, setUserType] = useState<UserType>("seeker");
+  const [accountType, setAccountType] = useState<AccountType>("seeker");
 
   const flags = {
     isIDRight: isEmail(id),
@@ -46,7 +46,7 @@ const JoinSection = () => {
     setLoading(true);
 
     try {
-      if (userType === "seeker") {
+      if (accountType === "seeker") {
         await AuthAPI.createSeeker({
           email: id,
           password,
@@ -72,16 +72,16 @@ const JoinSection = () => {
 
   const loginAndCloseDialog = async () => {
     try {
-      if (userType === "seeker") {
+      if (accountType === "seeker") {
         const output = await AuthAPI.loginSeeker({
           email: id,
           password,
         });
 
         dispatch(
-          setSession({
+          setAccount({
             id: output.id,
-            type: userType,
+            type: accountType,
           })
         );
       } else {
@@ -91,9 +91,9 @@ const JoinSection = () => {
         });
 
         dispatch(
-          setSession({
+          setAccount({
             id: output.id,
-            type: userType,
+            type: accountType,
           })
         );
       }
@@ -115,7 +115,7 @@ const JoinSection = () => {
 
   const handleClickYes = async () => {
     if (await loginAndCloseDialog()) {
-      if (userType === "seeker") {
+      if (accountType === "seeker") {
         router.push(ROUTES.seeker.resumeEditor);
       } else {
         router.push(ROUTES.company.infoEditor);
@@ -131,7 +131,7 @@ const JoinSection = () => {
 
   return (
     <div className="joinSection">
-      <TabList currentUserType={userType} onChange={setUserType} />
+      <TabList currentAccountType={accountType} onChange={setAccountType} />
       <div className="content">
         <Box title="회원가입" description="간단한 절차를 통해 가입하실수 있습니다. 함께 해주셔서 감사합니다!">
           <input
@@ -175,7 +175,7 @@ const JoinSection = () => {
           <input
             className="input"
             type="text"
-            placeholder={userType === "seeker" ? "닉네임" : "회사명"}
+            placeholder={accountType === "seeker" ? "닉네임" : "회사명"}
             value={name}
             onChange={onChangeName}
           />
@@ -193,7 +193,7 @@ const JoinSection = () => {
           </Dialog.Content>
           <Dialog.Footer>
             <Dialog.Button fill onClick={handleClickYes}>
-              예. {userType === "seeker" ? "이력서" : "회사정보"} 작성할래요.
+              예. {accountType === "seeker" ? "이력서" : "회사정보"} 작성할래요.
             </Dialog.Button>
             <Dialog.Button onClick={handleClickNo}>아니요. 나중에 할래요.</Dialog.Button>
           </Dialog.Footer>

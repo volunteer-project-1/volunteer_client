@@ -39,14 +39,14 @@ const menus: Array<Menu> = [
 ];
 
 const Header = () => {
-  const session = useStoreSelector(state => state.auth.session);
+  const account = useStoreSelector(state => state.auth.account);
   const router = useRouter();
 
   const menusRef = useRef<Array<HTMLLIElement | null>>(menus.map(() => null));
   const [selectedMenuIndex, setSelectedMenuIndex] = useState<number | null>(null);
 
   // For test...
-  const loginText = session === null ? "LOG IN" : session.type;
+  const loginText = account === null ? "LOG IN" : account.type;
 
   return (
     <div className="headerWrap">

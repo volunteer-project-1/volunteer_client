@@ -10,7 +10,7 @@ import ResultSection from "@/containers/company/seeker-list/ResultSection";
  * 구직자 리스트 페이지.
  */
 const SeekerListPage = () => (
-  <Wrapper.Auth allowedUserTypes={["company"]}>
+  <Wrapper.Auth allowedAccountTypes={["company"]}>
     <Page>
       <Page.Title>TOP 인재</Page.Title>
       <SeekerSection />

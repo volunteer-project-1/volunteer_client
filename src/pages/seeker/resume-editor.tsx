@@ -16,7 +16,7 @@ import IntroductionSection from "@/containers/seeker/resume-editor/IntroductionS
  * 구직자 프로필 작성 페이지.
  */
 const ResumeEditorPage = () => (
-  <Wrapper.Auth allowedUserTypes={["seeker"]}>
+  <Wrapper.Auth allowedAccountTypes={["seeker"]}>
     <Page>
       <Page.Title>이력서 작성</Page.Title>
       <Page.Columns>

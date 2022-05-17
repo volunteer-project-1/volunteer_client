@@ -1,34 +1,34 @@
 import React from "react";
 import classNames from "classnames";
 
-import { USER_TYPE } from "@/constants/User";
-import { UserType } from "@/types/User";
+import { ACCOUNT_TYPE } from "@/constants/Auth";
+import { AccountType } from "@/types/Auth";
 import "@/containers/auth/TabList.scoped.scss";
 
-const tabMap: Record<UserType, string> = {
+const tabMap: Record<AccountType, string> = {
   seeker: "개인회원",
   company: "기업회원",
 };
 
 interface TabListProps {
-  currentUserType: UserType;
-  onChange: (type: UserType) => void;
+  currentAccountType: AccountType;
+  onChange: (type: AccountType) => void;
 }
 
-const TabList = ({ currentUserType, onChange }: TabListProps) => (
+const TabList = ({ currentAccountType, onChange }: TabListProps) => (
   <div className="tabList">
-    {USER_TYPE.map(userType => (
+    {ACCOUNT_TYPE.map(type => (
       <button
         className={classNames("tab", {
-          isActive: userType === currentUserType,
+          isActive: type === currentAccountType,
         })}
-        key={userType}
+        key={type}
         type="button"
         onClick={() => {
-          onChange(userType);
+          onChange(type);
         }}
       >
-        {tabMap[userType]}
+        {tabMap[type]}
       </button>
     ))}
   </div>

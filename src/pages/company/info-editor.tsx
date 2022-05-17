@@ -12,7 +12,7 @@ import HistorySection from "@/containers/company/info-editor/HistorySection";
  * 기업 프로필 작성 페이지.
  */
 const InfoEditorPage = () => (
-  <Wrapper.Auth allowedUserTypes={["company"]}>
+  <Wrapper.Auth allowedAccountTypes={["company"]}>
     <Page>
       <Page.Title>기업 등록</Page.Title>
       <Page.Columns>
