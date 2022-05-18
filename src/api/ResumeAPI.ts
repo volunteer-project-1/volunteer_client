@@ -38,7 +38,8 @@ interface UploadFileOutput {
 async function uploadFile(input: UploadFileInput, url: string): Promise<UploadFileOutput> {
   const formData = new FormData();
   formData.append("url", input.file);
-  const response = await API.post(url, formData, {
+
+  const response = await API.post<UploadFileOutput>(url, formData, {
     headers: {
       "Content-Type": "multipart/form-data",
     },
