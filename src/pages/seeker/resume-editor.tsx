@@ -7,6 +7,8 @@ import InfoSection from "@/containers/seeker/resume-editor/InfoSection";
 import EducationSection from "@/containers/seeker/resume-editor/EducationSection";
 import CareerSection from "@/containers/seeker/resume-editor/CareerSection";
 import ActivitySection from "@/containers/seeker/resume-editor/ActivitySection";
+import TrainingSection from "@/containers/seeker/resume-editor/TrainingSection";
+import CertificateSection from "@/containers/seeker/resume-editor/CertificateSection";
 import AwardSection from "@/containers/seeker/resume-editor/AwardSection";
 import PortfolioSection from "@/containers/seeker/resume-editor/PortfolioSection";
 import IntroductionSection from "@/containers/seeker/resume-editor/IntroductionSection";
@@ -29,6 +31,8 @@ const ResumeEditorPage = () => (
           <EducationSection />
           <CareerSection />
           <ActivitySection />
+          <TrainingSection />
+          <CertificateSection />
           <AwardSection />
           <PortfolioSection />
           <IntroductionSection />
