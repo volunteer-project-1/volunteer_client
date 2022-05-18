@@ -1,23 +1,6 @@
-import axios from "axios";
-
 import API from "@/api/API";
 import UserAPI from "@/api/UserAPI";
-import { HTTP_STATUS_CODE } from "@/constants/HTTP";
 import { dLog } from "@/utils/DebugUtils";
-
-async function handleLoginErrors<T>(job: () => Promise<T>) {
-  try {
-    return await job();
-  } catch (error) {
-    // 원래는 로그인 되어 있으면 로그인 페이지에 들어올 일이 없지만,
-    // 혹시나 어케어케 들어와서 로그인 시도 하여 중복 로그인 에러가 나면 강제 로그아웃.
-    if (axios.isAxiosError(error) && error.response?.status === HTTP_STATUS_CODE.UN_AUTHORIZE) {
-      await API.get("/api/v1/auth/logout");
-    }
-
-    throw error;
-  }
-}
 
 interface CreateSeekerInput {
   email: string;
@@ -68,7 +51,7 @@ interface LoginSeekerOutput {
  * 구직자 로그인.
  */
 async function loginSeeker(input: LoginSeekerInput): Promise<LoginSeekerOutput> {
-  handleLoginErrors(async () => await API.post<void>(`/api/v1/auth/local`, input));
+  await API.post<void>(`/api/v1/auth/local`, input);
 
   // 내 정보 찾기 기능을 이용하여 id를 얻음.
   const profile = await UserAPI.findMyProfile();
@@ -94,11 +77,12 @@ interface LoginCompanyOutput {
  * 구직자 로그인.
  */
 async function loginCompany(input: LoginCompanyInput): Promise<LoginCompanyOutput> {
-  const response = await handleLoginErrors(
-    async () => await API.post<LoginCompanyOutput>(`/api/v1/auth/local/company`, input)
-  );
-
+  const response = await API.post<LoginCompanyOutput>(`/api/v1/auth/local/company`, input);
   return response.data;
+}
+
+async function logout(): Promise<void> {
+  await API.get<void>(`/api/v1/auth/logout`);
 }
 
 const AuthAPI = {
@@ -106,6 +90,7 @@ const AuthAPI = {
   createCompany,
   loginSeeker,
   loginCompany,
+  logout,
   // doSocialLogin,
 };
 

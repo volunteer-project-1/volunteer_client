@@ -6,7 +6,9 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
 import ROUTES from "@/constants/Routes";
-import { useStoreSelector } from "@/store";
+import AuthAPI from "@/api/AuthAPI";
+import { useStoreDispatch, useStoreSelector } from "@/store";
+import { setAccount } from "@/store/auth";
 import "@/containers/Header.scoped.scss";
 
 interface Menu {
@@ -40,6 +42,7 @@ const menus: Array<Menu> = [
 
 const Header = () => {
   const account = useStoreSelector(state => state.auth.account);
+  const dispatch = useStoreDispatch();
   const router = useRouter();
 
   const menusRef = useRef<Array<HTMLLIElement | null>>(menus.map(() => null));
@@ -63,11 +66,15 @@ const Header = () => {
               <>
                 <span className="item_login">{account.type === "seeker" ? "구직자" : "회사"}</span>
                 <span className="bar_login" />
-                <Link href={"/api/v1/auth/logout"}>
-                  <a className="item_login">
-                    <img src={"/assets/layout/header-login.svg"} alt={"Logout"} /> LOG OUT
-                  </a>
-                </Link>
+                <button
+                  className="item_login"
+                  onClick={async () => {
+                    await AuthAPI.logout();
+                    dispatch(setAccount(null));
+                  }}
+                >
+                  <img src={"/assets/layout/header-login.svg"} alt={"Logout"} /> LOG OUT
+                </button>
               </>
             ) : (
               <>

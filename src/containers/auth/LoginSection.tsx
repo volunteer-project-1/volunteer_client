@@ -13,10 +13,12 @@ import { setAccount } from "@/store/auth";
 import Box from "@/containers/auth/Box";
 import TabList from "@/containers/auth/TabList";
 import "@/containers/auth/LoginSection.scoped.scss";
+import { useAsyncUtils } from "@/utils/AsyncUtils";
 
 const LoginSection = () => {
   const router = useRouter();
   const dispatch = useStoreDispatch();
+  const { handleLoginErrors } = useAsyncUtils();
 
   const [id, onChangeID] = useValue("");
   const [password, onChangePassword] = useValue("");
@@ -36,10 +38,13 @@ const LoginSection = () => {
 
     try {
       if (accountType === "seeker") {
-        const output = await AuthAPI.loginSeeker({
-          email: id,
-          password,
-        });
+        const output = await handleLoginErrors(
+          async () =>
+            await AuthAPI.loginSeeker({
+              email: id,
+              password,
+            })
+        );
 
         dispatch(
           setAccount({

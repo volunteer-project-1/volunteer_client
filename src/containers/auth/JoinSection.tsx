@@ -8,6 +8,7 @@ import { dError } from "@/utils/DebugUtils";
 import { useValue } from "@/utils/StateUtils";
 import { strictValues } from "@/utils/TypeUtils";
 import { isEmail, isPassword } from "@/utils/StringUtils";
+import { useAsyncUtils } from "@/utils/AsyncUtils";
 import AuthAPI from "@/api/AuthAPI";
 import { useStoreDispatch } from "@/store";
 import { setAccount } from "@/store/auth";
@@ -19,6 +20,7 @@ import "@/containers/auth/JoinSection.scoped.scss";
 const JoinSection = () => {
   const router = useRouter();
   const dispatch = useStoreDispatch();
+  const { handleLoginErrors } = useAsyncUtils();
 
   // TODO: 현재는 id = 이메일 주소인데, 다른 것도 허용할지는 논의 예정.
   const [id, onChangeID] = useValue("");
@@ -73,10 +75,13 @@ const JoinSection = () => {
   const loginAndCloseDialog = async () => {
     try {
       if (accountType === "seeker") {
-        const output = await AuthAPI.loginSeeker({
-          email: id,
-          password,
-        });
+        const output = await handleLoginErrors(
+          async () =>
+            await AuthAPI.loginSeeker({
+              email: id,
+              password,
+            })
+        );
 
         dispatch(
           setAccount({
