@@ -1,0 +1,16 @@
+.sidebar {
+  width: 100%;
+
+  .submit {
+    box-sizing: border-box;
+
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+
+    @include boxColor(background-color, green);
+
+    @extend .font, .white, .size18, .w500;
+  }
+}

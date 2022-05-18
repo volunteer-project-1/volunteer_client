@@ -175,7 +175,7 @@ const SmallAddress = ({ placeholder, isRequired = false, value, onChange }: Smal
         className="input"
         type="text"
         placeholder={`${placeholder}${isRequired ? "*" : ""}`}
-        value={isDummy ? undefined : value ? `${value.sido ?? ""} ${value.sigungu ?? ""}` : ""}
+        value={isDummy ? undefined : value ? `${value.sido ?? ""} ${value.sigungu ?? ""}`.trim() : ""}
         onClick={handleClick}
         readOnly
       />

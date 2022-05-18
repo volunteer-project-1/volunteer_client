@@ -7,7 +7,7 @@ import { AccountType } from "@/types/Auth";
 import { dError } from "@/utils/DebugUtils";
 import { useValue } from "@/utils/StateUtils";
 import { strictValues } from "@/utils/TypeUtils";
-import { isEmail, isPassword } from "@/utils/StringUtils";
+import { isEmail, isPassword } from "@/utils/CheckUtils";
 import { useAsyncUtils } from "@/utils/AsyncUtils";
 import AuthAPI from "@/api/AuthAPI";
 import { useStoreDispatch } from "@/store";
@@ -90,10 +90,13 @@ const JoinSection = () => {
           })
         );
       } else {
-        const output = await AuthAPI.loginCompany({
-          email: id,
-          password,
-        });
+        const output = await handleLoginErrors(
+          async () =>
+            await AuthAPI.loginCompany({
+              email: id,
+              password,
+            })
+        );
 
         dispatch(
           setAccount({

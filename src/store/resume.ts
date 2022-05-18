@@ -15,6 +15,7 @@ import {
   Training,
   Introduction,
   Portfolio,
+  Certificate,
 } from "@/types/Resume";
 
 interface ResumeState {
@@ -22,6 +23,7 @@ interface ResumeState {
   resumeInfo: Partial<ResumeInfo>;
   educations: Array<Partial<Education>>;
   careers: Array<Partial<Career>>;
+  certificates: Array<Partial<Certificate>>;
   activities: Array<Partial<Activity>>;
   awards: Array<Partial<Award>>;
   trainings: Array<Partial<Training>>;
@@ -39,6 +41,7 @@ const initialState: ResumeState = {
   resumeInfo: {},
   educations: [{}],
   careers: [{}],
+  certificates: [{}],
   activities: [{}],
   awards: [{}],
   trainings: [{}],
@@ -52,7 +55,15 @@ const initialState: ResumeState = {
 };
 
 // 배열 형태의 상태들 / 일반 형태의 상태들을 분류.
-type ArrayName = "educations" | "careers" | "activities" | "awards" | "trainings" | "introductions" | "preferenceJobs";
+type ArrayName =
+  | "educations"
+  | "careers"
+  | "certificates"
+  | "activities"
+  | "awards"
+  | "trainings"
+  | "introductions"
+  | "preferenceJobs";
 type SingleName = Exclude<keyof ResumeState, ArrayName>;
 
 function createArrayItemAdder<Item>(name: ArrayName) {
@@ -88,6 +99,9 @@ const resumeSlice = createSlice({
     addCareer: createArrayItemAdder<Career>("careers"),
     updateCareer: createArrayItemUpdater<Career>("careers"),
 
+    addCertificate: createArrayItemAdder<Certificate>("certificates"),
+    updateCertificate: createArrayItemUpdater<Certificate>("certificates"),
+
     addActivity: createArrayItemAdder<Activity>("activities"),
     updateActivity: createArrayItemUpdater<Activity>("activities"),
 
@@ -118,6 +132,8 @@ export const {
   updateEducation,
   addCareer,
   updateCareer,
+  addCertificate,
+  updateCertificate,
   addActivity,
   updateActivity,
   addAward,
