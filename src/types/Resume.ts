@@ -1,9 +1,9 @@
-import { DISABLILITY_LEVEL, DISABLILITY_TYPE } from "@/constants/Resume";
+import { DISABLILITY_LEVEL, DISABLILITY_TYPE, SEX } from "@/constants/Resume";
 import { DefaultTime } from "@/types/Common";
 
 export type DisabilityLevel = typeof DISABLILITY_LEVEL[number];
 export type DisabilityType = typeof DISABLILITY_TYPE[number];
-export type Sex = "남" | "여";
+export type Sex = typeof SEX[number];
 
 export interface Resume extends DefaultTime {
   id: number;

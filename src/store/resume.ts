@@ -1,6 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import {
+  Resume,
+  ResumeInfo,
   Activity,
   Award,
   Career,
@@ -10,13 +12,21 @@ import {
   Preference,
   PreferenceJob,
   PreferenceLocation,
+  Training,
+  Introduction,
+  Portfolio,
 } from "@/types/Resume";
 
 interface ResumeState {
+  resume: Partial<Resume>;
+  resumeInfo: Partial<ResumeInfo>;
   educations: Array<Partial<Education>>;
   careers: Array<Partial<Career>>;
   activities: Array<Partial<Activity>>;
   awards: Array<Partial<Award>>;
+  trainings: Array<Partial<Training>>;
+  introductions: Array<Partial<Introduction>>;
+  portfolio: Partial<Portfolio>;
   myVideo: Partial<MyVideo>;
   helperVideo: Partial<HelperVideo>;
   preference: Partial<Preference>;
@@ -25,10 +35,15 @@ interface ResumeState {
 }
 
 const initialState: ResumeState = {
+  resume: {},
+  resumeInfo: {},
   educations: [{}],
   careers: [{}],
   activities: [{}],
   awards: [{}],
+  trainings: [{}],
+  introductions: [{}],
+  portfolio: {},
   myVideo: {},
   helperVideo: {},
   preference: {},
@@ -37,64 +52,85 @@ const initialState: ResumeState = {
 };
 
 // 배열 형태의 상태들 / 일반 형태의 상태들을 분류.
-type ArrayName = "educations" | "careers" | "activities" | "awards" | "preferenceJobs";
+type ArrayName = "educations" | "careers" | "activities" | "awards" | "trainings" | "introductions" | "preferenceJobs";
 type SingleName = Exclude<keyof ResumeState, ArrayName>;
 
-export interface UpdateArrayItemPayload<Name extends ArrayName> {
-  name: Name;
-  index: number;
-  part: Partial<ResumeState[Name][number]>;
+function createArrayItemAdder<Item>(name: ArrayName) {
+  return (state: ResumeState) => {
+    state[name].push({});
+  };
 }
 
-export interface UpdateSingleItemPayload<Name extends SingleName> {
-  name: Name;
-  part: Partial<ResumeState[Name]>;
+function createArrayItemUpdater<Item>(name: ArrayName) {
+  return (state: ResumeState, action: PayloadAction<[number, Partial<Item>]>) => {
+    const [index, item] = action.payload;
+    state[name][index] = { ...state[name][index], ...item };
+  };
+}
+
+function createSingleItemUpdater<Item>(name: SingleName) {
+  return (state: ResumeState, action: PayloadAction<Partial<Item>>) => {
+    state[name] = { ...state[name], ...action.payload };
+  };
 }
 
 const resumeSlice = createSlice({
   name: "resume",
   initialState,
   reducers: {
-    /**
-     * 배열 형태의 상태에 새 item을 하나 추가.
-     */
-    addArrayItem: <Name extends ArrayName>(
-      state: ResumeState,
-      action: PayloadAction<{
-        name: Name;
-      }>
-    ) => {
-      state[action.payload.name].push({});
-    },
-    /**
-     * 배열 형태의 상태를 업데이트.
-     * index번째 값에 part가 덮어씌워짐.
-     */
-    updateArrayItem: <Name extends ArrayName>(
-      state: ResumeState,
-      action: PayloadAction<UpdateArrayItemPayload<Name>>
-    ) => {
-      state[action.payload.name][action.payload.index] = {
-        ...state[action.payload.name][action.payload.index],
-        ...action.payload.part,
-      };
-    },
-    /**
-     * 일반 형태의 상태를 업데이트.
-     * part가 덮어씌워짐.
-     */
-    updateSingleItem: <Name extends SingleName>(
-      state: ResumeState,
-      action: PayloadAction<UpdateSingleItemPayload<Name>>
-    ) => {
-      state[action.payload.name] = {
-        ...state[action.payload.name],
-        ...action.payload.part,
-      };
-    },
+    updateResume: createSingleItemUpdater<Resume>("resume"),
+
+    updateResumeInfo: createSingleItemUpdater<ResumeInfo>("resumeInfo"),
+
+    addEducation: createArrayItemAdder<Education>("educations"),
+    updateEducation: createArrayItemUpdater<Education>("educations"),
+
+    addCareer: createArrayItemAdder<Career>("careers"),
+    updateCareer: createArrayItemUpdater<Career>("careers"),
+
+    addActivity: createArrayItemAdder<Activity>("activities"),
+    updateActivity: createArrayItemUpdater<Activity>("activities"),
+
+    addAward: createArrayItemAdder<Award>("awards"),
+    updateAward: createArrayItemUpdater<Award>("awards"),
+
+    addTraining: createArrayItemAdder<Training>("trainings"),
+    updateTraining: createArrayItemUpdater<Training>("trainings"),
+
+    addIntroduction: createArrayItemAdder<Introduction>("introductions"),
+    updateIntroduction: createArrayItemUpdater<Introduction>("introductions"),
+
+    updatePortfolio: createSingleItemUpdater<Portfolio>("portfolio"),
+
+    updateMyVideo: createSingleItemUpdater<MyVideo>("myVideo"),
+
+    updatePreference: createSingleItemUpdater<Preference>("preference"),
+
+    addPreferenceJob: createArrayItemAdder<PreferenceJob>("preferenceJobs"),
+    updatePreferenceJob: createArrayItemUpdater<PreferenceJob>("preferenceJobs"),
   },
 });
 
-export const { addArrayItem, updateArrayItem, updateSingleItem } = resumeSlice.actions;
+export const {
+  updateResume,
+  updateResumeInfo,
+  addEducation,
+  updateEducation,
+  addCareer,
+  updateCareer,
+  addActivity,
+  updateActivity,
+  addAward,
+  updateAward,
+  addTraining,
+  updateTraining,
+  addIntroduction,
+  updateIntroduction,
+  updatePortfolio,
+  updateMyVideo,
+  updatePreference,
+  addPreferenceJob,
+  updatePreferenceJob,
+} = resumeSlice.actions;
 
 export default resumeSlice.reducer;

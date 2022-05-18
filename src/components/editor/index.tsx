@@ -156,7 +156,7 @@ interface Address {
 interface SmallAddressProps {
   placeholder: string;
   isRequired?: boolean;
-  value?: Address;
+  value?: Partial<Address>;
   onChange?: (value: Address) => void;
 }
 
@@ -175,7 +175,7 @@ const SmallAddress = ({ placeholder, isRequired = false, value, onChange }: Smal
         className="input"
         type="text"
         placeholder={`${placeholder}${isRequired ? "*" : ""}`}
-        value={isDummy ? undefined : value ? `${value.sido} ${value.sigungu}` : ""}
+        value={isDummy ? undefined : value ? `${value.sido ?? ""} ${value.sigungu ?? ""}` : ""}
         onClick={handleClick}
         readOnly
       />
@@ -364,11 +364,13 @@ interface FileUploaderProps {
   // 허용할 확장자들 목록.
   // (기본값: pdf, hwp)
   extensions?: Array<string>;
+  // 여러 개 업로드 허용 여부.
+  multiple?: boolean;
   results: Array<{ name: string; url: string }>;
   onUpload?: (files: Array<File>) => void;
 }
 
-const FileUploader = ({ extensions = ["pdf", "hwp"], results, onUpload }: FileUploaderProps) => {
+const FileUploader = ({ extensions = ["pdf", "hwp"], multiple = false, results, onUpload }: FileUploaderProps) => {
   const uploadFiles = (files: Array<File>) => {
     const filteredFiles = files.filter(file => {
       for (let i = 0; i < extensions.length; i++) {
@@ -387,7 +389,7 @@ const FileUploader = ({ extensions = ["pdf", "hwp"], results, onUpload }: FileUp
 
   const handleClickUpload = async () => {
     const accept = extensions.map(extension => `.${extension}`).join(",");
-    const files = await openFileDialog(accept, true);
+    const files = await openFileDialog(accept, multiple);
     uploadFiles(files);
   };
 

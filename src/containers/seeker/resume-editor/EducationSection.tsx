@@ -1,16 +1,12 @@
 import React, { Fragment } from "react";
 
 import { useStoreDispatch, useStoreSelector } from "@/store";
-import { addArrayItem, updateArrayItem, UpdateArrayItemPayload } from "@/store/resume";
+import { addEducation, updateEducation } from "@/store/resume";
 import Editor from "@/components/editor";
 
 const EducationSection = () => {
   const educations = useStoreSelector(state => state.resume.educations);
   const dispatch = useStoreDispatch();
-
-  const handleClickAdd = () => {
-    dispatch(addArrayItem({ name: "educations" }));
-  };
 
   return (
     <Editor>
@@ -20,17 +16,20 @@ const EducationSection = () => {
           {index > 0 && <Editor.Separator />}
           <Editor.Row>
             <Editor.Cell>
-              <Editor.LargeInput
+              <Editor.LargeSelect
                 label="학교구분"
                 value={education.type}
+                options={[
+                  { name: "초등학교", value: "초등학교" },
+                  { name: "중학교", value: "중학교" },
+                  { name: "고등학교", value: "고등학교" },
+                  { name: "대학교", value: "대학교" },
+                  { name: "전문대학", value: "전문대학" },
+                  { name: "대학원", value: "대학원" },
+                  { name: "기타", value: "기타" },
+                ]}
                 onChange={value => {
-                  const payload: UpdateArrayItemPayload<"educations"> = {
-                    name: "educations",
-                    index,
-                    part: { type: value },
-                  };
-
-                  dispatch(updateArrayItem(payload));
+                  dispatch(updateEducation([index, { type: value }]));
                 }}
               />
             </Editor.Cell>
@@ -39,13 +38,7 @@ const EducationSection = () => {
                 label="학교명"
                 value={education.school_name}
                 onChange={value => {
-                  const payload: UpdateArrayItemPayload<"educations"> = {
-                    name: "educations",
-                    index,
-                    part: { school_name: value },
-                  };
-
-                  dispatch(updateArrayItem(payload));
+                  dispatch(updateEducation([index, { school_name: value }]));
                 }}
               />
             </Editor.Cell>
@@ -60,13 +53,7 @@ const EducationSection = () => {
                   { name: "2019", value: "2019" },
                 ]}
                 onChange={value => {
-                  const payload: UpdateArrayItemPayload<"educations"> = {
-                    name: "educations",
-                    index,
-                    part: { graduation_year: value },
-                  };
-
-                  dispatch(updateArrayItem(payload));
+                  dispatch(updateEducation([index, { graduation_year: value }]));
                 }}
               />
             </Editor.Cell>
@@ -79,23 +66,23 @@ const EducationSection = () => {
                   { name: "졸업", value: true },
                 ]}
                 onChange={value => {
-                  const payload: UpdateArrayItemPayload<"educations"> = {
-                    name: "educations",
-                    index,
-                    part: { is_graduated: value },
-                  };
-
-                  dispatch(updateArrayItem(payload));
+                  dispatch(updateEducation([index, { is_graduated: value }]));
                 }}
               />
             </Editor.Cell>
+            {/*
             <Editor.Cell>
               <Editor.Checkbox>대입검정고시</Editor.Checkbox>
             </Editor.Cell>
+            */}
           </Editor.Row>
         </Fragment>
       ))}
-      <Editor.AddButton onClick={handleClickAdd} />
+      <Editor.AddButton
+        onClick={() => {
+          dispatch(addEducation());
+        }}
+      />
     </Editor>
   );
 };

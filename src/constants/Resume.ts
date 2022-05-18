@@ -17,3 +17,5 @@ export const DISABLILITY_TYPE = [
   "정신 장애",
   "자폐성 장애",
 ] as const;
+
+export const SEX = ["남", "여"] as const;
