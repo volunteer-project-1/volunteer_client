@@ -4,8 +4,9 @@ import classNames from "classnames";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
+import ExternalAPI from "@/api/ExternalAPI";
 import { openFileDialog } from "@/utils/FileUtils";
-import { readAddress, useID } from "@/utils/StringUtils";
+import { useID } from "@/utils/StringUtils";
 import { dLog } from "@/utils/DebugUtils";
 import "@/components/editor/Editor.scoped.scss";
 
@@ -165,8 +166,8 @@ const SmallAddress = ({ placeholder, isRequired = false, value, onChange }: Smal
   // (onChange가 없으면 uncontrolled component로 작동.)
   const isDummy = typeof onChange === "undefined";
 
-  const handleClick = () => {
-    onChange && readAddress(onChange);
+  const handleClick = async () => {
+    onChange && onChange(await ExternalAPI.readAddress());
   };
 
   return (
