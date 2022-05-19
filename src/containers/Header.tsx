@@ -6,9 +6,8 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
 import ROUTES from "@/constants/Routes";
-import AuthAPI from "@/api/AuthAPI";
-import { useStoreDispatch, useStoreSelector } from "@/store";
-import { setAccount } from "@/store/auth";
+import { useLogout } from "@/utils/APIUtils";
+import { useStoreSelector } from "@/store";
 import "@/containers/Header.scoped.scss";
 
 interface Menu {
@@ -42,8 +41,8 @@ const menus: Array<Menu> = [
 
 const Header = () => {
   const account = useStoreSelector(state => state.auth.account);
-  const dispatch = useStoreDispatch();
   const router = useRouter();
+  const doLogout = useLogout();
 
   const menusRef = useRef<Array<HTMLLIElement | null>>(menus.map(() => null));
   const [selectedMenuIndex, setSelectedMenuIndex] = useState<number | null>(null);
@@ -66,13 +65,7 @@ const Header = () => {
               <>
                 <span className="item_login">{account.type === "seeker" ? "구직자" : "회사"}</span>
                 <span className="bar_login" />
-                <button
-                  className="item_login"
-                  onClick={async () => {
-                    await AuthAPI.logout();
-                    dispatch(setAccount(null));
-                  }}
-                >
+                <button className="item_login" onClick={doLogout}>
                   <img src={"/assets/layout/header-login.svg"} alt={"Logout"} /> LOG OUT
                 </button>
               </>

@@ -7,18 +7,14 @@ import { useValue } from "@/utils/StateUtils";
 import { strictValues } from "@/utils/TypeUtils";
 import { dError } from "@/utils/DebugUtils";
 import { isEmail, isPassword } from "@/utils/CheckUtils";
-import AuthAPI from "@/api/AuthAPI";
-import { useStoreDispatch } from "@/store";
-import { setAccount } from "@/store/auth";
+import { useLogin } from "@/utils/APIUtils";
 import Box from "@/containers/auth/Box";
 import TabList from "@/containers/auth/TabList";
 import "@/containers/auth/LoginSection.scoped.scss";
-import { useAsyncUtils } from "@/utils/AsyncUtils";
 
 const LoginSection = () => {
   const router = useRouter();
-  const dispatch = useStoreDispatch();
-  const { handleLoginErrors } = useAsyncUtils();
+  const doLogin = useLogin();
 
   const [id, onChangeID] = useValue("");
   const [password, onChangePassword] = useValue("");
@@ -37,42 +33,12 @@ const LoginSection = () => {
     }
 
     try {
-      if (accountType === "seeker") {
-        const output = await handleLoginErrors(
-          async () =>
-            await AuthAPI.loginSeeker({
-              email: id,
-              password,
-            })
-        );
-
-        dispatch(
-          setAccount({
-            id: output.id,
-            type: accountType,
-          })
-        );
-      } else {
-        const output = await handleLoginErrors(
-          async () =>
-            await AuthAPI.loginCompany({
-              email: id,
-              password,
-            })
-        );
-
-        dispatch(
-          setAccount({
-            id: output.id,
-            type: accountType,
-          })
-        );
-      }
-
+      await doLogin({ id, password, accountType });
+      // 성공했으면 메인 페이지로 이동.
       router.push(ROUTES.home);
     } catch (error) {
       dError(error);
-      alert("로그인 중 에러가 발생했습니다! 아이디가 존재하는지, 비밀번호가 맞는지 체크해주세요.");
+      alert("로그인에 실패했습니다! 아이디, 비밀번호가 안 맞거나, 이미 로그인 되어있습니다! 다시 시도해주세요.");
     }
   };
 
