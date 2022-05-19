@@ -3,12 +3,10 @@
  */
 
 if (typeof Object.fromEntries === "undefined") {
-  // https://github.com/feross/fromentries에서 가져옴.
-  Object.fromEntries = (entries: Array<any>) =>
-    [...entries].reduce((obj, [key, val]) => {
+  // 출처: https://github.com/feross/fromentries
+  Object.fromEntries = iterable =>
+    [...iterable].reduce((obj, [key, val]) => {
       obj[key] = val;
       return obj;
     }, {});
 }
-
-export {};
