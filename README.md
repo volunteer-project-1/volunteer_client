@@ -48,20 +48,40 @@
 
 ## How to deploy
 
-.env 파일 생성
+Serverless 이용한 배포
+
+(1) .env 파일 생성
 
 - 형식: .env.example 참고
 - [링크](https://velog.io/@jeffyoun/Serverless-프레임워크-사용해서-배포하기) 참고하여 AWS access key 얻기
 
-필요 도구들 설치
+(2) 필요 도구들 설치
 
 - `npm install -g serverless`
 - `npm install -g @serverless/cli`
 
-배포
+(3) 배포
 
 - `components-v1` 실행
 - 시간이 좀 오래 걸립니다... (몇분 정도 걸림)
+
+Heroku 이용한 배포
+
+(1) 필요 도구들 설치
+
+- Heroku CLI 설치
+
+(2) Heroku app 생성
+
+- Heroku 가입 후 app 생성
+
+(3) git과 연결
+
+- `heroku git:remote -a (앱 이름)`
+
+(4) 배포
+
+- `git push heroku master`
 
 ## Pages
 
