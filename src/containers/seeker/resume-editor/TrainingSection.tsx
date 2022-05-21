@@ -40,6 +40,8 @@ const TrainingSection = () => {
                   dispatch(updateTraining([index, { started_at: value }]));
                 }}
               />
+            </Editor.Cell>
+            <Editor.Cell>
               <Editor.LargeInput
                 label="종료년월"
                 value={training.finished_at}

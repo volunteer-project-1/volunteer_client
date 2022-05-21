@@ -4,6 +4,7 @@ import classNames from "classnames";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
+import { AllOptional } from "@/types/Common";
 import ExternalAPI from "@/api/ExternalAPI";
 import { openFileDialog } from "@/utils/FileUtils";
 import { useID } from "@/utils/StringUtils";
@@ -106,7 +107,7 @@ interface SmallInputProps {
   placeholder: string;
   type?: HTMLInputTypeAttribute;
   isRequired?: boolean;
-  value?: string;
+  value?: string | null;
   onChange?: (value: string) => void;
 }
 
@@ -157,7 +158,7 @@ interface Address {
 interface SmallAddressProps {
   placeholder: string;
   isRequired?: boolean;
-  value?: Partial<Address>;
+  value?: AllOptional<Address>;
   onChange?: (value: Address) => void;
 }
 
@@ -188,7 +189,7 @@ interface SmallSelectProps<Value> {
   placeholder: string;
   options: Array<{ name: string; value: Value }>;
   isRequired?: boolean;
-  value?: Value;
+  value?: Value | null;
   onChange?: (value: Value) => void;
 }
 
@@ -225,7 +226,7 @@ const SmallSelect = <Value,>({
 interface LargeInputProps {
   label: string;
   type?: HTMLInputTypeAttribute;
-  value?: string;
+  value?: string | null;
   onChange?: (value: string) => void;
 }
 
@@ -261,7 +262,7 @@ const LargeInput = ({ label, type = "text", value, onChange }: LargeInputProps) 
 interface LargeSelectProps<Value> {
   label: string;
   options: Array<{ name: string; value: Value }>;
-  value?: Value;
+  value?: Value | null;
   onChange?: (value: Value) => void;
 }
 
@@ -291,7 +292,7 @@ const LargeSelect = <Value,>({ label, options, value, onChange }: LargeSelectPro
 interface TextAreaProps {
   placeholder: string;
   rowCount?: number;
-  value?: string;
+  value?: string | null;
   onChange?: (value: string) => void;
 }
 
@@ -320,7 +321,7 @@ const TextArea = ({ placeholder, rowCount = 5, value, onChange }: TextAreaProps)
 };
 
 interface CheckboxProps {
-  value?: boolean;
+  value?: boolean | null;
   onChange?: (value: boolean) => void;
   children: ReactNode;
 }
@@ -335,7 +336,7 @@ const Checkbox = ({ value = false, children, onChange }: CheckboxProps) => {
       <input
         className="hiddenCheckbox"
         type={"checkbox"}
-        checked={isDummy ? undefined : value}
+        checked={isDummy ? undefined : value ?? false}
         onChange={
           isDummy
             ? undefined

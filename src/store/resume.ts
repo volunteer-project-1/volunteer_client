@@ -17,23 +17,24 @@ import {
   Portfolio,
   Certificate,
 } from "@/types/Resume";
+import { AllOptional } from "@/types/Common";
 
 interface ResumeState {
-  resume: Partial<Resume>;
-  resumeInfo: Partial<ResumeInfo>;
-  educations: Array<Partial<Education>>;
-  careers: Array<Partial<Career>>;
-  certificates: Array<Partial<Certificate>>;
-  activities: Array<Partial<Activity>>;
-  awards: Array<Partial<Award>>;
-  trainings: Array<Partial<Training>>;
-  introductions: Array<Partial<Introduction>>;
-  portfolio: Partial<Portfolio>;
-  myVideo: Partial<MyVideo>;
-  helperVideo: Partial<HelperVideo>;
-  preference: Partial<Preference>;
-  preferenceJobs: Array<Partial<PreferenceJob>>;
-  preferenceLocation: Partial<PreferenceLocation>;
+  resume: AllOptional<Resume>;
+  resumeInfo: AllOptional<ResumeInfo>;
+  educations: Array<AllOptional<Education>>;
+  careers: Array<AllOptional<Career>>;
+  certificates: Array<AllOptional<Certificate>>;
+  activities: Array<AllOptional<Activity>>;
+  awards: Array<AllOptional<Award>>;
+  trainings: Array<AllOptional<Training>>;
+  introductions: Array<AllOptional<Introduction>>;
+  portfolio: AllOptional<Portfolio>;
+  myVideo: AllOptional<MyVideo>;
+  helperVideo: AllOptional<HelperVideo>;
+  preference: AllOptional<Preference>;
+  preferenceJobs: Array<AllOptional<PreferenceJob>>;
+  preferenceLocations: Array<AllOptional<PreferenceLocation>>;
 }
 
 const initialState: ResumeState = {
@@ -51,7 +52,7 @@ const initialState: ResumeState = {
   helperVideo: {},
   preference: {},
   preferenceJobs: [{}],
-  preferenceLocation: {},
+  preferenceLocations: [{}],
 };
 
 // 배열 형태의 상태들 / 일반 형태의 상태들을 분류.
@@ -63,7 +64,8 @@ type ArrayName =
   | "awards"
   | "trainings"
   | "introductions"
-  | "preferenceJobs";
+  | "preferenceJobs"
+  | "preferenceLocations";
 type SingleName = Exclude<keyof ResumeState, ArrayName>;
 
 function createArrayItemAdder<Item>(name: ArrayName) {
@@ -73,14 +75,14 @@ function createArrayItemAdder<Item>(name: ArrayName) {
 }
 
 function createArrayItemUpdater<Item>(name: ArrayName) {
-  return (state: ResumeState, action: PayloadAction<[number, Partial<Item>]>) => {
+  return (state: ResumeState, action: PayloadAction<[number, AllOptional<Item>]>) => {
     const [index, item] = action.payload;
     state[name][index] = { ...state[name][index], ...item };
   };
 }
 
 function createSingleItemUpdater<Item>(name: SingleName) {
-  return (state: ResumeState, action: PayloadAction<Partial<Item>>) => {
+  return (state: ResumeState, action: PayloadAction<AllOptional<Item>>) => {
     state[name] = { ...state[name], ...action.payload };
   };
 }
@@ -122,6 +124,9 @@ const resumeSlice = createSlice({
 
     addPreferenceJob: createArrayItemAdder<PreferenceJob>("preferenceJobs"),
     updatePreferenceJob: createArrayItemUpdater<PreferenceJob>("preferenceJobs"),
+
+    addPreferenceLocation: createArrayItemAdder<PreferenceLocation>("preferenceLocations"),
+    updatePreferenceLocation: createArrayItemUpdater<PreferenceLocation>("preferenceLocations"),
   },
 });
 
@@ -147,6 +152,8 @@ export const {
   updatePreference,
   addPreferenceJob,
   updatePreferenceJob,
+  addPreferenceLocation,
+  updatePreferenceLocation,
 } = resumeSlice.actions;
 
 export default resumeSlice.reducer;
