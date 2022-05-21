@@ -3,8 +3,8 @@ import { AppProps } from "next/app";
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import { ThemeProvider } from "@mui/material";
 
-import { storeWrapper } from "@/store";
-import { isDevelopmentMode } from "@/utils/DebugUtils";
+import { storeWrapper, useStoreDispatch } from "@/store";
+import { dLog, isDevelopmentMode } from "@/utils/DebugUtils";
 import { createEmotionCache, muiLightTheme } from "@/utils/StyleUtils";
 import "@/scss/reset.scss";
 
@@ -25,9 +25,19 @@ const MyApp = ({ Component, emotionCache = clientSideEmotionCache, pageProps }: 
   // 임시적인 fix: 개발 모드에서는 페이지를 무조건 CSR(client-side rendering)을 함.
   const renderPage = !isDevelopmentMode() || isClient;
 
+  const dispatch = useStoreDispatch();
+
   useEffect(() => {
+    const stateData = localStorage.getItem("state");
+
+    if (stateData !== null) {
+      const restoredState = JSON.parse(stateData);
+      dispatch({ type: "updateWhole", payload: restoredState });
+      dLog("브라우저에 저장된 상태 가져옴", restoredState);
+    }
+
     setClient(true);
-  }, []);
+  }, [dispatch]);
 
   return (
     <CacheProvider value={emotionCache}>

@@ -14,37 +14,48 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 import { HYDRATE, createWrapper } from "next-redux-wrapper";
 
-import { isDevelopmentMode } from "@/utils/DebugUtils";
+import { dLog, isDevelopmentMode } from "@/utils/DebugUtils";
 import authReducer from "@/store/auth";
 import resumeReducer from "@/store/resume";
 
-/**
- * 기능 별 reducer들을 하나로 함침.
- */
-const combinedReducer = combineReducers({
+const ourReducer = combineReducers({
   auth: authReducer,
   resume: resumeReducer,
 });
 
-/**
- * 최종 reducer.
- */
-const rootReducer: typeof combinedReducer = (state, action) => {
+const rootReducer: typeof ourReducer = (state, action) => {
   // Next.js의 SSR을 위한 처리.
   // https://velog.io/@vagabondms/프로젝트-next-redux-wrapper를-사용하여-nextredux-toolkit-연결하기
   if (action.type === HYDRATE) {
     return { ...state, ...action.payload };
   }
 
-  return combinedReducer(state, action);
+  // 상태 전체를 업데이트할 때 사용.
+  if (action.type === "updateWhole") {
+    return { ...state, ...action.payload };
+  }
+
+  return ourReducer(state, action);
 };
 
-/**
- * Redux store.
- */
 const store = configureStore({
   reducer: rootReducer,
   devTools: isDevelopmentMode(),
+});
+
+store.subscribe(() => {
+  // 브라우저 닫아도 보존해야 할 정보들 저장.
+  if (typeof localStorage !== "undefined") {
+    const state = store.getState();
+
+    const partToPreserve: Partial<typeof state> = {
+      auth: {
+        account: state.auth.account,
+      },
+    };
+
+    localStorage.setItem("state", JSON.stringify(partToPreserve));
+  }
 });
 
 /**
