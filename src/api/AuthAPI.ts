@@ -82,7 +82,13 @@ async function loginCompany(input: LoginCompanyInput): Promise<LoginCompanyOutpu
 }
 
 async function logout(): Promise<void> {
-  await API.get<void>(`/api/v1/auth/logout`);
+  try {
+    await API.get<void>(`/api/v1/auth/logout`);
+  } catch (error) {
+    // 로그아웃 시 서버에서 로그아웃 처리 후 클라이언트에게 redirect 지시도 내리는데,
+    // 이 때 localhost으로 이동하도록 되어 있어서 데모 등에서는 로그아웃이 에러남.
+    // 따라서... 일단은 에러 무시하고 진행하도록 임시 처리.
+  }
 }
 
 const AuthAPI = {
