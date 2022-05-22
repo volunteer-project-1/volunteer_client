@@ -91,6 +91,10 @@ const resumeSlice = createSlice({
   name: "resume",
   initialState,
   reducers: {
+    updateWholeResume: (state, action: PayloadAction<AllOptional<ResumeState>>) => {
+      Object.assign(state, action.payload);
+    },
+
     updateResume: createSingleItemUpdater<Resume>("resume"),
 
     updateResumeInfo: createSingleItemUpdater<ResumeInfo>("resumeInfo"),
@@ -131,6 +135,7 @@ const resumeSlice = createSlice({
 });
 
 export const {
+  updateWholeResume,
   updateResume,
   updateResumeInfo,
   addEducation,

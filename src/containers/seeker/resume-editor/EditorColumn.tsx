@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 
+import { Optional } from "@/types/Common";
 import ResumeAPI from "@/api/ResumeAPI";
 import { useStoreDispatch, useStoreSelector } from "@/store";
-import { updateEducation, updateResume, updateResumeInfo } from "@/store/resume";
+import { updateWholeResume } from "@/store/resume";
 import Page from "@/components/page";
 // import TitleSection from "@/containers/seeker/resume-editor/TitleSection";
 import InfoSection from "@/containers/seeker/resume-editor/InfoSection";
@@ -15,6 +16,10 @@ import AwardSection from "@/containers/seeker/resume-editor/AwardSection";
 import PortfolioSection from "@/containers/seeker/resume-editor/PortfolioSection";
 import IntroductionSection from "@/containers/seeker/resume-editor/IntroductionSection";
 
+function processOptionalArray<T>(array: Optional<Array<T>>) {
+  return array?.map(item => item ?? {}) ?? [{}];
+}
+
 const EditorColumn = () => {
   const dispatch = useStoreDispatch();
 
@@ -25,16 +30,35 @@ const EditorColumn = () => {
       console.log(wholeResume);
 
       dispatch(
-        updateResume({
-          id: wholeResume.id,
-          title: wholeResume.title,
-          content: wholeResume.content,
-          is_public: wholeResume.is_public,
-          // user_id: ...,
+        updateWholeResume({
+          resume: {
+            id: wholeResume.id,
+            title: wholeResume.title,
+            content: wholeResume.content,
+            is_public: wholeResume.is_public,
+            // user_id: ...,
+          },
+          resumeInfo: wholeResume.resume_info,
+          educations: processOptionalArray(wholeResume.educations),
+          careers: processOptionalArray(wholeResume.careers),
+          certificates: processOptionalArray(wholeResume.certificates),
+          activities: processOptionalArray(wholeResume.activities),
+          awards: processOptionalArray(wholeResume.awards),
+          trainings: processOptionalArray(wholeResume.trainings),
+          introductions: processOptionalArray(wholeResume.trainings),
+          // portfolio: wholeResume.portfolio,
+          myVideo: wholeResume.my_video,
+          helperVideo: wholeResume.helper_video,
+          preference: {
+            id: wholeResume.preference?.id,
+            resume_id: wholeResume.preference?.resume_id,
+            employ_type: wholeResume.preference?.employ_type,
+            salary: wholeResume.preference?.salary,
+          },
+          preferenceLocations: processOptionalArray(wholeResume.preference?.preference_locations),
+          preferenceJobs: processOptionalArray(wholeResume.preference?.preference_jobs),
         })
       );
-
-      wholeResume.resume_info && dispatch(updateResumeInfo(wholeResume.resume_info));
     })();
   }, [dispatch]);
 
