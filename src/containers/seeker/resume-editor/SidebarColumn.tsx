@@ -1,12 +1,13 @@
 import React from "react";
 
+import ResumeAPI from "@/api/ResumeAPI";
 import { isExistent, isNonEmpty } from "@/utils/CheckUtils";
 import { useStoreSelector } from "@/store";
+import Page from "@/components/page";
 import StatusBox from "@/components/status-box";
-import "@/containers/seeker/resume-editor/Sidebar.scoped.scss";
-import ResumeAPI from "@/api/ResumeAPI";
+import "@/containers/seeker/resume-editor/SidebarColumn.scoped.scss";
 
-const Sidebar = () => {
+const SidebarColumn = () => {
   const account = useStoreSelector(state => state.auth.account);
   const resumeState = useStoreSelector(state => state.resume);
 
@@ -110,7 +111,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="sidebar">
+    <Page.Column>
       <StatusBox title="이력서 항목">
         <StatusBox.Category isHighlighted>필수사항</StatusBox.Category>
         <StatusBox.Item isNecessary isHighlighted={isResumeInfoFilled}>
@@ -131,8 +132,8 @@ const Sidebar = () => {
       <button className="submit" onClick={handleClickSubmit}>
         이력서 제출하기
       </button>
-    </div>
+    </Page.Column>
   );
 };
 
-export default Sidebar;
+export default SidebarColumn;

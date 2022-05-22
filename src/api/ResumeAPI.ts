@@ -64,7 +64,6 @@ async function uploadAvatar(input: UploadFileInput): Promise<UploadFileOutput> {
 interface CreateResumeInput {
   resume: AllOptional<Omit<Resume, "id" | "user_id">>;
   resumeInfo: AllOptional<Omit<ResumeInfo, "id" | "resume_id">>;
-
   educations?: AllOptional<Omit<Education, "id" | "resume_id">>[];
   careers?: AllOptional<Omit<Career, "id" | "resume_id">>[];
   activities?: AllOptional<Omit<Activity, "id" | "resume_id">>[];
@@ -94,12 +93,42 @@ async function findMyResumes(): Promise<FindMyResumesOutput> {
   return response.data;
 }
 
+interface FindResumeByIDOutput {
+  resume: AllOptional<
+    Omit<Resume, "user_id"> & {
+      resume_info: AllOptional<ResumeInfo>;
+      educations: AllOptional<Education[]>;
+      careers: AllOptional<Career[]>;
+      certificates: AllOptional<Certificate[]>;
+      activities: AllOptional<Activity[]>;
+      awards: AllOptional<Award[]>;
+      trainings: AllOptional<Training[]>;
+      introductions: AllOptional<Introduction[]>;
+      portfolio: AllOptional<Portfolio>;
+      my_video: AllOptional<MyVideo>;
+      helper_video: AllOptional<HelperVideo>;
+      preference: AllOptional<
+        Preference & {
+          preference_jobs: AllOptional<PreferenceJob[]>;
+          preference_locations: AllOptional<PreferenceLocation[]>;
+        }
+      >;
+    }
+  >;
+}
+
+async function findResumeByID(input: number): Promise<FindResumeByIDOutput> {
+  const response = await API.get<FindResumeByIDOutput>(`/api/v1/resume/${input}`);
+  return response.data;
+}
+
 const ResumeAPI = {
   uploadVideo,
   uploadPDF,
   uploadAvatar,
   createResume,
   findMyResumes,
+  findResumeByID,
 };
 
 export default ResumeAPI;

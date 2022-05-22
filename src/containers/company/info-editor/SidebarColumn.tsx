@@ -1,13 +1,14 @@
 import React from "react";
 
+import Page from "@/components/page";
 import StatusBox from "@/components/status-box";
-import "@/containers/company/info-editor/Sidebar.scoped.scss";
+import "@/containers/company/info-editor/SidebarColumn.scoped.scss";
 
-const Sidebar = () => {
+const SidebarColumn = () => {
   const handleClickSubmit = () => {};
 
   return (
-    <div className="sidebar">
+    <Page.Column>
       <StatusBox title="기업등록 입력항목">
         <StatusBox.Category>필수사항</StatusBox.Category>
         <StatusBox.Item isHighlighted isNecessary>
@@ -21,8 +22,8 @@ const Sidebar = () => {
       <button className="submit" onClick={handleClickSubmit}>
         기업 등록하기
       </button>
-    </div>
+    </Page.Column>
   );
 };
 
-export default Sidebar;
+export default SidebarColumn;
