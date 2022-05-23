@@ -4,6 +4,31 @@ import { useRouter } from "next/router";
 import { AccountType } from "@/types/Auth";
 import ROUTES from "@/constants/Routes";
 import { useStoreSelector } from "@/store";
+import Dialog from "@/components/dialog";
+
+interface LoadingWrapperProps {
+  children: ReactNode;
+}
+
+/**
+ * 뭔가 로딩 중이면 사용자의 상호작용을 막는 component.
+ */
+const LoadingWrapper = ({ children }: LoadingWrapperProps) => {
+  const isLoading = useStoreSelector(state => state.ui.isLoading);
+
+  const handleCloseDialog = () => {
+    // Do nothing.
+  };
+
+  return (
+    <>
+      {children}
+      <Dialog disableBackdropClick disableEscapeKey isOpen={isLoading} onClose={handleCloseDialog}>
+        <Dialog.Content title="로딩 중">로딩 중입니다!</Dialog.Content>
+      </Dialog>
+    </>
+  );
+};
 
 interface AuthWrapperProps {
   allowedAccountTypes: Array<AccountType>;
@@ -32,6 +57,7 @@ const AuthWrapper = ({ allowedAccountTypes, children }: AuthWrapperProps) => {
 };
 
 const Wrapper = {
+  Loading: LoadingWrapper,
   Auth: AuthWrapper,
 };
 

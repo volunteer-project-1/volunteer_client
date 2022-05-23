@@ -8,7 +8,7 @@ import { dError } from "@/utils/DebugUtils";
 import { useValue } from "@/utils/StateUtils";
 import { strictValues } from "@/utils/TypeUtils";
 import { isEmail, isPassword } from "@/utils/CheckUtils";
-import { useJoin, useLogin } from "@/utils/APIUtils";
+import { useJoin, useLogin, useRequest } from "@/utils/APIUtils";
 import Dialog from "@/components/dialog";
 import Box from "@/containers/auth/Box";
 import TabList from "@/containers/auth/TabList";
@@ -18,6 +18,7 @@ const JoinSection = () => {
   const router = useRouter();
   const doJoin = useJoin();
   const doLogin = useLogin();
+  const doRequest = useRequest();
 
   // TODO: 현재는 id = 이메일 주소인데, 다른 것도 허용할지는 논의 예정.
   const [id, onChangeID] = useValue("");
@@ -25,7 +26,6 @@ const JoinSection = () => {
   const [passwordConfirm, onChangePasswordConfirm] = useValue("");
   const [name, onChangeName] = useValue("");
   const [isDialogOpen, setDialogOpen] = useState(false);
-  const [isLoading, setLoading] = useState(false);
   const [accountType, setAccountType] = useState<AccountType>("seeker");
 
   const flags = {
@@ -42,10 +42,8 @@ const JoinSection = () => {
       return;
     }
 
-    setLoading(true);
-
     try {
-      await doJoin({ id, password, passwordConfirm, name, accountType });
+      await doRequest(doJoin({ id, password, passwordConfirm, name, accountType }));
     } catch (error) {
       dError(error);
       alert("회원가입 중 에러가 발생했습니다! 이미 가입된 아이디일 수 있습니다.");
@@ -62,8 +60,6 @@ const JoinSection = () => {
       router.push(ROUTES.auth.login);
       return;
     }
-
-    setLoading(false);
   };
 
   const handleCloseDialog = async () => {
@@ -135,14 +131,14 @@ const JoinSection = () => {
             value={name}
             onChange={onChangeName}
           />
-          <button className="submitButton" type="button" disabled={isLoading} onClick={handleClickJoin}>
+          <button className="submitButton" type="button" onClick={handleClickJoin}>
             회원가입 하기
           </button>
         </Box>
         <div className="backgroundArea">
           <img className="backgroundImage" src={"/assets/auth/join-background.jpg"} alt="Background" />
         </div>
-        <Dialog isOpen={isDialogOpen} onClose={handleCloseDialog}>
+        <Dialog disableBackdropClick disableEscapeKey isOpen={isDialogOpen} onClose={handleCloseDialog}>
           <img className="successIcon" src={"/assets/auth/join-success.svg"} alt="Success" />
           <Dialog.Content title="회원가입을 축하드립니다!">
             회원가입이 완료되었습니다. See me에 오신것을 환영합니다.

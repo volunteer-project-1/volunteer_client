@@ -7,7 +7,7 @@ import { useValue } from "@/utils/StateUtils";
 import { strictValues } from "@/utils/TypeUtils";
 import { dError } from "@/utils/DebugUtils";
 import { isEmail, isPassword } from "@/utils/CheckUtils";
-import { useLogin } from "@/utils/APIUtils";
+import { useLogin, useRequest } from "@/utils/APIUtils";
 import Box from "@/containers/auth/Box";
 import TabList from "@/containers/auth/TabList";
 import "@/containers/auth/LoginSection.scoped.scss";
@@ -15,6 +15,7 @@ import "@/containers/auth/LoginSection.scoped.scss";
 const LoginSection = () => {
   const router = useRouter();
   const doLogin = useLogin();
+  const doRequest = useRequest();
 
   const [id, onChangeID] = useValue("");
   const [password, onChangePassword] = useValue("");
@@ -33,7 +34,7 @@ const LoginSection = () => {
     }
 
     try {
-      await doLogin({ id, password, accountType });
+      await doRequest(doLogin({ id, password, accountType }));
       // 성공했으면 메인 페이지로 이동.
       router.push(ROUTES.home);
     } catch (error) {

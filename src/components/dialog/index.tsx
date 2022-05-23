@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useContext } from "react";
+import React, { ComponentProps, createContext, ReactNode, useContext } from "react";
 import classNames from "classnames";
 import Backdrop from "@mui/material/Backdrop";
 import Modal from "@mui/material/Modal";
@@ -27,6 +27,10 @@ const DialogContext = createContext<DialogData>({} as DialogData);
 
 interface DialogProps {
   isOpen: boolean;
+  // 배경 클릭으로 닫는거 허용할지.
+  disableBackdropClick?: boolean;
+  // ESC 키로 닫는거 허용할지.
+  disableEscapeKey?: boolean;
   onClose: () => void;
   children: ReactNode;
 }
@@ -51,7 +55,7 @@ interface DialogProps {
  *   );
  * };
  */
-const Dialog = ({ isOpen, onClose, children }: DialogProps) => {
+const Dialog = ({ isOpen, disableBackdropClick = false, disableEscapeKey = false, onClose, children }: DialogProps) => {
   const titleID = useID();
   const descriptionID = useID();
 
@@ -60,13 +64,25 @@ const Dialog = ({ isOpen, onClose, children }: DialogProps) => {
     descriptionID,
   };
 
+  const handleCloseModal: ComponentProps<typeof Modal>["onClose"] = (event, reason) => {
+    if (disableBackdropClick && reason === "backdropClick") {
+      return;
+    }
+
+    if (disableEscapeKey && reason === "escapeKeyDown") {
+      return;
+    }
+
+    onClose();
+  };
+
   return (
     <DialogContext.Provider value={dialogData}>
       <Modal
         aria-labelledby={titleID}
         aria-describedby={descriptionID}
         open={isOpen}
-        onClose={onClose}
+        onClose={handleCloseModal}
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{

@@ -7,6 +7,7 @@ import ROUTES from "@/constants/Routes";
 import AuthAPI from "@/api/AuthAPI";
 import { useStoreDispatch } from "@/store";
 import { setAccount } from "@/store/auth";
+import { setLoading } from "@/store/ui";
 
 /**
  * 로그아웃 후 상태에 반영하는 함수를 반환.
@@ -100,23 +101,19 @@ export function useJoin() {
 }
 
 /**
- * 일반적인 API 호출 시 발생할 수 있는 문제들 중 몇몇을 관리.
+ * API 호출 시 로딩 및 에러 처리.
  */
-export function useRequest<Output>(job: () => Promise<Output>) {
-  const router = useRouter();
+export function useRequest() {
+  const dispatch = useStoreDispatch();
 
-  return async () => {
+  return async <Output>(job: Promise<Output>) => {
     try {
-      return await job();
+      dispatch(setLoading(true));
+      const output = await job;
+      dispatch(setLoading(false));
+      return output;
     } catch (error) {
-      if (axios.isAxiosError(error)) {
-        switch (error.response?.status) {
-          case HTTP_STATUS_CODE.UN_AUTHORIZE:
-            alert("권한이 없습니다! 알맞은 모드로 로그인하세요.");
-            // 로그인 페이지로 강제로 보냄.
-            router.push(ROUTES.auth.login);
-        }
-      }
+      dispatch(setLoading(false));
 
       // 에러들을 사용처에서 처리할 수 있게 rethrow.
       throw error;

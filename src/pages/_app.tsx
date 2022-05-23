@@ -6,6 +6,7 @@ import { ThemeProvider } from "@mui/material";
 import { storeWrapper, useStoreDispatch } from "@/store";
 import { dLog, isDevelopmentMode } from "@/utils/DebugUtils";
 import { createEmotionCache, muiLightTheme } from "@/utils/StyleUtils";
+import Wrapper from "@/components/wrapper";
 import "@/scss/reset.scss";
 
 const clientSideEmotionCache = createEmotionCache();
@@ -42,8 +43,10 @@ const MyApp = ({ Component, emotionCache = clientSideEmotionCache, pageProps }: 
   return (
     <CacheProvider value={emotionCache}>
       <ThemeProvider theme={muiLightTheme}>
-        {/* <Component/>에 pages 폴더에 있는 것들이 들어감. */}
-        {renderPage && <Component {...pageProps} />}
+        <Wrapper.Loading>
+          {/* <Component/>에 pages 폴더에 있는 것들이 들어감. */}
+          {renderPage && <Component {...pageProps} />}
+        </Wrapper.Loading>
       </ThemeProvider>
     </CacheProvider>
   );

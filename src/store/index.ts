@@ -14,11 +14,13 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 import { HYDRATE, createWrapper } from "next-redux-wrapper";
 
-import { dLog, isDevelopmentMode } from "@/utils/DebugUtils";
+import { isDevelopmentMode } from "@/utils/DebugUtils";
+import uiReducer from "@/store/ui";
 import authReducer from "@/store/auth";
 import resumeReducer from "@/store/resume";
 
 const ourReducer = combineReducers({
+  ui: uiReducer,
   auth: authReducer,
   resume: resumeReducer,
 });
