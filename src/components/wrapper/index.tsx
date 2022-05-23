@@ -6,6 +6,23 @@ import ROUTES from "@/constants/Routes";
 import { useStoreSelector } from "@/store";
 import Dialog from "@/components/dialog";
 
+interface RenderingWrapperProps {
+  // true이면 children에 대해 CSR(Client-Side Rendering)만 사용함.
+  forceCSR: boolean;
+  children: ReactNode;
+}
+
+const RenderingWrapper = ({ forceCSR, children }: RenderingWrapperProps) => {
+  // SSR 중이면 false, CSR 중이면 true.
+  const [isClient, setClient] = useState(false);
+
+  useEffect(() => {
+    setClient(true);
+  }, []);
+
+  return <>{forceCSR && isClient && children}</>;
+};
+
 interface LoadingWrapperProps {
   children: ReactNode;
 }
@@ -57,6 +74,7 @@ const AuthWrapper = ({ allowedAccountTypes, children }: AuthWrapperProps) => {
 };
 
 const Wrapper = {
+  Rendering: RenderingWrapper,
   Loading: LoadingWrapper,
   Auth: AuthWrapper,
 };
