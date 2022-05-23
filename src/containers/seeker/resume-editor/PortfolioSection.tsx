@@ -1,13 +1,15 @@
 import React from "react";
 
 import ResumeAPI from "@/api/ResumeAPI";
+import { useRequest } from "@/utils/APIUtils";
 import { useStoreSelector, useStoreDispatch } from "@/store";
-import Editor from "@/components/editor";
 import { updatePortfolio } from "@/store/resume";
+import Editor from "@/components/editor";
 
 const PortfolioSection = () => {
   const portfolio = useStoreSelector(state => state.resume.portfolio);
   const dispatch = useStoreDispatch();
+  const doRequest = useRequest();
 
   return (
     <Editor>
@@ -16,8 +18,8 @@ const PortfolioSection = () => {
         extensions={["pdf"]}
         results={portfolio.url ? [{ name: "포트폴리오 파일", url: portfolio.url }] : []}
         onUpload={async files => {
-          const outputs = await Promise.all(files.map(file => ResumeAPI.uploadPDF({ file })));
-          dispatch(updatePortfolio({ url: outputs[0].url }));
+          const output = await doRequest(ResumeAPI.uploadPDF({ file: files[0] }));
+          dispatch(updatePortfolio({ url: output.url }));
         }}
       />
     </Editor>

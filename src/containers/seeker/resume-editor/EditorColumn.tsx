@@ -7,6 +7,8 @@ import { updateWholeResume } from "@/store/resume";
 import Page from "@/components/page";
 // import TitleSection from "@/containers/seeker/resume-editor/TitleSection";
 import InfoSection from "@/containers/seeker/resume-editor/InfoSection";
+import MyVideoSection from "@/containers/seeker/resume-editor/MyVideoSection";
+import HelperVideoSection from "@/containers/seeker/resume-editor/HelperVideoSection";
 import EducationSection from "@/containers/seeker/resume-editor/EducationSection";
 import CareerSection from "@/containers/seeker/resume-editor/CareerSection";
 import ActivitySection from "@/containers/seeker/resume-editor/ActivitySection";
@@ -16,8 +18,12 @@ import AwardSection from "@/containers/seeker/resume-editor/AwardSection";
 import PortfolioSection from "@/containers/seeker/resume-editor/PortfolioSection";
 import IntroductionSection from "@/containers/seeker/resume-editor/IntroductionSection";
 
-function processOptionalArray<T>(array: Optional<Array<T>>) {
-  return array?.map(item => item ?? {}) ?? [{}];
+function processSingleItem<T>(item: Optional<T>) {
+  return item ?? {};
+}
+
+function processArrayItem<T>(item: Optional<Array<T>>) {
+  return item?.map(item => item ?? {}) ?? [{}];
 }
 
 const EditorColumn = () => {
@@ -38,25 +44,25 @@ const EditorColumn = () => {
             is_public: wholeResume.is_public,
             // user_id: ...,
           },
-          resumeInfo: wholeResume.resume_info,
-          educations: processOptionalArray(wholeResume.educations),
-          careers: processOptionalArray(wholeResume.careers),
-          certificates: processOptionalArray(wholeResume.certificates),
-          activities: processOptionalArray(wholeResume.activities),
-          awards: processOptionalArray(wholeResume.awards),
-          trainings: processOptionalArray(wholeResume.trainings),
-          introductions: processOptionalArray(wholeResume.trainings),
+          resumeInfo: processSingleItem(wholeResume.resume_info),
+          educations: processArrayItem(wholeResume.educations),
+          careers: processArrayItem(wholeResume.careers),
+          certificates: processArrayItem(wholeResume.certificates),
+          activities: processArrayItem(wholeResume.activities),
+          awards: processArrayItem(wholeResume.awards),
+          trainings: processArrayItem(wholeResume.trainings),
+          introductions: processArrayItem(wholeResume.trainings),
           // portfolio: wholeResume.portfolio,
-          myVideo: wholeResume.my_video,
-          helperVideo: wholeResume.helper_video,
+          myVideo: processSingleItem(wholeResume.my_video),
+          helperVideo: processSingleItem(wholeResume.helper_video),
           preference: {
             id: wholeResume.preference?.id,
             resume_id: wholeResume.preference?.resume_id,
             employ_type: wholeResume.preference?.employ_type,
             salary: wholeResume.preference?.salary,
           },
-          preferenceLocations: processOptionalArray(wholeResume.preference?.preference_locations),
-          preferenceJobs: processOptionalArray(wholeResume.preference?.preference_jobs),
+          preferenceLocations: processArrayItem(wholeResume.preference?.preference_locations),
+          preferenceJobs: processArrayItem(wholeResume.preference?.preference_jobs),
         })
       );
     })();
@@ -69,6 +75,8 @@ const EditorColumn = () => {
         // <TitleSection />
       }
       <InfoSection />
+      <MyVideoSection />
+      <HelperVideoSection />
       <EducationSection />
       <CareerSection />
       <ActivitySection />

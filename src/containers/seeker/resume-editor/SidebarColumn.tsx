@@ -54,11 +54,15 @@ const SidebarColumn = () => {
 
   const isPortfolioFilled = isNonEmpty(resumeState.portfolio.url);
 
+  const isMyVideoFilled = isNonEmpty(resumeState.myVideo.url);
+
+  const isHelperVideoFilled = isNonEmpty(resumeState.helperVideo.url);
+
   const isIntroductionFilled = resumeState.introductions.every(
     introduction => isNonEmpty(introduction.title) && isNonEmpty(introduction.content)
   );
 
-  const isNecessaryFilled = isResumeInfoFilled;
+  const isNecessaryFilled = isResumeInfoFilled && isMyVideoFilled;
 
   const handleClickSubmit = async () => {
     if (!isNecessaryFilled) {
@@ -94,13 +98,9 @@ const SidebarColumn = () => {
         portfolio: isPortfolioFilled ? resumeState.portfolio : undefined,
         introductions: isIntroductionFilled ? resumeState.introductions : undefined,
         myVideo: {
-          // TODO: 비디오 업로드 구현.
-          url: "http://abc.mp4",
+          url: resumeState.myVideo.url,
         },
-        helperVideo: {
-          // TODO: 비디오 업로드 구현.
-          url: "http://abc.mp4",
-        },
+        helperVideo: isHelperVideoFilled ? resumeState.helperVideo : undefined,
         // TODO: 이 부분 구현.
         preference: undefined,
       });

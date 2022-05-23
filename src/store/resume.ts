@@ -124,6 +124,8 @@ const resumeSlice = createSlice({
 
     updateMyVideo: createSingleItemUpdater<MyVideo>("myVideo"),
 
+    updateHelperVideo: createSingleItemUpdater<HelperVideo>("helperVideo"),
+
     updatePreference: createSingleItemUpdater<Preference>("preference"),
 
     addPreferenceJob: createArrayItemAdder<PreferenceJob>("preferenceJobs"),
@@ -154,6 +156,7 @@ export const {
   updateIntroduction,
   updatePortfolio,
   updateMyVideo,
+  updateHelperVideo,
   updatePreference,
   addPreferenceJob,
   updatePreferenceJob,
