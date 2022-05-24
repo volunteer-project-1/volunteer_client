@@ -16,11 +16,13 @@ const RenderingWrapper = ({ forceCSR, children }: RenderingWrapperProps) => {
   // SSR 중이면 false, CSR 중이면 true.
   const [isClient, setClient] = useState(false);
 
+  const renderChildren = !forceCSR || isClient;
+
   useEffect(() => {
     setClient(true);
   }, []);
 
-  return <>{forceCSR && isClient && children}</>;
+  return <>{renderChildren && children}</>;
 };
 
 interface LoadingWrapperProps {
