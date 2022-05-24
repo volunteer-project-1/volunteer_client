@@ -15,8 +15,8 @@ const PortfolioSection = () => {
     <Editor>
       <Editor.Title>포트폴리오</Editor.Title>
       <Editor.FileUploader
-        extensions={["pdf"]}
-        results={portfolio.url ? [{ name: "포트폴리오 파일", url: portfolio.url }] : []}
+        type="document"
+        results={portfolio.url ? [{ url: portfolio.url }] : []}
         onUpload={async files => {
           const output = await doRequest(ResumeAPI.uploadPDF({ file: files[0] }));
           dispatch(updatePortfolio({ url: output.url }));

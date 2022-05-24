@@ -1,9 +1,7 @@
 import axios from "axios";
-import { useRouter } from "next/router";
 
 import { AccountType } from "@/types/Auth";
 import { HTTP_STATUS_CODE } from "@/constants/HTTP";
-import ROUTES from "@/constants/Routes";
 import AuthAPI from "@/api/AuthAPI";
 import { useStoreDispatch } from "@/store";
 import { setAccount } from "@/store/auth";

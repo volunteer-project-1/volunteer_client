@@ -15,8 +15,8 @@ const HelperVideoSection = () => {
     <Editor>
       <Editor.Title>대신 소개해드려요.</Editor.Title>
       <Editor.FileUploader
-        extensions={["mp4"]}
-        results={helperVideo.url ? [{ name: "포트폴리오 파일", url: helperVideo.url }] : []}
+        type="video"
+        results={helperVideo.url ? [{ url: helperVideo.url }] : []}
         onUpload={async files => {
           const output = await doRequest(ResumeAPI.uploadVideo({ file: files[0] }));
           dispatch(updateHelperVideo({ url: output.url }));

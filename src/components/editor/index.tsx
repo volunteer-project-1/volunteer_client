@@ -363,16 +363,31 @@ const AddButton = ({ onClick }: AddButtonProps) => (
 );
 
 interface FileUploaderProps {
-  // 허용할 확장자들 목록.
-  // (기본값: pdf, hwp)
-  extensions?: Array<string>;
+  type: "document" | "video" | "image";
   // 여러 개 업로드 허용 여부.
   multiple?: boolean;
-  results: Array<{ name: string; url: string }>;
+  results: Array<{ url: string }>;
   onUpload?: (files: Array<File>) => void;
 }
 
-const FileUploader = ({ extensions = ["pdf", "hwp"], multiple = false, results, onUpload }: FileUploaderProps) => {
+const FileUploader = ({ type, multiple = false, results, onUpload }: FileUploaderProps) => {
+  let extensions: Array<string>;
+
+  switch (type) {
+    case "document":
+      extensions = ["pdf", "hwp"];
+      break;
+    case "video":
+      extensions = ["mp4"];
+      break;
+    case "image":
+      extensions = ["jpg", "jpeg", "bmp", "png", "gif", "svg"];
+      break;
+    default:
+      extensions = [];
+      break;
+  }
+
   const uploadFiles = (files: Array<File>) => {
     const filteredFiles = files.filter(file => {
       for (let i = 0; i < extensions.length; i++) {
@@ -387,6 +402,28 @@ const FileUploader = ({ extensions = ["pdf", "hwp"], multiple = false, results, 
 
     dLog(`업로드 목록: ${filteredFiles.map(file => file.name).join(", ")}`);
     onUpload && onUpload(files);
+  };
+
+  const renderResult = (url: string) => {
+    switch (type) {
+      case "document":
+        return (
+          <iframe
+            src={`https://docs.google.com/viewer?url=${url.replace(/&/g, "%26")}&embedded=true`}
+            title="업로드한 문서"
+          />
+        );
+      case "video":
+        return (
+          <video src={url} controls>
+            <track kind="captions" />
+          </video>
+        );
+      case "image":
+        return <img src={url} alt="업로드한 이미지" />;
+      default:
+        return null;
+    }
   };
 
   const handleClickUpload = async () => {
@@ -414,25 +451,27 @@ const FileUploader = ({ extensions = ["pdf", "hwp"], multiple = false, results, 
       onDragOver={handleDrag}
       onDragLeave={handleDrag}
     >
-      {results.length > 0 ? (
-        <div className="fileList">
+      <div className="uploadArea">
+        <div className="iconArea">
+          <img className="icon" src="/assets/seeker/formsection-file.svg" alt="파일 업로드" />
+        </div>
+        <div className="message">포트폴리오를 첨부하여 주세요 (클릭하거나 드래그하여 첨부)</div>
+        <button className="uploadButton" onClick={handleClickUpload}>
+          파일첨부 하기
+        </button>
+      </div>
+      {results.length > 0 && (
+        <div className="resultArea">
           {results.map((result, index) => (
             <div className="file" key={index}>
+              {renderResult(result.url)}
               <Link href={result.url}>
-                <a target="_blank">{result.name}</a>
+                <a className="download" target="_blank">
+                  다운로드
+                </a>
               </Link>
             </div>
           ))}
-        </div>
-      ) : (
-        <div className="defaultArea">
-          <div className="iconArea">
-            <img className="icon" src="/assets/seeker/formsection-file.svg" alt="파일 업로드" />
-          </div>
-          <div className="message">포트폴리오를 첨부하여 주세요 (클릭하거나 드래그하여 첨부)</div>
-          <button className="uploadButton" onClick={handleClickUpload}>
-            파일첨부 하기
-          </button>
         </div>
       )}
     </div>

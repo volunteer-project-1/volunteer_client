@@ -227,34 +227,55 @@
     flex-direction: column;
 
     width: 100%;
-    height: 348px;
-    border-style: solid;
-    border-width: 1px;
 
-    @include boxColor(border-color, dark3);
-
-    .fileList {
+    .resultArea {
       width: 100%;
-      height: 100%;
     }
 
     .file {
       box-sizing: border-box;
 
       width: 100%;
-      padding: 10px;
 
-      border-bottom-style: solid;
-      border-bottom-width: 1px;
-      @include boxColor(border-bottom-color, dark3);
+      .download {
+        box-sizing: border-box;
+        display: block;
+
+        width: 100%;
+        padding: 10px;
+
+        border-style: solid;
+        border-width: 1px;
+        @include boxColor(border-color, dark3);
+      }
+
+      iframe,
+      video,
+      img {
+        width: 100%;
+
+        @extend .imageFix;
+      }
+
+      iframe {
+        height: 400px;
+      }
     }
 
-    .defaultArea {
+    .uploadArea {
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
 
-      margin: auto;
+      width: 100%;
+      height: 348px;
+
+      border-style: solid;
+      border-width: 1px;
+
+      @include boxColor(border-color, dark3);
     }
 
     .iconArea {
