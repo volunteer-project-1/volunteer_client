@@ -2,6 +2,7 @@ import React from "react";
 
 import ResumeAPI from "@/api/ResumeAPI";
 import { isExistent, isNonEmpty } from "@/utils/CheckUtils";
+import { getResumeTitle } from "@/utils/StringUtils";
 import { useStoreSelector } from "@/store";
 import Page from "@/components/page";
 import StatusBox from "@/components/status-box";
@@ -75,7 +76,7 @@ const SidebarColumn = () => {
     }
 
     const resumes = await ResumeAPI.findMyResumes();
-    const resumeTitle = `Resume-2022-05-21-15-20-${account.id}`;
+    const resumeTitle = getResumeTitle(account);
 
     const downloadedResume =
       typeof resumes === "string" ? undefined : resumes.resumes.find(resume => resume.title === resumeTitle);

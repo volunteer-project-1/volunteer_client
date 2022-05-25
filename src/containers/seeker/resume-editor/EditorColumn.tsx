@@ -17,6 +17,7 @@ import CertificateSection from "@/containers/seeker/resume-editor/CertificateSec
 import AwardSection from "@/containers/seeker/resume-editor/AwardSection";
 import PortfolioSection from "@/containers/seeker/resume-editor/PortfolioSection";
 import IntroductionSection from "@/containers/seeker/resume-editor/IntroductionSection";
+import { getResumeTitle } from "@/utils/StringUtils";
 
 function processSingleItem<T>(item: Optional<T>) {
   return item ?? {};
@@ -27,11 +28,26 @@ function processArrayItem<T>(item: Optional<Array<T>>) {
 }
 
 const EditorColumn = () => {
+  const account = useStoreSelector(state => state.auth.account);
   const dispatch = useStoreDispatch();
 
   useEffect(() => {
     (async () => {
-      const wholeResume = (await ResumeAPI.findResumeByID(88)).resume;
+      if (!account) {
+        return;
+      }
+
+      const resumeTitle = getResumeTitle(account);
+
+      const resumes = await ResumeAPI.findMyResumes();
+      const downloadedResume =
+        typeof resumes === "string" ? undefined : resumes.resumes.find(resume => resume.title === resumeTitle);
+
+      if (!downloadedResume || !downloadedResume.id) {
+        return;
+      }
+
+      const wholeResume = (await ResumeAPI.findResumeByID(downloadedResume.id)).resume;
 
       console.log(wholeResume);
 
