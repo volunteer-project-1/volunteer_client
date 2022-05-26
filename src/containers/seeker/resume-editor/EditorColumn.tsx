@@ -2,6 +2,9 @@ import React, { useEffect } from "react";
 
 import { Optional } from "@/types/Common";
 import ResumeAPI from "@/api/ResumeAPI";
+import { getResumeTitle } from "@/utils/StringUtils";
+import { dLog } from "@/utils/DebugUtils";
+import { useRequest } from "@/utils/APIUtils";
 import { useStoreDispatch, useStoreSelector } from "@/store";
 import { updateWholeResume } from "@/store/resume";
 import Page from "@/components/page";
@@ -17,7 +20,6 @@ import CertificateSection from "@/containers/seeker/resume-editor/CertificateSec
 import AwardSection from "@/containers/seeker/resume-editor/AwardSection";
 import PortfolioSection from "@/containers/seeker/resume-editor/PortfolioSection";
 import IntroductionSection from "@/containers/seeker/resume-editor/IntroductionSection";
-import { getResumeTitle } from "@/utils/StringUtils";
 
 function processSingleItem<T>(item: Optional<T>) {
   return item ?? {};
@@ -30,6 +32,7 @@ function processArrayItem<T>(item: Optional<Array<T>>) {
 const EditorColumn = () => {
   const account = useStoreSelector(state => state.auth.account);
   const dispatch = useStoreDispatch();
+  const doRequest = useRequest();
 
   useEffect(() => {
     (async () => {
@@ -39,7 +42,7 @@ const EditorColumn = () => {
 
       const resumeTitle = getResumeTitle(account);
 
-      const resumes = await ResumeAPI.findMyResumes();
+      const resumes = await doRequest(ResumeAPI.findMyResumes());
       const downloadedResume =
         typeof resumes === "string" ? undefined : resumes.resumes.find(resume => resume.title === resumeTitle);
 
@@ -47,9 +50,8 @@ const EditorColumn = () => {
         return;
       }
 
-      const wholeResume = (await ResumeAPI.findResumeByID(downloadedResume.id)).resume;
-
-      console.log(wholeResume);
+      const wholeResume = (await doRequest(ResumeAPI.findResumeByID(downloadedResume.id))).resume;
+      dLog(wholeResume);
 
       dispatch(
         updateWholeResume({
@@ -82,7 +84,7 @@ const EditorColumn = () => {
         })
       );
     })();
-  }, [dispatch]);
+  }, [dispatch, account, doRequest]);
 
   return (
     <Page.Column fill>

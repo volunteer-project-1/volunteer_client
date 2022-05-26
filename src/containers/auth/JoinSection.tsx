@@ -43,7 +43,7 @@ const JoinSection = () => {
     }
 
     try {
-      await doRequest(doJoin({ id, password, passwordConfirm, name, accountType }));
+      await doRequest(doJoin({ id, password, passwordConfirm, name, accountType }), { checkAuth: false });
     } catch (error) {
       dError(error);
       alert("회원가입 중 에러가 발생했습니다! 이미 가입된 아이디일 수 있습니다.");

@@ -67,7 +67,7 @@ const AuthWrapper = ({ allowedAccountTypes, children }: AuthWrapperProps) => {
     if (account !== null && allowedAccountTypes.includes(account.type)) {
       setAllowAccess(true);
     } else {
-      alert(`권한이 없습니다! 알맞은 모드로 로그인하세요.`);
+      alert("권한이 없습니다! 알맞은 모드로 로그인하세요.");
       router.push(ROUTES.auth.login);
     }
   }, [account, allowedAccountTypes, router]);

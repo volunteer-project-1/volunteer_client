@@ -34,7 +34,7 @@ const LoginSection = () => {
     }
 
     try {
-      await doRequest(doLogin({ id, password, accountType }));
+      await doRequest(doLogin({ id, password, accountType }), { checkAuth: false });
       // 성공했으면 메인 페이지로 이동.
       router.push(ROUTES.home);
     } catch (error) {

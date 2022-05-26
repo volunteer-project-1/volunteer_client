@@ -1,7 +1,9 @@
 import axios from "axios";
+import { useRouter } from "next/router";
 
 import { AccountType } from "@/types/Auth";
 import { HTTP_STATUS_CODE } from "@/constants/HTTP";
+import ROUTES from "@/constants/Routes";
 import AuthAPI from "@/api/AuthAPI";
 import { useStoreDispatch } from "@/store";
 import { setAccount } from "@/store/auth";
@@ -100,18 +102,43 @@ export function useJoin() {
 
 /**
  * API 호출 시 로딩 및 에러 처리.
+ * @param showLoading true일 경우 로딩 화면을 띄워서 요청 실행 동안의 상호작용을 막음 (기본값: true)
+ * @param checkAuth true일 경우 권한이 없으면 강제로 로그인 화면으로 보냄 (기본값: true)
  */
 export function useRequest() {
+  const router = useRouter();
   const dispatch = useStoreDispatch();
 
-  return async <Output>(job: Promise<Output>) => {
+  return async <Output>(
+    job: Promise<Output>,
+    { showLoading = true, checkAuth = true }: { showLoading?: boolean; checkAuth?: boolean } = {}
+  ) => {
     try {
-      dispatch(setLoading(true));
+      if (showLoading) {
+        dispatch(setLoading(true));
+      }
+
       const output = await job;
-      dispatch(setLoading(false));
+
+      if (showLoading) {
+        dispatch(setLoading(false));
+      }
       return output;
     } catch (error) {
-      dispatch(setLoading(false));
+      if (showLoading) {
+        dispatch(setLoading(false));
+      }
+
+      if (axios.isAxiosError(error)) {
+        switch (error.response?.status) {
+          case HTTP_STATUS_CODE.UN_AUTHORIZE:
+            if (checkAuth) {
+              await alert("권한이 없습니다! 알맞은 모드로 로그인하세요.");
+              router.push(ROUTES.auth.login);
+              break;
+            }
+        }
+      }
 
       // 에러들을 사용처에서 처리할 수 있게 rethrow.
       throw error;

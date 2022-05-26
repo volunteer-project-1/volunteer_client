@@ -81,8 +81,6 @@ interface CreateResumeInput {
 }
 
 async function createResume(input: CreateResumeInput): Promise<void> {
-  console.log(input);
-  console.log(JSON.stringify(input));
   await API.post<CreateResumeInput>("/api/v1/resume", input);
 }
 

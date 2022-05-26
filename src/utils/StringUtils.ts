@@ -17,5 +17,5 @@ export function useID() {
  * 적당히 생성.
  */
 export function getResumeTitle(account: Account) {
-  return `Resume-2022-05-25-16-59-${account.id}`;
+  return `Resume-${account.id}`;
 }

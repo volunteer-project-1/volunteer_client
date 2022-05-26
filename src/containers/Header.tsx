@@ -69,7 +69,7 @@ const Header = () => {
                 <button
                   className="item_login"
                   onClick={async () => {
-                    await doRequest(doLogout());
+                    await doRequest(doLogout(), { checkAuth: false });
                   }}
                 >
                   <img src={"/assets/layout/header-login.svg"} alt={"Logout"} /> LOG OUT
