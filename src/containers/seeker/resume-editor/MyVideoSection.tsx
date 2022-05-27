@@ -5,6 +5,7 @@ import { useRequest } from "@/utils/APIUtils";
 import { useStoreSelector, useStoreDispatch } from "@/store";
 import { updateMyVideo } from "@/store/resume";
 import Editor from "@/components/editor";
+import API from "@/api/API";
 
 const MyVideoSection = () => {
   const myVideo = useStoreSelector(state => state.resume.myVideo);

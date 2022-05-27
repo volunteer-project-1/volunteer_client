@@ -18,6 +18,7 @@ import {
 import { AllOptional } from "@/types/Common";
 import API from "@/api/API";
 
+/*
 interface UploadFileInput {
   file: File;
 }
@@ -36,11 +37,34 @@ interface UploadFileOutput {
 /**
  * 내부용 유틸 함수.
  */
+/*
 async function uploadFile(input: UploadFileInput, url: string): Promise<UploadFileOutput> {
   const formData = new FormData();
   formData.append("url", input.file);
 
   const response = await API.post<UploadFileOutput>(url, formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+
+  return response.data;
+}
+*/
+
+interface UploadFileInput {
+  file: File;
+}
+
+interface UploadFileOutput {
+  url: string;
+}
+
+async function uploadFile(input: UploadFileInput, url: string): Promise<UploadFileOutput> {
+  const formData = new FormData();
+  formData.append("file", input.file);
+
+  const response = await API.post<UploadFileOutput>("/api/dummy/file", formData, {
     headers: {
       "Content-Type": "multipart/form-data",
     },

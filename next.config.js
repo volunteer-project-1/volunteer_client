@@ -1,6 +1,10 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
+  env: {
+    AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
+    AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
+  },
   i18n: {
     locales: ["ko", "en"],
     // <html lang="...">을 설정해줌.
