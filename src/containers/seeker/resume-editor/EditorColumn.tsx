@@ -50,7 +50,7 @@ const EditorColumn = () => {
         return;
       }
 
-      const wholeResume = (await doRequest(ResumeAPI.findResumeByID(downloadedResume.id))).resume;
+      const wholeResume = (await doRequest(ResumeAPI.findWholeResume(downloadedResume.id))).resume;
       dLog(wholeResume);
 
       dispatch(

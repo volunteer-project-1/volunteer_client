@@ -91,7 +91,7 @@ async function findMyResumes(): Promise<FindMyResumesOutput> {
   return response.data;
 }
 
-interface FindResumeByIDOutput {
+interface findWholeResumeOutput {
   resume: AllOptional<
     Omit<Resume, "user_id"> & {
       resume_info: AllOptional<ResumeInfo>;
@@ -115,9 +115,48 @@ interface FindResumeByIDOutput {
   >;
 }
 
-async function findResumeByID(input: number): Promise<FindResumeByIDOutput> {
-  const response = await API.get<FindResumeByIDOutput>(`/api/v1/resume/${input}`);
+async function findWholeResume(input: number): Promise<findWholeResumeOutput> {
+  const response = await API.get<findWholeResumeOutput>(`/api/v1/resume/${input}`);
   return response.data;
+}
+
+async function deleteResume(input: number): Promise<void> {
+  await API.delete(`/api/v1/resume/${input}`);
+}
+
+interface UpdateResumeInput {
+  resume: AllOptional<Resume>;
+  resumeInfo: AllOptional<ResumeInfo>;
+  educations: AllOptional<Education>[];
+  careers: AllOptional<Career>[];
+  certificates: AllOptional<Certificate>[];
+  activities: AllOptional<Activity>[];
+  awards: AllOptional<Award>[];
+  trainings: AllOptional<Training>[];
+  introductions: AllOptional<Introduction>[];
+  portfolio: AllOptional<Portfolio>;
+  myVideo: AllOptional<MyVideo>;
+  helperVideo: AllOptional<HelperVideo>;
+  preference: AllOptional<Preference>;
+  preferenceJobs: AllOptional<PreferenceJob>[];
+  preferenceLocations: AllOptional<PreferenceLocation>[];
+}
+
+async function updateWholeResume(input: UpdateResumeInput): Promise<void> {
+  {
+    const { id, user_id, ...item } = input.resume;
+    id && (await API.patch(`/api/v1/resume/${id}`, { resume: item }));
+  }
+
+  {
+    const { id, resume_id, ...item } = input.resumeInfo;
+    id && (await API.patch(`/api/v1/resume/${id}/info`, { resumeInfo: item }));
+  }
+
+  for (const education of input.educations) {
+    const { id, resume_id, ...item } = education;
+    id && (await API.patch(`/api/v1/resume/${education}/education`, { education: item }));
+  }
 }
 
 const ResumeAPI = {
@@ -126,7 +165,9 @@ const ResumeAPI = {
   uploadAvatar,
   createResume,
   findMyResumes,
-  findResumeByID,
+  findWholeResume,
+  deleteResume,
+  updateWholeResume,
 };
 
 export default ResumeAPI;

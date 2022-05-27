@@ -3,6 +3,7 @@ import React from "react";
 import ResumeAPI from "@/api/ResumeAPI";
 import { isExistent, isNonEmpty } from "@/utils/CheckUtils";
 import { getResumeTitle } from "@/utils/StringUtils";
+import { useRequest } from "@/utils/APIUtils";
 import { useStoreSelector } from "@/store";
 import Page from "@/components/page";
 import StatusBox from "@/components/status-box";
@@ -11,6 +12,7 @@ import "@/containers/seeker/resume-editor/SidebarColumn.scoped.scss";
 const SidebarColumn = () => {
   const account = useStoreSelector(state => state.auth.account);
   const resumeState = useStoreSelector(state => state.resume);
+  const doRequest = useRequest();
 
   const isResumeInfoFilled =
     isNonEmpty(resumeState.resumeInfo.name) &&
@@ -18,20 +20,16 @@ const SidebarColumn = () => {
     (isNonEmpty(resumeState.resumeInfo.sido) || isNonEmpty(resumeState.resumeInfo.sigungu));
 
   const isEducationFilled = resumeState.educations.every(
-    education =>
-      isNonEmpty(education.type) &&
-      isNonEmpty(education.school_name) &&
-      isNonEmpty(education.graduation_year) &&
-      isExistent(education.is_graduated)
+    education => isNonEmpty(education.type) && isNonEmpty(education.school_name) /*&&
+    isNonEmpty(education.graduation_year) &&
+    isExistent(education.is_graduated)*/
   );
 
   const isCareerFilled = resumeState.careers.every(
-    career =>
-      isNonEmpty(career.company) &&
-      isNonEmpty(career.department) &&
+    career => isNonEmpty(career.company) && isNonEmpty(career.department) /*&&
       isNonEmpty(career.position) &&
       isNonEmpty(career.task) &&
-      isNonEmpty(career.joined_at)
+      isNonEmpty(career.joined_at)*/
   );
 
   const isActivityFilled = resumeState.activities.every(
@@ -81,11 +79,15 @@ const SidebarColumn = () => {
     const downloadedResume =
       typeof resumes === "string" ? undefined : resumes.resumes.find(resume => resume.title === resumeTitle);
 
-    if (typeof downloadedResume === "undefined") {
-      // resume, resumeInfo, myVideo는 필수로 들어가야 함.
-      // 나머지는 optional이지만 빈 객체({})가 들어가면 서버 쪽에서 SQL 에러가 남.
-      // 따라서 나머지는 완전히 채워졌을 때만 전송.
-      await ResumeAPI.createResume({
+    if (typeof downloadedResume !== "undefined" && downloadedResume.id) {
+      await doRequest(ResumeAPI.deleteResume(downloadedResume.id));
+    }
+
+    // resume, resumeInfo, myVideo는 필수로 들어가야 함.
+    // 나머지는 optional이지만 빈 객체({})가 들어가면 서버 쪽에서 SQL 에러가 남.
+    // 따라서 나머지는 완전히 채워졌을 때만 전송.
+    await doRequest(
+      ResumeAPI.createResume({
         resume: {
           title: resumeTitle,
         },
@@ -104,11 +106,10 @@ const SidebarColumn = () => {
         helperVideo: isHelperVideoFilled ? resumeState.helperVideo : undefined,
         // TODO: 이 부분 구현.
         preference: undefined,
-      });
-      alert("이력서 생성에 성공했습니다!");
-    } else {
-      // TODO: 이미 생성된 이력서를 업데이트.
-    }
+      })
+    );
+
+    alert("이력서 생성/업데이트에 성공했습니다!");
   };
 
   return (
