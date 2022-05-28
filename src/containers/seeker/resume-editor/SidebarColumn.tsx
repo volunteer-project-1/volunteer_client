@@ -15,6 +15,7 @@ const SidebarColumn = () => {
   const doRequest = useRequest();
 
   const isResumeInfoFilled =
+    isNonEmpty(resumeState.resumeInfo.avatar) &&
     isNonEmpty(resumeState.resumeInfo.name) &&
     isNonEmpty(resumeState.resumeInfo.birthday) &&
     (isNonEmpty(resumeState.resumeInfo.sido) || isNonEmpty(resumeState.resumeInfo.sigungu));

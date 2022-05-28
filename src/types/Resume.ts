@@ -25,7 +25,7 @@ export interface ResumeInfo {
   disability_level?: DisabilityLevel;
   disability_type?: DisabilityType;
   sex: Sex;
-  avatar?: string;
+  avatar: string;
 }
 
 export interface Education {

@@ -24,10 +24,21 @@ const Row = ({ children }: LayoutProps) => <div className="row">{children}</div>
 const Separator = () => <div className="separator" />;
 
 interface CellProps extends LayoutProps {
+  layout?: "row" | "column";
   fill?: boolean;
 }
 
-const Cell = ({ fill = false, children }: CellProps) => <div className={classNames("cell", { fill })}>{children}</div>;
+const Cell = ({ layout = "row", fill = false, children }: CellProps) => (
+  <div
+    className={classNames("cell", {
+      fill,
+      rowLayout: layout === "row",
+      columnLayout: layout === "column",
+    })}
+  >
+    {children}
+  </div>
+);
 
 interface SelectBaseProps<Value> {
   className: string;
@@ -357,7 +368,7 @@ interface AddButtonProps {
 
 const AddButton = ({ onClick }: AddButtonProps) => (
   <button className="addButton" type="button" onClick={onClick}>
-    <img className="icon" src="/assets/seeker/formsection-add.svg" alt="내용 추가하기" />
+    <img className="icon" src="/assets/editor/add.svg" alt="내용 추가하기" />
     <span className="text">내용 추가하기</span>
   </button>
 );
@@ -448,7 +459,7 @@ const FileUploader = ({ type, multiple = false, results, onUpload }: FileUploade
     >
       <div className="uploadArea">
         <div className="iconArea">
-          <img className="icon" src="/assets/seeker/formsection-file.svg" alt="파일 업로드" />
+          <img className="icon" src="/assets/editor/file.svg" alt="파일 업로드" />
         </div>
         <div className="message">포트폴리오를 첨부하여 주세요 (클릭하거나 드래그하여 첨부)</div>
         <button className="uploadButton" onClick={handleClickUpload}>
@@ -473,6 +484,68 @@ const FileUploader = ({ type, multiple = false, results, onUpload }: FileUploade
   );
 };
 
+interface ImageUploaderProps {
+  url?: string | null;
+  onUpload?: (file: File) => void;
+}
+
+const ImageUploader = ({ url, onUpload }: ImageUploaderProps) => {
+  const extensions = ["jpg", "jpeg", "bmp", "png", "gif", "svg"];
+
+  const uploadFile = (file: File) => {
+    let matchExtensions = false;
+
+    for (let i = 0; i < extensions.length; i++) {
+      if (file.name.endsWith(extensions[i])) {
+        matchExtensions = true;
+        break;
+      }
+    }
+
+    if (!matchExtensions) {
+      dLog(`${file.name}: ${extensions.join(", ")}에 해당하지 않음.`);
+      return;
+    }
+
+    dLog(`업로드 목록: ${file.name}`);
+    onUpload && onUpload(file);
+  };
+
+  const handleClickUpload = async () => {
+    const accept = extensions.map(extension => `.${extension}`).join(",");
+    const files = await openFileDialog(accept, false);
+    uploadFile(files[0]);
+  };
+
+  const handleDrop = async (event: DragEvent) => {
+    event.preventDefault();
+
+    const files = event.dataTransfer.files;
+    uploadFile(Array.from(files)[0]);
+  };
+
+  const handleDrag = async (event: DragEvent) => {
+    event.preventDefault();
+  };
+
+  return (
+    <div
+      className="imageUploader"
+      onDrop={handleDrop}
+      onDragEnter={handleDrag}
+      onDragOver={handleDrag}
+      onDragLeave={handleDrag}
+    >
+      <div className={classNames("resultArea", !url && "putDown")}>
+        <img className="result" src={url ?? "/assets/editor/profile.svg"} alt="파일 업로드" />
+      </div>
+      <button className="uploadButton" onClick={handleClickUpload}>
+        사진 추가
+      </button>
+    </div>
+  );
+};
+
 export default Object.assign(Editor, {
   Title,
   Row,
@@ -487,4 +560,5 @@ export default Object.assign(Editor, {
   Checkbox,
   AddButton,
   FileUploader,
+  ImageUploader,
 });
