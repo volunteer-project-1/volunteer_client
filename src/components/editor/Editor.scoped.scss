@@ -247,18 +247,27 @@
         border-style: solid;
         border-width: 1px;
         @include boxColor(border-color, dark3);
+        border-top-color: transparent;
+
+        @extend .font, .size16;
       }
 
-      iframe,
-      video,
-      img {
+      .documentResult,
+      .videoResult,
+      .imageResult {
         width: 100%;
+
+        border-style: solid;
+        border-width: 1px;
+        @include boxColor(border-color, dark3);
+        border-top-color: transparent;
+        border-bottom-color: transparent;
 
         @extend .imageFix;
       }
 
-      iframe {
-        height: 400px;
+      .documentResult {
+        @extend .font, .size36;
       }
     }
 

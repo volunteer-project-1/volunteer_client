@@ -371,19 +371,7 @@ interface FileUploaderProps {
 }
 
 const FileUploader = ({ type, multiple = false, results, onUpload }: FileUploaderProps) => {
-  const [renderKey, setRenderKey] = useState(0);
   let extensions: Array<string>;
-
-  // Hack: Google PDF 뷰어가 가끔 PDF를 안 띄우는 경우가 있음. -> 몇초 후에 강제로 rerender를 해서 해결.
-  useEffect(() => {
-    setTimeout(() => {
-      setRenderKey(prevValue => prevValue + 1);
-    }, 2000);
-
-    setTimeout(() => {
-      setRenderKey(prevValue => prevValue + 1);
-    }, 4000);
-  }, [results]);
 
   switch (type) {
     case "document":
@@ -419,21 +407,15 @@ const FileUploader = ({ type, multiple = false, results, onUpload }: FileUploade
   const renderResult = (url: string) => {
     switch (type) {
       case "document":
-        return (
-          <iframe
-            key={renderKey}
-            src={`https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true`}
-            title="업로드한 문서"
-          />
-        );
+        return <div className="documentResult">📄</div>;
       case "video":
         return (
-          <video src={url} controls>
+          <video className="videoResult" src={url} controls>
             <track kind="captions" />
           </video>
         );
       case "image":
-        return <img src={url} alt="업로드한 이미지" />;
+        return <img className="imageResult" src={url} alt="업로드한 이미지" />;
       default:
         return null;
     }
