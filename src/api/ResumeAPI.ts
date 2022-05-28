@@ -61,16 +61,19 @@ interface UploadFileOutput {
 }
 
 async function uploadFile(input: UploadFileInput, url: string): Promise<UploadFileOutput> {
-  const formData = new FormData();
-  formData.append("file", input.file);
+  const urlsResponse = await API.get<{ uploadURL: string; downloadURL: string }>(
+    `/api/dummy/file?fileName=${input.file.name.replace(/\s+/g, "-")}`
+  );
 
-  const response = await API.post<UploadFileOutput>("/api/dummy/file", formData, {
+  const { uploadURL, downloadURL } = urlsResponse.data;
+
+  await API.put(uploadURL, input.file, {
     headers: {
-      "Content-Type": "multipart/form-data",
+      "Content-Type": input.file.type,
     },
   });
 
-  return response.data;
+  return { url: downloadURL };
 }
 
 async function uploadVideo(input: UploadFileInput): Promise<UploadFileOutput> {

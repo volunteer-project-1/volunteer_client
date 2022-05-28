@@ -1,42 +1,34 @@
 import nextConnect from "next-connect";
 import AWS from "aws-sdk";
-import multer from "multer";
-import multerS3 from "multer-s3";
 
 const s3 = new AWS.S3({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  signatureVersion: "v4",
+  region: "ap-northeast-2",
 });
 
-const s3Storage = multerS3({
-  s3,
-  bucket: "seeme-user-files",
-  key: (request, file, callback) => {
-    callback(null, `userFiles/${Date.now()}-${file.originalname}`);
-  },
-});
+const handler = nextConnect({ attachParams: true });
 
-const upload = multer({
-  storage: s3Storage,
-});
+handler.get((request: any, response: any) => {
+  const fileName = request.query.fileName;
 
-const handler = nextConnect();
-
-handler.post(upload.single("file"), (request, response) => {
-  const url = (request.file as any).location;
-
-  if (url) {
-    response.status(200).json({ url });
-  } else {
-    response.status(500).json({ message: "Failed to get the file!" });
+  if (!fileName) {
+    response.status(404).json({ message: "filename or urlType are wrong!" });
+    return;
   }
-});
 
-export const config = {
-  api: {
-    bodyParser: false,
-    sizeLimit: "1gb",
-  },
-};
+  const filePath = `userFiles/${Date.now()}-${fileName}`;
+
+  const uploadURL = s3.getSignedUrl("putObject", {
+    Bucket: "seeme-user-files",
+    Key: filePath,
+    Expires: 180,
+    ContentType: "video/mp4",
+  });
+
+  const downloadURL = `https://seeme-user-files.s3.ap-northeast-2.amazonaws.com/${filePath}`;
+  response.status(200).json({ uploadURL, downloadURL });
+});
 
 export default handler;
