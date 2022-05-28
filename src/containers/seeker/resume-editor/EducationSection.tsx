@@ -43,15 +43,9 @@ const EducationSection = () => {
               />
             </Editor.Cell>
             <Editor.Cell>
-              <Editor.LargeSelect
+              <Editor.LargeInput
                 label="졸업년도"
                 value={education.graduation_year}
-                options={[
-                  { name: "2022", value: "2022" },
-                  { name: "2021", value: "2021" },
-                  { name: "2020", value: "2020" },
-                  { name: "2019", value: "2019" },
-                ]}
                 onChange={value => {
                   dispatch(updateEducation([index, { graduation_year: value }]));
                 }}

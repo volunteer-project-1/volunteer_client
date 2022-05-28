@@ -119,7 +119,9 @@ const SidebarColumn = () => {
         <StatusBox.Item isNecessary isHighlighted={isResumeInfoFilled}>
           인적사항
         </StatusBox.Item>
-        <StatusBox.Item isNecessary>영상이력서</StatusBox.Item>
+        <StatusBox.Item isNecessary isHighlighted={isMyVideoFilled}>
+          영상이력서
+        </StatusBox.Item>
         <StatusBox.Category>선택사항</StatusBox.Category>
         <StatusBox.Item isHighlighted={isEducationFilled}>학력</StatusBox.Item>
         <StatusBox.Item isHighlighted={isCareerFilled}>경력</StatusBox.Item>

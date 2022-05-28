@@ -69,7 +69,7 @@ const EditorColumn = () => {
           activities: processArrayItem(wholeResume.activities),
           awards: processArrayItem(wholeResume.awards),
           trainings: processArrayItem(wholeResume.trainings),
-          introductions: processArrayItem(wholeResume.trainings),
+          introductions: processArrayItem(wholeResume.introductions),
           portfolio: processSingleItem(wholeResume.portfolio),
           myVideo: processSingleItem(wholeResume.my_video),
           helperVideo: processSingleItem(wholeResume.helper_video),

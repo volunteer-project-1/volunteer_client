@@ -377,11 +377,11 @@ const FileUploader = ({ type, multiple = false, results, onUpload }: FileUploade
   // Hack: Google PDF 뷰어가 가끔 PDF를 안 띄우는 경우가 있음. -> 몇초 후에 강제로 rerender를 해서 해결.
   useEffect(() => {
     setTimeout(() => {
-      setRenderKey(renderKey + 1);
+      setRenderKey(prevValue => prevValue + 1);
     }, 2000);
 
     setTimeout(() => {
-      setRenderKey(renderKey + 1);
+      setRenderKey(prevValue => prevValue + 1);
     }, 4000);
   }, [results]);
 
