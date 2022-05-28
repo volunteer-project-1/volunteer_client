@@ -18,6 +18,7 @@ const InfoSection = () => {
       <Editor.Row>
         <Editor.Cell>
           <Editor.ImageUploader
+            label="사진 추가"
             url={resumeInfo.avatar}
             onUpload={async file => {
               const output = await doRequest(ResumeAPI.uploadVideo({ file }));

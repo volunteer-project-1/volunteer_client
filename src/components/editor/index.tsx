@@ -485,11 +485,12 @@ const FileUploader = ({ type, multiple = false, results, onUpload }: FileUploade
 };
 
 interface ImageUploaderProps {
+  label: string;
   url?: string | null;
   onUpload?: (file: File) => void;
 }
 
-const ImageUploader = ({ url, onUpload }: ImageUploaderProps) => {
+const ImageUploader = ({ label, url, onUpload }: ImageUploaderProps) => {
   const extensions = ["jpg", "jpeg", "bmp", "png", "gif", "svg"];
 
   const uploadFile = (file: File) => {
@@ -536,11 +537,9 @@ const ImageUploader = ({ url, onUpload }: ImageUploaderProps) => {
       onDragOver={handleDrag}
       onDragLeave={handleDrag}
     >
-      <div className={classNames("resultArea", !url && "putDown")}>
-        <img className="result" src={url ?? "/assets/editor/profile.svg"} alt="파일 업로드" />
-      </div>
+      <div className="resultArea">{url && <img className="result" src={url} alt="파일 업로드" />}</div>
       <button className="uploadButton" onClick={handleClickUpload}>
-        사진 추가
+        {label}
       </button>
     </div>
   );
