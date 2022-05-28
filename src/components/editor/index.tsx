@@ -1,4 +1,4 @@
-import React, { DragEvent, HTMLInputTypeAttribute, KeyboardEvent, ReactNode, useRef, useState } from "react";
+import React, { DragEvent, HTMLInputTypeAttribute, KeyboardEvent, ReactNode, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import classNames from "classnames";
 import Menu from "@mui/material/Menu";
@@ -371,7 +371,19 @@ interface FileUploaderProps {
 }
 
 const FileUploader = ({ type, multiple = false, results, onUpload }: FileUploaderProps) => {
+  const [renderKey, setRenderKey] = useState(0);
   let extensions: Array<string>;
+
+  // Hack: Google PDF 뷰어가 가끔 PDF를 안 띄우는 경우가 있음. -> 몇초 후에 강제로 rerender를 해서 해결.
+  useEffect(() => {
+    setTimeout(() => {
+      setRenderKey(renderKey + 1);
+    }, 2000);
+
+    setTimeout(() => {
+      setRenderKey(renderKey + 1);
+    }, 4000);
+  }, [results]);
 
   switch (type) {
     case "document":
@@ -409,7 +421,8 @@ const FileUploader = ({ type, multiple = false, results, onUpload }: FileUploade
       case "document":
         return (
           <iframe
-            src={`https://docs.google.com/viewer?url=${url.replace(/&/g, "%26")}&embedded=true`}
+            key={renderKey}
+            src={`https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true`}
             title="업로드한 문서"
           />
         );
