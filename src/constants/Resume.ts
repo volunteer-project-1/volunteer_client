@@ -19,3 +19,5 @@ export const DISABLILITY_TYPE = [
 ] as const;
 
 export const SEX = ["남", "여"] as const;
+
+export const EMPLOY_TYPE = ["정규직", "시간제 정규직", "무기계약직", "계약직", "파견직", "기타"] as const;

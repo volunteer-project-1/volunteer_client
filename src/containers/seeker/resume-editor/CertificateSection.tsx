@@ -44,7 +44,7 @@ const CertificateSection = () => {
           </Editor.Row>
         </Fragment>
       ))}
-      <Editor.AddButton
+      <Editor.LargeAddButton
         onClick={() => {
           dispatch(addCertificate());
         }}

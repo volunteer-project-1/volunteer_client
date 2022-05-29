@@ -80,7 +80,7 @@ const CareerSection = () => {
           </Editor.Row>
         </Fragment>
       ))}
-      <Editor.AddButton
+      <Editor.LargeAddButton
         onClick={() => {
           dispatch(addCareer());
         }}

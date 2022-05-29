@@ -20,6 +20,7 @@ import CertificateSection from "@/containers/seeker/resume-editor/CertificateSec
 import AwardSection from "@/containers/seeker/resume-editor/AwardSection";
 import PortfolioSection from "@/containers/seeker/resume-editor/PortfolioSection";
 import IntroductionSection from "@/containers/seeker/resume-editor/IntroductionSection";
+import PreferenceSection from "@/containers/seeker/resume-editor/PreferenceSection";
 
 function processSingleItem<T>(item: Optional<T>) {
   return item ?? {};
@@ -103,6 +104,7 @@ const EditorColumn = () => {
       <AwardSection />
       <PortfolioSection />
       <IntroductionSection />
+      <PreferenceSection />
     </Page.Column>
   );
 };

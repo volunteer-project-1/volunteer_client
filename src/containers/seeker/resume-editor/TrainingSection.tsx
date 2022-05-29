@@ -64,7 +64,7 @@ const TrainingSection = () => {
           </Editor.Row>
         </Fragment>
       ))}
-      <Editor.AddButton
+      <Editor.LargeAddButton
         onClick={() => {
           dispatch(addTraining());
         }}

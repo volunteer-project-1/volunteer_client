@@ -112,7 +112,8 @@ export interface HelperVideo {
 export interface Preference {
   id: number;
   resume_id: number;
-  employ_type: number;
+  // 원래 number인데 응답이 string으로 옴...
+  employ_type: string;
   salary: number;
 }
 

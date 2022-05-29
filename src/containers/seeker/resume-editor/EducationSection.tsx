@@ -72,7 +72,7 @@ const EducationSection = () => {
           </Editor.Row>
         </Fragment>
       ))}
-      <Editor.AddButton
+      <Editor.LargeAddButton
         onClick={() => {
           dispatch(addEducation());
         }}

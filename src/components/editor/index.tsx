@@ -114,6 +114,37 @@ const SelectBase = <Value,>({ className, options, onChange, children }: SelectBa
   );
 };
 
+interface AddressBaseProps {
+  className: string;
+  id?: string;
+  placeholder: string;
+  isRequired?: boolean;
+  value?: AllOptional<Address>;
+  onChange?: (value: Address) => void;
+}
+
+const AddressBase = ({ className, id, placeholder, isRequired = false, value, onChange }: AddressBaseProps) => {
+  // 상태랑 연결이 안 되어 있어도 일단 작성은 되도록 함.
+  // (onChange가 없으면 uncontrolled component로 작동.)
+  const isDummy = typeof onChange === "undefined";
+
+  const handleClick = async () => {
+    onChange && onChange(await ExternalAPI.readAddress());
+  };
+
+  return (
+    <input
+      className={className}
+      id={id}
+      type="text"
+      placeholder={`${placeholder}${isRequired ? "*" : ""}`}
+      value={isDummy ? undefined : value ? `${value.sido ?? ""} ${value.sigungu ?? ""}`.trim() : ""}
+      onClick={handleClick}
+      readOnly
+    />
+  );
+};
+
 interface SmallInputProps {
   placeholder: string;
   type?: HTMLInputTypeAttribute;
@@ -173,28 +204,17 @@ interface SmallAddressProps {
   onChange?: (value: Address) => void;
 }
 
-const SmallAddress = ({ placeholder, isRequired = false, value, onChange }: SmallAddressProps) => {
-  // 상태랑 연결이 안 되어 있어도 일단 작성은 되도록 함.
-  // (onChange가 없으면 uncontrolled component로 작동.)
-  const isDummy = typeof onChange === "undefined";
-
-  const handleClick = async () => {
-    onChange && onChange(await ExternalAPI.readAddress());
-  };
-
-  return (
-    <div className="smallInputArea">
-      <input
-        className="input"
-        type="text"
-        placeholder={`${placeholder}${isRequired ? "*" : ""}`}
-        value={isDummy ? undefined : value ? `${value.sido ?? ""} ${value.sigungu ?? ""}`.trim() : ""}
-        onClick={handleClick}
-        readOnly
-      />
-    </div>
-  );
-};
+const SmallAddress = ({ placeholder, isRequired = false, value, onChange }: SmallAddressProps) => (
+  <div className="smallInputArea">
+    <AddressBase
+      className="input"
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      isRequired={isRequired}
+    />
+  </div>
+);
 
 interface SmallSelectProps<Value> {
   placeholder: string;
@@ -266,6 +286,25 @@ const LargeInput = ({ label, type = "text", value, onChange }: LargeInputProps) 
               }
         }
       />
+    </div>
+  );
+};
+
+interface LargeAddressProps {
+  label: string;
+  value?: AllOptional<Address>;
+  onChange?: (value: Address) => void;
+}
+
+const LargeAddress = ({ label, value, onChange }: LargeAddressProps) => {
+  const id = useID();
+
+  return (
+    <div className="largeInputArea">
+      <label className="label" htmlFor={id}>
+        {label}
+      </label>
+      <AddressBase className="input" id={id} value={value} onChange={onChange} placeholder="" />
     </div>
   );
 };
@@ -362,12 +401,22 @@ const Checkbox = ({ value = false, children, onChange }: CheckboxProps) => {
   );
 };
 
-interface AddButtonProps {
+interface SmallAddButtonProps {
   onClick: () => void;
 }
 
-const AddButton = ({ onClick }: AddButtonProps) => (
-  <button className="addButton" type="button" onClick={onClick}>
+const SmallAddButton = ({ onClick }: SmallAddButtonProps) => (
+  <button className="smallAddButton" type="button" onClick={onClick}>
+    + 내용 추가하기
+  </button>
+);
+
+interface LargeAddButtonProps {
+  onClick: () => void;
+}
+
+const LargeAddButton = ({ onClick }: LargeAddButtonProps) => (
+  <button className="largeAddButton" type="button" onClick={onClick}>
     <img className="icon" src="/assets/editor/add.svg" alt="내용 추가하기" />
     <span className="text">내용 추가하기</span>
   </button>
@@ -554,10 +603,12 @@ export default Object.assign(Editor, {
   SmallAddress,
   SmallSelect,
   LargeInput,
+  LargeAddress,
   LargeSelect,
   TextArea,
   Checkbox,
-  AddButton,
+  SmallAddButton,
+  LargeAddButton,
   FileUploader,
   ImageUploader,
 });

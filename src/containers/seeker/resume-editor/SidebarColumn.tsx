@@ -15,7 +15,7 @@ const SidebarColumn = () => {
   const doRequest = useRequest();
 
   const isResumeInfoFilled =
-    isNonEmpty(resumeState.resumeInfo.avatar) &&
+    // isNonEmpty(resumeState.resumeInfo.avatar) &&
     isNonEmpty(resumeState.resumeInfo.name) &&
     isNonEmpty(resumeState.resumeInfo.birthday) &&
     (isNonEmpty(resumeState.resumeInfo.sido) || isNonEmpty(resumeState.resumeInfo.sigungu));
@@ -62,6 +62,12 @@ const SidebarColumn = () => {
     introduction => isNonEmpty(introduction.title) && isNonEmpty(introduction.content)
   );
 
+  const isPreferenceFilled =
+    isExistent(resumeState.preference.employ_type) &&
+    isExistent(resumeState.preference.salary) &&
+    resumeState.preferenceLocations.every(location => isNonEmpty(location.sido) || isNonEmpty(location.sigungu)) &&
+    resumeState.preferenceJobs.every(job => isNonEmpty(job.name));
+
   const isNecessaryFilled = isResumeInfoFilled && isMyVideoFilled;
 
   const handleClickSubmit = async () => {
@@ -105,8 +111,13 @@ const SidebarColumn = () => {
           url: resumeState.myVideo.url,
         },
         helperVideo: isHelperVideoFilled ? resumeState.helperVideo : undefined,
-        // TODO: 이 부분 구현.
-        preference: undefined,
+        preference: isPreferenceFilled
+          ? {
+              ...resumeState.preference,
+              preferenceLocations: resumeState.preferenceLocations,
+              preferenceJobs: resumeState.preferenceJobs,
+            }
+          : undefined,
       })
     );
 
@@ -132,7 +143,7 @@ const SidebarColumn = () => {
         <StatusBox.Item isHighlighted={isAwardFilled}>수상경력</StatusBox.Item>
         <StatusBox.Item isHighlighted={isPortfolioFilled}>포트폴리오</StatusBox.Item>
         <StatusBox.Item isHighlighted={isIntroductionFilled}>자기소개서</StatusBox.Item>
-        <StatusBox.Item>희망근무사항</StatusBox.Item>
+        <StatusBox.Item isHighlighted={isPreferenceFilled}>희망근무사항</StatusBox.Item>
       </StatusBox>
       <button className="submit" onClick={handleClickSubmit}>
         이력서 제출하기

@@ -46,7 +46,7 @@ const AwardSection = () => {
           </Editor.Row>
         </Fragment>
       ))}
-      <Editor.AddButton
+      <Editor.LargeAddButton
         onClick={() => {
           dispatch(addAward());
         }}
