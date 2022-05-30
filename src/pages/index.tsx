@@ -1,6 +1,5 @@
 import React from "react";
 
-import "@/utils/Polyfills";
 import Page from "@/components/page";
 import MainSection from "@/containers/home/MainSection";
 import SearchSection from "@/containers/home/SearchSection";

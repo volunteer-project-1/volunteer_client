@@ -1,3 +1,6 @@
+// IE11 등 지원을 위한 파일. 제일 먼저 import!
+import "@/utils/Polyfills";
+
 import { useEffect } from "react";
 import { AppProps } from "next/app";
 import { CacheProvider, EmotionCache } from "@emotion/react";
