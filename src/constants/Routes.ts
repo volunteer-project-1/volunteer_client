@@ -20,6 +20,8 @@ const ROUTES = {
   company: {
     // 기업 프로필 작성.
     infoEditor: "/company/info-editor",
+    // 채용공고 작성.
+    jobEditor: "/company/job-editor",
     // 구직자 리스트.
     seekerList: "/company/seeker-list",
     // 구직자 프로필 보기. (Params: seeker-id)

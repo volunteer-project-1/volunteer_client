@@ -32,6 +32,7 @@ const menus: Array<Menu> = [
     prefix: "/company",
     pages: [
       { name: "기업 프로필 작성", url: ROUTES.company.infoEditor },
+      { name: "채용공고 작성", url: ROUTES.company.jobEditor },
       { name: "구직자 리스트", url: ROUTES.company.seekerList },
     ],
   },
