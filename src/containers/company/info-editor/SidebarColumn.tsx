@@ -17,7 +17,9 @@ const SidebarColumn = () => {
         <StatusBox.Item isNecessary>기업소개</StatusBox.Item>
         <StatusBox.Category>선택사항</StatusBox.Category>
         <StatusBox.Item>기업연혁</StatusBox.Item>
+        {/*
         <StatusBox.Item>사내 이미지</StatusBox.Item>
+        */}
       </StatusBox>
       <button className="submit" onClick={handleClickSubmit}>
         기업 등록하기
