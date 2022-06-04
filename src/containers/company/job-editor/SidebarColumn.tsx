@@ -10,7 +10,7 @@ const SidebarColumn = () => {
   return (
     <Page.Column>
       <StatusBox title="채용공고 입력항목">
-        <StatusBox.Category>필수사항</StatusBox.Category>
+        <StatusBox.Category isHighlighted>필수사항</StatusBox.Category>
         <StatusBox.Item isHighlighted isNecessary>
           모집분야
         </StatusBox.Item>
