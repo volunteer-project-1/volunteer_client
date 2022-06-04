@@ -1,6 +1,7 @@
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
 import { AllOptional } from "@/types/Common";
 import { Company, CompanyHistory, JdStep, JobDescription, JobDetail, Welfare, WorkCondition } from "@/types/Company";
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface CompanyState {
   company: AllOptional<Company>;
