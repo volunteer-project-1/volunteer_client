@@ -103,5 +103,4 @@ Heroku 이용한 배포
 
 ## Architecture
 
-![Architecture](https://user-images.githubusercontent.com/6301066/171973662-19778760-c6a7-4a9d-b9da-86d8b7dcf41c.png)
-
+![Architecture](https://user-images.githubusercontent.com/6301066/171983428-46ca40ab-f1d7-4833-9ae7-0a4dcbbf675a.png)
