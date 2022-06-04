@@ -18,11 +18,13 @@ import { isDevelopmentMode } from "@/utils/DebugUtils";
 import uiReducer from "@/store/ui";
 import authReducer from "@/store/auth";
 import resumeReducer from "@/store/resume";
+import companyReducer from "@/store/company";
 
 const ourReducer = combineReducers({
   ui: uiReducer,
   auth: authReducer,
   resume: resumeReducer,
+  company: companyReducer,
 });
 
 const rootReducer: typeof ourReducer = (state, action) => {
