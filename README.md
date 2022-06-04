@@ -100,3 +100,8 @@ Heroku 이용한 배포
   - components: 공통 component (Menu, Button, ...)
   - containers: 큰 단위의 component (Header, footer, 각 section, ...)
   - pages: 각 페이지(URL)를 나타내는 component
+
+## Architecture
+
+![Architecture](https://user-images.githubusercontent.com/6301066/171973662-19778760-c6a7-4a9d-b9da-86d8b7dcf41c.png)
+
