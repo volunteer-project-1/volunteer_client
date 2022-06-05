@@ -118,7 +118,7 @@ async function findMyResumes(): Promise<FindMyResumesOutput> {
   return response.data;
 }
 
-interface findWholeResumeOutput {
+interface FindWholeResumeOutput {
   resume: AllOptional<
     Omit<Resume, "user_id"> & {
       resume_info: AllOptional<ResumeInfo>;
@@ -142,8 +142,8 @@ interface findWholeResumeOutput {
   >;
 }
 
-async function findWholeResume(input: number): Promise<findWholeResumeOutput> {
-  const response = await API.get<findWholeResumeOutput>(`/api/v1/resume/${input}`);
+async function findWholeResume(input: number): Promise<FindWholeResumeOutput> {
+  const response = await API.get<FindWholeResumeOutput>(`/api/v1/resume/${input}`);
   return response.data;
 }
 
