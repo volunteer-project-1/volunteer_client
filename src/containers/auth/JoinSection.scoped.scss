@@ -2,11 +2,11 @@
   margin-top: 83px;
   margin-bottom: 83px;
 
+  @extend .inner;
+
   .content {
     display: flex;
     flex-direction: row;
-
-    @extend .inner;
   }
 
   .input {
@@ -47,7 +47,7 @@
   }
 
   .backgroundImage {
-    height: 100%;
+    max-width: 430px;
   }
 
   .submitButton {
