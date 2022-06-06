@@ -5,6 +5,7 @@ import { AccountType } from "@/types/Auth";
 import ROUTES from "@/constants/Routes";
 import { useStoreSelector } from "@/store";
 import Dialog from "@/components/dialog";
+import "@/components/wrapper/Wrapper.scoped.scss";
 
 interface RenderingWrapperProps {
   // true이면 children에 대해 CSR(Client-Side Rendering)만 사용함.
@@ -43,7 +44,8 @@ const LoadingWrapper = ({ children }: LoadingWrapperProps) => {
     <>
       {children}
       <Dialog disableBackdropClick disableEscapeKey isOpen={isLoading} onClose={handleCloseDialog}>
-        <Dialog.Content title="로딩 중">로딩 중입니다!</Dialog.Content>
+        <img className="loadingIcon" src={"/assets/layout/loading-logo.svg"} alt="Success" />
+        <Dialog.Content title="Loading...">잠시만 기다려 주세요.</Dialog.Content>
       </Dialog>
     </>
   );
