@@ -1,13 +1,17 @@
 import React from "react";
 
 import { isNonEmpty } from "@/utils/CheckUtils";
+import { useRequest } from "@/utils/APIUtils";
 import { useStoreSelector } from "@/store";
 import Page from "@/components/page";
 import StatusBox from "@/components/status-box";
 import "@/containers/company/info-editor/SidebarColumn.scoped.scss";
+import CompanyAPI from "@/api/CompanyAPI";
 
 const SidebarColumn = () => {
+  const account = useStoreSelector(state => state.auth.account);
   const companyState = useStoreSelector(state => state.company);
+  const doRequest = useRequest();
 
   const isInfoFilled =
     isNonEmpty(companyState.company.name) &&
@@ -21,7 +25,28 @@ const SidebarColumn = () => {
   const isHistoryFilled =
     isNonEmpty(companyState.companyHistory.history_at) && isNonEmpty(companyState.companyHistory.content);
 
-  const handleClickSubmit = () => {};
+  const isNecessaryFilled = isInfoFilled && isIntroductionFilled;
+
+  const handleClickSubmit = async () => {
+    if (!isNecessaryFilled) {
+      alert("필수사항들을 채워주세요!");
+      return;
+    }
+
+    if (!account) {
+      return;
+    }
+
+    await doRequest(
+      Promise.all([
+        CompanyAPI.updateCompany(companyState.company),
+        // TODO: 기업 연혁 적용.
+        // isHistoryFilled ? CompanyAPI.updateCompanyHistory(companyState.companyHistory) : undefined,
+      ])
+    );
+
+    alert("기업 정보 생성/업데이트에 성공했습니다!");
+  };
 
   return (
     <Page.Column>
