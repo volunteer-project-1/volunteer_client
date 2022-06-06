@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { Company, Seeker } from "@/types/Dummy";
-import { daysBetweenDates } from "@/utils/DateUtils";
+import { daysBetweenDates } from "@/utils/MathUtils";
 import { useStoreSelector } from "@/store";
 import Button from "@/components/button";
 import "@/components/card/Card.scoped.scss";

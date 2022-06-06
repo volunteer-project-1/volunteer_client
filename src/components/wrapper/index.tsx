@@ -1,8 +1,10 @@
 import React, { ReactNode, useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import classNames from "classnames";
 
 import { AccountType } from "@/types/Auth";
 import ROUTES from "@/constants/Routes";
+import { range } from "@/utils/MathUtils";
 import { useStoreSelector } from "@/store";
 import Dialog from "@/components/dialog";
 import "@/components/wrapper/Wrapper.scoped.scss";
@@ -35,6 +37,24 @@ interface LoadingWrapperProps {
  */
 const LoadingWrapper = ({ children }: LoadingWrapperProps) => {
   const isLoading = useStoreSelector(state => state.ui.isLoading);
+  const [activeSymbolIndex, setActiveSymbolIndex] = useState(0);
+  const symbolCount = 6;
+
+  useEffect(() => {
+    if (!isLoading) {
+      return;
+    }
+
+    setActiveSymbolIndex(0);
+
+    const interval = setInterval(() => {
+      setActiveSymbolIndex(value => (value + 1) % symbolCount);
+    }, 300);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [isLoading]);
 
   const handleCloseDialog = () => {
     // Do nothing.
@@ -46,6 +66,11 @@ const LoadingWrapper = ({ children }: LoadingWrapperProps) => {
       <Dialog disableBackdropClick disableEscapeKey isOpen={isLoading} onClose={handleCloseDialog}>
         <img className="loadingIcon" src={"/assets/layout/loading-logo.svg"} alt="Success" />
         <Dialog.Content title="Loading...">잠시만 기다려 주세요.</Dialog.Content>
+        <div className="loadingSymbolsArea">
+          {range(0, symbolCount).map((_, index) => (
+            <div key={index} className={classNames("loadingSymbol", { isActive: index === activeSymbolIndex })} />
+          ))}
+        </div>
       </Dialog>
     </>
   );

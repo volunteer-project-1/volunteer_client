@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { Company } from "@/types/Dummy";
 import DummyAPI from "@/api/DummyAPI";
-import { daysBetweenDates } from "@/utils/DateUtils";
+import { daysBetweenDates } from "@/utils/MathUtils";
 import "@/containers/seeker/company-list/ResultSection.scoped.scss";
 
 const ResultSection = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { dateToString } from "@/utils/DateUtils";
+import { dateToString } from "@/utils/MathUtils";
 import "@/containers/news/ListSection.scoped.scss";
 
 type NewsType = "채용정보" | "행사정보" | "사업정보" | "봉사정보";
