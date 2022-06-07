@@ -11,6 +11,7 @@ import { dLog, isDevelopmentMode } from "@/utils/DebugUtils";
 import { createEmotionCache, muiLightTheme } from "@/utils/StyleUtils";
 import Wrapper from "@/components/wrapper";
 import "@/scss/reset.scss";
+import Head from "next/head";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -37,6 +38,9 @@ const MyApp = ({ Component, emotionCache = clientSideEmotionCache, pageProps }: 
   return (
     <CacheProvider value={emotionCache}>
       <ThemeProvider theme={muiLightTheme}>
+        <Head>
+          <title>SEE ME</title>
+        </Head>
         {
           // react-scoped-scss를 위해 Webpack 설정을 커스텀하다보니...
           // 개발 모드에서는 웹페이지를 너무 빨리 열면 스타일 안 먹는 경우가 있음...
