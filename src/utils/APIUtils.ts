@@ -39,7 +39,8 @@ export function useLogin() {
 
         dispatch(
           setAccount({
-            id: output.id,
+            //id: output.id,
+            email: args.id,
             type: args.accountType,
           })
         );
@@ -51,7 +52,8 @@ export function useLogin() {
 
         dispatch(
           setAccount({
-            id: output.id,
+            //id: output.id,
+            email: args.id,
             type: args.accountType,
           })
         );

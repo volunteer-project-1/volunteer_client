@@ -17,5 +17,5 @@ export function useID() {
  * 적당히 생성.
  */
 export function getResumeTitle(account: Account) {
-  return `Resume-${account.id}`;
+  return `Resume-${account.email}`;
 }

@@ -45,6 +45,7 @@ interface LoginSeekerInput {
 
 interface LoginSeekerOutput {
   id: number;
+  email: string;
 }
 
 /**
@@ -59,6 +60,7 @@ async function loginSeeker(input: LoginSeekerInput): Promise<LoginSeekerOutput> 
 
   return {
     id: profile.user.id,
+    email: input.email,
   };
 }
 
@@ -68,8 +70,6 @@ interface LoginCompanyInput {
 }
 
 interface LoginCompanyOutput {
-  id: number;
-  name: string;
   email: string;
 }
 
@@ -77,8 +77,11 @@ interface LoginCompanyOutput {
  * 구직자 로그인.
  */
 async function loginCompany(input: LoginCompanyInput): Promise<LoginCompanyOutput> {
-  const response = await API.post<LoginCompanyOutput>(`/api/v1/auth/local/company`, input);
-  return response.data;
+  await API.post<LoginCompanyOutput>(`/api/v1/auth/local/company`, input);
+
+  return {
+    email: input.email,
+  };
 }
 
 async function logout(): Promise<void> {
