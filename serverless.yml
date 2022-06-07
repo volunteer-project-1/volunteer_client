@@ -1,6 +1,8 @@
 seeme:
   component: "@sls-next/serverless-component@3.7.0"
   inputs:
+    # 사용할 S3 bucket. (없으면 자동 생성.)
+    bucketName: ahhnugp-29etkcs
     cloudfront:
-      # CloudFront id 적음 -> 새로 안 만들고 재사용.
+      # 사용할 CloudFront. (없으면 자동 생성.)
       distributionId: E2AK2XQZMMGEQ1
