@@ -1,0 +1,37 @@
+name: Deploy
+on:
+  push:
+    branches: master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 최신 코드 땡겨오기
+        uses: actions/checkout@master
+        with:
+          ref: master
+
+      - name: 전역 의존성 설치
+        run: |
+          npm install -g @serverless/cli@1.6.0
+
+      - name: 로컬 의존성 설치
+        run: |
+          npm install
+
+      - name: .env 생성
+        run: |
+          touch .env
+          > .env
+          echo AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} >> .env
+          echo AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} >> .env
+
+      - name: 배포 전 확인
+        run: |
+          cat .env
+          npm list -g @serverless/cli
+          npm list next
+
+      - name: 배포
+        run: |
+          components-v1
