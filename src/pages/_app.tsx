@@ -3,15 +3,17 @@ import "@/utils/Polyfills";
 
 import { useEffect } from "react";
 import { AppProps } from "next/app";
+import { useRouter } from "next/router";
+import Head from "next/head";
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import { ThemeProvider } from "@mui/material";
 
-import { storeWrapper, useStoreDispatch } from "@/store";
 import { dLog, isDevelopmentMode } from "@/utils/DebugUtils";
 import { createEmotionCache, muiLightTheme } from "@/utils/StyleUtils";
+import { storeWrapper, useStoreDispatch } from "@/store";
+import { setLoading } from "@/store/ui";
 import Wrapper from "@/components/wrapper";
 import "@/scss/reset.scss";
-import Head from "next/head";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -23,7 +25,33 @@ interface MyAppProps extends AppProps {
  * 임의의 page에 씌워지는 wrapper component.
  */
 const MyApp = ({ Component, emotionCache = clientSideEmotionCache, pageProps }: MyAppProps) => {
+  const router = useRouter();
   const dispatch = useStoreDispatch();
+
+  // 페이지 바뀔 때마다 loading dialog 보여줌.
+  useEffect(() => {
+    const handleRouteChangeStart = () => {
+      dispatch(setLoading(true));
+    };
+
+    const handleRouteChangeComplete = () => {
+      dispatch(setLoading(false));
+    };
+
+    const handleRouteChangeError = () => {
+      dispatch(setLoading(false));
+    };
+
+    router.events.on("routeChangeStart", handleRouteChangeStart);
+    router.events.on("routeChangeComplete", handleRouteChangeComplete);
+    router.events.on("routeChangeError", handleRouteChangeError);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChangeStart);
+      router.events.off("routeChangeComplete", handleRouteChangeComplete);
+      router.events.off("routeChangeError", handleRouteChangeError);
+    };
+  }, [dispatch, router]);
 
   useEffect(() => {
     const stateData = localStorage.getItem("state");
