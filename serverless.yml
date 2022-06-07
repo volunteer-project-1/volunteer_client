@@ -1,2 +1,6 @@
 seeme:
   component: "@sls-next/serverless-component@3.7.0"
+  inputs:
+    cloudfront:
+      # CloudFront id 적음 -> 새로 안 만들고 재사용.
+      distributionId: E2AK2XQZMMGEQ1
