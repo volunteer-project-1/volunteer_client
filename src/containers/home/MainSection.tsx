@@ -99,15 +99,6 @@ const MainSection = () => (
         <div key={i} className="descriptionNotice_wrap">
           <Link href={item.url}>
             <a className="link">
-              <div className="box">
-                <div>
-                  <span className="group">{item.group}</span>
-                  <p className="title">{item.title}</p>
-                  <div className="more">
-                    <span className="blind">더보기</span>
-                  </div>
-                </div>
-              </div>
               {item.img ? (
                 <div className="img">
                   <img src={item.img} alt="" />
@@ -115,6 +106,14 @@ const MainSection = () => (
               ) : (
                 <div className="no_img blind">미리보기 이미지가 없습니다</div>
               )}
+              <div className="box">
+                <span className="group">{item.group}</span>
+                <p className="title">{item.title}</p>
+                <div className="icon" />
+                <div className="more">
+                  <span className="blind">더보기</span>
+                </div>
+              </div>
             </a>
           </Link>
         </div>

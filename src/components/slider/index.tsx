@@ -75,7 +75,7 @@ const NoticeSlider = ({ children }: SliderProps) => {
     autoplaySpeed: 4000,
     slidesToShow: 3,
     slidesToScroll: 3,
-    rtl: true,
+    rtl: false,
     responsive: [
       {
         breakpoint: 1024,
