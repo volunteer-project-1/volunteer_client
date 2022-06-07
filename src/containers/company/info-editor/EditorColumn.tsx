@@ -8,6 +8,7 @@ import InfoSection from "@/containers/company/info-editor/InfoSection";
 import IntroductionSection from "@/containers/company/info-editor/IntroductionSection";
 import HistorySection from "@/containers/company/info-editor/HistorySection";
 import ImageSection from "@/containers/company/info-editor/ImageSection";
+import { updateCompany } from "@/store/company";
 
 const EditorColumn = () => {
   const account = useStoreSelector(state => state.auth.account);
@@ -21,7 +22,36 @@ const EditorColumn = () => {
       }
 
       const company = await doRequest(CompanyAPI.findCompany({ email: account.email }));
-      console.log(company);
+
+      const {
+        id,
+        email,
+        name,
+        introduce,
+        founded_at,
+        member,
+        acc_investment,
+        homepage,
+        phone_number,
+        address,
+        industry_type,
+      } = company;
+
+      dispatch(
+        updateCompany({
+          id,
+          email,
+          name,
+          introduce,
+          founded_at,
+          member,
+          acc_investment,
+          homepage,
+          phone_number,
+          address,
+          industry_type,
+        })
+      );
     })();
   }, [account, dispatch, doRequest]);
 

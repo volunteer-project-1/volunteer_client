@@ -23,13 +23,24 @@ type FindCompanyOutput = AllOptional<{
   id: number;
   name: string;
   email: string;
-  created_at: Date;
-  updated_at: Date;
+  introduce: string;
+  founded_at: string;
+  member: number;
+  acc_investment: number;
+  homepage: string;
+  phone_number: string;
+  address: string;
+  industry_type: string;
+  created_at: string;
+  updated_at: string;
 }>;
 
 async function findCompany(input: FindCompanyInput): Promise<FindCompanyOutput> {
-  const response = await API.patch<FindCompanyOutput>(`/api/v1/company`, { email: input.email });
-  return response.data;
+  const patchResponse = await API.patch<{ company: { id: number } }>(`/api/v1/company`, { email: input.email });
+  const id = patchResponse.data.company.id;
+
+  const response = await API.get<{ companys: Array<FindCompanyOutput> }>(`/api/v1/company?start=${id}&limit=1`);
+  return response.data.companys[0];
 }
 
 const CompanyAPI = {
