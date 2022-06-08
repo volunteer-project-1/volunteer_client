@@ -5,7 +5,7 @@ import { Company, CompanyHistory, JdStep, JobDescription, JobDetail, Welfare, Wo
 
 interface CompanyState {
   company: AllOptional<Company>;
-  companyHistory: AllOptional<CompanyHistory>;
+  companyHistories: Array<AllOptional<CompanyHistory>>;
   jobDescription: AllOptional<JobDescription>;
   jdDetails: Array<AllOptional<JobDetail>>;
   jdWorkCondition: AllOptional<WorkCondition>;
@@ -15,7 +15,7 @@ interface CompanyState {
 
 const initialState: CompanyState = {
   company: {},
-  companyHistory: {},
+  companyHistories: [{}],
   jobDescription: {},
   jdDetails: [{}],
   jdWorkCondition: {},
@@ -24,7 +24,7 @@ const initialState: CompanyState = {
 };
 
 // 배열 형태의 상태들 / 일반 형태의 상태들을 분류.
-type ArrayName = "jdDetails" | "jdSteps" | "jdWelfares";
+type ArrayName = "companyHistories" | "jdDetails" | "jdSteps" | "jdWelfares";
 type SingleName = Exclude<keyof CompanyState, ArrayName>;
 
 function createArrayItemAdder<Item>(name: ArrayName) {
@@ -52,7 +52,8 @@ const companySlice = createSlice({
   reducers: {
     updateCompany: createSingleItemUpdater<Company>("company"),
 
-    updateCompanyHistory: createSingleItemUpdater<CompanyHistory>("companyHistory"),
+    addCompanyHistory: createArrayItemAdder<CompanyHistory>("companyHistories"),
+    updateCompanyHistory: createArrayItemUpdater<CompanyHistory>("companyHistories"),
 
     updateJobDescription: createSingleItemUpdater<JobDescription>("jobDescription"),
 
@@ -71,6 +72,7 @@ const companySlice = createSlice({
 
 export const {
   updateCompany,
+  addCompanyHistory,
   updateCompanyHistory,
   updateJobDescription,
   addJdDetail,

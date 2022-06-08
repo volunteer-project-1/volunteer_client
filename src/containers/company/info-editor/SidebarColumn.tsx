@@ -22,8 +22,9 @@ const SidebarColumn = () => {
 
   const isIntroductionFilled = isNonEmpty(companyState.company.introduce);
 
-  const isHistoryFilled =
-    isNonEmpty(companyState.companyHistory.history_at) && isNonEmpty(companyState.companyHistory.content);
+  const isHistoryFilled = companyState.companyHistories.every(
+    history => isNonEmpty(history.history_at) && isNonEmpty(history.content)
+  );
 
   const isNecessaryFilled = isInfoFilled && isIntroductionFilled;
 
