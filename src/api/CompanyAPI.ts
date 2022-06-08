@@ -2,6 +2,26 @@ import { AllOptional } from "@/types/Common";
 import { Company, CompanyHistory } from "@/types/Company";
 import API from "@/api/API";
 
+type CreateCompanyHistoryInput = AllOptional<{
+  // Company id.
+  id: number;
+  content: string;
+  history_at: string;
+}>;
+
+interface CreateCompanyHistoryOutput {
+  companyHistory: {
+    // Company history id.
+    id: number;
+  };
+}
+
+async function createCompanyHistory(input: CreateCompanyHistoryInput): Promise<CreateCompanyHistoryOutput> {
+  const { id, ...item } = input;
+  const response = API.post<CreateCompanyHistoryOutput>(`/api/v1/company/${id}/history`, item);
+  return (await response).data;
+}
+
 type UpdateCompanyInput = AllOptional<Company>;
 
 async function updateCompany(input: UpdateCompanyInput): Promise<void> {
@@ -44,6 +64,7 @@ async function findCompany(input: FindCompanyInput): Promise<FindCompanyOutput> 
 }
 
 const CompanyAPI = {
+  createCompanyHistory,
   updateCompany,
   updateCompanyHistory,
   findCompany,

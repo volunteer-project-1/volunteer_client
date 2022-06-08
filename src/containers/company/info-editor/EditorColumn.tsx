@@ -59,10 +59,12 @@ const EditorColumn = () => {
     <Page.Column fill>
       <InfoSection />
       <IntroductionSection />
-      <HistorySection />
       {/*
-    <ImageSection />
-    */}
+      <HistorySection />
+      */}
+      {/*
+      <ImageSection />
+      */}
     </Page.Column>
   );
 };

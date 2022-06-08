@@ -27,7 +27,6 @@ const HistorySection = () => {
             </Editor.Cell>
             <Editor.Cell fill>
               <Editor.SmallInput
-                type="number"
                 placeholder="내용을 입력해주세요."
                 value={history.content}
                 onChange={value => {

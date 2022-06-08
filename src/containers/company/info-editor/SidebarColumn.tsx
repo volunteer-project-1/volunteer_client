@@ -59,9 +59,9 @@ const SidebarColumn = () => {
         <StatusBox.Item isNecessary isHighlighted={isIntroductionFilled}>
           기업소개
         </StatusBox.Item>
+        {/*
         <StatusBox.Category>선택사항</StatusBox.Category>
         <StatusBox.Item isHighlighted={isHistoryFilled}>기업연혁</StatusBox.Item>
-        {/*
         <StatusBox.Item>사내 이미지</StatusBox.Item>
         */}
       </StatusBox>
