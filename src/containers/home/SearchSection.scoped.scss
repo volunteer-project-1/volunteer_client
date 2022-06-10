@@ -1,3 +1,5 @@
+$searchSectionBorderRadius: 8px;
+
 .searchSection {
   position: relative;
 
@@ -31,8 +33,6 @@
   }
 
   .searchArea {
-    // border-radius가 자식들의 border도 깎아내도록 함.
-    overflow: hidden;
     position: relative;
 
     display: flex;
@@ -42,7 +42,6 @@
     height: 82px;
     max-width: 100%;
     margin-top: 65px;
-    border-radius: 8px;
 
     @extend .font, .size30;
   }
@@ -61,12 +60,19 @@
     padding-left: 80px;
     font-size: inherit;
     font-family: inherit;
+
+    border: 0;
+    border-top-left-radius: $searchSectionBorderRadius;
+    border-bottom-left-radius: $searchSectionBorderRadius;
   }
 
   .searchButton {
     width: 170px;
     font-size: inherit;
     font-family: inherit;
+
+    border-top-right-radius: $searchSectionBorderRadius;
+    border-bottom-right-radius: $searchSectionBorderRadius;
 
     @extend .font, .white;
     @include boxColor(background-color, green);
