@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 
 import { Company, Seeker } from "@/types/Dummy";
+import ROUTES from "@/constants/Routes";
 import { daysBetweenDates } from "@/utils/MathUtils";
 import { useStoreSelector } from "@/store";
 import Button from "@/components/button";
@@ -52,6 +54,7 @@ const CompanyCard = ({ company }: CompanyCardProps) => {
 };
 
 const SeekerCard = ({ seeker }: SeekerCardProps) => {
+  const router = useRouter();
   const account = useStoreSelector(state => state.auth.account);
   const isLoggedOn = account?.type === "company";
 
@@ -62,7 +65,7 @@ const SeekerCard = ({ seeker }: SeekerCardProps) => {
     if (!isLoggedOn) {
       alert("회사로 로그인하세요!");
     } else {
-      alert("제안하기!");
+      router.push(ROUTES.company.seekerResume);
     }
   };
 

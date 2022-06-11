@@ -1,0 +1,135 @@
+.viewer {
+  width: 100%;
+  height: 100%;
+
+  @mixin section {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .sectionTitle {
+    @extend .font, .size20, .dark6, .bold;
+
+    margin-bottom: 20px;
+  }
+
+  .infoSection {
+    @include section;
+
+    display: flex;
+    flex-direction: row;
+
+    .others {
+      flex: 1;
+      width: 100%;
+
+      .row {
+        &:not(:first-child) {
+          margin-top: 8px;
+        }
+      }
+
+      .tag {
+        display: inline-block;
+
+        width: 64px;
+      }
+    }
+
+    .avatar {
+      width: 123px;
+      margin-right: 26px;
+    }
+
+    .name {
+      @extend .font, .size24, .bold, .green;
+    }
+
+    .sex,
+    .birthday,
+    .age {
+      @extend .font, .size16, .dark6;
+
+      margin-left: 16px;
+    }
+
+    .disability,
+    .phoneNumber,
+    .email,
+    .address {
+      @extend .font, .size16, .dark6;
+    }
+  }
+
+  .myVideoSection,
+  .helperVideoSection {
+    @include section;
+
+    .video {
+      width: 100%;
+    }
+  }
+
+  .educationSection,
+  .careerSection,
+  .certificateSection,
+  .preferenceSection {
+    @include section;
+
+    .table {
+      box-sizing: border-box;
+
+      width: 100%;
+      border-style: solid;
+      border-width: 2px;
+      @include boxColor(border-color, green);
+      border-left: 0;
+      border-right: 0;
+
+      @extend .font, .size16, .dark6;
+    }
+
+    .tableRow {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+
+      width: 100%;
+      padding: 22px 20px;
+
+      &:not(:first-child) {
+        border-top-style: solid;
+        border-top-width: 1px;
+        border-top-color: #efeff4;
+      }
+    }
+
+    .tableColumn {
+      &:not(:first-child) {
+        margin-left: 40px;
+      }
+    }
+
+    .tableColumnFill {
+      @extend .tableColumn;
+
+      flex: 1;
+      width: 100%;
+    }
+
+    .tableItem {
+      box-sizing: border-box;
+
+      padding: 5px 20px;
+
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 18px;
+      @include boxColor(border-color, dark3);
+
+      &:not(:first-child) {
+        margin-left: 20px;
+      }
+    }
+  }
+}
