@@ -1,0 +1,137 @@
+.infoSection {
+  @extend .inner;
+
+  margin-top: 100px;
+
+  ul {
+    list-style: disc;
+    margin-left: 20px;
+  }
+
+  .box {
+    overflow-x: auto;
+    box-sizing: border-box;
+
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 26px;
+
+    border-style: solid;
+    border-width: 1px;
+    @include boxColor(border-color, dark3);
+
+    @extend .font, .size16, .dark8;
+
+    .boxTitle {
+      margin-bottom: 16px;
+
+      @extend .font, .dark8, .size20, .w500;
+    }
+
+    .table {
+      .tableColumn {
+        box-sizing: border-box;
+        white-space: nowrap;
+        padding-right: 60px;
+        padding-bottom: 16px;
+
+        &:first-child {
+          @extend .font, .dark4;
+        }
+      }
+
+      .tableColumnFill {
+        @extend .tableColumn;
+
+        width: 100%;
+        padding-right: 0;
+      }
+    }
+
+    .jobTable {
+      @extend .table;
+
+      li {
+        &:not(:first-child) {
+          margin-top: 16px;
+        }
+      }
+
+      .tableRow {
+        box-sizing: border-box;
+
+        padding-bottom: 16px;
+      }
+
+      .tableColumn:first-child {
+        text-align: center;
+      }
+
+      .tableColumn {
+        padding: 20px;
+
+        border-style: solid;
+        border-width: 1px;
+        @include boxColor(border-color, green);
+
+        @extend .font, .dark8;
+
+        &:not(:last-child) {
+          border-right-width: 0;
+        }
+      }
+
+      th {
+        @include boxColor(background-color, green);
+
+        text-align: center;
+        padding: 12px 60px;
+
+        // 몰라여 안되여 그냥 important 쓸꺼야 힝...
+        color: white !important;
+
+        &:not(:first-child) {
+          border-left-color: white !important;
+        }
+      }
+    }
+
+    .process {
+      display: inline-block;
+      text-align: center;
+
+      margin-bottom: 26px;
+
+      &:not(:first-child) {
+        margin-left: 36px;
+      }
+
+      .iconArea {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        width: 114px;
+        height: 114px;
+
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 50%;
+        @include boxColor(border-color, green);
+
+        @extend .font, .green;
+
+        img {
+          margin-top: 5px;
+        }
+      }
+
+      .label {
+        margin-top: 8px;
+
+        @extend .font, .dark8, .size16;
+      }
+    }
+  }
+}
