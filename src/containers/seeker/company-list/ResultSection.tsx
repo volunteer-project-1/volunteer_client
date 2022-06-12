@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 import { Company } from "@/types/Dummy";
+import ROUTES from "@/constants/Routes";
 import DummyAPI from "@/api/DummyAPI";
 import { daysBetweenDates } from "@/utils/MathUtils";
 import "@/containers/seeker/company-list/ResultSection.scoped.scss";
 
 const ResultSection = () => {
+  const router = useRouter();
   const [currentCompanyList, setCurrentCompanyList] = useState<Array<Company>>([]);
 
   useEffect(() => {
@@ -35,6 +38,14 @@ const ResultSection = () => {
                 <span className="dDays">{dDays}</span>
               </div>
             </div>
+            <button
+              className="connect"
+              onClick={() => {
+                router.push(ROUTES.seeker.companyInfo);
+              }}
+            >
+              지원하기
+            </button>
           </div>
         );
       })}
