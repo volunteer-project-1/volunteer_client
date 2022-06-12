@@ -91,11 +91,8 @@
 
     .tableRow {
       box-sizing: border-box;
-      display: flex;
-      flex-direction: row;
 
       width: 100%;
-      padding: 22px 20px;
 
       &:not(:first-child) {
         border-top-style: solid;
@@ -105,19 +102,20 @@
     }
 
     .tableColumn {
-      &:not(:first-child) {
-        margin-left: 40px;
-      }
+      box-sizing: border-box;
+      white-space: nowrap;
+      padding: 22px 20px;
     }
 
     .tableColumnFill {
       @extend .tableColumn;
 
-      flex: 1;
       width: 100%;
     }
 
     .tableItem {
+      display: inline-block;
+      white-space: nowrap;
       box-sizing: border-box;
 
       padding: 5px 20px;
@@ -127,9 +125,24 @@
       border-radius: 18px;
       @include boxColor(border-color, dark3);
 
-      &:not(:first-child) {
-        margin-left: 20px;
+      &:not(:last-child) {
+        margin-right: 20px;
       }
+    }
+
+    .schoolName,
+    .company {
+      @extend .font, .dark6, .w500;
+    }
+
+    .task {
+      @extend .font, .dark6;
+    }
+
+    .major,
+    .position,
+    .careerOthers {
+      @extend .font, .dark4;
     }
   }
 }
