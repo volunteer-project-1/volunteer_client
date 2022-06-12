@@ -64,7 +64,7 @@ const LoadingWrapper = ({ children }: LoadingWrapperProps) => {
     <>
       {children}
       <Dialog disableBackdropClick disableEscapeKey isOpen={isLoading} onClose={handleCloseDialog}>
-        <img className="loadingIcon" src={"/assets/layout/loading-logo.svg"} alt="Success" />
+        <img className="loadingIcon" src={"/assets/layout/loading-logo.svg"} alt="Loading" />
         <Dialog.Content title="Loading...">잠시만 기다려 주세요.</Dialog.Content>
         <div className="loadingSymbolsArea">
           {range(0, symbolCount).map((_, index) => (
