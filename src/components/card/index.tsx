@@ -20,6 +20,7 @@ const Card = ({ company }: CompanyCardProps) => {
 };
 
 const CompanyCard = ({ company }: CompanyCardProps) => {
+  const router = useRouter();
   const account = useStoreSelector(state => state.auth.account);
   const isLoggedOn = account?.type === "seeker";
 
@@ -44,7 +45,17 @@ const CompanyCard = ({ company }: CompanyCardProps) => {
           <Button.Like isLiked={isLiked} onClick={handleClickLike} />
         </div>
       </div>
-      <div className="contentArea">
+      <div
+        className="contentArea"
+        role="button"
+        tabIndex={0}
+        onKeyUp={() => {
+          // Do nothing.
+        }}
+        onClick={() => {
+          router.push(ROUTES.seeker.companyInfo);
+        }}
+      >
         <div className="name">{company.name}</div>
         <div className="description">{company.description}</div>
         <div className="dDays">{dDays}</div>

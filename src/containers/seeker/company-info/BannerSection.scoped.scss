@@ -1,0 +1,54 @@
+.bannerSection {
+  position: relative;
+
+  width: 100%;
+
+  .banner {
+    width: 100%;
+  }
+
+  .content {
+    @extend .inner;
+
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    left: 50%;
+    bottom: 80px;
+    transform: translateX(-50%);
+
+    @extend .font, .white;
+  }
+
+  .logo {
+    width: 93px;
+    height: 93px;
+    border-radius: 16px;
+  }
+
+  .column {
+    flex: 1;
+    width: 100%;
+    margin-left: 30px;
+  }
+
+  .row {
+    &:not(:first-child) {
+      margin-top: 7px;
+    }
+  }
+
+  .name {
+    @extend .font, .size30, .bold;
+  }
+
+  .description {
+    @extend .font, .size20;
+  }
+
+  .dDays {
+    @extend .font, .size18;
+  }
+}
