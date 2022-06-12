@@ -91,5 +91,17 @@
     .handicap {
       @extend .font, .dark4, .size12;
     }
+
+    .connect {
+      box-sizing: border-box;
+
+      margin-left: auto;
+      padding: 16px 30px;
+
+      border-style: solid;
+      border-width: 1px;
+      @include boxColor(border-color, green);
+      @extend .font, .green, .bold;
+    }
   }
 }

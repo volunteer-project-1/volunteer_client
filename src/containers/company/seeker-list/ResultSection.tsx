@@ -1,10 +1,13 @@
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
 import { Seeker } from "@/types/Dummy";
+import ROUTES from "@/constants/Routes";
 import DummyAPI from "@/api/DummyAPI";
 import "@/containers/company/seeker-list/ResultSection.scoped.scss";
 
 const ResultSection = () => {
+  const router = useRouter();
   const [currentSeekerList, setCurrentSeekerList] = useState<Array<Seeker>>([]);
 
   useEffect(() => {
@@ -39,6 +42,15 @@ const ResultSection = () => {
               <span className="handicap">{seeker.handicap}</span>
             </div>
           </div>
+          <button
+            type="button"
+            className="connect"
+            onClick={() => {
+              router.push(ROUTES.company.seekerResume);
+            }}
+          >
+            제안하기
+          </button>
         </div>
       ))}
     </div>
