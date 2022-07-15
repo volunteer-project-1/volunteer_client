@@ -17,7 +17,8 @@
 필요 라이브러리 설치
 
 - [Node.js](https://nodejs.org/ko/) 설치
-- `npm install`로 라이브러리들 설치
+- Yarn 설치: `npm install -g yarn`
+- 필요 라이브러리들 설치: `yarn`
 
 설치 추천하는 도구들
 
@@ -26,25 +27,25 @@
 
 개발 모드 빌드 & 실행
 
-- `npm run dev`로 개발 모드 빌드 & 개발 서버 실행
+- `yarn dev`로 개발 모드 빌드 & 개발 서버 실행
 - 웹 브라우저에서 <http://localhost:3000>으로 접속하세요.
 - 접속한 상태에서 코드를 변경하고 저장하면 웹페이지가 자동으로 업데이트됩니다.
 
 배포 모드 빌드 & 실행
 
-- `npm run build`로 배포 모드 빌드
-- `npm run start`로 배포 서버 실행
+- `yarn build`로 배포 모드 빌드
+- `yarn start`로 배포 서버 실행
 
 ~~정적 사이트 생성~~
 
-- `npm run build`로 배포 모드 빌드
-- `npm run export`로 정적 사이트 생성 (Static Site Generation)
+- `yarn build`로 배포 모드 빌드
+- `yarn export`로 정적 사이트 생성 (Static Site Generation)
 - 현재 사이트 실행에 Next.js 서버가 필수이므로 이 기능은 사용하지 않습니다.
 
 코드 스타일 체크
 
-- `npm run lint`로 JS/TS 코드 스타일 체크
-- `npm run lint:fix`를 하면 체크뿐만 아니라 수정까지 이루어집니다.
+- `yarn lint`로 JS/TS 코드 스타일 체크
+- `yarn lint:fix`를 하면 체크뿐만 아니라 수정까지 이루어집니다.
 
 ## How to deploy
 
@@ -55,17 +56,12 @@ Serverless 이용한 배포
 - 형식: .env.example 참고
 - [링크](https://velog.io/@jeffyoun/Serverless-프레임워크-사용해서-배포하기) 참고하여 AWS access key 얻기
 
-(2) 필요 도구들 설치
+(2) 배포
 
-- `npm install -g serverless`
-- `npm install -g @serverless/cli`
-
-(3) 배포
-
-- `components-v1` 실행
+- `yarn deploy` 실행
 - 시간이 좀 오래 걸립니다... (몇분 정도 걸림)
 
-Heroku 이용한 배포
+Heroku 이용한 배포 (포트 고정이 불가능하여 현재는 사용 X)
 
 (1) 필요 도구들 설치
 
