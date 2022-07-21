@@ -100,3 +100,21 @@ Heroku 이용한 배포 (포트 고정이 불가능하여 현재는 사용 X)
 ## Architecture
 
 ![Architecture](https://user-images.githubusercontent.com/6301066/171983428-46ca40ab-f1d7-4833-9ae7-0a4dcbbf675a.png)
+
+## Screenshots
+
+![Landing](screenshots/landing.jpeg)
+
+![Auth](screenshots/auth.jpeg)
+
+![Seeker - Resume](screenshots/seeker-resume.jpeg)
+
+![Seeker - Company list](screenshots/seeker-company-list.jpeg)
+
+![Company - Info](screenshots/company-info.jpeg)
+
+![Company - Job](screenshots/company-job.jpeg)
+
+![News](screenshots/news.jpeg)
+
+![Notice](screenshots/notice.jpeg)
