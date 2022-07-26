@@ -21,7 +21,7 @@
   }
 
   .sectionTitle {
-    @extend .font, .green, .size48, .w300;
+    @extend %font, %green, %size48, %w300;
   }
 
   .sectionTitleEmphasize {
@@ -32,6 +32,6 @@
     margin-top: 19px;
     margin-bottom: 48px;
 
-    @extend .font, .dark4, .size18;
+    @extend %font, %dark4, %size18;
   }
 }

@@ -15,7 +15,7 @@
     border-bottom-width: 1px;
     @include boxColor(border-bottom-color, dark3);
 
-    @extend .font, .dark4, .size20, .bold;
+    @extend %font, %dark4, %size20, %bold;
   }
 
   .content {
@@ -32,27 +32,27 @@
     margin-top: 18px;
     margin-bottom: 24px;
 
-    @extend .font, .size16, .dark6;
+    @extend %font, %size16, %dark6;
 
     &.isHighlighted {
-      @extend .green, .bold;
+      @extend %green, %bold;
     }
   }
 
   .item {
     margin-bottom: 18px;
 
-    @extend .font, .size16, .dark6;
+    @extend %font, %size16, %dark6;
 
     .necessity {
-      @extend .font, .red;
+      @extend %font, %red;
     }
 
     &.isHighlighted {
-      @extend .green, .bold;
+      @extend %green, %bold;
 
       .necessity {
-        @extend .green;
+        @extend %green;
       }
     }
   }

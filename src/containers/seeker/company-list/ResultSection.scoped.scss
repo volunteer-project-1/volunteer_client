@@ -18,13 +18,13 @@
     @include boxColor(border-bottom-color, dark3);
 
     .title {
-      @extend .font, .dark4, .size14, .w500;
+      @extend %font, %dark4, %size14, %w500;
     }
 
     .count {
       margin-left: 6px;
 
-      @extend .font, .green, .size14, .bold;
+      @extend %font, %green, %size14, %bold;
     }
   }
 
@@ -60,11 +60,11 @@
     }
 
     .name {
-      @extend .font, .dark6, .size18, .bold;
+      @extend %font, %dark6, %size18, %bold;
     }
 
     .dDays {
-      @extend .font, .dark4, .size12;
+      @extend %font, %dark4, %size12;
     }
 
     .connect {
@@ -76,7 +76,7 @@
       border-style: solid;
       border-width: 1px;
       @include boxColor(border-color, green);
-      @extend .font, .green, .bold;
+      @extend %font, %green, %bold;
     }
   }
 }

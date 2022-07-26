@@ -5,5 +5,5 @@
 
   background-color: #ffffff;
 
-  @extend .font, .size18, .green;
+  @extend %font, %size18, %green;
 }

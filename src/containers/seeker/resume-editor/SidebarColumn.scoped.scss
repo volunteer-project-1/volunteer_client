@@ -8,5 +8,5 @@
 
   @include boxColor(background-color, green);
 
-  @extend .font, .white, .size18, .w500;
+  @extend %font, %white, %size18, %w500;
 }

@@ -18,13 +18,13 @@
     @include boxColor(border-bottom-color, dark3);
 
     .title {
-      @extend .font, .dark4, .size14, .w500;
+      @extend %font, %dark4, %size14, %w500;
     }
 
     .count {
       margin-left: 6px;
 
-      @extend .font, .green, .size14, .bold;
+      @extend %font, %green, %size14, %bold;
     }
   }
 
@@ -58,13 +58,13 @@
     }
 
     .name {
-      @extend .font, .dark6, .size16, .w500;
+      @extend %font, %dark6, %size16, %w500;
     }
 
     .age {
       margin-left: 10px;
 
-      @extend .font, .size14, .w500;
+      @extend %font, %size14, %w500;
       color: #666666;
     }
 
@@ -77,19 +77,19 @@
       border-right-width: 1px;
       @include boxColor(border-right-color, dark3);
 
-      @extend .font, .size14, .w500;
+      @extend %font, %size14, %w500;
       color: #666666;
     }
 
     .job {
       margin-left: 26px;
 
-      @extend .font, .size14, .w500;
+      @extend %font, %size14, %w500;
       color: #666666;
     }
 
     .handicap {
-      @extend .font, .dark4, .size12;
+      @extend %font, %dark4, %size12;
     }
 
     .connect {
@@ -101,7 +101,7 @@
       border-style: solid;
       border-width: 1px;
       @include boxColor(border-color, green);
-      @extend .font, .green, .bold;
+      @extend %font, %green, %bold;
     }
   }
 }

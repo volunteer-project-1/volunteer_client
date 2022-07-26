@@ -15,7 +15,7 @@
     // Fix for IE.
     background-color: transparent;
 
-    @extend .font, .dark8, .size20, .bold;
+    @extend %font, %dark8, %size20, %bold;
     font-family: inherit;
 
     &:not(:first-child) {

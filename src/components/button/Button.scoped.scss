@@ -9,7 +9,7 @@
   border: 0;
   border-radius: 50%;
 
-  @extend .font, .green, .bold;
+  @extend %font, %green, %bold;
 
   .image {
     position: absolute;

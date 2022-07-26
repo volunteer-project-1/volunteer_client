@@ -31,13 +31,13 @@
     .phoneNumber {
       margin-top: 8px;
 
-      @extend .font, .size36, .green, .bold;
+      @extend %font, %size36, %green, %bold;
     }
 
     .email {
       margin-top: 2px;
 
-      @extend .font, .size24, .green, .w500;
+      @extend %font, %size24, %green, %w500;
     }
 
     .time {
@@ -45,7 +45,7 @@
 
       margin-top: 37px;
 
-      @extend .font, .size16, .dark8;
+      @extend %font, %size16, %dark8;
     }
   }
 
@@ -55,13 +55,13 @@
     .kakaoID {
       margin-top: 10px;
 
-      @extend .font, .size20, .dark8, .w500;
+      @extend %font, %size20, %dark8, %w500;
     }
 
     .kakaoName {
       margin-top: 4px;
 
-      @extend .font, .size40, .dark8, .w500;
+      @extend %font, %size40, %dark8, %w500;
     }
 
     .connectButton {
@@ -75,7 +75,7 @@
       border: 0;
 
       font-family: inherit;
-      @extend .font, .size20, .w500;
+      @extend %font, %size20, %w500;
     }
   }
 }

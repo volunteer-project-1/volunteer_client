@@ -12,7 +12,7 @@
 
     font-family: inherit;
 
-    @extend .font, .size22;
+    @extend %font, %size22;
     color: #1c1c1c;
   }
 

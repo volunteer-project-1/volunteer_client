@@ -43,11 +43,11 @@
   .aboutTitle {
     margin-bottom: 16px;
 
-    @extend .font, .lightgreen, .size50, .w500;
+    @extend %font, %lightgreen, %size50, %w500;
   }
 
   .aboutDescription {
-    @extend .font, .white;
+    @extend %font, %white;
   }
 
   .formColumn {
@@ -59,11 +59,11 @@
   .formTitle {
     margin-bottom: 59px;
 
-    @extend .font, .white, .w500;
+    @extend %font, %white, %w500;
   }
 
   .label {
-    @extend .font, .white, .size16;
+    @extend %font, %white, %size16;
 
     margin-bottom: 14px;
   }
@@ -74,7 +74,7 @@
 
     font-family: inherit;
 
-    @extend .font, .size16, .dark8;
+    @extend %font, %size16, %dark8;
   }
 
   @mixin input {
@@ -104,7 +104,7 @@
     align-items: center;
 
     .label {
-      @extend .font, .white, .size14;
+      @extend %font, %white, %size14;
 
       margin-bottom: 0;
     }
@@ -138,12 +138,12 @@
     border-width: 1px;
     background-color: transparent;
 
-    @extend .font, .lightgreen, .size18;
+    @extend %font, %lightgreen, %size18;
     @include limitWidth;
     @include boxColor(border-color, lightgreen);
 
     &:hover {
-      @extend .font, .white;
+      @extend %font, %white;
       @include boxColor(background-color, lightgreen);
     }
   }

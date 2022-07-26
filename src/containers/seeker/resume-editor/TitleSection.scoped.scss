@@ -12,6 +12,6 @@
     border-radius: 4px;
 
     @include boxColor(border-color, dark3);
-    @extend .font, .size28;
+    @extend %font, %size28;
   }
 }

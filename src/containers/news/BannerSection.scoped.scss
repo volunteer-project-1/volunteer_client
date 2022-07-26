@@ -18,17 +18,17 @@
   }
 
   .title {
-    @extend .font, .yellow, .size14;
+    @extend %font, %yellow, %size14;
   }
 
   .subTitle {
-    @extend .font, .white, .bold, .size36;
+    @extend %font, %white, %bold, %size36;
   }
 
   .description {
     margin-top: 14px;
 
-    @extend .font, .white, .size16;
+    @extend %font, %white, %size16;
   }
 
   .link {
@@ -38,7 +38,7 @@
 
     @include boxColor(background-color, white);
 
-    @extend .font, .dark8, .size16, .bold;
+    @extend %font, %dark8, %size16, %bold;
     font-family: inherit;
   }
 }

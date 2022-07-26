@@ -13,12 +13,12 @@
   .title {
     margin-bottom: 10px;
 
-    @extend .font, .dark8, .w500, .size20;
+    @extend %font, %dark8, %w500, %size20;
   }
 
   .description {
     margin-bottom: 25px;
 
-    @extend .font, .dark4, .size16;
+    @extend %font, %dark4, %size16;
   }
 }

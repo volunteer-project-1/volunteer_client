@@ -21,7 +21,7 @@
     margin-bottom: 26px;
 
     @extend .inner;
-    @extend .font, .size36, .w500, .green;
+    @extend %font, %size36, %w500, %green;
   }
 
   .pageColumns {

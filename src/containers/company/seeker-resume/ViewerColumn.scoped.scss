@@ -8,7 +8,7 @@
   }
 
   .sectionTitle {
-    @extend .font, .size20, .dark6, .bold;
+    @extend %font, %size20, %dark6, %bold;
 
     margin-bottom: 20px;
   }
@@ -42,13 +42,13 @@
     }
 
     .name {
-      @extend .font, .size24, .bold, .green;
+      @extend %font, %size24, %bold, %green;
     }
 
     .sex,
     .birthday,
     .age {
-      @extend .font, .size16, .dark6;
+      @extend %font, %size16, %dark6;
 
       margin-left: 16px;
     }
@@ -57,7 +57,7 @@
     .phoneNumber,
     .email,
     .address {
-      @extend .font, .size16, .dark6;
+      @extend %font, %size16, %dark6;
     }
   }
 
@@ -86,7 +86,7 @@
       border-left: 0;
       border-right: 0;
 
-      @extend .font, .size16, .dark6;
+      @extend %font, %size16, %dark6;
     }
 
     .tableRow {
@@ -132,17 +132,17 @@
 
     .schoolName,
     .company {
-      @extend .font, .dark6, .w500;
+      @extend %font, %dark6, %w500;
     }
 
     .task {
-      @extend .font, .dark6;
+      @extend %font, %dark6;
     }
 
     .major,
     .position,
     .careerOthers {
-      @extend .font, .dark4;
+      @extend %font, %dark4;
     }
   }
 }

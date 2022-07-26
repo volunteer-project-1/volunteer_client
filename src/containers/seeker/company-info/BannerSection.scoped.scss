@@ -20,7 +20,7 @@
     bottom: 80px;
     transform: translateX(-50%);
 
-    @extend .font, .white;
+    @extend %font, %white;
   }
 
   .logo {
@@ -42,14 +42,14 @@
   }
 
   .name {
-    @extend .font, .size30, .bold;
+    @extend %font, %size30, %bold;
   }
 
   .description {
-    @extend .font, .size20;
+    @extend %font, %size20;
   }
 
   .dDays {
-    @extend .font, .size18;
+    @extend %font, %size18;
   }
 }

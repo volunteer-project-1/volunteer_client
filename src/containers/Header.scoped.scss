@@ -23,7 +23,7 @@
     transform: translate(0, -50%);
     top: 50%;
     .item_login {
-      @extend .font, .size12;
+      @extend %font, %size12;
     }
     img {
       vertical-align: middle;
@@ -52,7 +52,7 @@
         @include boxColor(border-bottom-color, green);
 
         .menu_name {
-          @extend .font, .green;
+          @extend %font, %green;
         }
       }
 
@@ -61,7 +61,7 @@
 
         padding-left: g-vw(1280, 40px);
         padding-right: g-vw(1280, 40px);
-        @extend .font, .size16, .w500;
+        @extend %font, %size16, %w500;
       }
     }
   }

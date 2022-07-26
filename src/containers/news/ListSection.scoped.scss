@@ -30,11 +30,11 @@
     }
 
     th {
-      @extend .font, .dark4, .size14;
+      @extend %font, %dark4, %size14;
     }
 
     td {
-      @extend .font, .dark8, .size16;
+      @extend %font, %dark8, %size16;
     }
 
     .link {

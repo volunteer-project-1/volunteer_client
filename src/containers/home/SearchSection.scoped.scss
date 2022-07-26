@@ -29,7 +29,7 @@ $searchSectionBorderRadius: 8px;
   }
 
   .description {
-    @extend .font, .white, .size36, .bold;
+    @extend %font, %white, %size36, %bold;
   }
 
   .searchArea {
@@ -43,7 +43,7 @@ $searchSectionBorderRadius: 8px;
     max-width: 100%;
     margin-top: 65px;
 
-    @extend .font, .size30;
+    @extend %font, %size30;
   }
 
   .searchIcon {
@@ -74,7 +74,7 @@ $searchSectionBorderRadius: 8px;
     border-top-right-radius: $searchSectionBorderRadius;
     border-bottom-right-radius: $searchSectionBorderRadius;
 
-    @extend .font, .white;
+    @extend %font, %white;
     @include boxColor(background-color, green);
   }
 
@@ -92,7 +92,7 @@ $searchSectionBorderRadius: 8px;
 
     font-family: inherit;
 
-    @extend .font, .dark6, .size20;
+    @extend %font, %dark6, %size20;
 
     &:not(:last-child) {
       margin-right: 20px;

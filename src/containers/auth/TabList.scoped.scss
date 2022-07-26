@@ -17,11 +17,11 @@
     @include boxColor(background-color, dark3);
 
     font-family: inherit;
-    @extend .font, .dark4, .size20, .w500;
+    @extend %font, %dark4, %size20, %w500;
 
     &.isActive {
       @include boxColor(background-color, white);
-      @extend .font, .dark8;
+      @extend %font, %dark8;
     }
   }
 }

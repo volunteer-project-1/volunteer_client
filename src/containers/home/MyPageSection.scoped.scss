@@ -40,14 +40,14 @@
   }
 
   .cardTitle {
-    @extend .font, .green, .bold, .size20;
+    @extend %font, %green, %bold, %size20;
   }
 
   .cardDescription {
     width: 475px;
     margin-top: 12px;
 
-    @extend .font, .size16, .dark4;
+    @extend %font, %size16, %dark4;
   }
 
   .image {

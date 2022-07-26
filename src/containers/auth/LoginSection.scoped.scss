@@ -24,7 +24,7 @@
     border-width: 1px;
     @include boxColor(border-color, dark3);
 
-    @extend .font, .size16;
+    @extend %font, %size16;
 
     &:first-of-type {
       border-top-left-radius: 4px;
@@ -48,10 +48,10 @@
   .inputMessage {
     margin-top: 17px;
 
-    @extend .font, .size16, .w300, .green;
+    @extend %font, %size16, %w300, %green;
 
     &.isWrong {
-      @extend .font, .red;
+      @extend %font, %red;
     }
   }
 
@@ -68,6 +68,6 @@
 
     @extend .buttonFix;
 
-    @extend .font, .green, .w500, .size18;
+    @extend %font, %green, %w500, %size18;
   }
 }

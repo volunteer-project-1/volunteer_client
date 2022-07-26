@@ -8,7 +8,7 @@
 
   @include boxColor(background-color, white);
 
-  @extend .font, .w500;
+  @extend %font, %w500;
   color: #666666;
 
   &:hover {
@@ -68,17 +68,17 @@
   }
 
   .name {
-    @extend .font, .dark6, .size18;
+    @extend %font, %dark6, %size18;
   }
 
   .description {
-    @extend .font, .size16;
+    @extend %font, %size16;
   }
 
   .dDays {
     margin-top: 10px;
 
-    @extend .font, .size13;
+    @extend %font, %size13;
     color: #bfbfbf;
   }
 }
@@ -98,7 +98,7 @@
   border-style: solid;
   border-radius: 0.5rem;
 
-  @extend .font, .size14, .w500;
+  @extend %font, %size14, %w500;
   color: #666666;
 
   &:not(:first-child) {
@@ -134,7 +134,7 @@
   }
 
   .name {
-    @extend .font, .size16, .dark6;
+    @extend %font, %size16, %dark6;
   }
 
   .age {
@@ -148,7 +148,7 @@
   .handicapArea {
     margin-top: 2px;
 
-    @extend .font, .normal;
+    @extend %font, %normal;
   }
 
   .suggestButton {
@@ -161,11 +161,11 @@
     border-style: solid;
     background-color: transparent;
 
-    @extend .font, .green, .bold, .size18;
+    @extend %font, %green, %bold, %size18;
 
     &:hover {
       @include boxColor(background-color, green);
-      @extend .font, .white;
+      @extend %font, %white;
     }
   }
 }

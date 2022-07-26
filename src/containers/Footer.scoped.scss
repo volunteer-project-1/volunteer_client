@@ -18,7 +18,7 @@
 
     margin-bottom: 38px;
 
-    @extend .font, .size13, .dark4;
+    @extend %font, %size13, %dark4;
 
     .word {
       &:not(:first-child) {
@@ -30,7 +30,7 @@
   .linkArea {
     margin-bottom: 12px;
 
-    @extend .font, .size14, .dark4;
+    @extend %font, %size14, %dark4;
 
     .word {
       &:not(:first-child) {
@@ -40,6 +40,6 @@
   }
 
   .copyright {
-    @extend .font, .size8, .dark4;
+    @extend %font, %size8, %dark4;
   }
 }
