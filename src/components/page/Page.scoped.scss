@@ -13,7 +13,7 @@
     width: 100%;
     // flex: 1;
 
-    @extend .fillFlexFix;
+    @extend %fillFlexFix;
   }
 
   .pageTitle {

@@ -215,7 +215,7 @@
     border-width: 1px;
 
     @include boxColor(border-color, green);
-    @extend .buttonFix;
+    @extend %buttonFix;
 
     @extend %font, %size16, %green;
   }
@@ -229,7 +229,7 @@
     border-width: 1px;
 
     @include boxColor(border-color, green);
-    @extend .buttonFix;
+    @extend %buttonFix;
 
     .icon {
       vertical-align: middle;
@@ -285,7 +285,7 @@
         border-top-color: transparent;
         border-bottom-color: transparent;
 
-        @extend .imageFix;
+        @extend %imageFix;
       }
 
       .documentResult {
@@ -336,7 +336,7 @@
       @extend %font, %size16, %green;
       @include boxColor(border-color, green);
 
-      @extend .buttonFix;
+      @extend %buttonFix;
     }
   }
 

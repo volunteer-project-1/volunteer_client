@@ -40,7 +40,7 @@
   .companyImage {
     width: 100%;
 
-    @extend .imageFix;
+    @extend %imageFix;
   }
 
   .contentArea {

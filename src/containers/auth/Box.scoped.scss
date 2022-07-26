@@ -8,7 +8,7 @@
   border-width: 1px;
   @include boxColor(border-color, dark3);
 
-  @extend .fillFlexFix;
+  @extend %fillFlexFix;
 
   .title {
     margin-bottom: 10px;

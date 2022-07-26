@@ -66,7 +66,7 @@
     border-width: 1px;
     @include boxColor(border-color, green);
 
-    @extend .buttonFix;
+    @extend %buttonFix;
 
     @extend %font, %green, %w500, %size18;
   }

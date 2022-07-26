@@ -57,7 +57,7 @@
       }
 
       .menu_name {
-        @extend .buttonFix;
+        @extend %buttonFix;
 
         padding-left: g-vw(1280, 40px);
         padding-right: g-vw(1280, 40px);
