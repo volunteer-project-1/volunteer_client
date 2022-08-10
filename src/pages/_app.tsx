@@ -1,5 +1,5 @@
 // IE11 등 지원을 위한 파일. 제일 먼저 import!
-import "@/utils/Polyfills";
+import "@/common/utils/Polyfills";
 
 import { useEffect } from "react";
 import { AppProps } from "next/app";
@@ -8,12 +8,12 @@ import Head from "next/head";
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import { ThemeProvider } from "@mui/material";
 
-import { dLog, isDevelopmentMode } from "@/utils/DebugUtils";
-import { createEmotionCache, muiLightTheme } from "@/utils/StyleUtils";
-import { storeWrapper, useStoreDispatch } from "@/store";
-import { setLoading } from "@/store/ui";
-import Wrapper from "@/components/wrapper";
-import "@/scss/reset.scss";
+import { dLog, isDevelopmentMode } from "@/common/utils/DebugUtils";
+import { createEmotionCache, muiLightTheme } from "@/common/utils/StyleUtils";
+import { storeWrapper, useStoreDispatch } from "@/common/store";
+import { setLoading } from "@/common/store/ui";
+import Wrapper from "@/common/components/wrapper";
+import "@/common/styles/reset.scss";
 
 const clientSideEmotionCache = createEmotionCache();
 

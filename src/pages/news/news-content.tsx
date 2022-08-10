@@ -1,6 +1,6 @@
 import React from "react";
 
-import Page from "@/components/page";
+import Page from "@/layout/containers/Page";
 
 /**
  * 미디어 뉴스 상세페이지.

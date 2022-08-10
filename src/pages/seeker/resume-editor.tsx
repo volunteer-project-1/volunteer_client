@@ -1,9 +1,9 @@
 import React from "react";
 
-import Wrapper from "@/components/wrapper";
-import Page from "@/components/page";
-import EditorColumn from "@/containers/seeker/resume-editor/EditorColumn";
-import SidebarColumn from "@/containers/seeker/resume-editor/SidebarColumn";
+import Wrapper from "@/common/components/wrapper";
+import Page from "@/layout/containers/Page";
+import EditorColumn from "@/seeker/containers/resume-editor/EditorColumn";
+import SidebarColumn from "@/seeker/containers/resume-editor/SidebarColumn";
 
 /**
  * 구직자 프로필 작성 페이지.

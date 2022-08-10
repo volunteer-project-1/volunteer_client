@@ -1,9 +1,9 @@
 import React from "react";
 
-import Wrapper from "@/components/wrapper";
-import Page from "@/components/page";
-import BannerSection from "@/containers/seeker/company-info/BannerSection";
-import InfoSection from "@/containers/seeker/company-info/InfoSection";
+import Wrapper from "@/common/components/wrapper";
+import Page from "@/layout/containers/Page";
+import BannerSection from "@/seeker/containers/company-info/BannerSection";
+import InfoSection from "@/seeker/containers/company-info/InfoSection";
 
 /**
  * 기업정보 페이지.

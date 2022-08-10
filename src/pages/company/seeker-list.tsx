@@ -1,10 +1,10 @@
 import React from "react";
 import Link from "next/link";
 
-import Wrapper from "@/components/wrapper";
-import Page from "@/components/page";
-import SeekerSection from "@/containers/company/seeker-list/SeekerSection";
-import ResultSection from "@/containers/company/seeker-list/ResultSection";
+import Wrapper from "@/common/components/wrapper";
+import Page from "@/layout/containers/Page";
+import SeekerSection from "@/company/containers/seeker-list/SeekerSection";
+import ResultSection from "@/company/containers/seeker-list/ResultSection";
 
 /**
  * 구직자 리스트 페이지.

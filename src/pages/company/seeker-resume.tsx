@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
 
-import Wrapper from "@/components/wrapper";
-import Page from "@/components/page";
-import ViewerColumn from "@/containers/company/seeker-resume/ViewerColumn";
+import Wrapper from "@/common/components/wrapper";
+import Page from "@/layout/containers/Page";
+import ViewerColumn from "@/company/containers/seeker-resume/ViewerColumn";
 
 /**
  * 구직자 프로필 보기 페이지.

@@ -1,13 +1,13 @@
 import React from "react";
 
-import Page from "@/components/page";
-import MainSection from "@/containers/home/MainSection";
-import SearchSection from "@/containers/home/SearchSection";
-import SeekerSection from "@/containers/home/SeekerSection";
-import CompanySection from "@/containers/home/CompanySection";
-import MyPageSection from "@/containers/home/MyPageSection";
-import BannerSection from "@/containers/home/BannerSection";
-import ContactSection from "@/containers/home/ContactSection";
+import Page from "@/layout/containers/Page";
+import MainSection from "@/home/containers/MainSection";
+import SearchSection from "@/home/containers/SearchSection";
+import SeekerSection from "@/home/containers/SeekerSection";
+import CompanySection from "@/home/containers/CompanySection";
+import MyPageSection from "@/home/containers/MyPageSection";
+import BannerSection from "@/home/containers/BannerSection";
+import ContactSection from "@/home/containers/ContactSection";
 
 /**
  * 메인 페이지.

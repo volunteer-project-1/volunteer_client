@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 
-import Wrapper from "@/components/wrapper";
-import Page from "@/components/page";
-import EditorColumn from "@/containers/company/job-editor/EditorColumn";
-import SidebarColumn from "@/containers/company/job-editor/SidebarColumn";
+import Wrapper from "@/common/components/wrapper";
+import Page from "@/layout/containers/Page";
+import EditorColumn from "@/company/containers/job-editor/EditorColumn";
+import SidebarColumn from "@/company/containers/job-editor/SidebarColumn";
 
 /**
  * 채용공고 작성 페이지.

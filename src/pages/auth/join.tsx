@@ -1,7 +1,7 @@
 import React from "react";
 
-import Page from "@/components/page";
-import JoinSection from "@/containers/auth/JoinSection";
+import Page from "@/layout/containers/Page";
+import JoinSection from "@/auth/containers/JoinSection";
 
 /**
  * 회원가입 페이지.

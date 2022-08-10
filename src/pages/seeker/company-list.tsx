@@ -1,10 +1,10 @@
 import React from "react";
 import Link from "next/link";
 
-import Wrapper from "@/components/wrapper";
-import Page from "@/components/page";
-import CompanySection from "@/containers/seeker/company-list/CompanySection";
-import ResultSection from "@/containers/seeker/company-list/ResultSection";
+import Wrapper from "@/common/components/wrapper";
+import Page from "@/layout/containers/Page";
+import CompanySection from "@/seeker/containers/company-list/CompanySection";
+import ResultSection from "@/seeker/containers/company-list/ResultSection";
 
 /**
  * 기업 리스트 페이지.

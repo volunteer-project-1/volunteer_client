@@ -2,7 +2,7 @@ import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import createEmotionServer from "@emotion/server/create-instance";
 
-import { createEmotionCache } from "@/utils/StyleUtils";
+import { createEmotionCache } from "@/common/utils/StyleUtils";
 
 /**
  * 페이지를 만들 때 <head/>, <body/> 등을 어떻게 구성할지 설정.

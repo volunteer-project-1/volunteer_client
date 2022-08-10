@@ -1,7 +1,7 @@
 import React from "react";
 
-import Page from "@/components/page";
-import LoginSection from "@/containers/auth/LoginSection";
+import Page from "@/layout/containers/Page";
+import LoginSection from "@/auth/containers/LoginSection";
 
 /**
  * 로그인 페이지.

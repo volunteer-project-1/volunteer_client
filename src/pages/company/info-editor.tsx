@@ -1,9 +1,9 @@
 import React from "react";
 
-import Wrapper from "@/components/wrapper";
-import Page from "@/components/page";
-import EditorColumn from "@/containers/company/info-editor/EditorColumn";
-import SidebarColumn from "@/containers/company/info-editor/SidebarColumn";
+import Wrapper from "@/common/components/wrapper";
+import Page from "@/layout/containers/Page";
+import EditorColumn from "@/company/containers/info-editor/EditorColumn";
+import SidebarColumn from "@/company/containers/info-editor/SidebarColumn";
 
 /**
  * 기업 프로필 작성 페이지.

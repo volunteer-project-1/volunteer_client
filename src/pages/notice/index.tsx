@@ -1,8 +1,8 @@
 import React from "react";
 
-import Page from "@/components/page";
-import ContactSection from "@/containers/notice/ContactSection";
-import FAQSection from "@/containers/notice/FAQSection";
+import Page from "@/layout/containers/Page";
+import ContactSection from "@/notice/containers/ContactSection";
+import FAQSection from "@/notice/containers/FAQSection";
 
 const NoticePage = () => (
   <Page>
