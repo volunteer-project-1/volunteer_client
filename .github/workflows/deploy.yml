@@ -11,9 +11,9 @@ jobs:
         with:
           ref: main
 
-      - name: 전역 의존성 설치
+      - name: 전역 의존성 설치 및 전역 설정
         run: |
-          npm install -g yarn
+          corepack enable
 
       - name: 로컬 의존성 설치
         run: |
@@ -29,7 +29,7 @@ jobs:
       - name: 배포 전 확인
         run: |
           cat .env
-          yarn list next
+          yarn why next
 
       - name: 배포
         run: |

@@ -17,13 +17,17 @@
 필요 라이브러리 설치
 
 - [Node.js](https://nodejs.org/ko/) 설치
-- Yarn 설치: `npm install -g yarn`
-- 필요 라이브러리들 설치: `yarn`
+- corepack 활성화 (자세한 내용: [참고](https://yarnpkg.com/getting-started/install))
+  - Node.js 버전 16.10 이상: `corepack enable`
+  - Node.js 버전 16.10 미만: `npm i -g corepack`
+  - 권한 문제가 발생할 경우 윈도우에서는 관리자 명령 프롬프트에서 위 스크립트 실행, 그 외에서는 `sudo` 붙여서 위 스크립트 실행
+- 필요 라이브러리들 설치: `yarn` 또는 `yarn install` 실행
 
 설치 추천하는 도구들
 
 - [React devtools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=ko)
 - [Redux devtools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=ko)
+- VSCode 사용할 경우 `yarn dlx @yarnpkg/sdks vscode` 실행 추천
 
 개발 모드 빌드 & 실행
 
