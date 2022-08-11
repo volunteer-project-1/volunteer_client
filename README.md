@@ -92,13 +92,14 @@ Heroku 이용한 배포 (포트 고정이 불가능하여 현재는 사용 X)
 - public
   - assets: Static assets (ex. 이미지, 비디오, ...)
 - src
+  - constants: 공통 상수들 모음
   - types: 공통 자료형 모음
-  - api: 요청 관련 로직 모음
-  - scss: 공통 스타일 코드(SCSS) 모음
-  - store: 전역 상태 (Redux)
   - utils: 유틸성 로직들
+  - api: 요청 관련 로직 모음
+  - states: 전역 상태 (Redux)
   - components: 공통 component (Menu, Button, ...)
   - containers: 큰 단위의 component (Header, footer, 각 section, ...)
+  - styles: 공통 스타일 코드(SCSS) 모음
   - pages: 각 페이지(URL)를 나타내는 component
 
 ## Architecture
