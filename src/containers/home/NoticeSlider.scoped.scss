@@ -1,0 +1,105 @@
+.noticeSlider {
+  @include sliderFix;
+  @extend .inner;
+
+  float: right;
+
+  .descriptionNotice_wrap {
+    padding-left: 25px;
+    .link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .box {
+      position: absolute;
+      padding: 20px;
+      padding-right: 40px;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 100%;
+      transform: translate(0, -50%);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    .group {
+      position: absolute;
+      display: block;
+
+      top: 27px;
+      margin-bottom: 5px;
+
+      @extend %font, %size12, %w500, %dark6;
+    }
+    .title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      max-width: 180px;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      @extend %font, %size22, %dark6;
+    }
+    .icon {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+
+      width: 44px;
+      height: 44px;
+      margin-left: auto;
+
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 50%;
+      @include boxColor(border-color, dark6);
+
+      &::after {
+        content: "";
+
+        width: 14px;
+        height: 14px;
+
+        border-style: solid;
+        border-width: 1px;
+        border-left: 0;
+        border-bottom: 0;
+        @include boxColor(border-color, dark6);
+
+        transform-origin: center;
+        transform: translateX(-25%) rotate(45deg);
+      }
+    }
+    .img {
+      position: relative;
+
+      &::after {
+        transition: 0.3s opacity cubic-bezier(0.65, 0.05, 0.36, 1);
+        opacity: 0.8;
+        position: absolute;
+        right: 0;
+        top: 0;
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
+    &:hover {
+      .img::after {
+        opacity: 0.2;
+      }
+    }
+  }
+}
