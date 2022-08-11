@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 
-import { useStoreSelector, useStoreDispatch } from "@/store";
-import { addCareer, updateCareer } from "@/store/resume";
+import { useStoreSelector, useStoreDispatch } from "@/states";
+import { addCareer, updateCareer } from "@/states/resume";
 import Editor from "@/components/editor";
 
 const CareerSection = () => {

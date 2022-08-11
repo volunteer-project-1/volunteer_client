@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 
-import { useStoreDispatch, useStoreSelector } from "@/store";
-import { addCompanyHistory, updateCompanyHistory } from "@/store/company";
+import { useStoreDispatch, useStoreSelector } from "@/states";
+import { addCompanyHistory, updateCompanyHistory } from "@/states/company";
 import Editor from "@/components/editor";
 
 const HistorySection = () => {

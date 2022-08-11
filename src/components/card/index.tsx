@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { Company, Seeker } from "@/types/Dummy";
 import ROUTES from "@/constants/Routes";
 import { daysBetweenDates } from "@/utils/MathUtils";
-import { useStoreSelector } from "@/store";
+import { useStoreSelector } from "@/states";
 import Button from "@/components/button";
 import "@/components/card/Card.scoped.scss";
 

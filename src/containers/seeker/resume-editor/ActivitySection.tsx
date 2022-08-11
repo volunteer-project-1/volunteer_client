@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 
-import { useStoreSelector, useStoreDispatch } from "@/store";
-import { addActivity, updateActivity } from "@/store/resume";
+import { useStoreSelector, useStoreDispatch } from "@/states";
+import { addActivity, updateActivity } from "@/states/resume";
 import Editor from "@/components/editor";
 
 const ActivitySection = () => {

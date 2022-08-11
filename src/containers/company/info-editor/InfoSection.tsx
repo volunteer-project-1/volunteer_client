@@ -1,7 +1,7 @@
 import React from "react";
 
-import { useStoreDispatch, useStoreSelector } from "@/store";
-import { updateCompany } from "@/store/company";
+import { useStoreDispatch, useStoreSelector } from "@/states";
+import { updateCompany } from "@/states/company";
 import Editor from "@/components/editor";
 
 const InfoSection = () => {

@@ -15,10 +15,10 @@ import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 import { HYDRATE, createWrapper } from "next-redux-wrapper";
 
 import { isDevelopmentMode } from "@/utils/DebugUtils";
-import uiReducer from "@/store/ui";
-import authReducer from "@/store/auth";
-import resumeReducer from "@/store/resume";
-import companyReducer from "@/store/company";
+import uiReducer from "@/states/ui";
+import authReducer from "@/states/auth";
+import resumeReducer from "@/states/resume";
+import companyReducer from "@/states/company";
 
 const ourReducer = combineReducers({
   ui: uiReducer,

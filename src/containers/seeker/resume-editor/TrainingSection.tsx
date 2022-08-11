@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 
-import { useStoreSelector, useStoreDispatch } from "@/store";
-import { addTraining, updateTraining } from "@/store/resume";
+import { useStoreSelector, useStoreDispatch } from "@/states";
+import { addTraining, updateTraining } from "@/states/resume";
 import Editor from "@/components/editor";
 
 const TrainingSection = () => {

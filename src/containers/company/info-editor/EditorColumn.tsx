@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 
 import CompanyAPI from "@/api/CompanyAPI";
 import { useRequest } from "@/utils/APIUtils";
-import { useStoreSelector, useStoreDispatch } from "@/store";
+import { useStoreSelector, useStoreDispatch } from "@/states";
 import Page from "@/components/page";
 import InfoSection from "@/containers/company/info-editor/InfoSection";
 import IntroductionSection from "@/containers/company/info-editor/IntroductionSection";
 import HistorySection from "@/containers/company/info-editor/HistorySection";
 import ImageSection from "@/containers/company/info-editor/ImageSection";
-import { updateCompany } from "@/store/company";
+import { updateCompany } from "@/states/company";
 
 const EditorColumn = () => {
   const account = useStoreSelector(state => state.auth.account);

@@ -2,7 +2,7 @@ import React from "react";
 
 import { isNonEmpty } from "@/utils/CheckUtils";
 import { useRequest } from "@/utils/APIUtils";
-import { useStoreSelector } from "@/store";
+import { useStoreSelector } from "@/states";
 import Page from "@/components/page";
 import StatusBox from "@/components/status-box";
 import "@/containers/company/info-editor/SidebarColumn.scoped.scss";

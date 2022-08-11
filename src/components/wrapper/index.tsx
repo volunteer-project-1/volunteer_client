@@ -5,7 +5,7 @@ import classNames from "classnames";
 import { AccountType } from "@/types/Auth";
 import ROUTES from "@/constants/Routes";
 import { range } from "@/utils/MathUtils";
-import { useStoreSelector } from "@/store";
+import { useStoreSelector } from "@/states";
 import Dialog from "@/components/dialog";
 import "@/components/wrapper/Wrapper.scoped.scss";
 

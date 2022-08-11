@@ -2,8 +2,8 @@ import React from "react";
 
 import ResumeAPI from "@/api/ResumeAPI";
 import { useRequest } from "@/utils/APIUtils";
-import { useStoreSelector, useStoreDispatch } from "@/store";
-import { updateMyVideo } from "@/store/resume";
+import { useStoreSelector, useStoreDispatch } from "@/states";
+import { updateMyVideo } from "@/states/resume";
 import Editor from "@/components/editor";
 
 const MyVideoSection = () => {

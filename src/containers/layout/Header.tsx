@@ -7,8 +7,8 @@ import MenuItem from "@mui/material/MenuItem";
 
 import ROUTES from "@/constants/Routes";
 import { useLogout, useRequest } from "@/utils/APIUtils";
-import { useStoreSelector } from "@/store";
-import "@/containers/Header.scoped.scss";
+import { useStoreSelector } from "@/states";
+import "@/containers/layout/Header.scoped.scss";
 
 interface Menu {
   name: string;

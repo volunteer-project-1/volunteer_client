@@ -2,8 +2,8 @@ import React from "react";
 
 import ResumeAPI from "@/api/ResumeAPI";
 import { useRequest } from "@/utils/APIUtils";
-import { useStoreSelector, useStoreDispatch } from "@/store";
-import { updateHelperVideo } from "@/store/resume";
+import { useStoreSelector, useStoreDispatch } from "@/states";
+import { updateHelperVideo } from "@/states/resume";
 import Editor from "@/components/editor";
 
 const HelperVideoSection = () => {

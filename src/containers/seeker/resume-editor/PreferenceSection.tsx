@@ -1,7 +1,7 @@
 import React from "react";
 
 import { EMPLOY_TYPE } from "@/constants/Resume";
-import { useStoreDispatch, useStoreSelector } from "@/store";
+import { useStoreDispatch, useStoreSelector } from "@/states";
 import {
   addPreferenceLocation,
   addPreferenceJob,
@@ -9,7 +9,7 @@ import {
   updatePreferenceJob,
   updatePreference,
   updateResume,
-} from "@/store/resume";
+} from "@/states/resume";
 import Editor from "@/components/editor";
 
 const PreferenceSection = () => {

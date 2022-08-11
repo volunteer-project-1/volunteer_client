@@ -1,8 +1,6 @@
 import React, { ReactNode } from "react";
 import classNames from "classnames";
 
-import Header from "@/containers/Header";
-import Footer from "@/containers/Footer";
 import "@/components/page/Page.scoped.scss";
 
 interface LayoutProps {
@@ -10,16 +8,9 @@ interface LayoutProps {
 }
 
 /**
- * 각 page에 사용하는 wrapper component.
- * Header, footer를 그려주고 내용물을 중간에 넣어줌.
+ * 각 페이지.
  */
-const Page = ({ children }: LayoutProps) => (
-  <div className="page">
-    <Header />
-    <div className="pageContent">{children}</div>
-    <Footer />
-  </div>
-);
+const Page = ({ children }: LayoutProps) => <div className="page">{children}</div>;
 
 /**
  * 각 페이지의 제목 부분.

@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 
-import { useStoreSelector, useStoreDispatch } from "@/store";
-import { addCertificate, updateCertificate } from "@/store/resume";
+import { useStoreSelector, useStoreDispatch } from "@/states";
+import { addCertificate, updateCertificate } from "@/states/resume";
 import Editor from "@/components/editor";
 
 const CertificateSection = () => {

@@ -4,7 +4,7 @@ import ResumeAPI from "@/api/ResumeAPI";
 import { isExistent, isNonEmpty } from "@/utils/CheckUtils";
 import { getResumeTitle } from "@/utils/StringUtils";
 import { useRequest } from "@/utils/APIUtils";
-import { useStoreSelector } from "@/store";
+import { useStoreSelector } from "@/states";
 import Page from "@/components/page";
 import StatusBox from "@/components/status-box";
 import "@/containers/seeker/resume-editor/SidebarColumn.scoped.scss";

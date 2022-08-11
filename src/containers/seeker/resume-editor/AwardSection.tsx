@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 
-import { useStoreDispatch, useStoreSelector } from "@/store";
-import { addAward, updateAward } from "@/store/resume";
+import { useStoreDispatch, useStoreSelector } from "@/states";
+import { addAward, updateAward } from "@/states/resume";
 import Editor from "@/components/editor";
 
 const AwardSection = () => {

@@ -5,9 +5,9 @@ import { AccountType } from "@/types/Auth";
 import { HTTP_STATUS_CODE } from "@/constants/HTTP";
 import ROUTES from "@/constants/Routes";
 import AuthAPI from "@/api/AuthAPI";
-import { useStoreDispatch } from "@/store";
-import { setAccount } from "@/store/auth";
-import { setLoading } from "@/store/ui";
+import { useStoreDispatch } from "@/states";
+import { setAccount } from "@/states/auth";
+import { setLoading } from "@/states/ui";
 
 /**
  * 로그아웃 후 상태에 반영하는 함수를 반환.

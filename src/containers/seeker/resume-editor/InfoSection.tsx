@@ -3,8 +3,8 @@ import React from "react";
 import { DISABLILITY_LEVEL, DISABLILITY_TYPE, SEX } from "@/constants/Resume";
 import ResumeAPI from "@/api/ResumeAPI";
 import { useRequest } from "@/utils/APIUtils";
-import { useStoreDispatch, useStoreSelector } from "@/store";
-import { updateResumeInfo } from "@/store/resume";
+import { useStoreDispatch, useStoreSelector } from "@/states";
+import { updateResumeInfo } from "@/states/resume";
 import Editor from "@/components/editor";
 
 const InfoSection = () => {
