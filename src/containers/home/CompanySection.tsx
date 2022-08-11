@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-import { Company } from "@/types/Dummy";
-import DummyAPI from "@/api/DummyAPI";
+import { Company } from "@/types/Info";
+import InfoAPI from "@/api/InfoAPI";
 import TitledSection from "@/containers/home/TitledSection";
 import Card from "@/components/card";
 import "@/containers/home/CompanySection.scoped.scss";
@@ -11,7 +11,7 @@ const CompanySection = () => {
 
   useEffect(() => {
     (async () => {
-      setCurrentCompanyList(await DummyAPI.getCompanyList());
+      setCurrentCompanyList(await InfoAPI.getCompanyList());
     })();
   }, []);
 

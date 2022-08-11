@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 
-import { Company, Seeker } from "@/types/Dummy";
+import { Company, Seeker } from "@/types/Info";
 import ROUTES from "@/constants/Routes";
 import { daysBetweenDates } from "@/utils/MathUtils";
 import { useStoreSelector } from "@/states";

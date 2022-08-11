@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
-import { Seeker } from "@/types/Dummy";
+import { Seeker } from "@/types/Info";
 import ROUTES from "@/constants/Routes";
-import DummyAPI from "@/api/DummyAPI";
+import InfoAPI from "@/api/InfoAPI";
 import "@/containers/company/seeker-list/ResultSection.scoped.scss";
 
 const ResultSection = () => {
@@ -12,7 +12,7 @@ const ResultSection = () => {
 
   useEffect(() => {
     (async () => {
-      setCurrentSeekerList(await DummyAPI.getSeekerList());
+      setCurrentSeekerList(await InfoAPI.getSeekerList());
     })();
   }, []);
 

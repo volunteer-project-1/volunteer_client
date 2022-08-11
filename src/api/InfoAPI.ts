@@ -1,8 +1,4 @@
-/**
- * @file 서버가 올라가기 전까지 사용할 dummy DB들.
- */
-
-import { Seeker, Company } from "@/types/Dummy";
+import { Seeker, Company } from "@/types/Info";
 
 const seekerList: Array<Seeker> = [
   {
@@ -109,9 +105,9 @@ async function getCompanyList(): Promise<Array<Company>> {
   return companyList;
 }
 
-const DummyAPI = {
+const InfoAPI = {
   getSeekerList,
   getCompanyList,
 };
 
-export default DummyAPI;
+export default InfoAPI;

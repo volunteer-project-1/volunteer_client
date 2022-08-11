@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-import { Company } from "@/types/Dummy";
+import { Company } from "@/types/Info";
 import ROUTES from "@/constants/Routes";
-import DummyAPI from "@/api/DummyAPI";
+import InfoAPI from "@/api/InfoAPI";
 import { daysBetweenDates } from "@/utils/MathUtils";
 import "@/containers/seeker/company-list/ResultSection.scoped.scss";
 
@@ -13,7 +13,7 @@ const ResultSection = () => {
 
   useEffect(() => {
     (async () => {
-      setCurrentCompanyList(await DummyAPI.getCompanyList());
+      setCurrentCompanyList(await InfoAPI.getCompanyList());
     })();
   }, []);
 
